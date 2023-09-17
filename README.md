@@ -1,4 +1,4 @@
-### Final QA Project by Darina, Radostin, and Tsvetan
+### Final QA Project by Darina, Radostin and Tsvetan
 
 #### Group 6
 
