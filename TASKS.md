@@ -29,7 +29,7 @@
 ## Doing
 
 ### Darina
-- [ ] Write test cases for user registration
+- [ ] Preparing Test Plan
 
 ### Radostin
 - [ ] Preparing Test Plan
