@@ -4,7 +4,7 @@
 
 ### Assignees
 
-- **Darina**: User registration and login
+- **Darina**: 
 - **Radostin**: Access to Private part and Public part
 - **Tsvetan**: Interaction and post creation
 
@@ -42,7 +42,7 @@
 ## Done
 
 ### Darina
-- [x]
+- [x]User registration and login/ Administrative part
 
 ### Radostin
 - [x]
