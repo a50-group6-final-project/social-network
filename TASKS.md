@@ -35,7 +35,7 @@
 - [ ] Preparing Test Plan
 
 ### Tsvetan
-- [ ] 
+- [ ] Preparing Test Plan
 
 ---
 
@@ -48,5 +48,6 @@
 - [x]
 
 ### Tsvetan
-- [x]
+- [x] Setup Github
+- [x] Setup Jira
 
