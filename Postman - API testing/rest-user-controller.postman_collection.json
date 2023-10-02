@@ -1,0 +1,420 @@
+{
+	"info": {
+		"_postman_id": "09166c7f-8992-48a1-afae-85bdc7619719",
+		"name": "rest-user-controller",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24294340",
+		"_collection_link": "https://dark-astronaut-260412.postman.co/workspace/Telerik---Final-Project-~17b108a4-3f4a-4892-826d-8bb170257f82/collection/24294340-09166c7f-8992-48a1-afae-85bdc7619719?action=share&source=collection_link&creator=24294340"
+	},
+	"item": [
+		{
+			"name": "Authenticate - set JSESSIONID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"sessionID\", pm.cookies.get(\"JSESSIONID\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "MrTestThree",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Project.10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BaseURL}}/authenticate",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registration",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"/*\r",
+							"we are retrieving user ID for use further request\r",
+							"for example edit user info, etc.\r",
+							"*/\r",
+							"var responseBody = pm.response.text(); // Get the response body as text\r",
+							"var match = responseBody.match(/id (\\d+)/); // Use a regular expression to extract the userId\r",
+							"\r",
+							"if (match && match[1]) {\r",
+							"    var userId = match[1];\r",
+							"    console.log(\"User ID:\", userId);\r",
+							"    pm.environment.set(\"userId\", userId);\r",
+							"} else {\r",
+							"    console.error(\"User ID not found in the response.\");\r",
+							"}\r",
+							"\r",
+							"var responseBody = pm.response.text(); // Get the response body as text\r",
+							"var match = responseBody.match(/User with name (\\w+)/); // Use a regular expression to extract the username\r",
+							"\r",
+							"if (match && match[1]) {\r",
+							"    var username = match[1];\r",
+							"    console.log(\"Username:\", username);\r",
+							"    pm.environment.set(\"username\", username);\r",
+							"} else {\r",
+							"    console.error(\"Username not found in the response.\");\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID={{sessionID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"Project.10\",\r\n  \"email\": \"test.account.02@abv.bg\",\r\n  \"password\": \"Project.10\",\r\n  \"username\": \"BeastTwo\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/api/users/",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user by username",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const currentUsername = pm.environment.get(\"username\");\r",
+							"const currentUser = (pm.response.json().filter(x => x.username == currentUsername));\r",
+							"\r",
+							"pm.environment.set(\"userId\", currentUser[0].userId)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID={{sessionID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"index\": 0,\r\n  \"next\": true,\r\n  \"searchParam1\": \"\",\r\n  \"searchParam2\": \"\",\r\n  \"size\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/api/users",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(\"USERS LIST:\");\r",
+							"console.log(pm.response.json());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID={{sessionID}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"index\": 0,\r\n  \"next\": true,\r\n  \"searchParam1\": \"\",\r\n  \"searchParam2\": \"\",\r\n  \"size\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/api/users",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get profile posts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID={{sessionID}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"size\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/api/users/{{userId}}/posts",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{userId}}",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "JSESSIONID={{sessionID}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}/api/users/auth/{{userId}}?principal=MrTestThree",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"auth",
+						"{{userId}}"
+					],
+					"query": [
+						{
+							"key": "principal",
+							"value": "MrTestThree"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user expertise",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "Idea-a913d7da=066876f0-82a7-4363-a9c7-28ebe0bf6e96; JSESSIONID={{sessionID}}",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"availability\": 110.22,\r\n  \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"id\": {{userId}},\r\n  \"skill1\": \"New SKILL\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/api/users/auth/{{userId}}/expertise",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"auth",
+						"{{userId}}",
+						"expertise"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user personal",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "Idea-a913d7da=066876f0-82a7-4363-a9c7-28ebe0bf6e96; JSESSIONID={{sessionID}}",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 43,\r\n    \"username\": \"MrTestThree\",\r\n    \"email\": \"test.account.03@abv.bg\",\r\n    \"firstName\": \"Ivan\",\r\n    \"lastName\": \"Gervan\",\r\n    \"gender\": \"MALE\",\r\n    \"birthYear\": \"1905-12-09\",\r\n    \"personalReview\": null,\r\n    \"expertise\": \"Doctor\",\r\n    \"skills\": [],\r\n    \"location\": {\r\n        \"city\": {\r\n            \"country\": {},\r\n            \"id\": 23\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/api/users/auth/{{userId}}/personal",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"auth",
+						"{{userId}}",
+						"personal"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "variable_key",
+			"value": ""
+		}
+	]
+}
