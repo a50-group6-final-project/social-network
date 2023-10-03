@@ -12,6 +12,12 @@ public class JSONRequests {
             "    \"password\": \"Project.10\",\n" +
             "    \"username\": \"Grandmama\"\n" +
             "}";
-
+    public static final String GET_USER_BY_USERNAME_BODY = "{\n" +
+            "  \"index\": 0,\n" +
+            "  \"next\": true,\n" +
+            "  \"searchParam1\": \"\",\n" +
+            "  \"searchParam2\": \"\",\n" +
+            "  \"size\": 1\n" +
+            "}";
 
 }
