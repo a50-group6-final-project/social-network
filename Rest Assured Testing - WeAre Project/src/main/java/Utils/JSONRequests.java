@@ -10,7 +10,7 @@ public class JSONRequests {
             "    \"confirmPassword\": \"Project.10\",\n" +
             "    \"email\": \"test.account.24@abv.bg\",\n" +
             "    \"password\": \"Project.10\",\n" +
-            "    \"username\": \"PCADFFBfggssCDkh\"\n" +
+            "    \"username\": \"Grandmama\"\n" +
             "}";
 
 
