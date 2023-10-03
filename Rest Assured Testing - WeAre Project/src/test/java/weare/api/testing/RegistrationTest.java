@@ -9,8 +9,7 @@ import static Utils.Endpoints.BASE_URL;
 import static Utils.Endpoints.USERS_ENDPOINT;
 import static Utils.JSONRequests.REGISTRATION_BODY;
 import static base.BaseTestSetup.AssertResponse;
-import static org.apache.http.HttpStatus.SC_OK;
-import static org.testng.Assert.assertEquals;
+
 
 public class RegistrationTest {
 
