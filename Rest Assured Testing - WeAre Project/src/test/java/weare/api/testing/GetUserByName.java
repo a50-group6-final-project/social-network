@@ -1,27 +1,29 @@
 package weare.api.testing;
 
+import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import static Utils.Constants.APPLICATION_JSON;
-import static Utils.Endpoints.*;
-import static Utils.JSONRequests.GET_USER_BY_USERNAME_BODY;
-import static base.BaseTestSetup.AssertResponse;
+import static Utils.Endpoints.BASE_URL;
+import static Utils.Endpoints.GET_USERS_BY_NAME;
+import static Utils.JSONRequests.GET_USER_BY_NAME_BODY;
 
-public class GetUserByUsername {
+public class GetUserByName extends BaseTestSetup {
 
 
     @Test
-    public void getUserByUsername() {
+    public void getUserByName() {
         RestAssured.baseURI = BASE_URL;
 
 
         Response response = RestAssured.given()
 
                 .contentType(APPLICATION_JSON)
-                .body(GET_USER_BY_USERNAME_BODY)
-                .post(GET_USERS_BY_USERNAME);
+                .body(GET_USER_BY_NAME_BODY)
+                .when()
+                .post(GET_USERS_BY_NAME);
 
         System.out.println(response.asString());
 

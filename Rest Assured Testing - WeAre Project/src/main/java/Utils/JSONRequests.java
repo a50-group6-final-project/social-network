@@ -12,12 +12,27 @@ public class JSONRequests {
             "    \"password\": \"Project.10\",\n" +
             "    \"username\": \"Grandmama\"\n" +
             "}";
-    public static final String GET_USER_BY_USERNAME_BODY = "{\n" +
+    public static final String GET_USER_BY_NAME_BODY = "{\n" +
             "  \"index\": 0,\n" +
             "  \"next\": true,\n" +
             "  \"searchParam1\": \"\",\n" +
-            "  \"searchParam2\": \"\",\n" +
+            "  \"searchParam2\": \"John\",\n" +
             "  \"size\": 1\n" +
+            "}";
+
+    public static final String UPGRADE_USER_PERSONAL_PROFILE_BODY = "{\n" +
+            "    \"id\": 144,\n" +
+            "    \"firstName\": \"Maria\",\n" +
+            "    \"lastName\": \"Ivanova\",\n" +
+            "    \"gender\": \"MALE\",\n" +
+            "    \"birthYear\": \"1955-12-09\",\n" +
+            "    \"personalReview\": null,\n" +
+            "    \"location\": {\n" +
+            "        \"city\": {\n" +
+            "            \"country\": {},\n" +
+            "            \"id\": 23\n" +
+            "        }\n" +
+            "    }\n" +
             "}";
 
 }

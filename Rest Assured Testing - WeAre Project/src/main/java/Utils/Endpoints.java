@@ -6,7 +6,7 @@ public class Endpoints {
 
     public static final String USERS_ENDPOINT = "/api/users/";
 
-    public static final String GET_USERS_BY_USERNAME = "/api/users";
+    public static final String GET_USERS_BY_NAME = "/api/users";
 
     public static final String AUTHENTICATE_ENDPOINT = "/authenticate";
     public static final String PERSONAL_ENDPOINT = "/api/users/auth/{{userIdSender}}/personal";
