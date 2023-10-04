@@ -1,12 +1,7 @@
 package Utils;
 
 public class JSONRequests {
-    public static String searchName="John";
-    public static String updatedName = "Maria";
-    public static int userID = 144;
-
     public static final String CONTENT_POST = "I am looking for a painter";
-
     public static final String REGISTRATION_BODY = "{\n" +
             "    \"category\": {\n" +
             "        \"id\": 100,\n" +
@@ -17,6 +12,18 @@ public class JSONRequests {
             "    \"password\": \"Project.10\",\n" +
             "    \"username\": \"Grandmama\"\n" +
             "}";
+    public static final String CREATE_POST_BODY = "{\n" +
+            "  \"content\": \"" + CONTENT_POST + "\",\n" +
+            "  \"picture\": \"Test\",\n" +
+            "  \"public\": true\n" +
+            "}";
+    public static final String UPDATED_CONTENT = "I am looking for a painter urgently";
+    public static final String EDIT_POST_BODY = "{\n" +
+            "  \"content\": \"" + UPDATED_CONTENT + "\",\n" +
+            "  \"picture\": \"Test\",\n" +
+            "  \"public\": true\n" +
+            "}";
+    public static String searchName = "John";
     public static final String GET_USER_BY_NAME_BODY = "{\n" +
             "  \"index\": 0,\n" +
             "  \"next\": true,\n" +
@@ -24,11 +31,8 @@ public class JSONRequests {
             "  \"searchParam2\": \"" + searchName + "\",\n" +
             "  \"size\": 1\n" +
             "}";
-
-
-
-
-
+    public static String updatedName = "Maria";
+    public static int userID = 144;
     public static final String UPGRADE_USER_PERSONAL_PROFILE_BODY = "{\n" +
             "    \"id\": " + userID + ",\n" +
             "    \"firstName\": \"" + updatedName + "\",\n" +
@@ -42,13 +46,6 @@ public class JSONRequests {
             "            \"id\": 23\n" +
             "        }\n" +
             "    }\n" +
-            "}";
-
-
-    public static final String CREATE_POST_BODY = "{\n" +
-            "  \"content\": \"" + CONTENT_POST + "\",\n" +
-            "  \"picture\": \"Test\",\n" +
-            "  \"public\": true\n" +
             "}";
 
 }

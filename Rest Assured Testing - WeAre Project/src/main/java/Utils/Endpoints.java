@@ -13,6 +13,8 @@ public class Endpoints {
     public static final String GET_USERS_BY_NAME_ENDPOINT = "/api/users";
 
     public static final String AUTHENTICATE_ENDPOINT = "/authenticate";
+    public static final String EDIT_POST_ENDPOINT = "/api/post/auth/editor?postId=";
+
     public static final String PERSONAL_ENDPOINT = "/api/users/auth/{{userIdSender}}/personal";
     public static final String REQUEST_ENDPOINT = "/api/auth/request?principal={{firstNameSender}}";
     public static final String USER_REQUESTS_ENDPOINT = "/api/auth/users/{{userIdReceiver}}/request/";

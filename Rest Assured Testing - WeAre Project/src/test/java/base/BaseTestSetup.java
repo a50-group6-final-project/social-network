@@ -3,6 +3,7 @@ package base;
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
 import static Utils.Endpoints.AUTHENTICATE_ENDPOINT;

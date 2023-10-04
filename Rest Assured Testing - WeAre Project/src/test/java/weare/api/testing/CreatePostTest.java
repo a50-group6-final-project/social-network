@@ -13,7 +13,7 @@ import static org.testng.Assert.assertEquals;
 
 public class CreatePostTest extends BaseTestSetup {
 
-
+    public static int postId;
     @Test
     public void createPost_Successful() {
         RestAssured.baseURI = BASE_URL;
@@ -30,6 +30,9 @@ public class CreatePostTest extends BaseTestSetup {
         String contentFromResponse = response.jsonPath().getString("content");
 
         assertEquals(contentFromResponse, CONTENT_POST, "Content does not match.");
+
+        postId = response.jsonPath().getInt("postId");
+
 
         System.out.println("Successfully created a new post.");
     }
