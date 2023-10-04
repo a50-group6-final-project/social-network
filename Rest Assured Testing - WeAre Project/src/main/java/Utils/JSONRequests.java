@@ -4,6 +4,9 @@ public class JSONRequests {
     public static String searchName="John";
     public static String updatedName = "Maria";
     public static int userID = 144;
+
+    public static final String CONTENT_POST = "I am looking for a painter";
+
     public static final String REGISTRATION_BODY = "{\n" +
             "    \"category\": {\n" +
             "        \"id\": 100,\n" +
@@ -40,5 +43,13 @@ public class JSONRequests {
             "        }\n" +
             "    }\n" +
             "}";
+
+
+    public static final String CREATE_POST_BODY = "{\n" +
+            "  \"content\": \"" + CONTENT_POST + "\",\n" +
+            "  \"picture\": \"Test\",\n" +
+            "  \"public\": true\n" +
+            "}";
+
 }
 

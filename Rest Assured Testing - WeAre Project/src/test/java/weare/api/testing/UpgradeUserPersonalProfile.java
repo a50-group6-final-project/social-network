@@ -13,7 +13,7 @@ public class UpgradeUserPersonalProfile extends BaseTestSetup {
 
 
     @Test
-    public void updateUserPersonalProfileTest() {
+    public void updateUserPersonalProfile_Successful() {
 
         RestAssured.baseURI = BASE_URL;
 

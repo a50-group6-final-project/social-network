@@ -14,7 +14,7 @@ public class GetUserByName extends BaseTestSetup {
 
 
     @Test
-    public void getUserByName() {
+    public void getUserByName_Successful() {
         RestAssured.baseURI = BASE_URL;
 
 

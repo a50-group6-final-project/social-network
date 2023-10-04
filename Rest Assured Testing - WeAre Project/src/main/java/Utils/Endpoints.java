@@ -8,6 +8,7 @@ public class Endpoints {
 
     public static final String GET_ALL_POSTS_ENDPOINT = "/api/post/";
 
+    public static final String CREATЕ_POST_ENDPOINT = "/api/post/auth/creator";
 
     public static final String GET_USERS_BY_NAME_ENDPOINT = "/api/users";
 

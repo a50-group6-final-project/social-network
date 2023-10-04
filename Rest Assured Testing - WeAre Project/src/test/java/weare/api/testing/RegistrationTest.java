@@ -15,7 +15,7 @@ public class RegistrationTest extends BaseTestSetup {
 
 
     @Test
-    public void registrarUserSuccessfullyTest() {
+    public void  registerUser_Successful() {
         RestAssured.baseURI = BASE_URL;
 
         Response response = RestAssured.given()

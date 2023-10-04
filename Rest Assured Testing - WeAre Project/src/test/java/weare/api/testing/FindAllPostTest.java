@@ -11,7 +11,7 @@ import static Utils.Endpoints.GET_ALL_POSTS_ENDPOINT;
 public class FindAllPostTest extends BaseTestSetup {
 
     @Test
-    public void getAllPostsTest() {
+    public void getAllPosts_Successful() {
         RestAssured.baseURI = BASE_URL;
 
         Response response = RestAssured.given()
