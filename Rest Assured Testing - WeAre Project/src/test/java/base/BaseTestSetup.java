@@ -18,7 +18,7 @@ public class BaseTestSetup {
         int statusCode = response.getStatusCode();
         assertEquals(statusCode, SC_OK, "Incorrect status code.");
         if (statusCode == SC_OK) {
-            System.out.println("Test passed.");
+            System.out.println("The response is 200");
         }
     }
 

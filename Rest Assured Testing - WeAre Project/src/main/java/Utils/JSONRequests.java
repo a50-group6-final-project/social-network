@@ -1,7 +1,9 @@
 package Utils;
 
 public class JSONRequests {
-
+    public static String searchName="John";
+    public static String updatedName = "Maria";
+    public static int userID = 144;
     public static final String REGISTRATION_BODY = "{\n" +
             "    \"category\": {\n" +
             "        \"id\": 100,\n" +
@@ -16,13 +18,17 @@ public class JSONRequests {
             "  \"index\": 0,\n" +
             "  \"next\": true,\n" +
             "  \"searchParam1\": \"\",\n" +
-            "  \"searchParam2\": \"John\",\n" +
+            "  \"searchParam2\": \"" + searchName + "\",\n" +
             "  \"size\": 1\n" +
             "}";
 
+
+
+
+
     public static final String UPGRADE_USER_PERSONAL_PROFILE_BODY = "{\n" +
-            "    \"id\": 144,\n" +
-            "    \"firstName\": \"Maria\",\n" +
+            "    \"id\": " + userID + ",\n" +
+            "    \"firstName\": \"" + updatedName + "\",\n" +
             "    \"lastName\": \"Ivanova\",\n" +
             "    \"gender\": \"MALE\",\n" +
             "    \"birthYear\": \"1955-12-09\",\n" +
@@ -34,5 +40,5 @@ public class JSONRequests {
             "        }\n" +
             "    }\n" +
             "}";
-
 }
+
