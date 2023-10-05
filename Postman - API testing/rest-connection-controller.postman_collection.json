@@ -3,8 +3,8 @@
 		"_postman_id": "69679351-9e5d-4c9e-bf9d-5d54fb4f47c6",
 		"name": "rest-connection-controller",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "24294340",
-		"_collection_link": "https://dark-astronaut-260412.postman.co/workspace/Telerik---Final-Project-~17b108a4-3f4a-4892-826d-8bb170257f82/collection/30132667-69679351-9e5d-4c9e-bf9d-5d54fb4f47c6?action=share&source=collection_link&creator=24294340"
+		"_exporter_id": "30132667",
+		"_collection_link": "https://dark-astronaut-260412.postman.co/workspace/Telerik---Final-Project-~17b108a4-3f4a-4892-826d-8bb170257f82/collection/30132667-69679351-9e5d-4c9e-bf9d-5d54fb4f47c6?action=share&source=collection_link&creator=30132667"
 	},
 	"item": [
 		{
@@ -128,11 +128,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8081/api/users/",
+					"raw": "{{baseUrl}}/api/users/",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "8081",
 					"path": [
 						"api",
 						"users",
@@ -150,7 +149,7 @@
 					"script": {
 						"exec": [
 							"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
-							"    console.log(pm.response);\r",
+							"    console.log(pm.cookies);\r",
 							"\r",
 							"    pm.test(\"Status code is 200\", function () {\r",
 							"        pm.response.to.have.status(200);\r",
@@ -185,12 +184,10 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8081/authenticate",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/authenticate",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "8081",
 					"path": [
 						"authenticate"
 					]
@@ -269,12 +266,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/users/auth/{{userIdSender}}/personal",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/users/auth/{{userIdSender}}/personal",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "8081",
 					"path": [
 						"api",
 						"users",
@@ -405,16 +400,9 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/users/",
-					"protocol": "http",
+					"raw": "{{baseUrl}}{{endpointUsers}}",
 					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"api",
-						"users",
-						""
+						"{{baseUrl}}{{endpointUsers}}"
 					]
 				}
 			},
@@ -463,14 +451,9 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8081/authenticate",
-					"protocol": "http",
+					"raw": "{{baseUrl}}{{endpointAuthenticate}}",
 					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"authenticate"
+						"{{baseUrl}}{{endpointAuthenticate}}"
 					]
 				}
 			},
@@ -511,22 +494,9 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/auth/request?principal={{firstNameSender}}",
-					"protocol": "http",
+					"raw": "{{baseUrl}}{{endpointRequestSender}}={{firstNameSender}}",
 					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"api",
-						"auth",
-						"request"
-					],
-					"query": [
-						{
-							"key": "principal",
-							"value": "{{firstNameSender}}"
-						}
+						"{{baseUrl}}{{endpointRequestSender}}={{firstNameSender}}"
 					]
 				}
 			},
@@ -575,14 +545,9 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8081/authenticate",
-					"protocol": "http",
+					"raw": "{{baseUrl}}{{endpointAuthenticate}}",
 					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"authenticate"
+						"{{baseUrl}}{{endpointAuthenticate}}"
 					]
 				}
 			},
@@ -614,17 +579,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/api/auth/users/{{userIdReceiver}}/request/",
-					"protocol": "http",
+					"raw": "{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}/request/",
 					"host": [
-						"localhost"
+						"{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}"
 					],
-					"port": "8081",
 					"path": [
-						"api",
-						"auth",
-						"users",
-						"{{userIdReceiver}}",
 						"request",
 						""
 					]
@@ -668,25 +627,9 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8081/api/auth/users/{{userIdReceiver}}/request/approve?requestId={{requestId}}",
-					"protocol": "http",
+					"raw": "{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}{{endpointRequestAprrove}}={{requestId}}",
 					"host": [
-						"localhost"
-					],
-					"port": "8081",
-					"path": [
-						"api",
-						"auth",
-						"users",
-						"{{userIdReceiver}}",
-						"request",
-						"approve"
-					],
-					"query": [
-						{
-							"key": "requestId",
-							"value": "{{requestId}}"
-						}
+						"{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}{{endpointRequestAprrove}}={{requestId}}"
 					]
 				}
 			},
