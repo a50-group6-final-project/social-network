@@ -6,7 +6,7 @@ import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import static Utils.Endpoints.BASE_URL;
-import static Utils.JSONRequests.UPGRADE_USER_PERSONAL_PROFILE_BODY;
+import static Utils.JSONRequests.UPGRADE_USER_PROFILE_TEMPLATE;
 import static Utils.JSONRequests.updatedName;
 import static org.testng.Assert.assertEquals;
 
@@ -15,7 +15,8 @@ public class UpdateUserPersonalProfile extends BaseTestSetup {
 
     @Test
     public void updateUserPersonalProfile_Successful() {
-        String body = UPGRADE_USER_PERSONAL_PROFILE_BODY(currentUserId);
+        String body = String.format(UPGRADE_USER_PROFILE_TEMPLATE, currentUserId, updatedName);
+
 
         RestAssured.baseURI = BASE_URL;
 

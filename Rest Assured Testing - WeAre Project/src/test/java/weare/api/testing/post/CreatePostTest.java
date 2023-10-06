@@ -13,14 +13,15 @@ import static org.testng.Assert.assertEquals;
 public class CreatePostTest extends BaseTestSetup {
 
 
-
     @Test
     public void createPost_Successful() {
         String uniqueContent = generateUniqueContentPost();
 
         RestAssured.baseURI = BASE_URL;
 
-        String body = CREATE_POST_BODY(uniqueContent);
+
+        String body = String.format(CREATE_POST_BODY, uniqueContent);
+
 
         Response response = RestAssured.given()
                 .cookies(cookies)

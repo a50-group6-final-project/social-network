@@ -8,13 +8,12 @@ import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
 
 import java.util.HashSet;
 import java.util.Random;
 
 import static Utils.Endpoints.*;
-import static Utils.JSONRequests.REGISTRATION_BODY;
+import static Utils.JSONRequests.REGISTRATION_BODY_TEMPLATE;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.testng.Assert.assertEquals;
 
@@ -25,20 +24,11 @@ public class BaseTestSetup {
     public static String currentUsername;
     public static String currentEmail;
     public static int currentUserId;
-    private static Faker faker = new Faker();
-    private static Random random = new Random();
     public static int postId;
 
+    private static Faker faker = new Faker();
+    private static Random random = new Random();
 
-
-    @BeforeSuite
-    public void setup() {
-
-        EncoderConfig encoderConfig = RestAssured.config().getEncoderConfig()
-                .appendDefaultContentCharsetToContentTypeIfUndefined(false);
-
-        RestAssured.config = RestAssured.config().encoderConfig(encoderConfig);
-    }
     public static String generateUniqueUsername() {
         String username;
         do {
@@ -57,11 +47,10 @@ public class BaseTestSetup {
         usedEmails.add(email);
         return email;
     }
+
     public static String generateUniqueContentPost() {
         return faker.lorem().characters(10, 50);
     }
-
-
 
     public static void isResponse200(Response response) {
         int statusCode = response.getStatusCode();
@@ -71,7 +60,14 @@ public class BaseTestSetup {
         }
     }
 
+    @BeforeSuite
+    public void setup() {
 
+        EncoderConfig encoderConfig = RestAssured.config().getEncoderConfig()
+                .appendDefaultContentCharsetToContentTypeIfUndefined(false);
+
+        RestAssured.config = RestAssured.config().encoderConfig(encoderConfig);
+    }
 
     @BeforeClass
     public void registerAndAuthenticate() {
@@ -81,7 +77,7 @@ public class BaseTestSetup {
         currentEmail = generateUniqueEmail();
 
         RestAssured.baseURI = BASE_URL;
-        String body = REGISTRATION_BODY(currentUsername, currentEmail);
+        String body = String.format(REGISTRATION_BODY_TEMPLATE, currentEmail, currentUsername);
 
         Response response = RestAssured.given()
                 .contentType("application/json")
