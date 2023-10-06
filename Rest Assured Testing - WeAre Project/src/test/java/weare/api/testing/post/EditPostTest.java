@@ -1,4 +1,4 @@
-package weare.api.testing;
+package weare.api.testing.post;
 
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import static Utils.Endpoints.*;
 import static Utils.JSONRequests.CREATE_POST_BODY;
 import static Utils.JSONRequests.EDIT_POST_BODY;
-import static weare.api.testing.CreatePostTest.postId;
+import static weare.api.testing.post.CreatePostTest.postId;
 
 public class EditPostTest extends BaseTestSetup {
 
@@ -25,7 +25,6 @@ public class EditPostTest extends BaseTestSetup {
                 .post(CREATЕ_POST_ENDPOINT);
 
         postId = response.jsonPath().getInt("postId");
-        System.out.println(response.asString());
     }
 
 
@@ -40,8 +39,8 @@ public class EditPostTest extends BaseTestSetup {
                 .put(EDIT_POST_ENDPOINT + postId);
 
 
+        isResponse200(response);
         System.out.println(response.asString());
-        AssertResponse(response);
 
         System.out.println("Post edited successfully.");
     }
