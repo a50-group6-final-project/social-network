@@ -32,7 +32,7 @@ public class CreatePostTest extends BaseTestSetup {
         isResponse200(response);
 
         String contentFromResponse = response.jsonPath().getString("content");
-        assertEquals(contentFromResponse, uniqueContent, "Content does not match."); // Сравняване с уникалното съдържание
+        assertEquals(contentFromResponse, uniqueContent, "Content does not match.");
 
         postId = response.jsonPath().getInt("postId");
 
