@@ -15,12 +15,16 @@ public class EditPostTest extends BaseTestSetup {
 
     @BeforeMethod
     public void createPostForEditing() {
+        String uniqueContent = generateUniqueContentPost();
+
         RestAssured.baseURI = BASE_URL;
+
+        String body = CREATE_POST_BODY (uniqueContent);
 
         Response response = RestAssured.given()
                 .cookies(cookies)
                 .contentType("application/json")
-                .body(CREATE_POST_BODY)
+                .body(body)
                 .when()
                 .post(CREATЕ_POST_ENDPOINT);
 
