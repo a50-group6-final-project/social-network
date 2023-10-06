@@ -13,27 +13,14 @@ import static weare.api.testing.post.CreatePostTest.postId;
 
 public class EditPostTest extends BaseTestSetup {
 
-    @BeforeMethod
-    public void createPostForEditing() {
-        String uniqueContent = generateUniqueContentPost();
-
-        RestAssured.baseURI = BASE_URL;
-
-        String body = CREATE_POST_BODY (uniqueContent);
-
-        Response response = RestAssured.given()
-                .cookies(cookies)
-                .contentType("application/json")
-                .body(body)
-                .when()
-                .post(CREATЕ_POST_ENDPOINT);
-
-        postId = response.jsonPath().getInt("postId");
-    }
 
 
     @Test
     public void editPost_Successful() {
+        CreatePostTest createPostTest = new CreatePostTest();
+        createPostTest.createPost_Successful();
+
+
 
         Response response = RestAssured.given()
                 .cookies(cookies)
@@ -49,3 +36,4 @@ public class EditPostTest extends BaseTestSetup {
         System.out.println("Post edited successfully.");
     }
 }
+

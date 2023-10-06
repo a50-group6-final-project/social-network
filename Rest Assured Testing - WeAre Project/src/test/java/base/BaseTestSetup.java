@@ -27,6 +27,7 @@ public class BaseTestSetup {
     public static int currentUserId;
     private static Faker faker = new Faker();
     private static Random random = new Random();
+    public static int postId;
 
 
 

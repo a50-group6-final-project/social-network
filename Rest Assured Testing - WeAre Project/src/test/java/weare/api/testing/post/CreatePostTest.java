@@ -12,7 +12,8 @@ import static org.testng.Assert.assertEquals;
 
 public class CreatePostTest extends BaseTestSetup {
 
-    public static int postId;
+
+
     @Test
     public void createPost_Successful() {
         String uniqueContent = generateUniqueContentPost();
