@@ -1,4 +1,4 @@
-package weare.api.testing;
+package weare.api.testing.users;
 
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
@@ -27,7 +27,7 @@ public class GetUserByName extends BaseTestSetup {
 
         System.out.println(response.asString());
 
-        AssertResponse(response);
+       isResponse200(response);
 
     }
 }

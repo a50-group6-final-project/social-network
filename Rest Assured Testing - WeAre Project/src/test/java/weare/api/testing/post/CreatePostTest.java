@@ -1,4 +1,4 @@
-package weare.api.testing;
+package weare.api.testing.post;
 
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
@@ -26,7 +26,7 @@ public class CreatePostTest extends BaseTestSetup {
                 .post(CREATЕ_POST_ENDPOINT);
 
         System.out.println(response.asString());
-        AssertResponse(response);
+        isResponse200(response);
         String contentFromResponse = response.jsonPath().getString("content");
 
         assertEquals(contentFromResponse, CONTENT_POST, "Content does not match.");
