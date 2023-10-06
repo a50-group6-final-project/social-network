@@ -1,4 +1,6 @@
 package weare.api.testing.users;
 
-public class GetProfilePostsTests {
+import base.BaseTestSetup;
+
+public class GetProfilePostsTests extends BaseTestSetup {
 }
