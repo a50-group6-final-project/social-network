@@ -2,10 +2,12 @@ package base;
 
 import com.github.javafaker.Faker;
 import io.restassured.RestAssured;
+import io.restassured.config.EncoderConfig;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import java.util.HashSet;
@@ -25,7 +27,18 @@ public class BaseTestSetup {
     public static int currentUserId;
     private static Faker faker = new Faker();
     private static Random random = new Random();
+    public static int postId;
 
+
+
+    @BeforeSuite
+    public void setup() {
+
+        EncoderConfig encoderConfig = RestAssured.config().getEncoderConfig()
+                .appendDefaultContentCharsetToContentTypeIfUndefined(false);
+
+        RestAssured.config = RestAssured.config().encoderConfig(encoderConfig);
+    }
     public static String generateUniqueUsername() {
         String username;
         do {
@@ -44,6 +57,10 @@ public class BaseTestSetup {
         usedEmails.add(email);
         return email;
     }
+    public static String generateUniqueContentPost() {
+        return faker.lorem().characters(10, 50);
+    }
+
 
 
     public static void isResponse200(Response response) {

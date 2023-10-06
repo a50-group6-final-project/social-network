@@ -1,12 +1,14 @@
 package Utils;
 
 public class JSONRequests{
-    public static final String CONTENT_POST = "I am looking for a painter";
-    public static final String CREATE_POST_BODY = "{\n" +
-            "  \"content\": \"" + CONTENT_POST + "\",\n" +
-            "  \"picture\": \"Test\",\n" +
-            "  \"public\": true\n" +
-            "}";
+    public static String CREATE_POST_BODY(String uniqueContent) {
+        return String.format("{\n" +
+                "  \"content\": \"%s\",\n" +
+                "  \"picture\": \"Test\",\n" +
+                "  \"public\": true\n" +
+                "}", uniqueContent);
+    }
+
     public static final String UPDATED_CONTENT = "I am looking for a plump";
     public static final String EDIT_POST_BODY = "{\n" +
             "  \"content\": \"" + UPDATED_CONTENT + "\",\n" +

@@ -13,23 +13,14 @@ import static weare.api.testing.post.CreatePostTest.postId;
 
 public class EditPostTest extends BaseTestSetup {
 
-    @BeforeMethod
-    public void createPostForEditing() {
-        RestAssured.baseURI = BASE_URL;
-
-        Response response = RestAssured.given()
-                .cookies(cookies)
-                .contentType("application/json")
-                .body(CREATE_POST_BODY)
-                .when()
-                .post(CREATЕ_POST_ENDPOINT);
-
-        postId = response.jsonPath().getInt("postId");
-    }
 
 
     @Test
     public void editPost_Successful() {
+        CreatePostTest createPostTest = new CreatePostTest();
+        createPostTest.createPost_Successful();
+
+
 
         Response response = RestAssured.given()
                 .cookies(cookies)
@@ -45,3 +36,4 @@ public class EditPostTest extends BaseTestSetup {
         System.out.println("Post edited successfully.");
     }
 }
+
