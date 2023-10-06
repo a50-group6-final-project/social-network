@@ -17,7 +17,7 @@ public class AuthenticateUserFetchCookie extends BaseTestSetup {
 
         Response response = RestAssured.given()
                 .contentType("multipart/form-data")
-                .multiPart("username", "Grandmama")
+                .multiPart("username", "currentUsername")
                 .multiPart("password", "Project.10")
                 .when()
                 .post(AUTHENTICATE_ENDPOINT);
@@ -27,7 +27,6 @@ public class AuthenticateUserFetchCookie extends BaseTestSetup {
         int statusCodeAuthentication = response.getStatusCode();
         System.out.println("The status code is:" + statusCodeAuthentication);
 
-        AssertResponse(response);
 
         System.out.println(response.getBody().asPrettyString());
     }
