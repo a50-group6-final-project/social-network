@@ -5,7 +5,6 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import static Utils.Endpoints.BASE_URL;
 import static Utils.JSONRequests.SEND_REQUEST_BODY;
 import static org.testng.Assert.assertEquals;

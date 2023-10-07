@@ -19,7 +19,6 @@ public class BaseTestSetup {
     public static HashSet<String> usedUsernames = new HashSet<>();
     public static HashSet<String> usedEmails = new HashSet<>();
     public static Cookies cookies;
-
     public static Cookies cookiesSender;
     public static String currentUsername;
     public static String currentEmail;
@@ -97,7 +96,6 @@ public class BaseTestSetup {
 
         int nameStartIndex = responseString.indexOf("name ") + 5;
         int nameEndIndex = responseString.indexOf(" and id");
-        String usernamePosition = responseString.substring(nameStartIndex, nameEndIndex);
 
         int idStartIndex = responseString.indexOf("id ") + 3;
         int idEndIndex = responseString.indexOf(" was created");

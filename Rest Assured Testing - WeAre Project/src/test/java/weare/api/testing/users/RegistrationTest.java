@@ -4,7 +4,6 @@ import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
-
 import static Utils.Endpoints.BASE_URL;
 import static Utils.Endpoints.USERS_ENDPOINT;
 import static Utils.JSONRequests.REGISTRATION_BODY_TEMPLATE;
@@ -15,8 +14,6 @@ public class RegistrationTest extends BaseTestSetup {
 
     @Test
     public void registerUser_successful() {
-
-
 
         currentUsername = generateUniqueUsername();
         currentEmail = generateUniqueEmail();
