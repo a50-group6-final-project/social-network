@@ -39,7 +39,7 @@ public class JSONRequests {
             "    \"password\": \"Project.10\",\n" +
             "    \"username\": \"%s\"\n" +
             "}";
-    public static String searchName = "John Atanasov";
+    public static String searchName = "Lili Ivanova";
     public static final String GET_USER_BY_NAME_BODY = "{\n" +
             "  \"index\": 0,\n" +
             "  \"next\": true,\n" +

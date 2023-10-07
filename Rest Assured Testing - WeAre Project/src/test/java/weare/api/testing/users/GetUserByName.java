@@ -15,11 +15,17 @@ public class GetUserByName extends BaseTestSetup {
 
     @Test
     public void getUserByName_Successful() {
+        currentUsername= generateUniqueUsername();
+        currentEmail = generateUniqueEmail();
+
+        register(currentUsername, currentEmail);
+
+        authenticateAndFetchCookies(currentUsername, "Project.10");
         RestAssured.baseURI = BASE_URL;
 
 
         Response response = RestAssured.given()
-
+                .cookies(cookies)
                 .contentType(APPLICATION_JSON)
                 .body(GET_USER_BY_NAME_BODY)
                 .when()

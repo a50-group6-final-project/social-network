@@ -13,16 +13,10 @@ public class EditPostTest extends BaseTestSetup {
 
     @Test
     public void editPost_Successful() {
-//        currentUsername = generateUniqueUsername();
-//        currentEmail = generateUniqueEmail();
-//        register(currentUsername, currentEmail);
-
-
-        authenticateAndFetchCookies(postCreatorUsername,"Project.10");
+        authenticateAndFetchCookies(postCreatorUsername, "Project.10");
 
         CreatePostTest createPostTest = new CreatePostTest();
         createPostTest.createPost_Successful();
-
         Response response = RestAssured.given()
                 .cookies(cookies)
                 .contentType("application/json")

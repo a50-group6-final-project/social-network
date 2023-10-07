@@ -18,7 +18,7 @@ public class UpdateUserPersonalProfile extends BaseTestSetup {
         currentUsername = generateUniqueUsername();
         currentEmail = generateUniqueEmail();
         register(currentUsername, currentEmail);
-        authenticateAndFetchCookies(senderUsername,"Project.10");
+        authenticateAndFetchCookies(currentUsername,"Project.10");
         String body = String.format(UPGRADE_USER_PROFILE_TEMPLATE, currentUserId, updatedName);
 
 

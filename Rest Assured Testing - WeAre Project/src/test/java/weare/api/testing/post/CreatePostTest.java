@@ -4,6 +4,7 @@ import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static Utils.Endpoints.BASE_URL;
@@ -12,22 +13,24 @@ import static Utils.JSONRequests.CREATE_POST_BODY;
 import static org.testng.Assert.assertEquals;
 
 public class CreatePostTest extends BaseTestSetup {
+    @BeforeTest
+    public void register_postCreatorUsername() {
 
+    }
 
     @Test
     public void createPost_Successful() {
         postCreatorUsername = generateUniqueUsername();
         currentEmail = generateUniqueEmail();
+
         register(postCreatorUsername, currentEmail);
 
-        authenticateAndFetchCookies(postCreatorUsername,"Project.10");
+        authenticateAndFetchCookies(postCreatorUsername, "Project.10");
         String uniqueContent = generateUniqueContentPost();
 
         RestAssured.baseURI = BASE_URL;
 
-
         String body = String.format(CREATE_POST_BODY, uniqueContent);
-
 
         Response response = RestAssured.given()
                 .cookies(cookies)

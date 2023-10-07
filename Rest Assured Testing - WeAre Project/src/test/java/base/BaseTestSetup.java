@@ -5,8 +5,6 @@ import io.restassured.RestAssured;
 import io.restassured.config.EncoderConfig;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import java.util.HashSet;
@@ -80,40 +78,39 @@ public class BaseTestSetup {
 
     public void register(String username, String email) {
 
-            currentUsername = username;
-            currentEmail = email;
+        currentUsername = username;
+        currentEmail = email;
 
-            RestAssured.baseURI = BASE_URL;
-            String body = String.format(REGISTRATION_BODY_TEMPLATE, currentEmail, currentUsername);
+        RestAssured.baseURI = BASE_URL;
+        String body = String.format(REGISTRATION_BODY_TEMPLATE, currentEmail, currentUsername);
 
-            Response response = RestAssured.given()
-                    .contentType("application/json")
-                    .body(body)
-                    .when()
-                    .post(USERS_ENDPOINT);
+        Response response = RestAssured.given()
+                .contentType("application/json")
+                .body(body)
+                .when()
+                .post(USERS_ENDPOINT);
 
-            System.out.println(response.asString());
-            isResponse200(response);
+        System.out.println(response.asString());
+        isResponse200(response);
 
-            String responseString = response.getBody().asString();
+        String responseString = response.getBody().asString();
 
-            int nameStartIndex = responseString.indexOf("name ") + 5;
-            int nameEndIndex = responseString.indexOf(" and id");
-            String usernamePosition = responseString.substring(nameStartIndex, nameEndIndex);
+        int nameStartIndex = responseString.indexOf("name ") + 5;
+        int nameEndIndex = responseString.indexOf(" and id");
+        String usernamePosition = responseString.substring(nameStartIndex, nameEndIndex);
 
-            int idStartIndex = responseString.indexOf("id ") + 3;
-            int idEndIndex = responseString.indexOf(" was created");
-            String idString = responseString.substring(idStartIndex, idEndIndex);
-            int id = Integer.parseInt(idString);
-            currentUsername = responseString.substring(nameStartIndex, nameEndIndex);
-            currentUserId = Integer.parseInt(idString);
+        int idStartIndex = responseString.indexOf("id ") + 3;
+        int idEndIndex = responseString.indexOf(" was created");
+        String idString = responseString.substring(idStartIndex, idEndIndex);
+        int id = Integer.parseInt(idString);
+        currentUsername = responseString.substring(nameStartIndex, nameEndIndex);
+        currentUserId = Integer.parseInt(idString);
 
-            System.out.println("Registered successfully!");
+        System.out.println("Registered successfully!");
 
-            System.out.println("Username: " + username);
-            System.out.println("ID: " + id);
-        }
-
+        System.out.println("Username: " + username);
+        System.out.println("ID: " + id);
+    }
 
 
     public void authenticateAndFetchCookies(String username, String password) {
@@ -121,7 +118,7 @@ public class BaseTestSetup {
 
         Response response = RestAssured.given()
                 .contentType("multipart/form-data")
-                .multiPart("username", currentUsername)
+                .multiPart("username", username)
                 .multiPart("password", "Project.10")
                 .when()
                 .post(AUTHENTICATE_ENDPOINT);
