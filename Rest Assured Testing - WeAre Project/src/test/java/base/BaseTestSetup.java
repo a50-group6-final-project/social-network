@@ -28,9 +28,12 @@ public class BaseTestSetup {
     public static int currentUserId;
     public static int postId;
     public static String senderUsername;
-    public static int senderUserId;
     public static String receiverUsername;
     public static String receiverEmail;
+    public static int senderUserId;
+    public static String postCreatorUsername;
+    public static int receiverUserId;
+
     private static Faker faker = new Faker();
     private static Random random = new Random();
 

@@ -48,6 +48,10 @@ public class JSONRequests {
             "  \"size\": 1\n" +
             "}";
     public static String updatedName = "Maria";
+    public static final String SEND_REQUEST_BODY = "{\n" +
+            "  \"id\": %d,\n" +
+            "  \"username\": \"%s\"\n" +
+            "}";
 
 
 }

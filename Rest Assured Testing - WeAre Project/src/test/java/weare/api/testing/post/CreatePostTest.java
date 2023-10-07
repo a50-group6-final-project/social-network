@@ -16,10 +16,11 @@ public class CreatePostTest extends BaseTestSetup {
 
     @Test
     public void createPost_Successful() {
-        currentUsername = generateUniqueUsername();
+        postCreatorUsername = generateUniqueUsername();
         currentEmail = generateUniqueEmail();
-        register(currentUsername, currentEmail);
-        authenticateAndFetchCookies(senderUsername,"Project.10");
+        register(postCreatorUsername, currentEmail);
+
+        authenticateAndFetchCookies(postCreatorUsername,"Project.10");
         String uniqueContent = generateUniqueContentPost();
 
         RestAssured.baseURI = BASE_URL;
