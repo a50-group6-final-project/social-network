@@ -16,7 +16,7 @@ public class EditPostTest extends BaseTestSetup {
         currentUsername = generateUniqueUsername();
         currentEmail = generateUniqueEmail();
         register(currentUsername, currentEmail);
-        authenticateAndFetchCookies(senderUsername,"Project.10");
+        authenticateAndFetchCookies(currentUsername,"Project.10");
         CreatePostTest createPostTest = new CreatePostTest();
         createPostTest.createPost_Successful();
 

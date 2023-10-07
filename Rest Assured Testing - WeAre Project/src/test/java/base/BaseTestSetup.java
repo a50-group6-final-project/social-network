@@ -29,8 +29,8 @@ public class BaseTestSetup {
     public static int postId;
     public static String senderUsername;
     public static int senderUserId;
-
-
+    public static String receiverUsername;
+    public static String receiverEmail;
     private static Faker faker = new Faker();
     private static Random random = new Random();
 
@@ -77,41 +77,39 @@ public class BaseTestSetup {
 
     public void register(String username, String email) {
 
+            currentUsername = username;
+            currentEmail = email;
 
-        currentUsername = generateUniqueUsername();
-        currentEmail = generateUniqueEmail();
+            RestAssured.baseURI = BASE_URL;
+            String body = String.format(REGISTRATION_BODY_TEMPLATE, currentEmail, currentUsername);
 
-        RestAssured.baseURI = BASE_URL;
-        String body = String.format(REGISTRATION_BODY_TEMPLATE, currentEmail, currentUsername);
+            Response response = RestAssured.given()
+                    .contentType("application/json")
+                    .body(body)
+                    .when()
+                    .post(USERS_ENDPOINT);
 
-        Response response = RestAssured.given()
-                .contentType("application/json")
-                .body(body)
-                .when()
-                .post(USERS_ENDPOINT);
+            System.out.println(response.asString());
+            isResponse200(response);
 
-        System.out.println(response.asString());
-        isResponse200(response);
+            String responseString = response.getBody().asString();
 
-        String responseString = response.getBody().asString();
+            int nameStartIndex = responseString.indexOf("name ") + 5;
+            int nameEndIndex = responseString.indexOf(" and id");
+            String usernamePosition = responseString.substring(nameStartIndex, nameEndIndex);
 
-        int nameStartIndex = responseString.indexOf("name ") + 5;
-        int nameEndIndex = responseString.indexOf(" and id");
-        String usernamePosition = responseString.substring(nameStartIndex, nameEndIndex);
+            int idStartIndex = responseString.indexOf("id ") + 3;
+            int idEndIndex = responseString.indexOf(" was created");
+            String idString = responseString.substring(idStartIndex, idEndIndex);
+            int id = Integer.parseInt(idString);
+            currentUsername = responseString.substring(nameStartIndex, nameEndIndex);
+            currentUserId = Integer.parseInt(idString);
 
-        int idStartIndex = responseString.indexOf("id ") + 3;
-        int idEndIndex = responseString.indexOf(" was created");
-        String idString = responseString.substring(idStartIndex, idEndIndex);
-        int id = Integer.parseInt(idString);
-        currentUsername = responseString.substring(nameStartIndex, nameEndIndex);
-        currentUserId = Integer.parseInt(idString);
+            System.out.println("Registered successfully!");
 
-        System.out.println("Registered successfully!");
-
-        System.out.println("Username: " + username);
-        System.out.println("ID: " + id);
-
-    }
+            System.out.println("Username: " + username);
+            System.out.println("ID: " + id);
+        }
 
 
 
