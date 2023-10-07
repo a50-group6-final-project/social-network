@@ -21,10 +21,15 @@ public class BaseTestSetup {
     public static HashSet<String> usedUsernames = new HashSet<>();
     public static HashSet<String> usedEmails = new HashSet<>();
     public static Cookies cookies;
+
+    public static Cookies cookiesSender;
     public static String currentUsername;
     public static String currentEmail;
     public static int currentUserId;
     public static int postId;
+    public static String senderUsername;
+    public static int senderUserId;
+
 
     private static Faker faker = new Faker();
     private static Random random = new Random();
@@ -69,8 +74,8 @@ public class BaseTestSetup {
         RestAssured.config = RestAssured.config().encoderConfig(encoderConfig);
     }
 
-    @BeforeClass
-    public void registerAndAuthenticate() {
+
+    public void register(String username, String email) {
 
 
         currentUsername = generateUniqueUsername();
@@ -92,7 +97,7 @@ public class BaseTestSetup {
 
         int nameStartIndex = responseString.indexOf("name ") + 5;
         int nameEndIndex = responseString.indexOf(" and id");
-        String username = responseString.substring(nameStartIndex, nameEndIndex);
+        String usernamePosition = responseString.substring(nameStartIndex, nameEndIndex);
 
         int idStartIndex = responseString.indexOf("id ") + 3;
         int idEndIndex = responseString.indexOf(" was created");
@@ -109,8 +114,8 @@ public class BaseTestSetup {
     }
 
 
-    @BeforeMethod
-    public void authenticateAndFetchCookies() {
+
+    public void authenticateAndFetchCookies(String username, String password) {
         RestAssured.baseURI = BASE_URL;
 
         Response response = RestAssured.given()

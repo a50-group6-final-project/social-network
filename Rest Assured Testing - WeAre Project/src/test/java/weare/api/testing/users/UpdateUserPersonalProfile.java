@@ -15,6 +15,10 @@ public class UpdateUserPersonalProfile extends BaseTestSetup {
 
     @Test
     public void updateUserPersonalProfile_Successful() {
+        currentUsername = generateUniqueUsername();
+        currentEmail = generateUniqueEmail();
+        register(currentUsername, currentEmail);
+        authenticateAndFetchCookies(senderUsername,"Project.10");
         String body = String.format(UPGRADE_USER_PROFILE_TEMPLATE, currentUserId, updatedName);
 
 
