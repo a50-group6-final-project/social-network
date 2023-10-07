@@ -6,7 +6,6 @@ import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import static Utils.Endpoints.BASE_URL;
-import static base.BaseTestSetup.receiverUsername;
 import static org.testng.Assert.assertEquals;
 
 public class GetUserRequestsTests extends BaseTestSetup {
