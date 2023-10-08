@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static Utils.Endpoints.BASE_URL;
+import static Utils.Endpoints.GET_USERS_BY_NAME_ENDPOINT;
 
 public class GetUsersTests extends BaseTestSetup {
 
@@ -26,7 +27,7 @@ public class GetUsersTests extends BaseTestSetup {
                 .contentType("application/json")
                 .body(bodyPageString)
                 .when()
-                .post("/api/users");
+                .post(GET_USERS_BY_NAME_ENDPOINT);
 
         //to create Page model
         isResponse200(response);
@@ -34,9 +35,10 @@ public class GetUsersTests extends BaseTestSetup {
         UserProfile[] userProfileList = response.then().extract().as(UserProfile[].class);
 
         Assert.assertTrue(userProfileList.length > 0, "Users list is empty");
-        Assert.assertTrue(assertUserIsPresented(userProfileList, "MrTestThree"));
+        Assert.assertTrue(assertUserIsPresented(userProfileList, currentUsername));
 
     }
+
     private boolean assertUserIsPresented(UserProfile[] userProfileList, String username) {
         for (UserProfile userProfile : userProfileList) {
             if (userProfile.username.equals(username)) {
@@ -47,7 +49,7 @@ public class GetUsersTests extends BaseTestSetup {
         return false;
     }
 
-    private Page generatePageModel(int size)  {
+    private Page generatePageModel(int size) {
         Page page = new Page();
         page.size = size;
         return page;
