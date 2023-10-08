@@ -15,16 +15,14 @@ public class GetUserByIdTests extends BaseTestSetup {
         Response response = RestAssured.given()
                 .baseUri(BASE_URL)
                 .contentType("application/json")
-//                .queryParam("principal", currentUsername)
-                .queryParam("principal", "MrTestuMyKI")
+                .queryParam("principal", currentUsername)
                 .when()
-//                .get("/api/users/auth/" + currentUserId);
-                .get("/api/users/auth/" + 45);
+                .get("/api/users/auth/" + currentUserId);
 
         System.out.println(response.asString());
         isResponse200(response);
 
         UserPersonal userPersonal = response.as(UserPersonal.class);
-        System.out.println(userPersonal.firstName);
+        System.out.println(currentUserProfile);
     }
 }

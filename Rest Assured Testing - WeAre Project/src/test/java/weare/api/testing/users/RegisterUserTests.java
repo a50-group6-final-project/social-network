@@ -15,7 +15,7 @@ import static Utils.Endpoints.*;
 
 public class RegisterUserTests extends BaseTestSetup {
     @Test
-    public void test() {
+    public void registerUserSuccessfully () {
         UserRegister userRegister = generateUserRegisterModel();
         String bodyUserString = Serializer.convertObjectToJsonString(userRegister);
 

@@ -7,6 +7,7 @@ import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import models.Page;
 import models.Skill;
+import models.UserProfile;
 import org.testng.annotations.BeforeSuite;
 
 import java.util.HashSet;
@@ -37,6 +38,7 @@ public class BaseTestSetup {
     public static Skill createdSkill;
     public static String JSESSIONID;
     public static Page page;
+    public static UserProfile currentUserProfile;
 
     private static Faker faker = new Faker();
     private static Random random = new Random();

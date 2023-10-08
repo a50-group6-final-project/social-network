@@ -37,6 +37,10 @@ public class GetUsersTests extends BaseTestSetup {
         Assert.assertTrue(userProfileList.length > 0, "Users list is empty");
         Assert.assertTrue(assertUserIsPresented(userProfileList, currentUsername));
 
+        UserProfile userProfile = returnUserProfile(userProfileList, currentUsername);
+       //set currentUserProfile
+        currentUserProfile = userProfile;
+
     }
 
     private boolean assertUserIsPresented(UserProfile[] userProfileList, String username) {
@@ -47,6 +51,13 @@ public class GetUsersTests extends BaseTestSetup {
         }
         Assert.fail("User with username " + username + " was not found");
         return false;
+    }
+    private UserProfile returnUserProfile(UserProfile[] userProfileList, String username) {
+        for (UserProfile userProfile : userProfileList)
+            if (userProfile.username.equals(username)) {
+                return userProfile;
+            }
+        return null;
     }
 
     private Page generatePageModel(int size) {
