@@ -1,4 +1,6 @@
 package weare.api.testing.users;
 
-public class GetUserByIdTests {
+import base.BaseTestSetup;
+
+public class GetUserByIdTests extends BaseTestSetup {
 }

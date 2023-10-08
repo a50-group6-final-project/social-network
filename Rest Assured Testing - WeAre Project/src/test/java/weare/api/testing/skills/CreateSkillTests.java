@@ -15,13 +15,13 @@ public class CreateSkillTests extends BaseTestSetup {
 
     @Test
     public void createSkillSuccessfully() {
-        skillToCreated = generateSkillModel();
-        String body = Serializer.convertObjectToJsonString(skillToCreated);
+        skillToCreated = generateSkillModel(155);
+        String bodySkillString = Serializer.convertObjectToJsonString(skillToCreated);
 
         Response response = RestAssured.given().baseUri(BASE_URL)
                 .cookie("JSESSIONID", getJSESSIONIDCookie("MrTestThree", "Project.10"))
                 .contentType("application/json")
-                .body(body)
+                .body(bodySkillString)
                 .when()
                 .post(SKILL_CREATE_ENDPOINT)
                 .then().log().body().extract().response();
@@ -34,9 +34,9 @@ public class CreateSkillTests extends BaseTestSetup {
         Assert.assertEquals(createdSkill.category.id, skillToCreated.category.id);
     }
 
-    public static Skill generateSkillModel() {
+    public static Skill generateSkillModel(int categoryId) {
         Category category = new Category();
-        category.id = 155;
+        category.id = categoryId;
 
         Skill skill = new Skill();
         skill.category = category;
