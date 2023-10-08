@@ -5,6 +5,7 @@ import io.restassured.RestAssured;
 import io.restassured.config.EncoderConfig;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
+import models.Page;
 import models.Skill;
 import org.testng.annotations.BeforeSuite;
 
@@ -35,6 +36,7 @@ public class BaseTestSetup {
     public static Skill skillToCreated;
     public static Skill createdSkill;
     public static String JSESSIONID;
+    public static Page page;
 
     private static Faker faker = new Faker();
     private static Random random = new Random();
