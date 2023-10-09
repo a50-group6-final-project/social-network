@@ -5,7 +5,7 @@
         <classes>
             <class name="weare.api.testing.connection.SendRequestTest"/>
             <class name="weare.api.testing.connection.GetUserRequestsTests"/>
-
+            <class name="weare.api.testing.connection.ApproveRequestTest"/>
         </classes>
     </test>
 </suite>
