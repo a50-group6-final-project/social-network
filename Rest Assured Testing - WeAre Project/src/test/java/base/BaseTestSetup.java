@@ -5,9 +5,7 @@ import io.restassured.RestAssured;
 import io.restassured.config.EncoderConfig;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import models.Page;
-import models.Skill;
-import models.UserProfile;
+import models.*;
 import org.testng.annotations.BeforeSuite;
 
 import java.util.HashSet;
@@ -33,6 +31,10 @@ public class BaseTestSetup {
     public static int senderUserId;
     public static String postCreatorUsername;
     public static int receiverUserId;
+
+    public static PostModel createPost;
+
+    public static SearchUser getUserByName;
 
     public static Skill skillToCreated;
     public static Skill createdSkill;
@@ -120,19 +122,19 @@ public class BaseTestSetup {
     }
 
 
-    public void authenticateAndFetchCookies(String username, String password) {
+    public Cookies authenticateAndFetchCookies(String postCreatorUsername, String password) {
         RestAssured.baseURI = BASE_URL;
 
         Response response = RestAssured.given()
                 .contentType("multipart/form-data")
-                .multiPart("username", username)
+                .multiPart("username", postCreatorUsername)
                 .multiPart("password", "Project.10")
                 .when()
                 .post(AUTHENTICATE_ENDPOINT);
 
         cookies = response.detailedCookies();
-        int statusCodeAuthentication = response.getStatusCode();
-        System.out.println("The status code is:" + statusCodeAuthentication);
+        return cookies;
+
     }
 
     public String getJSESSIONIDCookie(String username, String password) {
