@@ -2,19 +2,14 @@ package Utils;
 
 public class JSONRequests {
 
-    public static final String CREATE_POST_BODY = "{\n" +
-            "  \"content\": \"%s\",\n" +
-            "  \"picture\": \"Test\",\n" +
-            "  \"public\": true\n" +
-            "}";
 
 
-    public static final String UPDATED_CONTENT = "I am looking for a plump";
-    public static final String EDIT_POST_BODY = "{\n" +
-            "  \"content\": \"" + UPDATED_CONTENT + "\",\n" +
-            "  \"picture\": \"Test\",\n" +
-            "  \"public\": true\n" +
-            "}";
+//    public static final String UPDATED_CONTENT = "I am looking for a plump";
+//    public static final String EDIT_POST_BODY = "{\n" +
+//            "  \"content\": \"" + UPDATED_CONTENT + "\",\n" +
+//            "  \"picture\": \"Test\",\n" +
+//            "  \"public\": true\n" +
+//            "}";
     public static final String UPGRADE_USER_PROFILE_TEMPLATE = "{\n" +
             "    \"id\": %d,\n" +
             "    \"firstName\": \"%s\",\n" +

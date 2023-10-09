@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e594e28-4b31-4a01-a66b-de770076b3e8" name="Changes" comment="update and format UpdateUserExpertiseTests">
-      <change afterPath="$PROJECT_DIR$/src/main/java/models/City.java" afterDir="false" />
+    <list default="true" id="6ce80af1-b5cd-428b-802a-6e3812558ab4" name="Changes" comment="minor changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/api/testing/users/UpdateUserPersonalProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/api/testing/users/UpdateUserPersonalProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/base/BaseTestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/BaseTestSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/api/testing/post/EditPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/api/testing/post/EditPostTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,22 +29,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/rosti.WIN-IC28P738AEI/IdeaProjects/social-network/Rest Assured Testing - WeAre Project",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="TestNG.C:/Users/sesko/OneDrive/Desktop/final-pro/Rest Assured Testing - WeAre Project/src/test/resources/users_suite.xml">
-    <configuration name="C:/Users/sesko/OneDrive/Desktop/final-pro/Rest Assured Testing - WeAre Project/src/test/resources/users_suite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="RestAssuredTesting" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/users_suite.xml" />
+}]]></component>
+  <component name="RunManager" selected="TestNG.C:/Users/sesko/OneDrive/Desktop/copy-final-pro/Rest Assured Testing - WeAre Project/src/test/resources/post_suite.xml">
+    <configuration name="C:/Users/rosti.WIN-IC28P738AEI/IdeaProjects/social-network/Rest Assured Testing - WeAre Project/target/test-classes/post_suite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/target/test-classes/post_suite.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -52,51 +52,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CreateSkillTests" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="C:/Users/sesko/OneDrive/Desktop/copy-final-pro/Rest Assured Testing - WeAre Project/src/test/resources/post_suite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssuredTesting" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.api.testing.skills.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.api.testing.skills" />
-      <option name="MAIN_CLASS_NAME" value="weare.api.testing.skills.CreateSkillTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/post_suite.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GetOneSkillTests" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CreatePostTest.createPost_Successful" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssuredTesting" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="weare.api.testing.skills.*" />
+          <option name="PATTERN" value="weare.api.testing.post.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="weare.api.testing.skills" />
-      <option name="MAIN_CLASS_NAME" value="weare.api.testing.skills.GetOneSkillTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="PACKAGE_NAME" value="weare.api.testing.post" />
+      <option name="MAIN_CLASS_NAME" value="weare.api.testing.post.CreatePostTest" />
+      <option name="METHOD_NAME" value="createPost_Successful" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UpdateUserPersonalProfile.updateUserPersonalProfile_Successful" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="EditPostTest.editPost_Successful" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssuredTesting" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="weare.api.testing.users.*" />
+          <option name="PATTERN" value="weare.api.testing.post.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="weare.api.testing.users" />
-      <option name="MAIN_CLASS_NAME" value="weare.api.testing.users.UpdateUserPersonalProfile" />
-      <option name="METHOD_NAME" value="updateUserPersonalProfile_Successful" />
+      <option name="PACKAGE_NAME" value="weare.api.testing.post" />
+      <option name="MAIN_CLASS_NAME" value="weare.api.testing.post.EditPostTest" />
+      <option name="METHOD_NAME" value="editPost_Successful" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -119,11 +113,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.C:/Users/sesko/OneDrive/Desktop/final-pro/Rest Assured Testing - WeAre Project/src/test/resources/users_suite.xml" />
-        <item itemvalue="TestNG.UpdateUserPersonalProfile.updateUserPersonalProfile_Successful" />
-        <item itemvalue="TestNG.GetOneSkillTests" />
-        <item itemvalue="TestNG.CreateSkillTests" />
+        <item itemvalue="TestNG.C:/Users/sesko/OneDrive/Desktop/copy-final-pro/Rest Assured Testing - WeAre Project/src/test/resources/post_suite.xml" />
         <item itemvalue="TestNG.weare.api.testing.post.CreatePostTest and 1 more" />
+        <item itemvalue="TestNG.EditPostTest.editPost_Successful" />
+        <item itemvalue="TestNG.CreatePostTest.createPost_Successful" />
+        <item itemvalue="TestNG.C:/Users/rosti.WIN-IC28P738AEI/IdeaProjects/social-network/Rest Assured Testing - WeAre Project/target/test-classes/post_suite.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -253,19 +247,22 @@
       <option name="project" value="LOCAL" />
       <updated>1696758615858</updated>
     </task>
-    <task id="LOCAL-00015" summary="update and format UpdateUserExpertiseTests">
-      <option name="closed" value="true" />
-      <created>1696860844000</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1696860844000</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added parent class" />
@@ -282,31 +279,25 @@
     <MESSAGE value="add GetUserByIdTests" />
     <MESSAGE value="add UpdateUserExpertiseTests" />
     <MESSAGE value="minor changes" />
-    <MESSAGE value="update and format UpdateUserExpertiseTests" />
-    <option name="LAST_COMMIT_MESSAGE" value="update and format UpdateUserExpertiseTests" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="java-line">
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/users/GetUsersTests.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/post/CreatePostTest.java</url>
           <line>22</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
-        <line-breakpoint type="java-line">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/post/EditPostTest.java</url>
           <line>15</line>
           <option name="timeStamp" value="44" />
-        </line-breakpoint>
-        <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/users/UpdateUserExpertiseTests.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/users/UpdateUserPersonalProfile.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
