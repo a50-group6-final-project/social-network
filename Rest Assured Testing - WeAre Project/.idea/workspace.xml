@@ -37,10 +37,10 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="TestNG.C:/Users/sesko/OneDrive/Desktop/final-pro/Rest Assured Testing - WeAre Project/src/test/resources/users_suite.xml">
-    <configuration name="C:/Users/sesko/OneDrive/Desktop/final-pro/Rest Assured Testing - WeAre Project/src/test/resources/skills_suite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.GetOneSkillTests">
+    <configuration name="C:/Users/sesko/OneDrive/Desktop/copy-final-pro/Rest Assured Testing - WeAre Project/src/test/resources/post_suite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssuredTesting" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/skills_suite.xml" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/post_suite.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -48,26 +48,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="C:/Users/sesko/OneDrive/Desktop/final-pro/Rest Assured Testing - WeAre Project/src/test/resources/users_suite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="RestAssuredTesting" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/users_suite.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GetUserByIdTests" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CreateSkillTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssuredTesting" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="weare.api.testing.users.*" />
+          <option name="PATTERN" value="weare.api.testing.skills.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="weare.api.testing.users" />
-      <option name="MAIN_CLASS_NAME" value="weare.api.testing.users.GetUserByIdTests" />
+      <option name="PACKAGE_NAME" value="weare.api.testing.skills" />
+      <option name="MAIN_CLASS_NAME" value="weare.api.testing.skills.CreateSkillTests" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -75,49 +65,60 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GetUserByIdTests.getUserById_Successful" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="EditPostTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssuredTesting" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="weare.api.testing.users.*" />
+          <option name="PATTERN" value="weare.api.testing.post.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="weare.api.testing.users" />
-      <option name="MAIN_CLASS_NAME" value="weare.api.testing.users.GetUserByIdTests" />
-      <option name="METHOD_NAME" value="getUserById_Successful" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="PACKAGE_NAME" value="weare.api.testing.post" />
+      <option name="MAIN_CLASS_NAME" value="weare.api.testing.post.EditPostTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterUserTests.test" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="GetOneSkillTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssuredTesting" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="weare.api.testing.users.*" />
+          <option name="PATTERN" value="weare.api.testing.skills.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="weare.api.testing.users" />
-      <option name="MAIN_CLASS_NAME" value="weare.api.testing.users.RegisterUserTests" />
-      <option name="METHOD_NAME" value="test" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="PACKAGE_NAME" value="weare.api.testing.skills" />
+      <option name="MAIN_CLASS_NAME" value="weare.api.testing.skills.GetOneSkillTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="weare.api.testing.post.CreatePostTest and 1 more" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredTesting" />
+      <option name="TEST_OBJECT" value="PATTERN" />
+      <properties />
+      <listeners />
+      <patterns>
+        <pattern testClass="weare.api.testing.post.CreatePostTest" />
+        <pattern testClass="weare.api.testing.post.EditPostTest" />
+      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.C:/Users/sesko/OneDrive/Desktop/final-pro/Rest Assured Testing - WeAre Project/src/test/resources/users_suite.xml" />
-        <item itemvalue="TestNG.GetUserByIdTests.getUserById_Successful" />
-        <item itemvalue="TestNG.GetUserByIdTests" />
-        <item itemvalue="TestNG.C:/Users/sesko/OneDrive/Desktop/final-pro/Rest Assured Testing - WeAre Project/src/test/resources/skills_suite.xml" />
-        <item itemvalue="TestNG.RegisterUserTests.test" />
+        <item itemvalue="TestNG.GetOneSkillTests" />
+        <item itemvalue="TestNG.CreateSkillTests" />
+        <item itemvalue="TestNG.weare.api.testing.post.CreatePostTest and 1 more" />
+        <item itemvalue="TestNG.EditPostTest" />
+        <item itemvalue="TestNG.C:/Users/sesko/OneDrive/Desktop/copy-final-pro/Rest Assured Testing - WeAre Project/src/test/resources/post_suite.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -132,8 +133,8 @@
       <workItem from="1696607913979" duration="512000" />
       <workItem from="1696708349557" duration="9153000" />
       <workItem from="1696743915864" duration="11981000" />
-      <workItem from="1696854260115" duration="56000" />
-      <workItem from="1696854340949" duration="3000" />
+      <workItem from="1696772480045" duration="13457000" />
+      <workItem from="1696854212886" duration="25000" />
     </task>
     <task id="LOCAL-00001" summary="added parent class">
       <option name="closed" value="true" />
@@ -274,34 +275,25 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/skills/UpdateSkillTests.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/users/GetUserByIdTests.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/users/RegisterUserTests.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/users/GetUsersTests.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="27" />
+          <line>18</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/users/UpdateUserExpertiseTests.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="29" />
+          <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/post/CreatePostTest.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/post/EditPostTest.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
+        <PinnedItemInfo parentTag="org.testng.TestClass" memberName="testName" />
         <PinnedItemInfo parentTag="io.restassured.internal.RestAssuredResponseImpl" memberName="logRepository" />
       </pinned-members>
     </pin-to-top-manager>

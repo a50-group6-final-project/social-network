@@ -4,11 +4,10 @@
     <test name="Users API">
         <classes>
             <class name="weare.api.testing.users.RegisterUserTests"/>
+            <class name="weare.api.testing.users.GetUserByIdTests"/>
             <class name="weare.api.testing.users.GetUsersTests"/>
-            <class name="weare.api.testing.users.GetUserByIdTests"/>
-            <class name="weare.api.testing.skills.CreateSkillTests"/>
             <class name="weare.api.testing.users.UpdateUserExpertiseTests"/>
-            <class name="weare.api.testing.users.GetUserByIdTests"/>
+            <class name="weare.api.testing.users.UpdateUserPersonalProfile"/>
         </classes>
     </test>
 </suite>
