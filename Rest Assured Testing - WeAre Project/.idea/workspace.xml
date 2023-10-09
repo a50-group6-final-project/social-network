@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6e594e28-4b31-4a01-a66b-de770076b3e8" name="Changes" comment="minor changes" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2WOSF1W7Ra9PAPqvv4flURa1eoJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="TestNG.GetOneSkillTests">
+    <configuration name="C:/Users/sesko/OneDrive/Desktop/copy-final-pro/Rest Assured Testing - WeAre Project/src/test/resources/post_suite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredTesting" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/post_suite.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateSkillTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredTesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.api.testing.skills.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.api.testing.skills" />
+      <option name="MAIN_CLASS_NAME" value="weare.api.testing.skills.CreateSkillTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EditPostTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredTesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.api.testing.post.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.api.testing.post" />
+      <option name="MAIN_CLASS_NAME" value="weare.api.testing.post.EditPostTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GetOneSkillTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredTesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.api.testing.skills.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.api.testing.skills" />
+      <option name="MAIN_CLASS_NAME" value="weare.api.testing.skills.GetOneSkillTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="weare.api.testing.post.CreatePostTest and 1 more" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredTesting" />
+      <option name="TEST_OBJECT" value="PATTERN" />
+      <properties />
+      <listeners />
+      <patterns>
+        <pattern testClass="weare.api.testing.post.CreatePostTest" />
+        <pattern testClass="weare.api.testing.post.EditPostTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.GetOneSkillTests" />
+        <item itemvalue="TestNG.CreateSkillTests" />
+        <item itemvalue="TestNG.weare.api.testing.post.CreatePostTest and 1 more" />
+        <item itemvalue="TestNG.EditPostTest" />
+        <item itemvalue="TestNG.C:/Users/sesko/OneDrive/Desktop/copy-final-pro/Rest Assured Testing - WeAre Project/src/test/resources/post_suite.xml" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e594e28-4b31-4a01-a66b-de770076b3e8" name="Changes" comment="" />
+      <created>1696602032704</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696602032704</updated>
+      <workItem from="1696607913979" duration="512000" />
+      <workItem from="1696708349557" duration="9153000" />
+      <workItem from="1696743915864" duration="11981000" />
+      <workItem from="1696772480045" duration="13457000" />
+      <workItem from="1696854212886" duration="25000" />
+    </task>
+    <task id="LOCAL-00001" summary="added parent class">
+      <option name="closed" value="true" />
+      <created>1696608172462</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696608172463</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add Serializer">
+      <option name="closed" value="true" />
+      <created>1696717303352</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696717303352</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add Skill and Category models">
+      <option name="closed" value="true" />
+      <created>1696717351073</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696717351073</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add Skill test suite">
+      <option name="closed" value="true" />
+      <created>1696717368787</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696717368787</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add UserProfile, Page, ExpertiseProfile models">
+      <option name="closed" value="true" />
+      <created>1696750417991</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696750417991</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add page constant to BaseTestSetup">
+      <option name="closed" value="true" />
+      <created>1696750450710</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696750450710</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add skills_suite.xml">
+      <option name="closed" value="true" />
+      <created>1696750489976</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1696750489976</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add GetUsersTests">
+      <option name="closed" value="true" />
+      <created>1696750522569</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696750522569</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add UserRegister and UserPersonal models">
+      <option name="closed" value="true" />
+      <created>1696754485718</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1696754485718</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add RegisterUserTests">
+      <option name="closed" value="true" />
+      <created>1696754497643</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1696754497643</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add endpoint">
+      <option name="closed" value="true" />
+      <created>1696754523025</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1696754523025</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add GetUserByIdTests">
+      <option name="closed" value="true" />
+      <created>1696754975177</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1696754975177</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add UpdateUserExpertiseTests">
+      <option name="closed" value="true" />
+      <created>1696758606243</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1696758606243</updated>
+    </task>
+    <task id="LOCAL-00014" summary="minor changes">
+      <option name="closed" value="true" />
+      <created>1696758615858</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1696758615858</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added parent class" />
+    <MESSAGE value="add Serializer" />
+    <MESSAGE value="add Skill and Category models" />
+    <MESSAGE value="add Skill test suite" />
+    <MESSAGE value="add UserProfile, Page, ExpertiseProfile models" />
+    <MESSAGE value="add page constant to BaseTestSetup" />
+    <MESSAGE value="add skills_suite.xml" />
+    <MESSAGE value="Add GetUsersTests" />
+    <MESSAGE value="add UserRegister and UserPersonal models" />
+    <MESSAGE value="add RegisterUserTests" />
+    <MESSAGE value="add endpoint" />
+    <MESSAGE value="add GetUserByIdTests" />
+    <MESSAGE value="add UpdateUserExpertiseTests" />
+    <MESSAGE value="minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor changes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/users/GetUsersTests.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/post/CreatePostTest.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/api/testing/post/EditPostTest.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.testng.TestClass" memberName="testName" />
+        <PinnedItemInfo parentTag="io.restassured.internal.RestAssuredResponseImpl" memberName="logRepository" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>

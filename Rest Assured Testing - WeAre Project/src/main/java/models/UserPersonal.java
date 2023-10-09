@@ -11,9 +11,9 @@ public class UserPersonal {
     public Object firstName;
     public Object lastNAme;
     public Object gender;
-    public Object city;
+    public Object city = "";
     public Object birthYear;
-    public Object personalReview;
-    public String expertise;
+    public Object personalReview = "";
+    public String expertise = "Doctor";
     public ArrayList<Skill> skills;
 }
