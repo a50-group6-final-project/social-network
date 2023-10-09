@@ -60,6 +60,7 @@ public class UpdateUserExpertiseTests extends BaseUserSetup {
         expertiseProfile.category.id = categoryId;
         expertiseProfile.category.name = categoryName;
         expertiseProfile.availability = availability;
+        expertiseProfile.skills = new ArrayList<>();
 
         return expertiseProfile;
     }
