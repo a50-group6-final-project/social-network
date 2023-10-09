@@ -1,7 +1,6 @@
 package weare.api.testing.users;
 
 import Utils.Serializer;
-import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.Page;
@@ -12,12 +11,11 @@ import org.testng.annotations.Test;
 import static Utils.Endpoints.BASE_URL;
 import static Utils.Endpoints.GET_USERS_BY_NAME_ENDPOINT;
 
-public class GetUsersTests extends BaseTestSetup {
+public class GetUsersTests extends BaseUserSetup {
 
 
     @Test
     public void getUsers_Successful() {
-
         Page page = generatePageModel(1000);
         String bodyPageString = Serializer.convertObjectToJsonString(page);
 
@@ -29,18 +27,16 @@ public class GetUsersTests extends BaseTestSetup {
                 .when()
                 .post(GET_USERS_BY_NAME_ENDPOINT);
 
-        //to create Page model
         isResponse200(response);
 
-        UserProfile[] userProfileList = response.then().extract().as(UserProfile[].class);
+        userProfileList = response.then().extract().as(UserProfile[].class);
 
         Assert.assertTrue(userProfileList.length > 0, "Users list is empty");
         Assert.assertTrue(assertUserIsPresented(userProfileList, currentUsername));
 
-        UserProfile userProfile = returnUserProfile(userProfileList, currentUsername);
-       //set currentUserProfile
+        userProfile = returnUserProfile(userProfileList, currentUsername);
         currentUserProfile = userProfile;
-
+        System.out.println(userProfile);
     }
 
     private boolean assertUserIsPresented(UserProfile[] userProfileList, String username) {

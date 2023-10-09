@@ -1,43 +1,39 @@
 package weare.api.testing.users;
 
-import base.BaseTestSetup;
+import Utils.Serializer;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import models.UserPersonal;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static Utils.Endpoints.BASE_URL;
-import static Utils.JSONRequests.UPGRADE_USER_PROFILE_TEMPLATE;
-import static Utils.JSONRequests.updatedName;
-import static org.testng.Assert.assertEquals;
-
-public class UpdateUserPersonalProfile extends BaseTestSetup {
+public class UpdateUserPersonalProfile extends BaseUserSetup {
 
 
     @Test
     public void updateUserPersonalProfile_Successful() {
-        currentUsername = generateUniqueUsername();
-        currentEmail = generateUniqueEmail();
-        register(currentUsername, currentEmail);
-        authenticateAndFetchCookies(currentUsername,"Project.10");
-        String body = String.format(UPGRADE_USER_PROFILE_TEMPLATE, currentUserId, updatedName);
-
-
-        RestAssured.baseURI = BASE_URL;
+        currentUserPersonalProfile.firstName = "firstTestUpdated";
+        currentUserPersonalProfile.lastNAme = "lastTestUpdated";
+        currentUserPersonalProfile.gender = "MALE";
+        currentUserPersonalProfile.city = "Sofia";
+        currentUserPersonalProfile.birthYear = "1990";
+        String bodyUpdatedPersonalProfileString = Serializer.convertObjectToJsonString(currentUserPersonalProfile);
 
         Response response = RestAssured.given()
-                .cookies(cookies)
+                .cookie("JSESSIONID", JSESSIONID)
                 .contentType("application/json")
-                .body(body)
+                .body(bodyUpdatedPersonalProfileString)
                 .when()
                 .post("/api/users/auth/" + currentUserId + "/personal");
 
         System.out.println(response.asString());
         isResponse200(response);
-        int id = response.jsonPath().getInt("id");
-        String firstNameFromResponse = response.jsonPath().getString("firstName");
 
-        assertEquals(id, currentUserId + 1, "ID is not incremented by 1.");
-        assertEquals(firstNameFromResponse, updatedName, "First name does not match.");
+        UserPersonal returnedUserPersonalProfile = response.as(UserPersonal.class);
+
+        Assert.assertEquals(returnedUserPersonalProfile.firstName, currentUserPersonalProfile.firstName, "First name does not match.");
+        Assert.assertEquals(returnedUserPersonalProfile.lastNAme, currentUserPersonalProfile.lastNAme, "Last name does not match.");
+        Assert.assertEquals(returnedUserPersonalProfile.id, currentUserPersonalProfile.id, "ID does not match.");
 
         System.out.println("The profile is successfully updated.");
     }

@@ -1,7 +1,6 @@
 package weare.api.testing.users;
 
 import Utils.Serializer;
-import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.Category;
@@ -13,11 +12,10 @@ import java.security.SecureRandom;
 
 import static Utils.Endpoints.*;
 
-public class RegisterUserTests extends BaseTestSetup {
+public class RegisterUserTests extends BaseUserSetup {
     @Test
     public void registerUserSuccessfully () {
-        UserRegister userRegister = generateUserRegisterModel();
-        String bodyUserString = Serializer.convertObjectToJsonString(userRegister);
+        String bodyUserString = Serializer.convertObjectToJsonString(userToRegister);
 
         Response response = RestAssured.given().baseUri(BASE_URL)
                 .contentType("application/json")
@@ -27,12 +25,10 @@ public class RegisterUserTests extends BaseTestSetup {
                 .then().log().body().extract().response();
 
         isResponse200(response);
-        currentUsername = userRegister.username;
 
         String[] responseString = response.asString().split(" ");
         Assert.assertEquals(responseString[3], currentUsername);
 
-        currentEmail = userRegister.email;
         currentUserId = Integer.parseInt(responseString[6]);
         System.out.println("Registered successfully!");
     }

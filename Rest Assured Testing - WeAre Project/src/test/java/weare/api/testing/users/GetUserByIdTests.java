@@ -1,17 +1,16 @@
 package weare.api.testing.users;
 
-import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.UserPersonal;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static Utils.Endpoints.BASE_URL;
 
-public class GetUserByIdTests extends BaseTestSetup {
+public class GetUserByIdTests extends BaseUserSetup {
     @Test
     public void getUserById_Successful() {
-
         Response response = RestAssured.given()
                 .baseUri(BASE_URL)
                 .contentType("application/json")
@@ -19,10 +18,14 @@ public class GetUserByIdTests extends BaseTestSetup {
                 .when()
                 .get("/api/users/auth/" + currentUserId);
 
-        System.out.println(response.asString());
         isResponse200(response);
 
-        UserPersonal userPersonal = response.as(UserPersonal.class);
-        System.out.println(currentUserProfile);
+        userPersonal = response.as(UserPersonal.class);
+
+        currentUserPersonalProfile = userPersonal;
+
+        Assert.assertEquals(userPersonal.username, currentUsername, "Usernames don't match!");
+        Assert.assertEquals(userPersonal.email, currentEmail, "Emails don't match!");
+        Assert.assertEquals(userPersonal.id, currentUserId, "IDs don't match!");
     }
 }

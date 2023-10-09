@@ -5,7 +5,10 @@ import io.restassured.RestAssured;
 import io.restassured.config.EncoderConfig;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import models.*;
+import models.Page;
+import models.Skill;
+import models.UserPersonal;
+import models.UserProfile;
 import org.testng.annotations.BeforeSuite;
 
 import java.util.HashSet;
@@ -32,15 +35,12 @@ public class BaseTestSetup {
     public static String postCreatorUsername;
     public static int receiverUserId;
 
-    public static PostModel createPost;
-
-    public static SearchUser getUserByName;
-
     public static Skill skillToCreated;
     public static Skill createdSkill;
     public static String JSESSIONID;
     public static Page page;
     public static UserProfile currentUserProfile;
+    public static UserPersonal currentUserPersonalProfile;
 
     private static Faker faker = new Faker();
     private static Random random = new Random();
@@ -78,7 +78,6 @@ public class BaseTestSetup {
 
     @BeforeSuite
     public void setup() {
-
         EncoderConfig encoderConfig = RestAssured.config().getEncoderConfig()
                 .appendDefaultContentCharsetToContentTypeIfUndefined(false);
 
@@ -122,19 +121,19 @@ public class BaseTestSetup {
     }
 
 
-    public Cookies authenticateAndFetchCookies(String postCreatorUsername, String password) {
+    public void authenticateAndFetchCookies(String username, String password) {
         RestAssured.baseURI = BASE_URL;
 
         Response response = RestAssured.given()
                 .contentType("multipart/form-data")
-                .multiPart("username", postCreatorUsername)
+                .multiPart("username", username)
                 .multiPart("password", "Project.10")
                 .when()
                 .post(AUTHENTICATE_ENDPOINT);
 
         cookies = response.detailedCookies();
-        return cookies;
-
+        int statusCodeAuthentication = response.getStatusCode();
+        System.out.println("The status code is:" + statusCodeAuthentication);
     }
 
     public String getJSESSIONIDCookie(String username, String password) {
