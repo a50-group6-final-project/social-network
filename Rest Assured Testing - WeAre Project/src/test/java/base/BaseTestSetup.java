@@ -120,19 +120,19 @@ public class BaseTestSetup {
     }
 
 
-    public void authenticateAndFetchCookies(String username, String password) {
+    public Cookies authenticateAndFetchCookies(String postCreatorUsername, String password) {
         RestAssured.baseURI = BASE_URL;
 
         Response response = RestAssured.given()
                 .contentType("multipart/form-data")
-                .multiPart("username", username)
+                .multiPart("username", postCreatorUsername)
                 .multiPart("password", "Project.10")
                 .when()
                 .post(AUTHENTICATE_ENDPOINT);
 
         cookies = response.detailedCookies();
-        int statusCodeAuthentication = response.getStatusCode();
-        System.out.println("The status code is:" + statusCodeAuthentication);
+        return cookies;
+
     }
 
     public String getJSESSIONIDCookie(String username, String password) {
