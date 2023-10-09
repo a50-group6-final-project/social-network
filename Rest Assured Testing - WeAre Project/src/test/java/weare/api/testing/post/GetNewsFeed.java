@@ -16,7 +16,7 @@ public class GetNewsFeed extends BaseTestSetup {
         currentUsername = generateUniqueUsername();
         currentEmail = generateUniqueEmail();
         register(currentUsername, currentEmail);
-        authenticateAndFetchCookies(senderUsername,"Project.10");
+        authenticateAndFetchCookies(currentUsername,"Project.10");
         RestAssured.baseURI = BASE_URL;
 
         Response response = RestAssured.given()
