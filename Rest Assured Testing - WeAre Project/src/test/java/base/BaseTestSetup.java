@@ -5,10 +5,7 @@ import io.restassured.RestAssured;
 import io.restassured.config.EncoderConfig;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import models.Page;
-import models.Skill;
-import models.UserPersonal;
-import models.UserProfile;
+import models.*;
 import org.testng.annotations.BeforeSuite;
 
 import java.util.HashSet;
@@ -34,7 +31,9 @@ public class BaseTestSetup {
     public static int senderUserId;
     public static String postCreatorUsername;
     public static int receiverUserId;
+     public static EditPost editPost;
 
+     public static PostModel createPost;
     public static Skill skillToCreated;
     public static Skill createdSkill;
     public static String JSESSIONID;
