@@ -33,6 +33,8 @@ public class BaseTestSetup {
     public static int receiverUserId;
      public static EditPost editPost;
 
+     public static ApproveRequest approveRequest;
+public static SendRequest sendRequestToUser;
      public static PostModel createPost;
     public static Skill skillToCreated;
     public static Skill createdSkill;
