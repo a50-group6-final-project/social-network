@@ -36,7 +36,6 @@ public class GetUsersTests extends BaseUserSetup {
 
         userProfile = returnUserProfile(userProfileList, currentUsername);
         currentUserProfile = userProfile;
-        System.out.println(userProfile);
     }
 
     private boolean assertUserIsPresented(UserProfile[] userProfileList, String username) {
