@@ -10,7 +10,7 @@ Our goal is to thoroughly test the "WEare" application to deliver the most compl
 #### QA Methodologies and Technologies
 - Manual Testing
 - Test Case Creation and Execution
-- Automated Testing using Java, REST Assured, and Selenium Webdriver
+- Automated Testing using Postman, REST Assured, and Selenium Webdriver
   
 
 #### Features Tested
