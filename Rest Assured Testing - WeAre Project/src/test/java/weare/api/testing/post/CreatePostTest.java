@@ -4,6 +4,7 @@ import Utils.Serializer;
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import models.EditPost;
 import models.PostModel;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -19,12 +20,12 @@ public class CreatePostTest extends BaseTestSetup {
     public void createPost_Successful() {
         String uniqueContent = generateUniqueContentPost();
 
-        PostModel uniquePost = new PostModel();
-        uniquePost.content = uniqueContent;
-        uniquePost.picture = "";
-        uniquePost.mypublic = true;
+        createPost = new PostModel();
+        createPost.content = uniqueContent;
+        createPost.picture = "";
+        createPost.mypublic = true;
 
-        String bodyPostString = Serializer.convertObjectToJsonString(uniquePost);
+        String bodyPostString = Serializer.convertObjectToJsonString(createPost);
 
         postCreatorUsername = generateUniqueUsername();
         currentEmail = generateUniqueEmail();
@@ -47,6 +48,8 @@ public class CreatePostTest extends BaseTestSetup {
         assertEquals(contentFromResponse, uniqueContent, "Content does not match.");
 
         isResponse200(response);
+        editPost=response.as(EditPost.class);
+        Assert.assertNotNull(editPost.postId);
         Assert.assertNotNull(response.jsonPath().get("postId"), "postId is null");
         Assert.assertNotNull(response.jsonPath().get("content"), "content is null");
         Assert.assertNotNull(response.jsonPath().get("picture"), "picture is null");

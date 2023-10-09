@@ -34,7 +34,11 @@ public class BaseTestSetup {
 
     public static PostModel createPost;
 
+    public static EditPost editPost;
+
     public static SearchUser getUserByName;
+
+    public static SendRequest SendRequestToUser;
 
     public static Skill skillToCreated;
     public static Skill createdSkill;
