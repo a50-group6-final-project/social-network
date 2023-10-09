@@ -1,50 +1,52 @@
 package weare.api.testing.post;
 
+import Utils.Serializer;
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import models.PostModel;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static Utils.Endpoints.BASE_URL;
 import static Utils.Endpoints.CREATЕ_POST_ENDPOINT;
-import static Utils.JSONRequests.CREATE_POST_BODY;
 import static org.testng.Assert.assertEquals;
 
 public class CreatePostTest extends BaseTestSetup {
-    @BeforeTest
-    public void register_postCreatorUsername() {
 
-    }
 
     @Test
     public void createPost_Successful() {
+        String uniqueContent = generateUniqueContentPost();
+
+        PostModel uniquePost = new PostModel();
+        uniquePost.content = uniqueContent;
+        uniquePost.picture = "";
+        uniquePost.mypublic = true;
+
+        String bodyPostString = Serializer.convertObjectToJsonString(uniquePost);
+
         postCreatorUsername = generateUniqueUsername();
         currentEmail = generateUniqueEmail();
 
         register(postCreatorUsername, currentEmail);
-
         authenticateAndFetchCookies(postCreatorUsername, "Project.10");
-        String uniqueContent = generateUniqueContentPost();
 
         RestAssured.baseURI = BASE_URL;
-
-        String body = String.format(CREATE_POST_BODY, uniqueContent);
 
         Response response = RestAssured.given()
                 .cookies(cookies)
                 .contentType("application/json")
-                .body(body)
+                .body(bodyPostString)
                 .when()
                 .post(CREATЕ_POST_ENDPOINT);
 
         System.out.println(response.asString());
+
         String contentFromResponse = response.jsonPath().getString("content");
+        assertEquals(contentFromResponse, uniqueContent, "Content does not match.");
 
         isResponse200(response);
-        assertEquals(contentFromResponse, uniqueContent, "Content does not match.");
-        Assert.assertNotNull(response.jsonPath().get("postId"), "postId is null");
         Assert.assertNotNull(response.jsonPath().get("postId"), "postId is null");
         Assert.assertNotNull(response.jsonPath().get("content"), "content is null");
         Assert.assertNotNull(response.jsonPath().get("picture"), "picture is null");
@@ -60,8 +62,6 @@ public class CreatePostTest extends BaseTestSetup {
         postId = response.jsonPath().getInt("postId");
 
         System.out.println("Successfully created a new post. All properties are not null.");
-
     }
-
-
 }
+

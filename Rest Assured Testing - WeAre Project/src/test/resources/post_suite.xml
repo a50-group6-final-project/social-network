@@ -5,6 +5,8 @@
         <classes>
             <class name="weare.api.testing.post.CreatePostTest"/>
             <class name="weare.api.testing.post.EditPostTest"/>
+            <class name="weare.api.testing.post.GetNewsFeed"/>
+
 
         </classes>
     </test>
