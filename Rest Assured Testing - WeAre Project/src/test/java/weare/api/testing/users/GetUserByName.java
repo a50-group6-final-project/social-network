@@ -49,6 +49,7 @@ public class GetUserByName extends BaseTestSetup {
 
        isResponse200(response);
 
+
         String username = response.jsonPath().getString("[0].username");
         int userId = response.jsonPath().getInt("[0].userId");
 

@@ -1,8 +1,10 @@
 package weare.api.testing.users;
 
+import Utils.Serializer;
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import models.UserRegister;
 import org.testng.annotations.Test;
 import static Utils.Endpoints.BASE_URL;
 import static Utils.Endpoints.USERS_ENDPOINT;
@@ -17,13 +19,20 @@ public class RegistrationTest extends BaseTestSetup {
 
         currentUsername = generateUniqueUsername();
         currentEmail = generateUniqueEmail();
+        UserRegister userRegisterBody = new UserRegister();
+
+        userRegisterBody.username=currentUsername;
+        userRegisterBody.email=currentEmail;
+        userRegisterBody.password="Project.10";
+        userRegisterBody.confirmPassword="Project.10";
 
         RestAssured.baseURI = BASE_URL;
-        String body = String.format(REGISTRATION_BODY_TEMPLATE, currentEmail, currentUsername);
+
+        String bodyRegistration = Serializer.convertObjectToJsonString(userRegisterBody);
 
         Response response = RestAssured.given()
                 .contentType("application/json")
-                .body(body)
+                .body(bodyRegistration)
                 .when()
                 .post(USERS_ENDPOINT);
 

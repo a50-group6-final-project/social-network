@@ -24,13 +24,14 @@ public class EditPostTest extends BaseTestSetup {
         Response response = RestAssured.given()
                 .cookies(cookies)
                 .contentType("application/json")
+                .queryParam("postId", postId)
                 .body(bodyEditPostString)
                 .when()
-                .put(EDIT_POST_ENDPOINT + postId);
+                .put(EDIT_POST_ENDPOINT);
 
 
         isResponse200(response);
-//        Assert.assertNotNull(editPost);
+        Assert.assertNotNull(editPost);
         System.out.println(response.asString());
 
         System.out.println("Post edited successfully.");

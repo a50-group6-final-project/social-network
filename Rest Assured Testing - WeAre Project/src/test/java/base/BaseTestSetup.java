@@ -25,6 +25,8 @@ public class BaseTestSetup {
     public static String currentEmail;
     public static int currentUserId;
     public static int postId;
+
+    public static int idRequest ;
     public static String senderUsername;
     public static String receiverUsername;
     public static String receiverEmail;
@@ -33,6 +35,10 @@ public class BaseTestSetup {
     public static int receiverUserId;
      public static EditPost editPost;
 
+     public static UserRegister UserRegisterBody;
+
+     public static ApproveRequest approveRequest;
+public static SendRequest sendRequestToUser;
      public static PostModel createPost;
     public static Skill skillToCreated;
     public static Skill createdSkill;
