@@ -4,9 +4,7 @@ import Utils.Serializer;
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import models.ApproveRequest;
 import models.SendRequest;
-import models.UserProfile;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,6 +13,7 @@ import static Utils.Endpoints.SEND_REQUEST_ENDPOINT;
 
 
 public class SendRequestTest extends BaseTestSetup {
+
 
 
     @Test
