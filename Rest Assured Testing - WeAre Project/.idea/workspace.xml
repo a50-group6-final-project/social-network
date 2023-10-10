@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ce80af1-b5cd-428b-802a-6e3812558ab4" name="Changes" comment="Refactoring SendRequestTest">
+    <list default="true" id="6ce80af1-b5cd-428b-802a-6e3812558ab4" name="Changes" comment="Adding ApproveRequest Test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/Endpoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/Endpoints.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/base/BaseTestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/base/BaseTestSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/api/testing/connection/ApproveRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/api/testing/connection/ApproveRequestTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/weare/api/testing/connection/GetUserRequestsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/api/testing/connection/GetUserRequestsTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/api/testing/connection/SendRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/api/testing/connection/SendRequestTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/weare/api/testing/post/EditPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/api/testing/post/EditPostTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/connection_suite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/connection_suite.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/connection_suite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/connection_suite.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/api/testing/users/GetUserByName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/api/testing/users/GetUserByName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/api/testing/users/RegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/api/testing/users/RegistrationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,25 +30,28 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2WOSF1W7Ra9PAPqvv4flURa1eoJ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/rosti.WIN-IC28P738AEI/IdeaProjects/social-network/Rest Assured Testing - WeAre Project",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rosti.WIN-IC28P738AEI/IdeaProjects/social-network/Rest Assured Testing - WeAre Project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="TestNG.C:/Users/rosti.WIN-IC28P738AEI/IdeaProjects/social-network/Rest Assured Testing - WeAre Project/src/test/resources/post_suite.xml">
+}</component>
+  <component name="RunManager" selected="TestNG.RegistrationTest.registerUser_successful">
     <configuration name="C:/Users/rosti.WIN-IC28P738AEI/IdeaProjects/social-network/Rest Assured Testing - WeAre Project/src/test/resources/connection_suite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssuredTesting" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/connection_suite.xml" />
@@ -56,27 +62,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="C:/Users/rosti.WIN-IC28P738AEI/IdeaProjects/social-network/Rest Assured Testing - WeAre Project/src/test/resources/post_suite.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="RestAssuredTesting" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/post_suite.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GetUserRequestsTests" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CreatePostTest.createPost_Successful" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="RestAssuredTesting" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="weare.api.testing.connection.*" />
+          <option name="PATTERN" value="weare.api.testing.post.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="weare.api.testing.connection" />
-      <option name="MAIN_CLASS_NAME" value="weare.api.testing.connection.GetUserRequestsTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="PACKAGE_NAME" value="weare.api.testing.post" />
+      <option name="MAIN_CLASS_NAME" value="weare.api.testing.post.CreatePostTest" />
+      <option name="METHOD_NAME" value="createPost_Successful" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -94,6 +91,24 @@
       <option name="PACKAGE_NAME" value="weare.api.testing.connection" />
       <option name="MAIN_CLASS_NAME" value="weare.api.testing.connection.GetUserRequestsTests" />
       <option name="METHOD_NAME" value="getUserRequestTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegistrationTest.registerUser_successful" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="RestAssuredTesting" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.api.testing.users.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.api.testing.users" />
+      <option name="MAIN_CLASS_NAME" value="weare.api.testing.users.RegistrationTest" />
+      <option name="METHOD_NAME" value="registerUser_successful" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -121,18 +136,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.C:/Users/rosti.WIN-IC28P738AEI/IdeaProjects/social-network/Rest Assured Testing - WeAre Project/src/test/resources/post_suite.xml" />
+        <item itemvalue="TestNG.RegistrationTest.registerUser_successful" />
         <item itemvalue="TestNG.C:/Users/rosti.WIN-IC28P738AEI/IdeaProjects/social-network/Rest Assured Testing - WeAre Project/src/test/resources/connection_suite.xml" />
         <item itemvalue="TestNG.GetUserRequestsTests.getUserRequestTest" />
+        <item itemvalue="TestNG.CreatePostTest.createPost_Successful" />
         <item itemvalue="TestNG.SendRequestTest.sendRequest_successful" />
-        <item itemvalue="TestNG.GetUserRequestsTests" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6e594e28-4b31-4a01-a66b-de770076b3e8" name="Changes" comment="" />
+      <changelist id="6ce80af1-b5cd-428b-802a-6e3812558ab4" name="Changes" comment="Adding ApproveRequest Test" />
       <created>1696602032704</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -269,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696864862603</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Adding ApproveRequest Test">
+      <created>1696867957307</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1696867957307</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +327,8 @@
     <MESSAGE value="minor changes" />
     <MESSAGE value="Refactoring CreatePost and EditPost" />
     <MESSAGE value="Refactoring SendRequestTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring SendRequestTest" />
+    <MESSAGE value="Adding ApproveRequest Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding ApproveRequest Test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

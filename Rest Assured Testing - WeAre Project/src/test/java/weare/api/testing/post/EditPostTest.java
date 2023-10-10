@@ -31,7 +31,7 @@ public class EditPostTest extends BaseTestSetup {
 
 
         isResponse200(response);
-//        Assert.assertNotNull(editPost);
+        Assert.assertNotNull(editPost);
         System.out.println(response.asString());
 
         System.out.println("Post edited successfully.");

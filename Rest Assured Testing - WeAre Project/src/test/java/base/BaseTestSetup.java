@@ -35,6 +35,8 @@ public class BaseTestSetup {
     public static int receiverUserId;
      public static EditPost editPost;
 
+     public static UserRegister UserRegisterBody;
+
      public static ApproveRequest approveRequest;
 public static SendRequest sendRequestToUser;
      public static PostModel createPost;

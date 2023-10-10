@@ -19,12 +19,18 @@ public class Endpoints {
     public static final String PERSONAL_ENDPOINT = "/api/users/auth/{{userIdSender}}/personal";
     public static final String REQUEST_ENDPOINT = "/api/auth/request?principal={{firstNameSender}}";
     public static final String USER_REQUESTS_ENDPOINT = "/api/auth/users/{{userIdReceiver}}/request/";
-    public static final String APPROVE_REQUEST_ENDPOINT = "/api/auth/users/{{userIdReceiver}}/request/approve?requestId={{requestId}}";
     public static final String SKILL_ENDPOINT = "/api/skill";
     public static final String SKILL_CREATE_ENDPOINT = SKILL_ENDPOINT + "/create";
     public static final String SKILL_GET_ONE_ENDPOINT = SKILL_ENDPOINT + "/getOne";
     public static final String SKILL_UPDATE_ENDPOINT = SKILL_ENDPOINT + "/edit";
     public static final String SKILL_DELETE_ENDPOINT = SKILL_ENDPOINT + "/delete";
+    public static final String APPROVE_REQUEST_ENDPOINT = "/api/auth/users/{receiverUserId}/request/?requestId=";
+    public static final String RECEIVER_USER_ID_REQUEST_ENDPOINT = "/api/auth/users/{receiverUserId}/request/";
+
+    public static final String SEND_REQUEST_ENDPOINT = "/api/auth/request";
+
+
+
 
 
 }

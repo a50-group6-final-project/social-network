@@ -4,11 +4,14 @@ import Utils.Serializer;
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import models.ApproveRequest;
 import models.SendRequest;
+import models.UserProfile;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static Utils.Endpoints.BASE_URL;
+import static Utils.Endpoints.SEND_REQUEST_ENDPOINT;
 
 
 public class SendRequestTest extends BaseTestSetup {
@@ -45,7 +48,7 @@ public class SendRequestTest extends BaseTestSetup {
                 .contentType("application/json")
                 .body(bodySendRequest)
                 .when()
-                .post("/api/auth/request");
+                .post(SEND_REQUEST_ENDPOINT);
 
         System.out.println(response.asString());
 
@@ -60,6 +63,7 @@ public class SendRequestTest extends BaseTestSetup {
         isResponse200(response);
         Assert.assertEquals(senderUsername, senderNameInResponse, "Sender name does not match!");
         Assert.assertEquals(receiverUsername, receiverNameInResponse, "Receiver name does not match!");
+
     }
 
 
