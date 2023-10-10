@@ -3,8 +3,8 @@
 		"_postman_id": "1be0383c-2d5f-408d-a7d0-71fa5a84ece0",
 		"name": "WeAre_Social Network Project",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "24294340",
-		"_collection_link": "https://dark-astronaut-260412.postman.co/workspace/Telerik---Final-Project-~17b108a4-3f4a-4892-826d-8bb170257f82/collection/30132667-1be0383c-2d5f-408d-a7d0-71fa5a84ece0?action=share&source=collection_link&creator=24294340"
+		"_exporter_id": "30132667",
+		"_collection_link": "https://dark-astronaut-260412.postman.co/workspace/Telerik---Final-Project-~17b108a4-3f4a-4892-826d-8bb170257f82/collection/30132667-1be0383c-2d5f-408d-a7d0-71fa5a84ece0?action=share&source=collection_link&creator=30132667"
 	},
 	"item": [
 		{
@@ -1212,16 +1212,57 @@
 							"script": {
 								"exec": [
 									"console.log(pm.request.body)\r",
-									"pm.environment.set(\"skillId\", pm.response.json().skillId);"
+									"\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Set skillId in a variable\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.environment.set(\"storedSkillId\", jsonData.skillId);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Skill ID is correct\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    var storedSkillId = pm.environment.get(\"storedSkillId\"); \r",
+									"    pm.expect(jsonData.skillId).to.eql(Number(storedSkillId)); \r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Set skill in a variable\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.environment.set(\"storedSkill\", jsonData.skill);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var usedSkills = JSON.parse(pm.environment.get(\"usedSkills\") || \"[]\");\r",
+									"var storedSkill;\r",
+									"\r",
+									"do {\r",
+									"    storedSkill = pm.variables.replaceIn('{{$randomJobTitle}}');\r",
+									"} while (usedSkills.includes(storedSkill));\r",
+									"\r",
+									"usedSkills.push(storedSkill); \r",
+									"pm.environment.set(\"usedSkills\", JSON.stringify(usedSkills));\r",
+									"pm.environment.set(\"storedSkill\", storedSkill);\r",
+									""
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "POST",
 						"header": [
 							{
@@ -1232,7 +1273,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"category\": {\r\n    \"id\": 157,\r\n    \"name\": \"Marketing\"\r\n  },\r\n  \"skill\": \"test postman skill\"\r\n}",
+							"raw": "{\r\n  \"skillId\": 145,\r\n  \"skill\": \"{{storedSkill}}\",\r\n  \"category\": {\r\n    \"id\": 157,\r\n    \"name\": \"Marketing\"\r\n  }\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1255,6 +1296,37 @@
 				},
 				{
 					"name": "Get One",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Set skillId in a variable\", function () {\r",
+									"    var jsonData = pm.response.json();  \r",
+									"    pm.environment.set(\"storedSkillId\", jsonData.skillId);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Compare storedSkillId with response\", function () {\r",
+									"    var jsonData = pm.response.json();  \r",
+									"    var storedSkillId = pm.environment.get(\"storedSkillId\"); \r",
+									"    pm.expect(jsonData.skillId).to.eql(Number(storedSkillId)); \r",
+									"});\r",
+									"\r",
+									"pm.test(\"Compare storedSkill with response\", function () {\r",
+									"    var jsonData = pm.response.json();  \r",
+									"    var storedSkill = pm.environment.get(\"storedSkill\"); \r",
+									"    pm.expect(jsonData.skill).to.eql(storedSkill); \r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -1265,7 +1337,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{endpointSkill}}/getOne?skillId={{skillId}}",
+							"raw": "{{baseUrl}}{{endpointSkill}}/getOne?skillId={{storedSkillId}}",
 							"host": [
 								"{{baseUrl}}{{endpointSkill}}"
 							],
@@ -1275,7 +1347,7 @@
 							"query": [
 								{
 									"key": "skillId",
-									"value": "{{skillId}}"
+									"value": "{{storedSkillId}}"
 								}
 							]
 						}
@@ -1289,7 +1361,36 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"console.log(pm.response.json())"
+									"console.log(pm.response.json())\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if the objects are more than one\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(jsonData.length).to.be.above(1);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if storedSkillId exists in the response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    var storedSkillId = pm.environment.get(\"storedSkillId\");\r",
+									"\r",
+									"    var exists = jsonData.some(function(item) {\r",
+									"        return item.skillId === storedSkillId;\r",
+									"    });\r",
+									"    pm.expect(exists).to.be.true;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Check if storedSkill exists in the response\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    var storedSkill = pm.environment.get(\"storedSkill\");\r",
+									"\r",
+									"    var exists = jsonData.some(function(item) {\r",
+									"        return item.skill === storedSkill;\r",
+									"    });\r",
+									"    pm.expect(exists).to.be.true;\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -1321,6 +1422,48 @@
 				},
 				{
 					"name": "Update a Skill",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"var usedSkills = JSON.parse(pm.environment.get(\"usedSkills\") || \"[]\");\r",
+									"\r",
+									"var storedSkill;\r",
+									"var newSkill;\r",
+									"\r",
+									"do {\r",
+									"    storedSkill = pm.variables.replaceIn('{{$randomJobTitle}}');\r",
+									"} while (usedSkills.includes(storedSkill));\r",
+									"\r",
+									"do {\r",
+									"    newSkill = pm.variables.replaceIn('{{$randomJobTitle}}');\r",
+									"} while (usedSkills.includes(newSkill));\r",
+									"\r",
+									"usedSkills.push(storedSkill);\r",
+									"\r",
+									"pm.environment.set(\"usedSkills\", JSON.stringify(usedSkills));\r",
+									"\r",
+									"pm.environment.set(\"storedSkill\", storedSkill);\r",
+									"pm.environment.set(\"newSkill\", newSkill);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -1331,21 +1474,25 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{endpointSkill}}/edit?skill={{skillNameEdited}}&skillId={{skillId}}",
+							"raw": "http://localhost:8081/api/skill/edit?skill={{newSkill}}&skillId={{storedSkillId}}",
+							"protocol": "http",
 							"host": [
-								"{{baseUrl}}{{endpointSkill}}"
+								"localhost"
 							],
+							"port": "8081",
 							"path": [
+								"api",
+								"skill",
 								"edit"
 							],
 							"query": [
 								{
 									"key": "skill",
-									"value": "{{skillNameEdited}}"
+									"value": "{{newSkill}}"
 								},
 								{
 									"key": "skillId",
-									"value": "{{skillId}}"
+									"value": "{{storedSkillId}}"
 								}
 							]
 						}
@@ -1354,6 +1501,19 @@
 				},
 				{
 					"name": "Delete a Skill",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -1364,7 +1524,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/skill/delete?skillId=102",
+							"raw": "{{baseUrl}}/api/skill/delete?skillId={{storedSkillId}}",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -1376,7 +1536,7 @@
 							"query": [
 								{
 									"key": "skillId",
-									"value": "102"
+									"value": "{{storedSkillId}}"
 								}
 							]
 						}
