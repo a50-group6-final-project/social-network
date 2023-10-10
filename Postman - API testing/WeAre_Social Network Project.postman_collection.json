@@ -688,48 +688,31 @@
 			"name": "rest-user-controller",
 			"item": [
 				{
-					"name": "Authenticate - set JSESSIONID",
+					"name": "Registration",
 					"event": [
 						{
-							"listen": "test",
+							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"pm.environment.set(\"sessionID\", pm.cookies.get(\"JSESSIONID\"));"
+									"pm.environment.set(\"newEmail\", \"testaccount.\" + Math.floor(Math.random() * 10000) + \"@abv.bg\");\r",
+									"\r",
+									"pm.environment.set(\"newUsername\", \"MrTest\" + generateString(5))\r",
+									"\r",
+									"function generateString(length) {\r",
+									"  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
+									"  let result = '';\r",
+									"\r",
+									"  for (let i = 0; i < length; i++) {\r",
+									"    const randomIndex = Math.floor(Math.random() * characters.length);\r",
+									"    result += characters.charAt(randomIndex);\r",
+									"  }\r",
+									"\r",
+									"  return result;\r",
+									"}"
 								],
 								"type": "text/javascript"
 							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "{{username}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "{{password}}",
-									"type": "text"
-								}
-							]
 						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
-							"host": [
-								"{{baseUrl}}{{endpointAuthenticate}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Registration",
-					"event": [
 						{
 							"listen": "test",
 							"script": {
@@ -762,37 +745,15 @@
 									"pm.test(\"Response status code is 200\", function () {",
 									"  pm.expect(pm.response.code).to.equal(200);",
 									"});",
+									"",
 									"//Assert registered username is the same as provided one",
-									"pm.test('Username is equal to `${pm.environment.get(username)}`', () => {",
-									"    pm.expect(username).to.be.equal.to(pm.environment.get(username))",
+									"pm.test('Username are equal`', () => {",
+									"    pm.expect(username).to.have.string(pm.environment.get(\"username\"))",
 									"})",
 									"//assert userId is a number",
 									"pm.test('userId to be a number', () => {",
 									"    pm.expect(userId).not.to.be.NaN;",
 									"})"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"pm.environment.set(\"newEmail\", \"testaccount.\" + Math.floor(Math.random() * 10000) + \"@abv.bg\");\r",
-									"\r",
-									"pm.environment.set(\"newUsername\", \"MrTest\" + generateString(7) + \"@abv.bg\")\r",
-									"\r",
-									"function generateString(length) {\r",
-									"  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
-									"  let result = '';\r",
-									"\r",
-									"  for (let i = 0; i < length; i++) {\r",
-									"    const randomIndex = Math.floor(Math.random() * characters.length);\r",
-									"    result += characters.charAt(randomIndex);\r",
-									"  }\r",
-									"\r",
-									"  return result;\r",
-									"}"
 								],
 								"type": "text/javascript"
 							}
@@ -820,6 +781,47 @@
 							"raw": "{{baseUrl}}{{endpointUsers}}",
 							"host": [
 								"{{baseUrl}}{{endpointUsers}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate - set JSESSIONID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"sessionID\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{username}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
+							"host": [
+								"{{baseUrl}}{{endpointAuthenticate}}"
 							]
 						}
 					},
@@ -860,14 +862,7 @@
 					],
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Cookie",
-								"value": "JSESSIONID={{sessionID}}",
-								"type": "text",
-								"disabled": true
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n  \"index\": 0,\r\n  \"next\": true,\r\n  \"searchParam1\": \"\",\r\n  \"searchParam2\": \"\",\r\n  \"size\": 10\r\n}",
@@ -947,7 +942,8 @@
 							{
 								"key": "Cookie",
 								"value": "JSESSIONID={{sessionID}}",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
@@ -1135,7 +1131,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"availability\": {{skillAvailability}},\r\n  \"category\": {\r\n    \"id\": {{categoryId}},\r\n    \"name\": \"{{categoryName}}\"\r\n  },\r\n  \"id\": {{userId}},\r\n  \"skill1\":\"{{skillName}}\"\r\n}",
+							"raw": "{\r\n    \"id\": 79,\r\n    \"category\": {\r\n        \"id\": 155,\r\n        \"name\": \"Marketing Updated\"\r\n    },\r\n    \"availability\": 44.66\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1184,7 +1180,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"MrTestFour\",\r\n    \"email\": \"test.account.03@abv.bg\",\r\n    \"firstName\": \"Ivan\",\r\n    \"lastName\": \"Gervan\",\r\n    \"gender\": \"MALE\",\r\n    \"birthYear\": \"1905-12-09\",\r\n    \"personalReview\": null,\r\n    \"expertise\": \"Doctor\",\r\n    \"skills\": [],\r\n    \"location\": {\r\n        \"city\": {\r\n            \"country\": {},\r\n            \"id\": 23\r\n        }\r\n    }\r\n}",
+							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"firstName\": \"{{firstNameUpdated}}\",\r\n    \"lastName\": \"{{lastNameUpdated}}\",\r\n    \"gender\": \"{{gender}}\",\r\n    \"birthYear\": \"{{birthYearUpdated}}\",\r\n    \"personalReview\": null,\r\n    \"expertise\": \"Doctor\",\r\n    \"skills\": [],\r\n    \"location\": {\r\n        \"city\": {\r\n            \"country\": {},\r\n            \"id\": 23\r\n        }\r\n    }\r\n}\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1236,7 +1232,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"category\": {\r\n    \"id\": 157\r\n  },\r\n  \"skill\": \"test postman skill\"\r\n}",
+							"raw": "{\r\n  \"category\": {\r\n    \"id\": 157,\r\n    \"name\": \"Marketing\"\r\n  },\r\n  \"skill\": \"test postman skill\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1244,11 +1240,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{endpointSkill}}/create",
+							"raw": "{{baseUrl}}/api/skill/create",
 							"host": [
-								"{{baseUrl}}{{endpointSkill}}"
+								"{{baseUrl}}"
 							],
 							"path": [
+								"api",
+								"skill",
 								"create"
 							]
 						}
@@ -1531,16 +1529,9 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/api/users/",
-							"protocol": "http",
+							"raw": "{{baseUrl}}{{endpointUsers}}",
 							"host": [
-								"localhost"
-							],
-							"port": "8081",
-							"path": [
-								"api",
-								"users",
-								""
+								"{{baseUrl}}{{endpointUsers}}"
 							]
 						}
 					},
@@ -1592,60 +1583,9 @@
 							]
 						},
 						"url": {
-							"raw": "{{baseUrl}}/authenticate",
+							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"authenticate"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get news feeds",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"All posts are present in the news feed\", function () {\r",
-									"    pm.response.to.be.json;\r",
-									"    var responseBody = pm.response.json();\r",
-									"    pm.expect(responseBody).to.not.be.empty;\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}/api/post/?sorted=true&unsorted=true",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"post",
-								""
-							],
-							"query": [
-								{
-									"key": "sorted",
-									"value": "true"
-								},
-								{
-									"key": "unsorted",
-									"value": "true"
-								}
+								"{{baseUrl}}{{endpointAuthenticate}}"
 							]
 						}
 					},
@@ -1729,15 +1669,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/post/auth/creator",
+							"raw": "{{baseUrl}}{{endpointCreatePost}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"post",
-								"auth",
-								"creator"
+								"{{baseUrl}}{{endpointCreatePost}}"
 							]
 						}
 					},
@@ -1789,15 +1723,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/post/auth/editor?postId={{postId}}",
+							"raw": "{{baseUrl}}{{endpointEditPost}}?postId={{postId}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"post",
-								"auth",
-								"editor"
+								"{{baseUrl}}{{endpointEditPost}}"
 							],
 							"query": [
 								{
@@ -1877,7 +1805,13 @@
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									""
+									"pm.test(\"Verify that the post is disliked\", function () {\r",
+									"    // Extract the JSON response data\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    // Check if the 'liked' property in the response is true\r",
+									"    pm.expect(responseData.liked).to.be.false;\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
@@ -1903,15 +1837,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/post/auth/likesUp?postId={{postId}}",
+							"raw": "{{baseUrl}}{{endpointLikeAPost}}?postId={{postId}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"post",
-								"auth",
-								"likesUp"
+								"{{baseUrl}}{{endpointLikeAPost}}"
 							],
 							"query": [
 								{
@@ -1969,14 +1897,62 @@
 							"file": {}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{endpointLikeAPost}}r?postId={{postId}}",
+							"raw": "{{baseUrl}}{{endpointDeletePost}}?postId={{postId}}",
 							"host": [
-								"{{baseUrl}}{{endpointLikeAPost}}r"
+								"{{baseUrl}}{{endpointDeletePost}}"
 							],
 							"query": [
 								{
 									"key": "postId",
 									"value": "{{postId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get news feeds",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"All posts are present in the news feed\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"    var responseBody = pm.response.json();\r",
+									"    pm.expect(responseBody).to.not.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/post/?sorted=true&unsorted=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"post",
+								""
+							],
+							"query": [
+								{
+									"key": "sorted",
+									"value": "true"
+								},
+								{
+									"key": "unsorted",
+									"value": "true"
 								}
 							]
 						}
@@ -2046,55 +2022,6 @@
 		{
 			"name": "rest-comment-controller",
 			"item": [
-				{
-					"name": "Find all comments",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"All comments are present in response\", function () {\r",
-									"    // Extract the JSON response data\r",
-									"    const responseData = pm.response.json();\r",
-									"    // Extract commentIds from the response\r",
-									"    const responseCommentIds = responseData.map(comment => comment.commentId);\r",
-									"    // Ensure that there are comments in the response\r",
-									"    pm.expect(responseCommentIds.length).to.be.above(0);\r",
-									"    // Check if the response commentIds match each other (i.e., all are unique)\r",
-									"    pm.expect(responseCommentIds).to.have.members(responseCommentIds);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}/api/comment",
-							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"comment"
-							]
-						}
-					},
-					"response": []
-				},
 				{
 					"name": "Create a comment",
 					"event": [
@@ -2275,7 +2202,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete comment",
+					"name": "Find all comments",
 					"event": [
 						{
 							"listen": "test",
@@ -2284,37 +2211,40 @@
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
-									""
+									"\r",
+									"pm.test(\"All comments are present in response\", function () {\r",
+									"    // Extract the JSON response data\r",
+									"    const responseData = pm.response.json();\r",
+									"    // Extract commentIds from the response\r",
+									"    const responseCommentIds = responseData.map(comment => comment.commentId);\r",
+									"    // Ensure that there are comments in the response\r",
+									"    pm.expect(responseCommentIds.length).to.be.above(0);\r",
+									"    // Check if the response commentIds match each other (i.e., all are unique)\r",
+									"    pm.expect(responseCommentIds).to.have.members(responseCommentIds);\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
 					"request": {
-						"method": "DELETE",
+						"method": "GET",
 						"header": [
 							{
-								"key": "Cookie",
-								"value": "JSESSIONID={{sessionID}}",
-								"type": "text"
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/comment/auth/manager?commentId={{commentId}}",
+							"raw": "{{baseUrl}}/api/comment",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"api",
-								"comment",
-								"auth",
-								"manager"
-							],
-							"query": [
-								{
-									"key": "commentId",
-									"value": "{{commentId}}"
-								}
+								"comment"
 							]
 						}
 					},
@@ -2430,6 +2360,52 @@
 								"api",
 								"comment",
 								"single"
+							],
+							"query": [
+								{
+									"key": "commentId",
+									"value": "{{commentId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID={{sessionID}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/comment/auth/manager?commentId={{commentId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"auth",
+								"manager"
 							],
 							"query": [
 								{
