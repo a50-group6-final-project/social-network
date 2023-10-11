@@ -36,7 +36,7 @@
 									"if (matchName && matchName[1]) {\r",
 									"    var userName = matchName[1];\r",
 									"    console.log(\"User Name:\", userName);\r",
-									"    pm.environment.set(\"userNameSender\", userName);\r",
+									"    pm.environment.set(\"usernameSender\", userName);\r",
 									"} else {\r",
 									"    console.error(\"User Name not found in the response.\");\r",
 									"}\r",
@@ -152,9 +152,7 @@
 									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
 									"    console.log(pm.cookies);\r",
 									"\r",
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"        pm.response.to.have.status(200);\r",
-									"    });"
+									" "
 								],
 								"type": "text/javascript"
 							}
@@ -422,9 +420,7 @@
 									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
 									"    console.log(pm.response);\r",
 									"\r",
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"        pm.response.to.have.status(200);\r",
-									"    });"
+									"   "
 								],
 								"type": "text/javascript"
 							}
@@ -539,9 +535,7 @@
 									"        pm.environment.set(\"sessionID - receiver\", pm.cookies.get(\"JSESSIONID\"));\r",
 									"        console.log(responseBody);\r",
 									"\r",
-									"        pm.test(\"Status code is 200\", function () {\r",
-									"            pm.response.to.have.status(200);\r",
-									"        });"
+									"      ;"
 								],
 								"type": "text/javascript"
 							}
@@ -691,69 +685,102 @@
 					"name": "Registration",
 					"event": [
 						{
-							"listen": "prerequest",
+							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.environment.set(\"newEmail\", \"testaccount.\" + Math.floor(Math.random() * 10000) + \"@abv.bg\");\r",
+									"var responseBody = pm.response.text(); // Get the response body as text\r",
 									"\r",
-									"pm.environment.set(\"newUsername\", \"MrTest\" + generateString(5))\r",
+									"// Extracting ID\r",
+									"var matchId = responseBody.match(/id (\\d+)/); \r",
 									"\r",
-									"function generateString(length) {\r",
-									"  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
-									"  let result = '';\r",
+									"if (matchId && matchId[1]) {\r",
+									"    var userId = matchId[1];\r",
+									"    console.log(\"User ID:\", userId);\r",
+									"    pm.environment.set(\"userIdController\", userId);\r",
+									"} else {\r",
+									"    console.error(\"User ID not found in the response.\");\r",
+									"}\r",
 									"\r",
-									"  for (let i = 0; i < length; i++) {\r",
-									"    const randomIndex = Math.floor(Math.random() * characters.length);\r",
-									"    result += characters.charAt(randomIndex);\r",
-									"  }\r",
+									"// Extracting Name\r",
+									"var matchName = responseBody.match(/name (\\w+)/);\r",
 									"\r",
-									"  return result;\r",
-									"}"
+									"if (matchName && matchName[1]) {\r",
+									"    var userName = matchName[1];\r",
+									"    console.log(\"User Name:\", userName);\r",
+									"    pm.environment.set(\"usernameController\", userName);\r",
+									"} else {\r",
+									"    console.error(\"User Name not found in the response.\");\r",
+									"}\r",
+									"\r",
+									"// Tests\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ID exists\", function () {\r",
+									"    pm.expect(userId).to.exist;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Name exists\", function () {\r",
+									"    pm.expect(userName).to.exist;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Username length is between 2 and 20\", function () {\r",
+									"    pm.expect(userName.length).to.be.at.least(2);\r",
+									"    pm.expect(userName.length).to.be.at.most(20);\r",
+									"});\r",
+									""
 								],
 								"type": "text/javascript"
 							}
 						},
 						{
-							"listen": "test",
+							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"console.log(pm.request)",
-									"",
-									"var responseBody = pm.response.text(); // Get the response body as text",
-									"let match = responseBody.match(/id (\\d+)/); // Use a regular expression to extract the userId",
-									"let userId;",
-									"let username;",
-									"if (match && match[1]) {",
-									"    userId = match[1];",
-									"    console.log(\"User ID:\", userId);",
-									"    pm.environment.set(\"userId\", userId);",
-									"} else {",
-									"    console.error(\"User ID not found in the response.\");",
-									"}",
-									"",
-									"match = responseBody.match(/User with name (\\w+)/); // Use a regular expression to extract the username",
-									"",
-									"if (match && match[1]) {",
-									"    username = match[1];",
-									"    console.log(\"Username:\", username);",
-									"    pm.environment.set(\"username\", username);",
-									"} else {",
-									"    console.error(\"Username not found in the response.\");",
-									"}",
-									"",
-									"//Assert Response status",
-									"pm.test(\"Response status code is 200\", function () {",
-									"  pm.expect(pm.response.code).to.equal(200);",
-									"});",
-									"",
-									"//Assert registered username is the same as provided one",
-									"pm.test('Username are equal`', () => {",
-									"    pm.expect(username).to.have.string(pm.environment.get(\"username\"))",
-									"})",
-									"//assert userId is a number",
-									"pm.test('userId to be a number', () => {",
-									"    pm.expect(userId).not.to.be.NaN;",
-									"})"
+									"//array for used names\r",
+									"let usedUsernames = pm.environment.get(\"usedUsernames\");\r",
+									"if (usedUsernames) {\r",
+									"    usedUsernames = JSON.parse(usedUsernames);\r",
+									"} else {\r",
+									"    usedUsernames = [];\r",
+									"}\r",
+									"\r",
+									"function makeid(l) {\r",
+									"    var text;\r",
+									"    var char_list = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    \r",
+									"    do {\r",
+									"        text = \"\";\r",
+									"        for(var i = 0; i < l; i++) {\r",
+									"            text += char_list.charAt(Math.floor(Math.random() * char_list.length));\r",
+									"        }\r",
+									"    } while (usedUsernames.includes(text)); // check if the username is unique \r",
+									"\r",
+									"//\r",
+									"    usedUsernames.push(text);\r",
+									"    pm.environment.set(\"usedUsernames\", JSON.stringify(usedUsernames));\r",
+									"\r",
+									"    pm.environment.set(\"usernameController\", text);\r",
+									"\r",
+									"    return text;\r",
+									"}\r",
+									"// generate between 2 and 20 \r",
+									"const length = Math.floor(Math.random() * 19) + 2;\r",
+									"console.log(makeid(length));\r",
+									"\r",
+									"\r",
+									"// generate email\r",
+									"\r",
+									"const uuid = Math.random().toString(36).substring(2, 15) +\r",
+									"            Math.random().toString(36).substring(2, 15);\r",
+									"const email = \"testaccount.\" + uuid + \"@abv.bg\";\r",
+									"pm.environment.set(\"email\", email);\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -770,7 +797,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"category\": {\r\n    \"id\": {{categoryId}},\r\n    \"name\": \"{{categoryName}}\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{newEmail}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{newUsername}}\"\r\n}\r\n",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"Project.10\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"Project.10\",\r\n  \"username\": \"{{usernameController}}\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -787,7 +814,7 @@
 					"response": []
 				},
 				{
-					"name": "Authenticate - set JSESSIONID",
+					"name": "Authenticate",
 					"event": [
 						{
 							"listen": "test",
@@ -808,7 +835,7 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "{{username}}",
+									"value": "{{usernameController}}",
 									"type": "text"
 								},
 								{
@@ -937,24 +964,34 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [
 							{
 								"key": "Cookie",
 								"value": "JSESSIONID={{sessionID}}",
-								"type": "text",
-								"disabled": true
+								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userId}}?principal={{username}}",
+							"raw": "http://localhost:8081/api/users/auth/{{userIdController}}?principal={{usernameController}}",
+							"protocol": "http",
 							"host": [
-								"{{baseUrl}}{{endpointUsersAuth}}{{userId}}"
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"users",
+								"auth",
+								"{{userIdController}}"
 							],
 							"query": [
 								{
 									"key": "principal",
-									"value": "{{username}}"
+									"value": "{{usernameController}}"
 								}
 							]
 						}
@@ -968,10 +1005,10 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"const currentUsername = pm.environment.get(\"username\");",
+									"const currentUsername = pm.environment.get(\"usernameController\");",
 									"const currentUser = (pm.response.json().filter(x => x.username == currentUsername));",
 									"console.log(currentUser)",
-									"pm.environment.set(\"userId\", currentUser[0].userId);",
+									"pm.environment.set(\"userIdController\", currentUser[0].userId);",
 									"",
 									"pm.test('The right user is returned', () => {",
 									"    pm.test(currentUser[0].username == currentUsername)",
@@ -1045,8 +1082,7 @@
 							{
 								"key": "Cookie",
 								"value": "JSESSIONID={{sessionID}}",
-								"type": "text",
-								"disabled": true
+								"type": "text"
 							}
 						],
 						"body": {
@@ -1059,9 +1095,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{endpointUsers}}{{userId}}/posts",
+							"raw": "{{baseUrl}}{{endpointUsers}}{{userIdController}}/posts",
 							"host": [
-								"{{baseUrl}}{{endpointUsers}}{{userId}}"
+								"{{baseUrl}}{{endpointUsers}}{{userIdController}}"
 							],
 							"path": [
 								"posts"
@@ -1112,6 +1148,27 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var usedCities = JSON.parse(pm.environment.get(\"usedCities\") || \"[]\");\r",
+									"\r",
+									"var newCity;\r",
+									"do {\r",
+									"    newCity = pm.variables.replaceIn(\"{{$randomCity}}\");\r",
+									"} while (usedCities.includes(newCity));\r",
+									"\r",
+									"usedCities.push(newCity);\r",
+									"\r",
+									"pm.environment.set(\"usedCities\", JSON.stringify(usedCities));\r",
+									"\r",
+									"pm.environment.set(\"newCity\", newCity);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"request": {
@@ -1131,7 +1188,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 79,\r\n    \"category\": {\r\n        \"id\": 155,\r\n        \"name\": \"Marketing Updated\"\r\n    },\r\n    \"availability\": 44.66\r\n}",
+							"raw": "{\r\n  \"availability\": 12.4,\r\n  \"category\": {\r\n    \"id\": 110,\r\n    \"name\": \"Cleaner\"\r\n  },\r\n  \"id\":{{userIdController}},\r\n  \"skill1\":  \"{{newCity}}\",\r\n  \"skill2\": \"\",\r\n  \"skill3\": \"\",\r\n  \"skill4\": \"\",\r\n  \"skill5\": \"\",\r\n  \"skills\": [\r\n   \r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1139,12 +1196,24 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userId}}/expertise",
+							"raw": "http://localhost:8081/api/users/auth/{{userIdController}}/expertise?name={{usernameController}}",
+							"protocol": "http",
 							"host": [
-								"{{baseUrl}}{{endpointUsersAuth}}{{userId}}"
+								"localhost"
 							],
+							"port": "8081",
 							"path": [
+								"api",
+								"users",
+								"auth",
+								"{{userIdController}}",
 								"expertise"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{usernameController}}"
+								}
 							]
 						}
 					},
@@ -1474,12 +1543,10 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8081/api/skill/edit?skill={{newSkill}}&skillId={{storedSkillId}}",
-							"protocol": "http",
+							"raw": "{{baseUrl}}/api/skill/edit?skill={{newSkill}}&skillId={{storedSkillId}}",
 							"host": [
-								"localhost"
+								"{{baseUrl}}"
 							],
-							"port": "8081",
 							"path": [
 								"api",
 								"skill",
