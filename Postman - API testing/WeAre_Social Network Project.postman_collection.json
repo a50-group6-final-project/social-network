@@ -262,15 +262,11 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/users/auth/{{userIdSender}}/personal",
+							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userIdSender}}/personal",
 							"host": [
-								"{{baseUrl}}"
+								"{{baseUrl}}{{endpointUsersAuth}}{{userIdSender}}"
 							],
 							"path": [
-								"api",
-								"users",
-								"auth",
-								"{{userIdSender}}",
 								"personal"
 							]
 						}
@@ -506,20 +502,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/auth/request?principal={{firstNameSender}}",
+							"raw": "{{baseUrl}}{{endpointRequestSender}}={{firstNameSender}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"auth",
-								"request"
-							],
-							"query": [
-								{
-									"key": "principal",
-									"value": "{{firstNameSender}}"
-								}
+								"{{baseUrl}}{{endpointRequestSender}}={{firstNameSender}}"
 							]
 						}
 					},
@@ -976,17 +961,9 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8081/api/users/auth/{{userIdController}}?principal={{usernameController}}",
-							"protocol": "http",
+							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}?principal={{usernameController}}",
 							"host": [
-								"localhost"
-							],
-							"port": "8081",
-							"path": [
-								"api",
-								"users",
-								"auth",
-								"{{userIdController}}"
+								"{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}"
 							],
 							"query": [
 								{
@@ -1196,17 +1173,11 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8081/api/users/auth/{{userIdController}}/expertise?name={{usernameController}}",
-							"protocol": "http",
+							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}/expertise?name={{usernameController}}",
 							"host": [
-								"localhost"
+								"{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}"
 							],
-							"port": "8081",
 							"path": [
-								"api",
-								"users",
-								"auth",
-								"{{userIdController}}",
 								"expertise"
 							],
 							"query": [
@@ -1350,14 +1321,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/skill/create",
+							"raw": "{{baseUrl}}{{skillEndpoint}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"skill",
-								"create"
+								"{{baseUrl}}{{skillEndpoint}}"
 							]
 						}
 					},
@@ -1543,24 +1509,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/skill/edit?skill={{newSkill}}&skillId={{storedSkillId}}",
+							"raw": "{{baseUrl}}{{skillEditEndpoint}}={{newSkill}}&skillId={{storedSkillId}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"skill",
-								"edit"
-							],
-							"query": [
-								{
-									"key": "skill",
-									"value": "{{newSkill}}"
-								},
-								{
-									"key": "skillId",
-									"value": "{{storedSkillId}}"
-								}
+								"{{baseUrl}}{{skillEditEndpoint}}={{newSkill}}&skillId={{storedSkillId}}"
 							]
 						}
 					},
@@ -1591,14 +1542,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/skill/delete?skillId={{storedSkillId}}",
+							"raw": "{{baseUrl}}{{skillDeleteEndpoint}}?skillId={{storedSkillId}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"skill",
-								"delete"
+								"{{baseUrl}}{{skillDeleteEndpoint}}"
 							],
 							"query": [
 								{
@@ -1950,9 +1896,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{endpointEditPost}}?postId={{postId}}",
+							"raw": "{{baseUrl}}/api/post/auth/editor?postId={{postId}}",
 							"host": [
-								"{{baseUrl}}{{endpointEditPost}}"
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"post",
+								"auth",
+								"editor"
 							],
 							"query": [
 								{
