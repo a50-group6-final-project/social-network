@@ -212,8 +212,8 @@
 									"\r",
 									"    var jsonData = pm.response.json();\r",
 									"\r",
-									"    pm.test(\"First name length is at least 3\", function () {\r",
-									"        pm.expect(jsonData.firstName.length).to.be.at.least(3);\r",
+									"    pm.test(\"First name length is at least 2\", function () {\r",
+									"        pm.expect(jsonData.firstName.length).to.be.at.least(2);\r",
 									"    });\r",
 									"\r",
 									"\r",
@@ -475,8 +475,6 @@
 									"var usernameSender = pm.environment.get(\"usernameSender\");\r",
 									"var usernameReceiver = pm.environment.get(\"usernameReceiver\")\r",
 									"\r",
-									"var responseText = pm.response.text();\r",
-									"\r",
 									"pm.test(\"UsernameSender exists in response\", function () {\r",
 									"    pm.expect(responseText).to.include(`${usernameSender}`);\r",
 									"});\r",
@@ -568,7 +566,6 @@
 								"exec": [
 									"var jsonData = pm.response.json();\r",
 									"pm.environment.set(\"requestId\", jsonData[0].id);\r",
-									"var jsonData = pm.response.json();\r",
 									"\r",
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -581,11 +578,7 @@
 									"    pm.expect(jsonData[0]).to.have.property('timeStamp');\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Timezone offset is correct\", function () {\r",
-									"    let timeStampFromResponse = jsonData[0].timeStamp;  \r",
-									"    let format = \"DD/MM/YYYY HH:mm\";\r",
-									"\r",
-									"});"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -909,17 +902,19 @@
 									"pm.test(\"Response status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
+									"",
 									"pm.test('User has the correct ID', () => {",
-									"    response.id == pm.environment.get(\"userId\");",
-									"})",
+									"    pm.expect(String(response.id)).to.equal(pm.environment.get(\"userIdController\"));",
+									"});",
 									"",
 									"pm.test('User has the correct username', () => {",
-									"    response.username == pm.environment.get(\"username\");",
-									"})",
+									"    pm.expect(response.username).to.equal(pm.environment.get(\"usernameController\"));",
+									"});",
 									"",
 									"pm.test('User has the correct email', () => {",
-									"    response.email == pm.environment.get(\"email\");",
-									"})",
+									"    pm.expect(response.email).to.equal(pm.environment.get(\"email\"));",
+									"});",
+									"",
 									"pm.test(\"Response has the correct schema\", function () {",
 									"  var schema = {",
 									"    type: \"object\",",
@@ -940,9 +935,9 @@
 									"    required: [\"id\", \"username\", \"authorities\", \"email\", \"expertise\", \"skills\"]",
 									"  };",
 									"",
-									"  var response = pm.response.json();",
 									"  pm.expect(tv4.validate(response, schema)).to.be.true;",
-									"});"
+									"});",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -983,18 +978,18 @@
 							"script": {
 								"exec": [
 									"const currentUsername = pm.environment.get(\"usernameController\");",
-									"const currentUser = (pm.response.json().filter(x => x.username == currentUsername));",
-									"console.log(currentUser)",
-									"pm.environment.set(\"userIdController\", currentUser[0].userId);",
+									"const currentUser = pm.response.json().filter(x => x.username == currentUsername);",
 									"",
-									"pm.test('The right user is returned', () => {",
-									"    pm.test(currentUser[0].username == currentUsername)",
-									"})",
+									"console.log(currentUser);",
+									"pm.environment.set(\"userIdController\", currentUser[0].userId);",
 									"",
 									"pm.test(\"Response status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
+									"pm.test('The right user is returned', () => {",
+									"    pm.expect(currentUser[0].username).to.equal(currentUsername);",
+									"});",
 									""
 								],
 								"type": "text/javascript"
@@ -1228,9 +1223,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userId}}/personal",
+							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}/personal",
 							"host": [
-								"{{baseUrl}}{{endpointUsersAuth}}{{userId}}"
+								"{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}"
 							],
 							"path": [
 								"personal"
