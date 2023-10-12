@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 
-public class PostModel {
+public class PostModelLikeDislike {
     public int postId;
     public String content;
     public String picture;
@@ -18,5 +18,6 @@ public class PostModel {
     public Category category;
     public boolean liked;
 
+    public Object hibernateLazyInitializer;
 }
 

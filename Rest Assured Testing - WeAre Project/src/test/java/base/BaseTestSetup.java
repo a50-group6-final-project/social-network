@@ -40,6 +40,7 @@ public class BaseTestSetup {
     //public static EditC editPost;
 
     public static Boolean isRegistered = false;
+    public static Boolean isDeletedPost = false;
 
     public static ApproveRequest approveRequest;
     public static SendRequest sendRequestToUser;

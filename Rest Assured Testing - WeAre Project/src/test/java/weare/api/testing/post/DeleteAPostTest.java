@@ -15,7 +15,7 @@ import static Utils.Endpoints.*;
 import static org.testng.Assert.assertEquals;
 
 public class DeleteAPostTest extends BaseTestSetup {
-    @BeforeTest
+    @BeforeClass
     public void setup() {
         if (!isRegistered) {
             postCreatorUsername = generateUniqueUsername();
@@ -39,6 +39,7 @@ public class DeleteAPostTest extends BaseTestSetup {
 
         System.out.println(response.asString());
         System.out.println("Post with Id" + " " + postId + " " + "Deleted successfully.");
+        isDeletedPost = true;
 
     }
 }

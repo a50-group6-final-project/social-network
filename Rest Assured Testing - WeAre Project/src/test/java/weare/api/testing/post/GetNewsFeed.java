@@ -1,29 +1,44 @@
 package weare.api.testing.post;
 
+import Utils.ModelGenerator;
+import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import models.PostModel;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Endpoints.BASE_URL;
-import static Utils.Endpoints.GET_ALL_POSTS_ENDPOINT;
 
 public class GetNewsFeed extends BaseTestSetup {
 
+    @BeforeClass
+    public void setup() {
+        if (!isRegistered) {
+            postCreatorUsername = generateUniqueUsername();
+            currentEmail = generateUniqueEmail();
+            register(postCreatorUsername, currentEmail);
+            authenticateAndFetchCookies(postCreatorUsername, "Project.10");
+            isRegistered = true;
+        }
+
+        String uniqueContent = generateUniqueContentPost();
+        createPost = ModelGenerator.generatePostModel(uniqueContent);
+        Response response = PostController.createPost(cookies, createPost);
+        createdPost = response.as(PostModel.class);
+    }
     @Test
     public void getAllPosts_Successful() {
-        postCreatorUsername = generateUniqueUsername();
-        currentEmail = generateUniqueEmail();
-        register(postCreatorUsername, currentEmail);
-        authenticateAndFetchCookies(postCreatorUsername, "Project.10");
 
-        RestAssured.baseURI = BASE_URL;
         Response response = RestAssured.given()
                 .cookies(cookies)
+                .queryParam("sorted", "true")
+                .log().headers()
                 .when()
-                .get(GET_ALL_POSTS_ENDPOINT);
+                .get("/api/post/");
 
+        System.out.println(response.headers());
         System.out.println(response.asString());
         isResponse200(response);
 

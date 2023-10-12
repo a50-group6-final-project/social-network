@@ -9,12 +9,12 @@ import models.EditPost;
 import models.PostModel;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 
 public class EditPostTest extends BaseTestSetup {
-    @BeforeTest
+    @BeforeClass
     public void setup() {
         if (!isRegistered) {
             postCreatorUsername = generateUniqueUsername();
@@ -24,11 +24,15 @@ public class EditPostTest extends BaseTestSetup {
             isRegistered = true;
         }
 
-        String uniqueContent = generateUniqueContentPost();
-        createPost = ModelGenerator.generatePostModel(uniqueContent);
-        Response response = PostController.createPost(cookies, createPost);
-        createdPost = response.as(PostModel.class);
-        System.out.println("Successfully created a new post with Id" + " " + createdPost.postId);
+        if (isDeletedPost) {
+            String uniqueContent = generateUniqueContentPost();
+            createPost = ModelGenerator.generatePostModel(uniqueContent);
+            Response response = PostController.createPost(cookies, createPost);
+            createdPost = response.as(PostModel.class);
+            postId = createdPost.postId;
+            System.out.println("Successfully created a new post with Id" + " " + postId);
+            isDeletedPost = false;
+        }
     }
 
     @Test
@@ -47,9 +51,10 @@ public class EditPostTest extends BaseTestSetup {
 
     @AfterTest
     public void tearDown() {
-        Response response = PostController.deletePost(cookies, createdPost.postId);
-        isResponse200(response);
-        System.out.println(response.asString());
-        System.out.println("Post with Id" + " " + postId + " " + "Deleted successfully.");
+        if(!isDeletedPost){
+            PostController.deletePost(cookies, createdPost.postId);
+            System.out.println("Post with Id" + " " + postId + " " + "Deleted successfully.");
+            isDeletedPost = true;
+        }
     }
 }
