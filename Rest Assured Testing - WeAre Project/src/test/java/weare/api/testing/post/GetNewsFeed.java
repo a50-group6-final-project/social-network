@@ -30,16 +30,7 @@ public class GetNewsFeed extends BaseTestSetup {
     }
     @Test
     public void getAllPosts_Successful() {
-
-        Response response = RestAssured.given()
-                .cookies(cookies)
-                .queryParam("sorted", "true")
-                .log().headers()
-                .when()
-                .get("/api/post/");
-
-        System.out.println(response.headers());
-        System.out.println(response.asString());
+        Response response = PostController.getNewsFeed(cookies);
         isResponse200(response);
 
         PostModel[] posts = response.as(PostModel[].class);
