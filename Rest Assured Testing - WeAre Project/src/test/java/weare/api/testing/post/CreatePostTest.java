@@ -1,12 +1,16 @@
 package weare.api.testing.post;
 
+import Utils.ModelGenerator;
 import Utils.Serializer;
+import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.EditPost;
 import models.PostModel;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static Utils.Endpoints.BASE_URL;
@@ -15,55 +19,51 @@ import static org.testng.Assert.assertEquals;
 
 public class CreatePostTest extends BaseTestSetup {
 
+    @BeforeClass
+    public void setup() {
+        if (!isRegistered) {
+            postCreatorUsername = generateUniqueUsername();
+            currentEmail = generateUniqueEmail();
+            register(postCreatorUsername, currentEmail);
+            authenticateAndFetchCookies(postCreatorUsername, "Project.10");
+            isRegistered = true;
+        }
+    }
 
     @Test
     public void createPost_Successful() {
         String uniqueContent = generateUniqueContentPost();
+        createPost = ModelGenerator.generatePostModel(uniqueContent);
 
-        createPost = new PostModel();
-        createPost.content = uniqueContent;
-        createPost.picture = "";
-        createPost.mypublic = true;
-
-        String bodyPostString = Serializer.convertObjectToJsonString(createPost);
-
-        postCreatorUsername = generateUniqueUsername();
-        currentEmail = generateUniqueEmail();
-
-        register(postCreatorUsername, currentEmail);
-        authenticateAndFetchCookies(postCreatorUsername, "Project.10");
-
-        RestAssured.baseURI = BASE_URL;
-
-        Response response = RestAssured.given()
-                .cookies(cookies)
-                .contentType("application/json")
-                .body(bodyPostString)
-                .when()
-                .post(CREATЕ_POST_ENDPOINT);
-
-        System.out.println(response.asString());
-
-        String contentFromResponse = response.jsonPath().getString("content");
-        assertEquals(contentFromResponse, uniqueContent, "Content does not match.");
+        Response response = PostController.createPost(cookies, createPost);
 
         isResponse200(response);
-        editPost=response.as(EditPost.class);
-        Assert.assertNotNull(editPost.postId);
-        Assert.assertNotNull(response.jsonPath().get("postId"), "postId is null");
-        Assert.assertNotNull(response.jsonPath().get("content"), "content is null");
-        Assert.assertNotNull(response.jsonPath().get("picture"), "picture is null");
-        Assert.assertNotNull(response.jsonPath().get("date"), "date is null");
-        Assert.assertNotNull(response.jsonPath().get("likes"), "likes is null");
-        Assert.assertNotNull(response.jsonPath().get("comments"), "comments is null");
-        Assert.assertNotNull(response.jsonPath().get("rank"), "rank is null");
-        Assert.assertNotNull(response.jsonPath().get("category.id"), "category.id is null");
-        Assert.assertNotNull(response.jsonPath().get("category.name"), "category.name is null");
-        Assert.assertNotNull(response.jsonPath().get("liked"), "liked is null");
-        Assert.assertNotNull(response.jsonPath().get("public"), "public is null");
 
-        postId = response.jsonPath().getInt("postId");
-        System.out.println("Successfully created a new post with Id" + " " + postId + ". All properties are not null.");
+        createdPost = response.as(PostModel.class);
+
+        assertEquals(createdPost.content, uniqueContent, "Content does not match.");
+        Assert.assertNotNull(createdPost.postId, "postId is null");
+        Assert.assertNotNull(createdPost.content, "content is null");
+        Assert.assertNotNull(createdPost.picture, "picture is null");
+        Assert.assertNotNull(createdPost.date, "date is null");
+        Assert.assertNotNull(createdPost.liked, "likes is null");
+        Assert.assertNotNull(createdPost.comments, "comments is null");
+        Assert.assertNotNull(createdPost.rank, "rank is null");
+        Assert.assertNotNull(createdPost.category.id, "category.id is null");
+        Assert.assertNotNull(createdPost.category.name, "category.name is null");
+        Assert.assertNotNull(createdPost.liked, "liked is null");
+        Assert.assertNotNull(createdPost.mypublic, "public is null");
+
+        System.out.println("Successfully created a new post with Id" + " " + createdPost.postId + ". All properties are not null.");
+    }
+
+    @AfterClass
+    public void tearDown() {
+        editPost = createdPost;
+        postId = createdPost.postId;
+
+        PostController.deletePost(cookies, createdPost.postId);
+        System.out.println("Post with Id" + " " + postId + " " + "Deleted successfully.");
     }
 }
 

@@ -1,6 +1,7 @@
 package Utils;
 
 import models.Category;
+import models.PostModel;
 import models.Skill;
 
 public class ModelGenerator {
@@ -15,5 +16,15 @@ public class ModelGenerator {
         skill.skill = "Test Skill" + System.currentTimeMillis();
         skill.skillId = 0;
         return skill;
+    }
+
+
+    public static PostModel generatePostModel(String uniqueContent){
+        PostModel createPost = new PostModel();
+        createPost.content = uniqueContent;
+        createPost.picture = "";
+        createPost.mypublic = true;
+
+        return createPost;
     }
 }

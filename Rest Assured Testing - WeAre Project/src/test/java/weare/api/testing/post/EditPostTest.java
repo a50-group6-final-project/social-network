@@ -18,38 +18,6 @@ public class EditPostTest extends BaseTestSetup {
     public void createPost_Successful() {
         String uniqueContent = generateUniqueContentPost();
 
-        createPost = new PostModel();
-        createPost.content = uniqueContent;
-        createPost.picture = "";
-        createPost.mypublic = true;
-
-        String bodyPostString = Serializer.convertObjectToJsonString(createPost);
-
-        postCreatorUsername = generateUniqueUsername();
-        currentEmail = generateUniqueEmail();
-
-        register(postCreatorUsername, currentEmail);
-        authenticateAndFetchCookies(postCreatorUsername, "Project.10");
-
-        RestAssured.baseURI = BASE_URL;
-
-        Response response = RestAssured.given()
-                .cookies(cookies)
-                .contentType("application/json")
-                .body(bodyPostString)
-                .when()
-                .post(CREATЕ_POST_ENDPOINT);
-
-        System.out.println(response.asString());
-
-        String contentFromResponse = response.jsonPath().getString("content");
-        assertEquals(contentFromResponse, uniqueContent, "Content does not match.");
-
-        isResponse200(response);
-        editPost=response.as(EditPost.class);
-        Assert.assertNotNull(editPost.postId);
-        postId = response.jsonPath().getInt("postId");
-        System.out.println("Successfully created a new post with Id" + " " + postId);
     }
 
     @Test

@@ -35,7 +35,8 @@ public class BaseTestSetup {
     public static int senderUserId;
     public static String postCreatorUsername;
     public static int receiverUserId;
-    public static EditPost editPost;
+    public static PostModel createdPost;
+    public static PostModel editPost;
     //public static EditC editPost;
 
     public static Boolean isRegistered = false;
