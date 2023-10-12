@@ -22,7 +22,6 @@ public class UpdateSkillTests extends BaseTestSetup {
 
             isRegistered = true;
         }
-
         skillToCreated = ModelGenerator.generateSkillModel(155);
         createdSkill = SkillController.createSkill(cookies, skillToCreated).as(Skill.class);
     }

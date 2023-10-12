@@ -14,7 +14,7 @@ public class GetOneSkillTests extends BaseTestSetup {
 
     @BeforeClass
     public void setup() {
-        if(!isRegistered){
+        if (!isRegistered) {
 
             currentUsername = generateUniqueUsername();
             currentEmail = generateUniqueEmail();
@@ -27,6 +27,7 @@ public class GetOneSkillTests extends BaseTestSetup {
         skillToCreated = ModelGenerator.generateSkillModel(155);
         createdSkill = SkillController.createSkill(cookies, skillToCreated).as(Skill.class);
     }
+
     @Test
     public void getOneSkillByIdSuccessfully() {
         Response response = SkillController.getOneSkillById(cookies, createdSkill.skillId);

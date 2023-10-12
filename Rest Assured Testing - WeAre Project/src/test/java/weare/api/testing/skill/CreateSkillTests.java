@@ -15,13 +15,11 @@ public class CreateSkillTests extends BaseTestSetup {
     @BeforeClass
     public void setup() {
 
-        if(!isRegistered){
-
+        if (!isRegistered) {
             currentUsername = generateUniqueUsername();
             currentEmail = generateUniqueEmail();
             register(currentUsername, currentEmail);
             authenticateAndFetchCookies(currentUsername, currentEmail);
-
             isRegistered = true;
         }
     }
@@ -42,5 +40,4 @@ public class CreateSkillTests extends BaseTestSetup {
     public void tearDown() {
         SkillController.deleteSkill(createdSkill.skillId);
     }
-
 }

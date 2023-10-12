@@ -1,4 +1,5 @@
 package weare.api.testing.skill;
+
 import Utils.ModelGenerator;
 import api.SkillController;
 import base.BaseTestSetup;
@@ -7,26 +8,23 @@ import models.Skill;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class DeleteSkillTests  extends BaseTestSetup{
+public class DeleteSkillTests extends BaseTestSetup {
 
     @BeforeClass
     public void setup() {
-        if(!isRegistered){
-
+        if (!isRegistered) {
             currentUsername = generateUniqueUsername();
             currentEmail = generateUniqueEmail();
             register(currentUsername, currentEmail);
             authenticateAndFetchCookies(currentUsername, currentEmail);
-
             isRegistered = true;
         }
-
-
         skillToCreated = ModelGenerator.generateSkillModel(155);
         createdSkill = SkillController.createSkill(cookies, skillToCreated).as(Skill.class);
     }
+
     @Test
-    public void deleteSkillSuccessfully(){
+    public void deleteSkillSuccessfully() {
         Response response = SkillController.deleteSkill(createdSkill.skillId);
         isResponse200(response);
     }

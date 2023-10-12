@@ -3,11 +3,11 @@
 <suite name="Skills Suite">
     <test name="Skills API">
         <classes>
-            <class name="weare.api.testing.skills.CreateSkillTests"/>
-            <class name="weare.api.testing.skills.GetOneSkillTests"/>
-            <class name="weare.api.testing.skills.UpdateSkillTests"/>
-            <class name="weare.api.testing.skills.GetAllSkillsTests"/>
-            <class name="weare.api.testing.skills.DeleteSkillTests"/>
+            <class name="weare.api.testing.skill.CreateSkillTests"/>
+            <class name="weare.api.testing.skill.GetOneSkillTests"/>
+            <class name="weare.api.testing.skill.UpdateSkillTests"/>
+            <class name="weare.api.testing.skill.GetAllSkillsTests"/>
+            <class name="weare.api.testing.skill.DeleteSkillTests"/>
         </classes>
     </test>
 </suite>

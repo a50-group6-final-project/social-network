@@ -14,16 +14,13 @@ public class GetAllSkillsTests extends BaseTestSetup {
 
     @BeforeClass
     public void setup() {
-        if(!isRegistered){
-
+        if (!isRegistered) {
             currentUsername = generateUniqueUsername();
             currentEmail = generateUniqueEmail();
             register(currentUsername, currentEmail);
             authenticateAndFetchCookies(currentUsername, currentEmail);
-
             isRegistered = true;
         }
-
         skillToCreated = ModelGenerator.generateSkillModel(155);
         createdSkill = SkillController.createSkill(cookies, skillToCreated).as(Skill.class);
     }
@@ -32,11 +29,8 @@ public class GetAllSkillsTests extends BaseTestSetup {
     public void newlyCreatedSkill_returned_whenGetAllSkills() {
 
         Response response = SkillController.getAllSkills(cookies);
-
         isResponse200(response);
-
         Skill[] skillsList = response.as(Skill[].class);
-
         Assert.assertTrue(skillsList.length > 0, "Skills list is empty");
         Assert.assertTrue(assertCreatedSkillIdIsPresent(skillsList, createdSkill.skillId));
 
