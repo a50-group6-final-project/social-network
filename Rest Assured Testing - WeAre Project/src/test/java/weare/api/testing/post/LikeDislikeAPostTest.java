@@ -47,8 +47,8 @@ public class LikeDislikeAPostTest extends BaseTestSetup {
         Response response = PostController.likeAndDislikePost(cookies, postId);
         isResponse200(response);
 
-        editPost = response.as(PostModelLikeDislike.class);
-        Assert.assertEquals(editPost.liked, true, "The post is not liked.");
+        PostModelLikeDislike editPostLikeDislike = response.as(PostModelLikeDislike.class);
+        Assert.assertEquals(editPostLikeDislike.liked, true, "The post is not liked.");
         System.out.println("Post with Id" + " " + postId + " " + "Liked successfully.");
 
         Response dislikeResponse = PostController.likeAndDislikePost(cookies, postId);
