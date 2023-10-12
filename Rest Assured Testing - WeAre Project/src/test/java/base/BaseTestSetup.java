@@ -38,6 +38,8 @@ public class BaseTestSetup {
     public static EditPost editPost;
     //public static EditC editPost;
 
+    public static Boolean isRegistered = false;
+
     public static ApproveRequest approveRequest;
     public static SendRequest sendRequestToUser;
     public static PostModel createPost;
