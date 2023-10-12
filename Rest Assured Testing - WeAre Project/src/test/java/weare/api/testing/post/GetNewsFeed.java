@@ -13,12 +13,12 @@ public class GetNewsFeed extends BaseTestSetup {
 
     @Test
     public void getAllPosts_Successful() {
-        currentUsername = generateUniqueUsername();
+        postCreatorUsername = generateUniqueUsername();
         currentEmail = generateUniqueEmail();
-        register(currentUsername, currentEmail);
-        authenticateAndFetchCookies(currentUsername,"Project.10");
-        RestAssured.baseURI = BASE_URL;
+        register(postCreatorUsername, currentEmail);
+        authenticateAndFetchCookies(postCreatorUsername, "Project.10");
 
+        RestAssured.baseURI = BASE_URL;
         Response response = RestAssured.given()
                 .cookies(cookies)
                 .when()

@@ -19,7 +19,7 @@ public class CreateSkillTests extends BaseTestSetup {
         String bodySkillString = Serializer.convertObjectToJsonString(skillToCreated);
 
         Response response = RestAssured.given().baseUri(BASE_URL)
-                .cookie("JSESSIONID", getJSESSIONIDCookie(currentUsername, "Project.10"))
+                .cookie("JSESSIONID", getJSESSIONIDCookie("MrTestThree", "Project.10"))
                 .contentType("application/json")
                 .body(bodySkillString)
                 .when()

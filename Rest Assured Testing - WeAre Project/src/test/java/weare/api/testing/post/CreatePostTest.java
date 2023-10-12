@@ -63,8 +63,7 @@ public class CreatePostTest extends BaseTestSetup {
         Assert.assertNotNull(response.jsonPath().get("public"), "public is null");
 
         postId = response.jsonPath().getInt("postId");
-
-        System.out.println("Successfully created a new post. All properties are not null.");
+        System.out.println("Successfully created a new post with Id" + " " + postId + ". All properties are not null.");
     }
 }
 

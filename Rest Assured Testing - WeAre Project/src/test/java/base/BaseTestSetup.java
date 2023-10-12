@@ -25,6 +25,8 @@ public class BaseTestSetup {
     public static String currentEmail;
     public static int currentUserId;
     public static int postId;
+    public static int userId;
+    public static int commentId;
 
     public static int idRequest ;
     public static String senderUsername;
@@ -33,13 +35,13 @@ public class BaseTestSetup {
     public static int senderUserId;
     public static String postCreatorUsername;
     public static int receiverUserId;
-     public static EditPost editPost;
+    public static EditPost editPost;
+    //public static EditC editPost;
 
-     public static UserRegister UserRegisterBody;
-
-     public static ApproveRequest approveRequest;
-public static SendRequest sendRequestToUser;
-     public static PostModel createPost;
+    public static ApproveRequest approveRequest;
+    public static SendRequest sendRequestToUser;
+    public static PostModel createPost;
+    public static CommentModel createComment;
     public static Skill skillToCreated;
     public static Skill createdSkill;
     public static String JSESSIONID;
@@ -156,5 +158,6 @@ public static SendRequest sendRequestToUser;
             throw new RuntimeException("Could not authenticate user");
         }
     }
+
 
 }
