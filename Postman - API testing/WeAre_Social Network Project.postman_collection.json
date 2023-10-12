@@ -1,17 +1,17 @@
 {
 	"info": {
-		"_postman_id": "d9adec82-646a-41ad-9650-6af209ab12b7",
+		"_postman_id": "1be0383c-2d5f-408d-a7d0-71fa5a84ece0",
 		"name": "WeAre_Social Network Project",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30132667",
-		"_collection_link": "https://dark-astronaut-260412.postman.co/workspace/Telerik---Final-Project-~17b108a4-3f4a-4892-826d-8bb170257f82/collection/24294340-d9adec82-646a-41ad-9650-6af209ab12b7?action=share&source=collection_link&creator=30132667"
+		"_exporter_id": "24294340",
+		"_collection_link": "https://dark-astronaut-260412.postman.co/workspace/Telerik---Final-Project-~17b108a4-3f4a-4892-826d-8bb170257f82/collection/30132667-1be0383c-2d5f-408d-a7d0-71fa5a84ece0?action=share&source=collection_link&creator=24294340"
 	},
 	"item": [
 		{
-			"name": "rest-user-controller",
+			"name": "rest-connection-controller",
 			"item": [
 				{
-					"name": "Registration",
+					"name": "Registration Sender",
 					"event": [
 						{
 							"listen": "test",
@@ -25,7 +25,7 @@
 									"if (matchId && matchId[1]) {\r",
 									"    var userId = matchId[1];\r",
 									"    console.log(\"User ID:\", userId);\r",
-									"    pm.environment.set(\"userIdController\", userId);\r",
+									"    pm.environment.set(\"userIdSender\", userId);\r",
 									"} else {\r",
 									"    console.error(\"User ID not found in the response.\");\r",
 									"}\r",
@@ -36,7 +36,7 @@
 									"if (matchName && matchName[1]) {\r",
 									"    var userName = matchName[1];\r",
 									"    console.log(\"User Name:\", userName);\r",
-									"    pm.environment.set(\"usernameController\", userName);\r",
+									"    pm.environment.set(\"userNameSender\", userName);\r",
 									"} else {\r",
 									"    console.error(\"User Name not found in the response.\");\r",
 									"}\r",
@@ -90,7 +90,7 @@
 									"    usedUsernames.push(text);\r",
 									"    pm.environment.set(\"usedUsernames\", JSON.stringify(usedUsernames));\r",
 									"\r",
-									"    pm.environment.set(\"usernameController\", text);\r",
+									"    pm.environment.set(\"usernameSender\", text);\r",
 									"\r",
 									"    return text;\r",
 									"}\r",
@@ -126,7 +126,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{usernameController}}\"\r\n}\r\n",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"Project.10\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"Project.10\",\r\n  \"username\": \"{{usernameSender}}\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -143,7 +143,651 @@
 					"response": []
 				},
 				{
-					"name": "Authenticate",
+					"name": "Authenticate Sender",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"    console.log(pm.cookies);\r",
+									"\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"    });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{usernameSender}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Project.10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
+							"host": [
+								"{{baseUrl}}{{endpointAuthenticate}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update First Name Sender",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"    const responseBodyInfo = pm.response.json();\r",
+									"    const firstName = responseBodyInfo.firstName;\r",
+									"    pm.environment.set(\"firstNameSender\", firstName);\r",
+									"\r",
+									"\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"    });\r",
+									"\r",
+									"\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.test(\"First name length is at least 3\", function () {\r",
+									"        pm.expect(jsonData.firstName.length).to.be.at.least(3);\r",
+									"    });\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.environment.set(\"randomFirstName\", pm.variables.replaceIn(\"{{randomFirstName}}\"));\r",
+									"pm.environment.set(\"randomLastName\", pm.variables.replaceIn(\"{{randomLastName}}\"));\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "Idea-a913d7da=066876f0-82a7-4363-a9c7-28ebe0bf6e96; JSESSIONID={{sessionID}}",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{userIdSender}}\",\r\n    \"username\": \"{{usernameSender}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"firstName\": \"{{$randomFirstName}}\",\r\n    \"lastName\": \"Ivanov\",\r\n    \"gender\": \"MALE\",\r\n    \"birthYear\": \"1905-12-09\",\r\n    \"personalReview\": null,\r\n    \"expertise\": \"Doctor\",\r\n    \"skills\": [],\r\n    \"location\": {\r\n        \"city\": {\r\n            \"country\": {},\r\n            \"id\": 23\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/auth/{{userIdSender}}/personal",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"auth",
+								"{{userIdSender}}",
+								"personal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registration Receiver",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseBody = pm.response.text(); // Get the response body as text\r",
+									"\r",
+									"// Extracting ID\r",
+									"var matchId = responseBody.match(/id (\\d+)/); \r",
+									"\r",
+									"if (matchId && matchId[1]) {\r",
+									"    var userId = matchId[1];\r",
+									"    console.log(\"User ID:\", userId);\r",
+									"    pm.environment.set(\"userIdReceiver\", userId);\r",
+									"} else {\r",
+									"    console.error(\"User ID not found in the response.\");\r",
+									"}\r",
+									"\r",
+									"// Extracting Name\r",
+									"var matchName = responseBody.match(/name (\\w+)/);\r",
+									"\r",
+									"if (matchName && matchName[1]) {\r",
+									"    var userName = matchName[1];\r",
+									"    console.log(\"User Name:\", userName);\r",
+									"    pm.environment.set(\"userNameReceiver\", userName);\r",
+									"} else {\r",
+									"    console.error(\"User Name not found in the response.\");\r",
+									"}\r",
+									"\r",
+									"// Tests\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ID exists\", function () {\r",
+									"    pm.expect(userId).to.exist;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Name exists\", function () {\r",
+									"    pm.expect(userName).to.exist;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Username length is between 2 and 20\", function () {\r",
+									"    pm.expect(userName.length).to.be.at.least(2);\r",
+									"    pm.expect(userName.length).to.be.at.most(20);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//array for used names\r",
+									"let usedUsernames = pm.environment.get(\"usedUsernames\");\r",
+									"if (usedUsernames) {\r",
+									"    usedUsernames = JSON.parse(usedUsernames);\r",
+									"} else {\r",
+									"    usedUsernames = [];\r",
+									"}\r",
+									"\r",
+									"function makeid(l) {\r",
+									"    var text;\r",
+									"    var char_list = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    \r",
+									"    do {\r",
+									"        text = \"\";\r",
+									"        for(var i = 0; i < l; i++) {\r",
+									"            text += char_list.charAt(Math.floor(Math.random() * char_list.length));\r",
+									"        }\r",
+									"    } while (usedUsernames.includes(text)); // check if the username is unique \r",
+									"\r",
+									"//\r",
+									"    usedUsernames.push(text);\r",
+									"    pm.environment.set(\"usedUsernames\", JSON.stringify(usedUsernames));\r",
+									"\r",
+									"    pm.environment.set(\"usernameReceiver\", text);\r",
+									"\r",
+									"    return text;\r",
+									"}\r",
+									"// generate between 2 and 20 \r",
+									"const length = Math.floor(Math.random() * 19) + 2;\r",
+									"console.log(makeid(length));\r",
+									"\r",
+									"\r",
+									"// generate email\r",
+									"\r",
+									"const uuid = Math.random().toString(36).substring(2, 15) +\r",
+									"            Math.random().toString(36).substring(2, 15);\r",
+									"const email = \"test.account.\" + uuid + \"@abv.bg\";\r",
+									"pm.environment.set(\"email\", email);\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID={{sessionID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"Project.10\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"Project.10\",\r\n  \"username\": \"{{usernameReceiver}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointUsers}}",
+							"host": [
+								"{{baseUrl}}{{endpointUsers}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate Sender",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"    console.log(pm.response);\r",
+									"\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"    });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{usernameSender}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Project.10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
+							"host": [
+								"{{baseUrl}}{{endpointAuthenticate}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"    });\r",
+									"\r",
+									"    var responseText = pm.response.text();\r",
+									"\r",
+									"    pm.test(\"Phrase 'send friend request to' exists in response\", function () {\r",
+									"        pm.expect(responseText).to.include(\"send friend request to\");\r",
+									"    });\r",
+									"\r",
+									"var usernameSender = pm.environment.get(\"usernameSender\");\r",
+									"var usernameReceiver = pm.environment.get(\"usernameReceiver\")\r",
+									"\r",
+									"var responseText = pm.response.text();\r",
+									"\r",
+									"pm.test(\"UsernameSender exists in response\", function () {\r",
+									"    pm.expect(responseText).to.include(`${usernameSender}`);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"UsernameReceiver exists in response\", function () {\r",
+									"    pm.expect(responseText).to.include(` ${usernameReceiver}`);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{userIdReceiver}}\",\r\n    \"username\":\"{{usernameReceiver}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/request?principal={{firstNameSender}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"request"
+							],
+							"query": [
+								{
+									"key": "principal",
+									"value": "{{firstNameSender}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate Receiver",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"        pm.environment.set(\"sessionID - receiver\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"        console.log(responseBody);\r",
+									"\r",
+									"        pm.test(\"Status code is 200\", function () {\r",
+									"            pm.response.to.have.status(200);\r",
+									"        });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{usernameReceiver}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Project.10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
+							"host": [
+								"{{baseUrl}}{{endpointAuthenticate}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Requests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"requestId\", jsonData[0].id);\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains expected properties\", function () {\r",
+									"    pm.expect(jsonData[0]).to.have.property('id');\r",
+									"    pm.expect(jsonData[0]).to.have.property('approved');\r",
+									"    pm.expect(jsonData[0]).to.have.property('seen');\r",
+									"    pm.expect(jsonData[0]).to.have.property('timeStamp');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Timezone offset is correct\", function () {\r",
+									"    let timeStampFromResponse = jsonData[0].timeStamp;  \r",
+									"    let format = \"DD/MM/YYYY HH:mm\";\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}/request/",
+							"host": [
+								"{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}"
+							],
+							"path": [
+								"request",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var responseText = pm.response.text();\r",
+									"\r",
+									"pm.test(\"Word 'approved' exists in response\", function () {\r",
+									"    pm.expect(responseText).to.include(\"approved\");\r",
+									"});\r",
+									"\r",
+									"var usernameSender = pm.environment.get(\"usernameSender\");\r",
+									"var usernameReceiver = pm.environment.get(\"usernameReceiver\")\r",
+									"\r",
+									"pm.test(\"UsernameSender exists in response\", function () {\r",
+									"    pm.expect(responseText).to.include(`${usernameSender}`);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"UsernameReceiver exists in response\", function () {\r",
+									"    pm.expect(responseText).to.include(`${usernameReceiver}`);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}{{endpointRequestAprrove}}={{requestId}}",
+							"host": [
+								"{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}{{endpointRequestAprrove}}={{requestId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "rest-user-controller",
+			"item": [
+				{
+					"name": "Registration",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"newEmail\", \"testaccount.\" + Math.floor(Math.random() * 10000) + \"@abv.bg\");\r",
+									"\r",
+									"pm.environment.set(\"newUsername\", \"MrTest\" + generateString(5))\r",
+									"\r",
+									"function generateString(length) {\r",
+									"  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';\r",
+									"  let result = '';\r",
+									"\r",
+									"  for (let i = 0; i < length; i++) {\r",
+									"    const randomIndex = Math.floor(Math.random() * characters.length);\r",
+									"    result += characters.charAt(randomIndex);\r",
+									"  }\r",
+									"\r",
+									"  return result;\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.request)",
+									"",
+									"var responseBody = pm.response.text(); // Get the response body as text",
+									"let match = responseBody.match(/id (\\d+)/); // Use a regular expression to extract the userId",
+									"let userId;",
+									"let username;",
+									"if (match && match[1]) {",
+									"    userId = match[1];",
+									"    console.log(\"User ID:\", userId);",
+									"    pm.environment.set(\"userId\", userId);",
+									"} else {",
+									"    console.error(\"User ID not found in the response.\");",
+									"}",
+									"",
+									"match = responseBody.match(/User with name (\\w+)/); // Use a regular expression to extract the username",
+									"",
+									"if (match && match[1]) {",
+									"    username = match[1];",
+									"    console.log(\"Username:\", username);",
+									"    pm.environment.set(\"username\", username);",
+									"} else {",
+									"    console.error(\"Username not found in the response.\");",
+									"}",
+									"",
+									"//Assert Response status",
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"//Assert registered username is the same as provided one",
+									"pm.test('Username are equal`', () => {",
+									"    pm.expect(username).to.have.string(pm.environment.get(\"username\"))",
+									"})",
+									"//assert userId is a number",
+									"pm.test('userId to be a number', () => {",
+									"    pm.expect(userId).not.to.be.NaN;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID={{sessionID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": {{categoryId}},\r\n    \"name\": \"{{categoryName}}\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{newEmail}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{newUsername}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointUsers}}",
+							"host": [
+								"{{baseUrl}}{{endpointUsers}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate - set JSESSIONID",
 					"event": [
 						{
 							"listen": "test",
@@ -164,7 +808,7 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "{{usernameController}}",
+									"value": "{{username}}",
 									"type": "text"
 								},
 								{
@@ -229,16 +873,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{getUsersEndpoint}}",
+							"raw": "{{baseUrl}}/api/users",
 							"host": [
-								"{{baseUrl}}{{getUsersEndpoint}}"
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get user by Id",
+					"name": "Get user by id",
 					"event": [
 						{
 							"listen": "test",
@@ -249,19 +897,17 @@
 									"pm.test(\"Response status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
-									"",
 									"pm.test('User has the correct ID', () => {",
-									"    pm.expect(String(response.id)).to.equal(pm.environment.get(\"userIdController\"));",
-									"});",
+									"    response.id == pm.environment.get(\"userId\");",
+									"})",
 									"",
 									"pm.test('User has the correct username', () => {",
-									"    pm.expect(response.username).to.equal(pm.environment.get(\"usernameController\"));",
-									"});",
+									"    response.username == pm.environment.get(\"username\");",
+									"})",
 									"",
 									"pm.test('User has the correct email', () => {",
-									"    pm.expect(response.email).to.equal(pm.environment.get(\"email\"));",
-									"});",
-									"",
+									"    response.email == pm.environment.get(\"email\");",
+									"})",
 									"pm.test(\"Response has the correct schema\", function () {",
 									"  var schema = {",
 									"    type: \"object\",",
@@ -282,35 +928,33 @@
 									"    required: [\"id\", \"username\", \"authorities\", \"email\", \"expertise\", \"skills\"]",
 									"  };",
 									"",
+									"  var response = pm.response.json();",
 									"  pm.expect(tv4.validate(response, schema)).to.be.true;",
-									"});",
-									""
+									"});"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
 					"request": {
-						"auth": {
-							"type": "noauth"
-						},
 						"method": "GET",
 						"header": [
 							{
 								"key": "Cookie",
 								"value": "JSESSIONID={{sessionID}}",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}?principal={{usernameController}}",
+							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userId}}?principal={{username}}",
 							"host": [
-								"{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}"
+								"{{baseUrl}}{{endpointUsersAuth}}{{userId}}"
 							],
 							"query": [
 								{
 									"key": "principal",
-									"value": "{{usernameController}}"
+									"value": "{{username}}"
 								}
 							]
 						}
@@ -324,19 +968,19 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"const currentUsername = pm.environment.get(\"usernameController\");",
-									"const currentUser = pm.response.json().filter(x => x.username == currentUsername);",
+									"const currentUsername = pm.environment.get(\"username\");",
+									"const currentUser = (pm.response.json().filter(x => x.username == currentUsername));",
+									"console.log(currentUser)",
+									"pm.environment.set(\"userId\", currentUser[0].userId);",
 									"",
-									"console.log(currentUser);",
-									"pm.environment.set(\"userIdController\", currentUser[0].userId);",
+									"pm.test('The right user is returned', () => {",
+									"    pm.test(currentUser[0].username == currentUsername)",
+									"})",
 									"",
 									"pm.test(\"Response status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
 									"});",
 									"",
-									"pm.test('The right user is returned', () => {",
-									"    pm.expect(currentUser[0].username).to.equal(currentUsername);",
-									"});",
 									""
 								],
 								"type": "text/javascript"
@@ -362,9 +1006,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{getUsersEndpoint}}",
+							"raw": "{{baseUrl}}/api/users",
 							"host": [
-								"{{baseUrl}}{{getUsersEndpoint}}"
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users"
 							]
 						}
 					},
@@ -397,7 +1045,8 @@
 							{
 								"key": "Cookie",
 								"value": "JSESSIONID={{sessionID}}",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
@@ -410,9 +1059,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{endpointUsers}}{{userIdController}}/posts",
+							"raw": "{{baseUrl}}{{endpointUsers}}{{userId}}/posts",
 							"host": [
-								"{{baseUrl}}{{endpointUsers}}{{userIdController}}"
+								"{{baseUrl}}{{endpointUsers}}{{userId}}"
 							],
 							"path": [
 								"posts"
@@ -463,27 +1112,6 @@
 								],
 								"type": "text/javascript"
 							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"var usedCities = JSON.parse(pm.environment.get(\"usedCities\") || \"[]\");\r",
-									"\r",
-									"var newCity;\r",
-									"do {\r",
-									"    newCity = pm.variables.replaceIn(\"{{$randomCity}}\");\r",
-									"} while (usedCities.includes(newCity));\r",
-									"\r",
-									"usedCities.push(newCity);\r",
-									"\r",
-									"pm.environment.set(\"usedCities\", JSON.stringify(usedCities));\r",
-									"\r",
-									"pm.environment.set(\"newCity\", newCity);\r",
-									""
-								],
-								"type": "text/javascript"
-							}
 						}
 					],
 					"request": {
@@ -503,7 +1131,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"availability\": 12.4,\r\n  \"category\": {\r\n    \"id\": 110,\r\n    \"name\": \"Cleaner\"\r\n  },\r\n  \"id\":{{userIdController}},\r\n  \"skill1\":  \"{{newCity}}\",\r\n  \"skill2\": \"\",\r\n  \"skill3\": \"\",\r\n  \"skill4\": \"\",\r\n  \"skill5\": \"\",\r\n  \"skills\": [\r\n   \r\n  ]\r\n}",
+							"raw": "{\r\n    \"id\": 79,\r\n    \"category\": {\r\n        \"id\": 155,\r\n        \"name\": \"Marketing Updated\"\r\n    },\r\n    \"availability\": 44.66\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -511,9 +1139,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}{{expertiseEndpoint}}={{usernameController}}",
+							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userId}}/expertise",
 							"host": [
-								"{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}{{expertiseEndpoint}}={{usernameController}}"
+								"{{baseUrl}}{{endpointUsersAuth}}{{userId}}"
+							],
+							"path": [
+								"expertise"
 							]
 						}
 					},
@@ -557,9 +1188,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}/personal",
+							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userId}}/personal",
 							"host": [
-								"{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}"
+								"{{baseUrl}}{{endpointUsersAuth}}{{userId}}"
 							],
 							"path": [
 								"personal"
@@ -574,64 +1205,23 @@
 			"name": "rest-skill-controller",
 			"item": [
 				{
-					"name": "Create a skill",
+					"name": "Create a Skill",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
 									"console.log(pm.request.body)\r",
-									"\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"pm.test(\"Set skillId in a variable\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.environment.set(\"storedSkillId\", jsonData.skillId);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Skill ID is correct\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    var storedSkillId = pm.environment.get(\"storedSkillId\"); \r",
-									"    pm.expect(jsonData.skillId).to.eql(Number(storedSkillId)); \r",
-									"});\r",
-									"\r",
-									"\r",
-									"pm.test(\"Set skill in a variable\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.environment.set(\"storedSkill\", jsonData.skill);\r",
-									"});\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"var usedSkills = JSON.parse(pm.environment.get(\"usedSkills\") || \"[]\");\r",
-									"var storedSkill;\r",
-									"\r",
-									"do {\r",
-									"    storedSkill = pm.variables.replaceIn('{{$randomJobTitle}}');\r",
-									"} while (usedSkills.includes(storedSkill));\r",
-									"\r",
-									"usedSkills.push(storedSkill); \r",
-									"pm.environment.set(\"usedSkills\", JSON.stringify(usedSkills));\r",
-									"pm.environment.set(\"storedSkill\", storedSkill);\r",
-									""
+									"pm.environment.set(\"skillId\", pm.response.json().skillId);"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [
 							{
@@ -642,7 +1232,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"skillId\": 145,\r\n  \"skill\": \"{{storedSkill}}\",\r\n  \"category\": {\r\n    \"id\": 157,\r\n    \"name\": \"Marketing\"\r\n  }\r\n}\r\n",
+							"raw": "{\r\n  \"category\": {\r\n    \"id\": 157,\r\n    \"name\": \"Marketing\"\r\n  },\r\n  \"skill\": \"test postman skill\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -650,42 +1240,56 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{skillCreateEndpoint}}",
+							"raw": "{{baseUrl}}/api/skill/create",
 							"host": [
-								"{{baseUrl}}{{skillCreateEndpoint}}"
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"skill",
+								"create"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get one",
+					"name": "Get One",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID={{sessionID}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}{{endpointSkill}}/getOne?skillId={{skillId}}",
+							"host": [
+								"{{baseUrl}}{{endpointSkill}}"
+							],
+							"path": [
+								"getOne"
+							],
+							"query": [
+								{
+									"key": "skillId",
+									"value": "{{skillId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Set skillId in a variable\", function () {\r",
-									"    var jsonData = pm.response.json();  \r",
-									"    pm.environment.set(\"storedSkillId\", jsonData.skillId);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Compare storedSkillId with response\", function () {\r",
-									"    var jsonData = pm.response.json();  \r",
-									"    var storedSkillId = pm.environment.get(\"storedSkillId\"); \r",
-									"    pm.expect(jsonData.skillId).to.eql(Number(storedSkillId)); \r",
-									"});\r",
-									"\r",
-									"pm.test(\"Compare storedSkill with response\", function () {\r",
-									"    var jsonData = pm.response.json();  \r",
-									"    var storedSkill = pm.environment.get(\"storedSkill\"); \r",
-									"    pm.expect(jsonData.skill).to.eql(storedSkill); \r",
-									"});\r",
-									""
+									"console.log(pm.response.json())"
 								],
 								"type": "text/javascript"
 							}
@@ -701,73 +1305,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{endpointSkill}}{{getOneEndpoint}}={{storedSkillId}}",
-							"host": [
-								"{{baseUrl}}{{endpointSkill}}{{getOneEndpoint}}={{storedSkillId}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Find all skills",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"console.log(pm.response.json())\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Check if the objects are more than one\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    \r",
-									"    pm.expect(jsonData.length).to.be.above(1);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Check if storedSkillId exists in the response\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    var storedSkillId = pm.environment.get(\"storedSkillId\");\r",
-									"\r",
-									"    var exists = jsonData.some(function(item) {\r",
-									"        return item.skillId === storedSkillId;\r",
-									"    });\r",
-									"    pm.expect(exists).to.be.true;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Check if storedSkill exists in the response\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    var storedSkill = pm.environment.get(\"storedSkill\");\r",
-									"\r",
-									"    var exists = jsonData.some(function(item) {\r",
-									"        return item.skill === storedSkill;\r",
-									"    });\r",
-									"    pm.expect(exists).to.be.true;\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Cookie",
-								"value": "JSESSIONID={{sessionID}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}{{endpointSkill}}?{{sortedEndpoint}}=true",
+							"raw": "{{baseUrl}}{{endpointSkill}}?sorted=true",
 							"host": [
 								"{{baseUrl}}{{endpointSkill}}"
 							],
 							"query": [
 								{
-									"key": "{{sortedEndpoint}}",
+									"key": "sorted",
 									"value": "true"
 								}
 							]
@@ -776,51 +1320,7 @@
 					"response": []
 				},
 				{
-					"name": "Update a skill",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"\r",
-									"var usedSkills = JSON.parse(pm.environment.get(\"usedSkills\") || \"[]\");\r",
-									"\r",
-									"var storedSkill;\r",
-									"var newSkill;\r",
-									"\r",
-									"do {\r",
-									"    storedSkill = pm.variables.replaceIn('{{$randomJobTitle}}');\r",
-									"} while (usedSkills.includes(storedSkill));\r",
-									"\r",
-									"do {\r",
-									"    newSkill = pm.variables.replaceIn('{{$randomJobTitle}}');\r",
-									"} while (usedSkills.includes(newSkill));\r",
-									"\r",
-									"usedSkills.push(storedSkill);\r",
-									"\r",
-									"pm.environment.set(\"usedSkills\", JSON.stringify(usedSkills));\r",
-									"\r",
-									"pm.environment.set(\"storedSkill\", storedSkill);\r",
-									"pm.environment.set(\"newSkill\", newSkill);\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
+					"name": "Update a Skill",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -831,29 +1331,29 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{skillEditEndpoint}}={{newSkill}}&{{skillIdEndpoint}}={{storedSkillId}}",
+							"raw": "{{baseUrl}}{{endpointSkill}}/edit?skill={{skillNameEdited}}&skillId={{skillId}}",
 							"host": [
-								"{{baseUrl}}{{skillEditEndpoint}}={{newSkill}}&{{skillIdEndpoint}}={{storedSkillId}}"
+								"{{baseUrl}}{{endpointSkill}}"
+							],
+							"path": [
+								"edit"
+							],
+							"query": [
+								{
+									"key": "skill",
+									"value": "{{skillNameEdited}}"
+								},
+								{
+									"key": "skillId",
+									"value": "{{skillId}}"
+								}
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Delete a skill",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
+					"name": "Delete a Skill",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -864,14 +1364,19 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{skillDeleteEndpoint}}?{{skillIdEndpoint}}={{storedSkillId}}",
+							"raw": "{{baseUrl}}/api/skill/delete?skillId=102",
 							"host": [
-								"{{baseUrl}}{{skillDeleteEndpoint}}"
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"skill",
+								"delete"
 							],
 							"query": [
 								{
-									"key": "{{skillIdEndpoint}}",
-									"value": "{{storedSkillId}}"
+									"key": "skillId",
+									"value": "102"
 								}
 							]
 						}
@@ -1016,7 +1521,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{email_post}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{username_post}}\"\r\n}\r\n\r\n",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"Project.10\",\r\n  \"email\": \"{{email_post}}\",\r\n  \"password\": \"Project.10\",\r\n  \"username\": \"{{username_post}}\"\r\n}\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1218,13 +1723,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{editPostEndpoint}}?{{postIdEndpoint}}={{postId}}",
+							"raw": "{{baseUrl}}{{endpointEditPost}}?postId={{postId}}",
 							"host": [
-								"{{baseUrl}}{{editPostEndpoint}}"
+								"{{baseUrl}}{{endpointEditPost}}"
 							],
 							"query": [
 								{
-									"key": "{{postIdEndpoint}}",
+									"key": "postId",
 									"value": "{{postId}}"
 								}
 							]
@@ -1275,13 +1780,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{endpointLikeAPost}}?{{postIdEndpoint}}={{postId}}",
+							"raw": "{{baseUrl}}{{endpointLikeAPost}}?postId={{postId}}",
 							"host": [
 								"{{baseUrl}}{{endpointLikeAPost}}"
 							],
 							"query": [
 								{
-									"key": "{{postIdEndpoint}}",
+									"key": "postId",
 									"value": "{{postId}}"
 								}
 							]
@@ -1332,171 +1837,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{endpointLikeAPost}}?{{postIdEndpoint}}={{postId}}",
+							"raw": "{{baseUrl}}{{endpointLikeAPost}}?postId={{postId}}",
 							"host": [
 								"{{baseUrl}}{{endpointLikeAPost}}"
 							],
 							"query": [
 								{
-									"key": "{{postIdEndpoint}}",
-									"value": "{{postId}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get news feeds",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"All posts are present in the news feed\", function () {\r",
-									"    pm.response.to.be.json;\r",
-									"    var responseBody = pm.response.json();\r",
-									"    pm.expect(responseBody).to.not.be.empty;\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}{{apiPostEndpoint}}?{{sortedTrueEndpoint}}",
-							"host": [
-								"{{baseUrl}}{{apiPostEndpoint}}"
-							],
-							"query": [
-								{
-									"key": "{{sortedTrueEndpoint}}",
-									"value": null
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create a comment_additional",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"/*\r",
-									"we are retrieving comment ID for use further request\r",
-									"for example like comment, delete comment, etc.\r",
-									"*/\r",
-									"var JSONData = JSON.parse(responseBody)\r",
-									"console.log(JSONData[\"commentId\"])\r",
-									"pm.environment.set(\"commentId\",JSONData[\"commentId\"])\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Check if a comment is created with expected properties\", function () {\r",
-									"    // Extract the JSON response data\r",
-									"    const responseData = pm.response.json();\r",
-									"    // Check if the response data contains the expected properties\r",
-									"    pm.expect(responseData).to.have.property(\"commentId\");\r",
-									"    pm.expect(responseData).to.have.property(\"content\");\r",
-									"    pm.expect(responseData).to.have.property(\"date\");\r",
-									"    pm.expect(responseData).to.have.property(\"likes\");\r",
-									"    pm.expect(responseData).to.have.property(\"liked\");\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Cookie",
-								"value": "JSESSIONID={{sessionID}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"commentId\": 0,\r\n  \"content\": \"Testing\",\r\n  \"deletedConfirmed\": true,\r\n  \"postId\": {{postId}},\r\n  \"userId\": {{userId_post}}\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{createCommentEndpoint}}",
-							"host": [
-								"{{baseUrl}}{{createCommentEndpoint}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Show comments",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Verify that the comments of the post are found\", function () {\r",
-									"    // Extract the JSON response data\r",
-									"    const responseData = pm.response.json();\r",
-									"    // Check if the response data is an array\r",
-									"    pm.expect(responseData).to.be.an(\"array\");\r",
-									"    // Check if there is at least one comment in the response\r",
-									"    pm.expect(responseData.length).to.be.above(0);\r",
-									"    // Iterate through each comment in the response\r",
-									"    for (const comment of responseData) {\r",
-									"        // Check if each comment has the expected properties\r",
-									"        pm.expect(comment).to.have.property(\"commentId\");\r",
-									"        pm.expect(comment).to.have.property(\"content\");\r",
-									"        pm.expect(comment).to.have.property(\"date\");\r",
-									"        pm.expect(comment).to.have.property(\"likes\");\r",
-									"        pm.expect(comment).to.have.property(\"liked\");\r",
-									"    }\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Cookie",
-								"value": "JSESSIONID={{sessionID}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{baseUrl}}{{endpointShowComments}}?{{postIdEndpoint}}={{postId}}",
-							"host": [
-								"{{baseUrl}}{{endpointShowComments}}"
-							],
-							"query": [
-								{
-									"key": "{{postIdEndpoint}}",
+									"key": "postId",
 									"value": "{{postId}}"
 								}
 							]
@@ -1550,13 +1897,119 @@
 							"file": {}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{endpointDeletePost}}?{{postIdEndpoint}}={{postId}}",
+							"raw": "{{baseUrl}}{{endpointDeletePost}}?postId={{postId}}",
 							"host": [
 								"{{baseUrl}}{{endpointDeletePost}}"
 							],
 							"query": [
 								{
-									"key": "{{postIdEndpoint}}",
+									"key": "postId",
+									"value": "{{postId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get news feeds",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"All posts are present in the news feed\", function () {\r",
+									"    pm.response.to.be.json;\r",
+									"    var responseBody = pm.response.json();\r",
+									"    pm.expect(responseBody).to.not.be.empty;\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/post/?sorted=true&unsorted=true",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"post",
+								""
+							],
+							"query": [
+								{
+									"key": "sorted",
+									"value": "true"
+								},
+								{
+									"key": "unsorted",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show comments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify that the comments of the post are found\", function () {\r",
+									"    // Extract the JSON response data\r",
+									"    const responseData = pm.response.json();\r",
+									"    // Check if the response data is an array\r",
+									"    pm.expect(responseData).to.be.an(\"array\");\r",
+									"    // Check if there is at least one comment in the response\r",
+									"    pm.expect(responseData.length).to.be.above(0);\r",
+									"    // Iterate through each comment in the response\r",
+									"    for (const comment of responseData) {\r",
+									"        // Check if each comment has the expected properties\r",
+									"        pm.expect(comment).to.have.property(\"commentId\");\r",
+									"        pm.expect(comment).to.have.property(\"content\");\r",
+									"        pm.expect(comment).to.have.property(\"date\");\r",
+									"        pm.expect(comment).to.have.property(\"likes\");\r",
+									"        pm.expect(comment).to.have.property(\"liked\");\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID={{sessionID}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}{{endpointShowComments}}?postId={{postId}}",
+							"host": [
+								"{{baseUrl}}{{endpointShowComments}}"
+							],
+							"query": [
+								{
+									"key": "postId",
 									"value": "{{postId}}"
 								}
 							]
@@ -1569,92 +2022,6 @@
 		{
 			"name": "rest-comment-controller",
 			"item": [
-				{
-					"name": "Create post_additional",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"/*\r",
-									"retriving cookie value from login authenticate request\r",
-									"so first login auth req should be run\r",
-									"*/\r",
-									"console.log(pm.cookies.get('JSESSIONID'))\r",
-									"const sessionId = pm.cookies.get('JSESSIONID')\r",
-									"pm.environment.set(\"sessionID\", sessionId);\r",
-									"\r",
-									"/*\r",
-									"we are retrieving posted ID for use further request\r",
-									"for example likeAPost, editPost\r",
-									"*/\r",
-									"var JSONData = JSON.parse(responseBody)\r",
-									"console.log(JSONData[\"postId\"])\r",
-									"pm.environment.set(\"postId\",JSONData[\"postId\"])\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"The post is created \", function () {\r",
-									"    // Extract the JSON response data\r",
-									"    const responseData = pm.response.json();\r",
-									"\r",
-									"    // Check if the response data contains the expected properties\r",
-									"    pm.expect(responseData).to.have.property(\"postId\");\r",
-									"    pm.expect(responseData).to.have.property(\"content\");\r",
-									"    pm.expect(responseData).to.have.property(\"date\");\r",
-									"    pm.expect(responseData).to.have.property(\"likes\");\r",
-									"    pm.expect(responseData).to.have.property(\"liked\");\r",
-									"\r",
-									"    // Assert the success of the test\r",
-									"    pm.expect(true).to.be.true; // This line ensures the test passes\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"protocolProfileBehavior": {
-						"disabledSystemHeaders": {}
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Cookie",
-								"value": "JSESSIONID={{sessionID}}",
-								"type": "text"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							},
-							{
-								"key": "Accept",
-								"value": "*/*",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"content\": \"I am a teacher \",\r\n    \"picture\": \"\",\r\n    \"public\": true\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointCreatePost}}",
-							"host": [
-								"{{baseUrl}}{{endpointCreatePost}}"
-							]
-						}
-					},
-					"response": []
-				},
 				{
 					"name": "Create a comment",
 					"event": [
@@ -1708,9 +2075,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{createCommentEndpoint}}",
+							"raw": "{{baseUrl}}/api/comment/auth/creator",
 							"host": [
-								"{{baseUrl}}{{createCommentEndpoint}}"
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"auth",
+								"creator"
 							]
 						}
 					},
@@ -1742,13 +2115,19 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{editCommentEndpoint}}?{{commentIdEndpoint}}={{commentId}}&content=update",
+							"raw": "{{baseUrl}}/api/comment/auth/editor?commentId={{commentId}}&content=update",
 							"host": [
-								"{{baseUrl}}{{editCommentEndpoint}}"
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"auth",
+								"editor"
 							],
 							"query": [
 								{
-									"key": "{{commentIdEndpoint}}",
+									"key": "commentId",
 									"value": "{{commentId}}"
 								},
 								{
@@ -1802,13 +2181,19 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{likeCommentId}}?{{commentIdEndpoint}}={{commentId}}",
+							"raw": "{{baseUrl}}/api/comment/auth/likesUp?commentId={{commentId}}",
 							"host": [
-								"{{baseUrl}}{{likeCommentId}}"
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"auth",
+								"likesUp"
 							],
 							"query": [
 								{
-									"key": "{{commentIdEndpoint}}",
+									"key": "commentId",
 									"value": "{{commentId}}"
 								}
 							]
@@ -1853,9 +2238,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{findCommentsEndpoint}}",
+							"raw": "{{baseUrl}}/api/comment",
 							"host": [
-								"{{baseUrl}}{{findCommentsEndpoint}}"
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comment"
 							]
 						}
 					},
@@ -1906,13 +2295,18 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{commentByPost}}?{{postIdEndpoint}}={{postId}}",
+							"raw": "{{baseUrl}}/api/comment/byPost?postId={{postId}}",
 							"host": [
-								"{{baseUrl}}{{commentByPost}}"
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"byPost"
 							],
 							"query": [
 								{
-									"key": "{{postIdEndpoint}}",
+									"key": "postId",
 									"value": "{{postId}}"
 								}
 							]
@@ -1958,9 +2352,20 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{oneCommentByPostEndpoint}}{{commentIdEndpoint}}={{commentId}}",
+							"raw": "{{baseUrl}}/api/comment/single?commentId={{commentId}}",
 							"host": [
-								"{{baseUrl}}{{oneCommentByPostEndpoint}}{{commentIdEndpoint}}={{commentId}}"
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"single"
+							],
+							"query": [
+								{
+									"key": "commentId",
+									"value": "{{commentId}}"
+								}
 							]
 						}
 					},
@@ -1992,664 +2397,21 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{deleteCommentEndpoint}}?{{commentIdEndpoint}}={{commentId}}",
+							"raw": "{{baseUrl}}/api/comment/auth/manager?commentId={{commentId}}",
 							"host": [
-								"{{baseUrl}}{{deleteCommentEndpoint}}"
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"auth",
+								"manager"
 							],
 							"query": [
 								{
-									"key": "{{commentIdEndpoint}}",
+									"key": "commentId",
 									"value": "{{commentId}}"
 								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "rest-connection-controller",
-			"item": [
-				{
-					"name": "Registration sender",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var responseBody = pm.response.text(); // Get the response body as text\r",
-									"\r",
-									"// Extracting ID\r",
-									"var matchId = responseBody.match(/id (\\d+)/); \r",
-									"\r",
-									"if (matchId && matchId[1]) {\r",
-									"    var userId = matchId[1];\r",
-									"    console.log(\"User ID:\", userId);\r",
-									"    pm.environment.set(\"userIdSender\", userId);\r",
-									"} else {\r",
-									"    console.error(\"User ID not found in the response.\");\r",
-									"}\r",
-									"\r",
-									"// Extracting Name\r",
-									"var matchName = responseBody.match(/name (\\w+)/);\r",
-									"\r",
-									"if (matchName && matchName[1]) {\r",
-									"    var userName = matchName[1];\r",
-									"    console.log(\"User Name:\", userName);\r",
-									"    pm.environment.set(\"usernameSender\", userName);\r",
-									"} else {\r",
-									"    console.error(\"User Name not found in the response.\");\r",
-									"}\r",
-									"\r",
-									"// Tests\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"ID exists\", function () {\r",
-									"    pm.expect(userId).to.exist;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Name exists\", function () {\r",
-									"    pm.expect(userName).to.exist;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Username length is between 2 and 20\", function () {\r",
-									"    pm.expect(userName.length).to.be.at.least(2);\r",
-									"    pm.expect(userName.length).to.be.at.most(20);\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"//array for used names\r",
-									"let usedUsernames = pm.environment.get(\"usedUsernames\");\r",
-									"if (usedUsernames) {\r",
-									"    usedUsernames = JSON.parse(usedUsernames);\r",
-									"} else {\r",
-									"    usedUsernames = [];\r",
-									"}\r",
-									"\r",
-									"function makeid(l) {\r",
-									"    var text;\r",
-									"    var char_list = \"abcdefghijklmnopqrstuvwxyz\";\r",
-									"    \r",
-									"    do {\r",
-									"        text = \"\";\r",
-									"        for(var i = 0; i < l; i++) {\r",
-									"            text += char_list.charAt(Math.floor(Math.random() * char_list.length));\r",
-									"        }\r",
-									"    } while (usedUsernames.includes(text)); // check if the username is unique \r",
-									"\r",
-									"//\r",
-									"    usedUsernames.push(text);\r",
-									"    pm.environment.set(\"usedUsernames\", JSON.stringify(usedUsernames));\r",
-									"\r",
-									"    pm.environment.set(\"usernameSender\", text);\r",
-									"\r",
-									"    return text;\r",
-									"}\r",
-									"// generate between 2 and 20 \r",
-									"const length = Math.floor(Math.random() * 19) + 2;\r",
-									"console.log(makeid(length));\r",
-									"\r",
-									"\r",
-									"// generate email\r",
-									"\r",
-									"const uuid = Math.random().toString(36).substring(2, 15) +\r",
-									"            Math.random().toString(36).substring(2, 15);\r",
-									"const email = \"testaccount.\" + uuid + \"@abv.bg\";\r",
-									"pm.environment.set(\"email\", email);\r",
-									"\r",
-									"\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Cookie",
-								"value": "JSESSIONID={{sessionID}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{usernameSender}}\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointUsers}}",
-							"host": [
-								"{{baseUrl}}{{endpointUsers}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Authenticate sender",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
-									"    console.log(pm.cookies);\r",
-									"\r",
-									" "
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "{{usernameSender}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "Project.10",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
-							"host": [
-								"{{baseUrl}}{{endpointAuthenticate}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update first name sender",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"\r",
-									"\r",
-									"    const responseBodyInfo = pm.response.json();\r",
-									"    const firstName = responseBodyInfo.firstName;\r",
-									"    pm.environment.set(\"firstNameSender\", firstName);\r",
-									"\r",
-									"\r",
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"        pm.response.to.have.status(200);\r",
-									"    });\r",
-									"\r",
-									"\r",
-									"    var jsonData = pm.response.json();\r",
-									"\r",
-									"    pm.test(\"First name length is at least 2\", function () {\r",
-									"        pm.expect(jsonData.firstName.length).to.be.at.least(2);\r",
-									"    });\r",
-									"\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"\r",
-									"pm.environment.set(\"randomFirstName\", pm.variables.replaceIn(\"{{randomFirstName}}\"));\r",
-									"pm.environment.set(\"randomLastName\", pm.variables.replaceIn(\"{{randomLastName}}\"));\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Cookie",
-								"value": "Idea-a913d7da=066876f0-82a7-4363-a9c7-28ebe0bf6e96; JSESSIONID={{sessionID}}",
-								"type": "text"
-							},
-							{
-								"key": "",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"{{userIdSender}}\",\r\n    \"username\": \"{{usernameSender}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"firstName\": \"{{$randomFirstName}}\",\r\n    \"lastName\": \"Ivanov\",\r\n    \"gender\": \"MALE\",\r\n    \"birthYear\": \"1905-12-09\",\r\n    \"personalReview\": null,\r\n    \"expertise\": \"Doctor\",\r\n    \"skills\": [],\r\n    \"location\": {\r\n        \"city\": {\r\n            \"country\": {},\r\n            \"id\": 23\r\n        }\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userIdSender}}/personal",
-							"host": [
-								"{{baseUrl}}{{endpointUsersAuth}}{{userIdSender}}"
-							],
-							"path": [
-								"personal"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Registration receiver",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var responseBody = pm.response.text(); // Get the response body as text\r",
-									"\r",
-									"// Extracting ID\r",
-									"var matchId = responseBody.match(/id (\\d+)/); \r",
-									"\r",
-									"if (matchId && matchId[1]) {\r",
-									"    var userId = matchId[1];\r",
-									"    console.log(\"User ID:\", userId);\r",
-									"    pm.environment.set(\"userIdReceiver\", userId);\r",
-									"} else {\r",
-									"    console.error(\"User ID not found in the response.\");\r",
-									"}\r",
-									"\r",
-									"// Extracting Name\r",
-									"var matchName = responseBody.match(/name (\\w+)/);\r",
-									"\r",
-									"if (matchName && matchName[1]) {\r",
-									"    var userName = matchName[1];\r",
-									"    console.log(\"User Name:\", userName);\r",
-									"    pm.environment.set(\"userNameReceiver\", userName);\r",
-									"} else {\r",
-									"    console.error(\"User Name not found in the response.\");\r",
-									"}\r",
-									"\r",
-									"// Tests\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"ID exists\", function () {\r",
-									"    pm.expect(userId).to.exist;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Name exists\", function () {\r",
-									"    pm.expect(userName).to.exist;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Username length is between 2 and 20\", function () {\r",
-									"    pm.expect(userName.length).to.be.at.least(2);\r",
-									"    pm.expect(userName.length).to.be.at.most(20);\r",
-									"});\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"//array for used names\r",
-									"let usedUsernames = pm.environment.get(\"usedUsernames\");\r",
-									"if (usedUsernames) {\r",
-									"    usedUsernames = JSON.parse(usedUsernames);\r",
-									"} else {\r",
-									"    usedUsernames = [];\r",
-									"}\r",
-									"\r",
-									"function makeid(l) {\r",
-									"    var text;\r",
-									"    var char_list = \"abcdefghijklmnopqrstuvwxyz\";\r",
-									"    \r",
-									"    do {\r",
-									"        text = \"\";\r",
-									"        for(var i = 0; i < l; i++) {\r",
-									"            text += char_list.charAt(Math.floor(Math.random() * char_list.length));\r",
-									"        }\r",
-									"    } while (usedUsernames.includes(text)); // check if the username is unique \r",
-									"\r",
-									"//\r",
-									"    usedUsernames.push(text);\r",
-									"    pm.environment.set(\"usedUsernames\", JSON.stringify(usedUsernames));\r",
-									"\r",
-									"    pm.environment.set(\"usernameReceiver\", text);\r",
-									"\r",
-									"    return text;\r",
-									"}\r",
-									"// generate between 2 and 20 \r",
-									"const length = Math.floor(Math.random() * 19) + 2;\r",
-									"console.log(makeid(length));\r",
-									"\r",
-									"\r",
-									"// generate email\r",
-									"\r",
-									"const uuid = Math.random().toString(36).substring(2, 15) +\r",
-									"            Math.random().toString(36).substring(2, 15);\r",
-									"const email = \"test.account.\" + uuid + \"@abv.bg\";\r",
-									"pm.environment.set(\"email\", email);\r",
-									"\r",
-									"\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Cookie",
-								"value": "JSESSIONID={{sessionID}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{usernameReceiver}}\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointUsers}}",
-							"host": [
-								"{{baseUrl}}{{endpointUsers}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Authenticate sender",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
-									"    console.log(pm.response);\r",
-									"\r",
-									"   "
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "{{usernameSender}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "Project.10",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
-							"host": [
-								"{{baseUrl}}{{endpointAuthenticate}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Send request",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"        pm.response.to.have.status(200);\r",
-									"    });\r",
-									"\r",
-									"    var responseText = pm.response.text();\r",
-									"\r",
-									"    pm.test(\"Phrase 'send friend request to' exists in response\", function () {\r",
-									"        pm.expect(responseText).to.include(\"send friend request to\");\r",
-									"    });\r",
-									"\r",
-									"var usernameSender = pm.environment.get(\"usernameSender\");\r",
-									"var usernameReceiver = pm.environment.get(\"usernameReceiver\")\r",
-									"\r",
-									"pm.test(\"UsernameSender exists in response\", function () {\r",
-									"    pm.expect(responseText).to.include(`${usernameSender}`);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"UsernameReceiver exists in response\", function () {\r",
-									"    pm.expect(responseText).to.include(` ${usernameReceiver}`);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"{{userIdReceiver}}\",\r\n    \"username\":\"{{usernameReceiver}}\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointRequestSender}}={{firstNameSender}}",
-							"host": [
-								"{{baseUrl}}{{endpointRequestSender}}={{firstNameSender}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Authenticate receiver",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"        pm.environment.set(\"sessionID - receiver\", pm.cookies.get(\"JSESSIONID\"));\r",
-									"        console.log(responseBody);\r",
-									"\r",
-									"      ;"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "{{usernameReceiver}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "Project.10",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
-							"host": [
-								"{{baseUrl}}{{endpointAuthenticate}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get user requests",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var jsonData = pm.response.json();\r",
-									"pm.environment.set(\"requestId\", jsonData[0].id);\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response contains expected properties\", function () {\r",
-									"    pm.expect(jsonData[0]).to.have.property('id');\r",
-									"    pm.expect(jsonData[0]).to.have.property('approved');\r",
-									"    pm.expect(jsonData[0]).to.have.property('seen');\r",
-									"    pm.expect(jsonData[0]).to.have.property('timeStamp');\r",
-									"});\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}/request/",
-							"host": [
-								"{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}"
-							],
-							"path": [
-								"request",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Approve request",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"var responseText = pm.response.text();\r",
-									"\r",
-									"pm.test(\"Word 'approved' exists in response\", function () {\r",
-									"    pm.expect(responseText).to.include(\"approved\");\r",
-									"});\r",
-									"\r",
-									"var usernameSender = pm.environment.get(\"usernameSender\");\r",
-									"var usernameReceiver = pm.environment.get(\"usernameReceiver\")\r",
-									"\r",
-									"pm.test(\"UsernameSender exists in response\", function () {\r",
-									"    pm.expect(responseText).to.include(`${usernameSender}`);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"UsernameReceiver exists in response\", function () {\r",
-									"    pm.expect(responseText).to.include(`${usernameReceiver}`);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}{{endpointRequestAprrove}}={{requestId}}",
-							"host": [
-								"{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}{{endpointRequestAprrove}}={{requestId}}"
 							]
 						}
 					},
