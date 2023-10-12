@@ -27,7 +27,7 @@ public class BaseTestSetup {
     public static int postId;
     public static int userId;
     public static int commentId;
-
+    public static CommentModel createdComment;
     public static int idRequest ;
     public static String senderUsername;
     public static String receiverUsername;
@@ -40,7 +40,7 @@ public class BaseTestSetup {
     //public static EditC editPost;
 
     public static Boolean isRegistered = false;
-    public static Boolean isDeletedPost = false;
+    public static Boolean isDeletedPost = true;
 
     public static ApproveRequest approveRequest;
     public static SendRequest sendRequestToUser;

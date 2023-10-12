@@ -43,6 +43,8 @@ public class PostController {
     public static Response getNewsFeed(Cookies cookies){
         return RestAssured.given()
                 .cookies(cookies)
+                .queryParam("sorted", "true")
+                .log().headers()
                 .when()
                 .get(GET_ALL_POSTS_ENDPOINT);
     }
