@@ -526,7 +526,27 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									""
+									"const responseData = pm.response.json();\r",
+									"\r",
+									"\r",
+									"pm.test(\"Username matches the variable\", function() {\r",
+									"    pm.expect(responseData.username).to.eql(pm.variables.get(\"username\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"First name matches the variable\", function() {\r",
+									"    pm.expect(responseData.firstName).to.eql(pm.variables.get(\"firstNameUpdated\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Last name matches the variable\", function() {\r",
+									"    pm.expect(responseData.lastName).to.eql(pm.variables.get(\"lastNameUpdated\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Birth year matches the variable\", function() {\r",
+									"    pm.expect(responseData.birthYear).to.eql(pm.variables.get(\"birthYearUpdated\"));\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
