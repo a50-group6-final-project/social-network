@@ -3,659 +3,10 @@
 		"_postman_id": "d9adec82-646a-41ad-9650-6af209ab12b7",
 		"name": "WeAre_Social Network Project",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "24294340",
-		"_collection_link": "https://dark-astronaut-260412.postman.co/workspace/Telerik---Final-Project-~17b108a4-3f4a-4892-826d-8bb170257f82/collection/24294340-d9adec82-646a-41ad-9650-6af209ab12b7?action=share&source=collection_link&creator=24294340"
+		"_exporter_id": "30132667",
+		"_collection_link": "https://dark-astronaut-260412.postman.co/workspace/Telerik---Final-Project-~17b108a4-3f4a-4892-826d-8bb170257f82/collection/24294340-d9adec82-646a-41ad-9650-6af209ab12b7?action=share&source=collection_link&creator=30132667"
 	},
 	"item": [
-		{
-			"name": "rest-connection-controller",
-			"item": [
-				{
-					"name": "Registration Sender",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var responseBody = pm.response.text(); // Get the response body as text\r",
-									"\r",
-									"// Extracting ID\r",
-									"var matchId = responseBody.match(/id (\\d+)/); \r",
-									"\r",
-									"if (matchId && matchId[1]) {\r",
-									"    var userId = matchId[1];\r",
-									"    console.log(\"User ID:\", userId);\r",
-									"    pm.environment.set(\"userIdSender\", userId);\r",
-									"} else {\r",
-									"    console.error(\"User ID not found in the response.\");\r",
-									"}\r",
-									"\r",
-									"// Extracting Name\r",
-									"var matchName = responseBody.match(/name (\\w+)/);\r",
-									"\r",
-									"if (matchName && matchName[1]) {\r",
-									"    var userName = matchName[1];\r",
-									"    console.log(\"User Name:\", userName);\r",
-									"    pm.environment.set(\"usernameSender\", userName);\r",
-									"} else {\r",
-									"    console.error(\"User Name not found in the response.\");\r",
-									"}\r",
-									"\r",
-									"// Tests\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"ID exists\", function () {\r",
-									"    pm.expect(userId).to.exist;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Name exists\", function () {\r",
-									"    pm.expect(userName).to.exist;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Username length is between 2 and 20\", function () {\r",
-									"    pm.expect(userName.length).to.be.at.least(2);\r",
-									"    pm.expect(userName.length).to.be.at.most(20);\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"//array for used names\r",
-									"let usedUsernames = pm.environment.get(\"usedUsernames\");\r",
-									"if (usedUsernames) {\r",
-									"    usedUsernames = JSON.parse(usedUsernames);\r",
-									"} else {\r",
-									"    usedUsernames = [];\r",
-									"}\r",
-									"\r",
-									"function makeid(l) {\r",
-									"    var text;\r",
-									"    var char_list = \"abcdefghijklmnopqrstuvwxyz\";\r",
-									"    \r",
-									"    do {\r",
-									"        text = \"\";\r",
-									"        for(var i = 0; i < l; i++) {\r",
-									"            text += char_list.charAt(Math.floor(Math.random() * char_list.length));\r",
-									"        }\r",
-									"    } while (usedUsernames.includes(text)); // check if the username is unique \r",
-									"\r",
-									"//\r",
-									"    usedUsernames.push(text);\r",
-									"    pm.environment.set(\"usedUsernames\", JSON.stringify(usedUsernames));\r",
-									"\r",
-									"    pm.environment.set(\"usernameSender\", text);\r",
-									"\r",
-									"    return text;\r",
-									"}\r",
-									"// generate between 2 and 20 \r",
-									"const length = Math.floor(Math.random() * 19) + 2;\r",
-									"console.log(makeid(length));\r",
-									"\r",
-									"\r",
-									"// generate email\r",
-									"\r",
-									"const uuid = Math.random().toString(36).substring(2, 15) +\r",
-									"            Math.random().toString(36).substring(2, 15);\r",
-									"const email = \"testaccount.\" + uuid + \"@abv.bg\";\r",
-									"pm.environment.set(\"email\", email);\r",
-									"\r",
-									"\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Cookie",
-								"value": "JSESSIONID={{sessionID}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"Project.10\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"Project.10\",\r\n  \"username\": \"{{usernameSender}}\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointUsers}}",
-							"host": [
-								"{{baseUrl}}{{endpointUsers}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Authenticate Sender",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
-									"    console.log(pm.cookies);\r",
-									"\r",
-									" "
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "{{usernameSender}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "Project.10",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
-							"host": [
-								"{{baseUrl}}{{endpointAuthenticate}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Update First Name Sender",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"\r",
-									"\r",
-									"    const responseBodyInfo = pm.response.json();\r",
-									"    const firstName = responseBodyInfo.firstName;\r",
-									"    pm.environment.set(\"firstNameSender\", firstName);\r",
-									"\r",
-									"\r",
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"        pm.response.to.have.status(200);\r",
-									"    });\r",
-									"\r",
-									"\r",
-									"    var jsonData = pm.response.json();\r",
-									"\r",
-									"    pm.test(\"First name length is at least 2\", function () {\r",
-									"        pm.expect(jsonData.firstName.length).to.be.at.least(2);\r",
-									"    });\r",
-									"\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"\r",
-									"pm.environment.set(\"randomFirstName\", pm.variables.replaceIn(\"{{randomFirstName}}\"));\r",
-									"pm.environment.set(\"randomLastName\", pm.variables.replaceIn(\"{{randomLastName}}\"));\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Cookie",
-								"value": "Idea-a913d7da=066876f0-82a7-4363-a9c7-28ebe0bf6e96; JSESSIONID={{sessionID}}",
-								"type": "text"
-							},
-							{
-								"key": "",
-								"value": "",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"{{userIdSender}}\",\r\n    \"username\": \"{{usernameSender}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"firstName\": \"{{$randomFirstName}}\",\r\n    \"lastName\": \"Ivanov\",\r\n    \"gender\": \"MALE\",\r\n    \"birthYear\": \"1905-12-09\",\r\n    \"personalReview\": null,\r\n    \"expertise\": \"Doctor\",\r\n    \"skills\": [],\r\n    \"location\": {\r\n        \"city\": {\r\n            \"country\": {},\r\n            \"id\": 23\r\n        }\r\n    }\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userIdSender}}/personal",
-							"host": [
-								"{{baseUrl}}{{endpointUsersAuth}}{{userIdSender}}"
-							],
-							"path": [
-								"personal"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Registration Receiver",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var responseBody = pm.response.text(); // Get the response body as text\r",
-									"\r",
-									"// Extracting ID\r",
-									"var matchId = responseBody.match(/id (\\d+)/); \r",
-									"\r",
-									"if (matchId && matchId[1]) {\r",
-									"    var userId = matchId[1];\r",
-									"    console.log(\"User ID:\", userId);\r",
-									"    pm.environment.set(\"userIdReceiver\", userId);\r",
-									"} else {\r",
-									"    console.error(\"User ID not found in the response.\");\r",
-									"}\r",
-									"\r",
-									"// Extracting Name\r",
-									"var matchName = responseBody.match(/name (\\w+)/);\r",
-									"\r",
-									"if (matchName && matchName[1]) {\r",
-									"    var userName = matchName[1];\r",
-									"    console.log(\"User Name:\", userName);\r",
-									"    pm.environment.set(\"userNameReceiver\", userName);\r",
-									"} else {\r",
-									"    console.error(\"User Name not found in the response.\");\r",
-									"}\r",
-									"\r",
-									"// Tests\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"ID exists\", function () {\r",
-									"    pm.expect(userId).to.exist;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Name exists\", function () {\r",
-									"    pm.expect(userName).to.exist;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Username length is between 2 and 20\", function () {\r",
-									"    pm.expect(userName.length).to.be.at.least(2);\r",
-									"    pm.expect(userName.length).to.be.at.most(20);\r",
-									"});\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"//array for used names\r",
-									"let usedUsernames = pm.environment.get(\"usedUsernames\");\r",
-									"if (usedUsernames) {\r",
-									"    usedUsernames = JSON.parse(usedUsernames);\r",
-									"} else {\r",
-									"    usedUsernames = [];\r",
-									"}\r",
-									"\r",
-									"function makeid(l) {\r",
-									"    var text;\r",
-									"    var char_list = \"abcdefghijklmnopqrstuvwxyz\";\r",
-									"    \r",
-									"    do {\r",
-									"        text = \"\";\r",
-									"        for(var i = 0; i < l; i++) {\r",
-									"            text += char_list.charAt(Math.floor(Math.random() * char_list.length));\r",
-									"        }\r",
-									"    } while (usedUsernames.includes(text)); // check if the username is unique \r",
-									"\r",
-									"//\r",
-									"    usedUsernames.push(text);\r",
-									"    pm.environment.set(\"usedUsernames\", JSON.stringify(usedUsernames));\r",
-									"\r",
-									"    pm.environment.set(\"usernameReceiver\", text);\r",
-									"\r",
-									"    return text;\r",
-									"}\r",
-									"// generate between 2 and 20 \r",
-									"const length = Math.floor(Math.random() * 19) + 2;\r",
-									"console.log(makeid(length));\r",
-									"\r",
-									"\r",
-									"// generate email\r",
-									"\r",
-									"const uuid = Math.random().toString(36).substring(2, 15) +\r",
-									"            Math.random().toString(36).substring(2, 15);\r",
-									"const email = \"test.account.\" + uuid + \"@abv.bg\";\r",
-									"pm.environment.set(\"email\", email);\r",
-									"\r",
-									"\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Cookie",
-								"value": "JSESSIONID={{sessionID}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"Project.10\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"Project.10\",\r\n  \"username\": \"{{usernameReceiver}}\"\r\n}\r\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointUsers}}",
-							"host": [
-								"{{baseUrl}}{{endpointUsers}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Authenticate Sender",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
-									"    console.log(pm.response);\r",
-									"\r",
-									"   "
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "{{usernameSender}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "Project.10",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
-							"host": [
-								"{{baseUrl}}{{endpointAuthenticate}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Send Request",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"        pm.response.to.have.status(200);\r",
-									"    });\r",
-									"\r",
-									"    var responseText = pm.response.text();\r",
-									"\r",
-									"    pm.test(\"Phrase 'send friend request to' exists in response\", function () {\r",
-									"        pm.expect(responseText).to.include(\"send friend request to\");\r",
-									"    });\r",
-									"\r",
-									"var usernameSender = pm.environment.get(\"usernameSender\");\r",
-									"var usernameReceiver = pm.environment.get(\"usernameReceiver\")\r",
-									"\r",
-									"pm.test(\"UsernameSender exists in response\", function () {\r",
-									"    pm.expect(responseText).to.include(`${usernameSender}`);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"UsernameReceiver exists in response\", function () {\r",
-									"    pm.expect(responseText).to.include(` ${usernameReceiver}`);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"{{userIdReceiver}}\",\r\n    \"username\":\"{{usernameReceiver}}\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointRequestSender}}={{firstNameSender}}",
-							"host": [
-								"{{baseUrl}}{{endpointRequestSender}}={{firstNameSender}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Authenticate Receiver",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"        pm.environment.set(\"sessionID - receiver\", pm.cookies.get(\"JSESSIONID\"));\r",
-									"        console.log(responseBody);\r",
-									"\r",
-									"      ;"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "username",
-									"value": "{{usernameReceiver}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "Project.10",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
-							"host": [
-								"{{baseUrl}}{{endpointAuthenticate}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get User Requests",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var jsonData = pm.response.json();\r",
-									"pm.environment.set(\"requestId\", jsonData[0].id);\r",
-									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response contains expected properties\", function () {\r",
-									"    pm.expect(jsonData[0]).to.have.property('id');\r",
-									"    pm.expect(jsonData[0]).to.have.property('approved');\r",
-									"    pm.expect(jsonData[0]).to.have.property('seen');\r",
-									"    pm.expect(jsonData[0]).to.have.property('timeStamp');\r",
-									"});\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}/request/",
-							"host": [
-								"{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}"
-							],
-							"path": [
-								"request",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Approve Request",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"var responseText = pm.response.text();\r",
-									"\r",
-									"pm.test(\"Word 'approved' exists in response\", function () {\r",
-									"    pm.expect(responseText).to.include(\"approved\");\r",
-									"});\r",
-									"\r",
-									"var usernameSender = pm.environment.get(\"usernameSender\");\r",
-									"var usernameReceiver = pm.environment.get(\"usernameReceiver\")\r",
-									"\r",
-									"pm.test(\"UsernameSender exists in response\", function () {\r",
-									"    pm.expect(responseText).to.include(`${usernameSender}`);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"UsernameReceiver exists in response\", function () {\r",
-									"    pm.expect(responseText).to.include(`${usernameReceiver}`);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}{{endpointRequestAprrove}}={{requestId}}",
-							"host": [
-								"{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}{{endpointRequestAprrove}}={{requestId}}"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
 		{
 			"name": "rest-user-controller",
 			"item": [
@@ -775,7 +126,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"Project.10\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"Project.10\",\r\n  \"username\": \"{{usernameController}}\"\r\n}\r\n",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{usernameController}}\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -878,20 +229,16 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/users",
+							"raw": "{{baseUrl}}{{getUsersEndpoint}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"users"
+								"{{baseUrl}}{{getUsersEndpoint}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get user by id",
+					"name": "Get user by Id",
 					"event": [
 						{
 							"listen": "test",
@@ -1015,13 +362,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/users",
+							"raw": "{{baseUrl}}{{getUsersEndpoint}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"users"
+								"{{baseUrl}}{{getUsersEndpoint}}"
 							]
 						}
 					},
@@ -1168,18 +511,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}/expertise?name={{usernameController}}",
+							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}{{expertiseEndpoint}}={{usernameController}}",
 							"host": [
-								"{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}"
-							],
-							"path": [
-								"expertise"
-							],
-							"query": [
-								{
-									"key": "name",
-									"value": "{{usernameController}}"
-								}
+								"{{baseUrl}}{{endpointUsersAuth}}{{userIdController}}{{expertiseEndpoint}}={{usernameController}}"
 							]
 						}
 					},
@@ -1240,7 +574,7 @@
 			"name": "rest-skill-controller",
 			"item": [
 				{
-					"name": "Create a Skill",
+					"name": "Create a skill",
 					"event": [
 						{
 							"listen": "test",
@@ -1316,16 +650,16 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{skillEndpoint}}",
+							"raw": "{{baseUrl}}{{skillCreateEndpoint}}",
 							"host": [
-								"{{baseUrl}}{{skillEndpoint}}"
+								"{{baseUrl}}{{skillCreateEndpoint}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get One",
+					"name": "Get one",
 					"event": [
 						{
 							"listen": "test",
@@ -1367,25 +701,16 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{endpointSkill}}/getOne?skillId={{storedSkillId}}",
+							"raw": "{{baseUrl}}{{endpointSkill}}{{getOneEndpoint}}={{storedSkillId}}",
 							"host": [
-								"{{baseUrl}}{{endpointSkill}}"
-							],
-							"path": [
-								"getOne"
-							],
-							"query": [
-								{
-									"key": "skillId",
-									"value": "{{storedSkillId}}"
-								}
+								"{{baseUrl}}{{endpointSkill}}{{getOneEndpoint}}={{storedSkillId}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Find All",
+					"name": "Find all skills",
 					"event": [
 						{
 							"listen": "test",
@@ -1436,13 +761,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{endpointSkill}}?sorted=true",
+							"raw": "{{baseUrl}}{{endpointSkill}}?{{sortedEndpoint}}=true",
 							"host": [
 								"{{baseUrl}}{{endpointSkill}}"
 							],
 							"query": [
 								{
-									"key": "sorted",
+									"key": "{{sortedEndpoint}}",
 									"value": "true"
 								}
 							]
@@ -1451,7 +776,7 @@
 					"response": []
 				},
 				{
-					"name": "Update a Skill",
+					"name": "Update a skill",
 					"event": [
 						{
 							"listen": "test",
@@ -1459,7 +784,9 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
-									"});"
+									"});\r",
+									"\r",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -1504,16 +831,16 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{skillEditEndpoint}}={{newSkill}}&skillId={{storedSkillId}}",
+							"raw": "{{baseUrl}}{{skillEditEndpoint}}={{newSkill}}&{{skillIdEndpoint}}={{storedSkillId}}",
 							"host": [
-								"{{baseUrl}}{{skillEditEndpoint}}={{newSkill}}&skillId={{storedSkillId}}"
+								"{{baseUrl}}{{skillEditEndpoint}}={{newSkill}}&{{skillIdEndpoint}}={{storedSkillId}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Delete a Skill",
+					"name": "Delete a skill",
 					"event": [
 						{
 							"listen": "test",
@@ -1537,13 +864,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{skillDeleteEndpoint}}?skillId={{storedSkillId}}",
+							"raw": "{{baseUrl}}{{skillDeleteEndpoint}}?{{skillIdEndpoint}}={{storedSkillId}}",
 							"host": [
 								"{{baseUrl}}{{skillDeleteEndpoint}}"
 							],
 							"query": [
 								{
-									"key": "skillId",
+									"key": "{{skillIdEndpoint}}",
 									"value": "{{storedSkillId}}"
 								}
 							]
@@ -1689,7 +1016,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"Project.10\",\r\n  \"email\": \"{{email_post}}\",\r\n  \"password\": \"Project.10\",\r\n  \"username\": \"{{username_post}}\"\r\n}\r\n\r\n",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{email_post}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{username_post}}\"\r\n}\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1891,19 +1218,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/post/auth/editor?postId={{postId}}",
+							"raw": "{{baseUrl}}{{editPostEndpoint}}?{{postIdEndpoint}}={{postId}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"post",
-								"auth",
-								"editor"
+								"{{baseUrl}}{{editPostEndpoint}}"
 							],
 							"query": [
 								{
-									"key": "postId",
+									"key": "{{postIdEndpoint}}",
 									"value": "{{postId}}"
 								}
 							]
@@ -1954,13 +1275,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{endpointLikeAPost}}?postId={{postId}}",
+							"raw": "{{baseUrl}}{{endpointLikeAPost}}?{{postIdEndpoint}}={{postId}}",
 							"host": [
 								"{{baseUrl}}{{endpointLikeAPost}}"
 							],
 							"query": [
 								{
-									"key": "postId",
+									"key": "{{postIdEndpoint}}",
 									"value": "{{postId}}"
 								}
 							]
@@ -2011,13 +1332,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{endpointLikeAPost}}?postId={{postId}}",
+							"raw": "{{baseUrl}}{{endpointLikeAPost}}?{{postIdEndpoint}}={{postId}}",
 							"host": [
 								"{{baseUrl}}{{endpointLikeAPost}}"
 							],
 							"query": [
 								{
-									"key": "postId",
+									"key": "{{postIdEndpoint}}",
 									"value": "{{postId}}"
 								}
 							]
@@ -2050,23 +1371,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/api/post/?sorted=true&unsorted=true",
+							"raw": "{{baseUrl}}{{apiPostEndpoint}}?{{sortedTrueEndpoint}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"post",
-								""
+								"{{baseUrl}}{{apiPostEndpoint}}"
 							],
 							"query": [
 								{
-									"key": "sorted",
-									"value": "true"
-								},
-								{
-									"key": "unsorted",
-									"value": "true"
+									"key": "{{sortedTrueEndpoint}}",
+									"value": null
 								}
 							]
 						}
@@ -2126,15 +1438,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/comment/auth/creator",
+							"raw": "{{baseUrl}}{{createCommentEndpoint}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"comment",
-								"auth",
-								"creator"
+								"{{baseUrl}}{{createCommentEndpoint}}"
 							]
 						}
 					},
@@ -2184,13 +1490,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}{{endpointShowComments}}?postId={{postId}}",
+							"raw": "{{baseUrl}}{{endpointShowComments}}?{{postIdEndpoint}}={{postId}}",
 							"host": [
 								"{{baseUrl}}{{endpointShowComments}}"
 							],
 							"query": [
 								{
-									"key": "postId",
+									"key": "{{postIdEndpoint}}",
 									"value": "{{postId}}"
 								}
 							]
@@ -2244,13 +1550,13 @@
 							"file": {}
 						},
 						"url": {
-							"raw": "{{baseUrl}}{{endpointDeletePost}}?postId={{postId}}",
+							"raw": "{{baseUrl}}{{endpointDeletePost}}?{{postIdEndpoint}}={{postId}}",
 							"host": [
 								"{{baseUrl}}{{endpointDeletePost}}"
 							],
 							"query": [
 								{
-									"key": "postId",
+									"key": "{{postIdEndpoint}}",
 									"value": "{{postId}}"
 								}
 							]
@@ -2402,15 +1708,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/api/comment/auth/creator",
+							"raw": "{{baseUrl}}{{createCommentEndpoint}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"comment",
-								"auth",
-								"creator"
+								"{{baseUrl}}{{createCommentEndpoint}}"
 							]
 						}
 					},
@@ -2442,19 +1742,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/comment/auth/editor?commentId={{commentId}}&content=update",
+							"raw": "{{baseUrl}}{{editCommentEndpoint}}?{{commentIdEndpoint}}={{commentId}}&content=update",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"comment",
-								"auth",
-								"editor"
+								"{{baseUrl}}{{editCommentEndpoint}}"
 							],
 							"query": [
 								{
-									"key": "commentId",
+									"key": "{{commentIdEndpoint}}",
 									"value": "{{commentId}}"
 								},
 								{
@@ -2508,19 +1802,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/comment/auth/likesUp?commentId={{commentId}}",
+							"raw": "{{baseUrl}}{{likeCommentId}}?{{commentIdEndpoint}}={{commentId}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"comment",
-								"auth",
-								"likesUp"
+								"{{baseUrl}}{{likeCommentId}}"
 							],
 							"query": [
 								{
-									"key": "commentId",
+									"key": "{{commentIdEndpoint}}",
 									"value": "{{commentId}}"
 								}
 							]
@@ -2565,13 +1853,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/comment",
+							"raw": "{{baseUrl}}{{findCommentsEndpoint}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"comment"
+								"{{baseUrl}}{{findCommentsEndpoint}}"
 							]
 						}
 					},
@@ -2622,18 +1906,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/comment/byPost?postId={{postId}}",
+							"raw": "{{baseUrl}}{{commentByPost}}?{{postIdEndpoint}}={{postId}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"comment",
-								"byPost"
+								"{{baseUrl}}{{commentByPost}}"
 							],
 							"query": [
 								{
-									"key": "postId",
+									"key": "{{postIdEndpoint}}",
 									"value": "{{postId}}"
 								}
 							]
@@ -2679,20 +1958,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/comment/single?commentId={{commentId}}",
+							"raw": "{{baseUrl}}{{oneCommentByPostEndpoint}}{{commentIdEndpoint}}={{commentId}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"comment",
-								"single"
-							],
-							"query": [
-								{
-									"key": "commentId",
-									"value": "{{commentId}}"
-								}
+								"{{baseUrl}}{{oneCommentByPostEndpoint}}{{commentIdEndpoint}}={{commentId}}"
 							]
 						}
 					},
@@ -2724,21 +1992,664 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/api/comment/auth/manager?commentId={{commentId}}",
+							"raw": "{{baseUrl}}{{deleteCommentEndpoint}}?{{commentIdEndpoint}}={{commentId}}",
 							"host": [
-								"{{baseUrl}}"
-							],
-							"path": [
-								"api",
-								"comment",
-								"auth",
-								"manager"
+								"{{baseUrl}}{{deleteCommentEndpoint}}"
 							],
 							"query": [
 								{
-									"key": "commentId",
+									"key": "{{commentIdEndpoint}}",
 									"value": "{{commentId}}"
 								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "rest-connection-controller",
+			"item": [
+				{
+					"name": "Registration sender",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseBody = pm.response.text(); // Get the response body as text\r",
+									"\r",
+									"// Extracting ID\r",
+									"var matchId = responseBody.match(/id (\\d+)/); \r",
+									"\r",
+									"if (matchId && matchId[1]) {\r",
+									"    var userId = matchId[1];\r",
+									"    console.log(\"User ID:\", userId);\r",
+									"    pm.environment.set(\"userIdSender\", userId);\r",
+									"} else {\r",
+									"    console.error(\"User ID not found in the response.\");\r",
+									"}\r",
+									"\r",
+									"// Extracting Name\r",
+									"var matchName = responseBody.match(/name (\\w+)/);\r",
+									"\r",
+									"if (matchName && matchName[1]) {\r",
+									"    var userName = matchName[1];\r",
+									"    console.log(\"User Name:\", userName);\r",
+									"    pm.environment.set(\"usernameSender\", userName);\r",
+									"} else {\r",
+									"    console.error(\"User Name not found in the response.\");\r",
+									"}\r",
+									"\r",
+									"// Tests\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ID exists\", function () {\r",
+									"    pm.expect(userId).to.exist;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Name exists\", function () {\r",
+									"    pm.expect(userName).to.exist;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Username length is between 2 and 20\", function () {\r",
+									"    pm.expect(userName.length).to.be.at.least(2);\r",
+									"    pm.expect(userName.length).to.be.at.most(20);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//array for used names\r",
+									"let usedUsernames = pm.environment.get(\"usedUsernames\");\r",
+									"if (usedUsernames) {\r",
+									"    usedUsernames = JSON.parse(usedUsernames);\r",
+									"} else {\r",
+									"    usedUsernames = [];\r",
+									"}\r",
+									"\r",
+									"function makeid(l) {\r",
+									"    var text;\r",
+									"    var char_list = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    \r",
+									"    do {\r",
+									"        text = \"\";\r",
+									"        for(var i = 0; i < l; i++) {\r",
+									"            text += char_list.charAt(Math.floor(Math.random() * char_list.length));\r",
+									"        }\r",
+									"    } while (usedUsernames.includes(text)); // check if the username is unique \r",
+									"\r",
+									"//\r",
+									"    usedUsernames.push(text);\r",
+									"    pm.environment.set(\"usedUsernames\", JSON.stringify(usedUsernames));\r",
+									"\r",
+									"    pm.environment.set(\"usernameSender\", text);\r",
+									"\r",
+									"    return text;\r",
+									"}\r",
+									"// generate between 2 and 20 \r",
+									"const length = Math.floor(Math.random() * 19) + 2;\r",
+									"console.log(makeid(length));\r",
+									"\r",
+									"\r",
+									"// generate email\r",
+									"\r",
+									"const uuid = Math.random().toString(36).substring(2, 15) +\r",
+									"            Math.random().toString(36).substring(2, 15);\r",
+									"const email = \"testaccount.\" + uuid + \"@abv.bg\";\r",
+									"pm.environment.set(\"email\", email);\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID={{sessionID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{usernameSender}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointUsers}}",
+							"host": [
+								"{{baseUrl}}{{endpointUsers}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate sender",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"    console.log(pm.cookies);\r",
+									"\r",
+									" "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{usernameSender}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Project.10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
+							"host": [
+								"{{baseUrl}}{{endpointAuthenticate}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update first name sender",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"\r",
+									"    const responseBodyInfo = pm.response.json();\r",
+									"    const firstName = responseBodyInfo.firstName;\r",
+									"    pm.environment.set(\"firstNameSender\", firstName);\r",
+									"\r",
+									"\r",
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"    });\r",
+									"\r",
+									"\r",
+									"    var jsonData = pm.response.json();\r",
+									"\r",
+									"    pm.test(\"First name length is at least 2\", function () {\r",
+									"        pm.expect(jsonData.firstName.length).to.be.at.least(2);\r",
+									"    });\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.environment.set(\"randomFirstName\", pm.variables.replaceIn(\"{{randomFirstName}}\"));\r",
+									"pm.environment.set(\"randomLastName\", pm.variables.replaceIn(\"{{randomLastName}}\"));\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "Idea-a913d7da=066876f0-82a7-4363-a9c7-28ebe0bf6e96; JSESSIONID={{sessionID}}",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{userIdSender}}\",\r\n    \"username\": \"{{usernameSender}}\",\r\n    \"email\": \"{{email}}\",\r\n    \"firstName\": \"{{$randomFirstName}}\",\r\n    \"lastName\": \"Ivanov\",\r\n    \"gender\": \"MALE\",\r\n    \"birthYear\": \"1905-12-09\",\r\n    \"personalReview\": null,\r\n    \"expertise\": \"Doctor\",\r\n    \"skills\": [],\r\n    \"location\": {\r\n        \"city\": {\r\n            \"country\": {},\r\n            \"id\": 23\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointUsersAuth}}{{userIdSender}}/personal",
+							"host": [
+								"{{baseUrl}}{{endpointUsersAuth}}{{userIdSender}}"
+							],
+							"path": [
+								"personal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registration receiver",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseBody = pm.response.text(); // Get the response body as text\r",
+									"\r",
+									"// Extracting ID\r",
+									"var matchId = responseBody.match(/id (\\d+)/); \r",
+									"\r",
+									"if (matchId && matchId[1]) {\r",
+									"    var userId = matchId[1];\r",
+									"    console.log(\"User ID:\", userId);\r",
+									"    pm.environment.set(\"userIdReceiver\", userId);\r",
+									"} else {\r",
+									"    console.error(\"User ID not found in the response.\");\r",
+									"}\r",
+									"\r",
+									"// Extracting Name\r",
+									"var matchName = responseBody.match(/name (\\w+)/);\r",
+									"\r",
+									"if (matchName && matchName[1]) {\r",
+									"    var userName = matchName[1];\r",
+									"    console.log(\"User Name:\", userName);\r",
+									"    pm.environment.set(\"userNameReceiver\", userName);\r",
+									"} else {\r",
+									"    console.error(\"User Name not found in the response.\");\r",
+									"}\r",
+									"\r",
+									"// Tests\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"ID exists\", function () {\r",
+									"    pm.expect(userId).to.exist;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Name exists\", function () {\r",
+									"    pm.expect(userName).to.exist;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Username length is between 2 and 20\", function () {\r",
+									"    pm.expect(userName.length).to.be.at.least(2);\r",
+									"    pm.expect(userName.length).to.be.at.most(20);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//array for used names\r",
+									"let usedUsernames = pm.environment.get(\"usedUsernames\");\r",
+									"if (usedUsernames) {\r",
+									"    usedUsernames = JSON.parse(usedUsernames);\r",
+									"} else {\r",
+									"    usedUsernames = [];\r",
+									"}\r",
+									"\r",
+									"function makeid(l) {\r",
+									"    var text;\r",
+									"    var char_list = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    \r",
+									"    do {\r",
+									"        text = \"\";\r",
+									"        for(var i = 0; i < l; i++) {\r",
+									"            text += char_list.charAt(Math.floor(Math.random() * char_list.length));\r",
+									"        }\r",
+									"    } while (usedUsernames.includes(text)); // check if the username is unique \r",
+									"\r",
+									"//\r",
+									"    usedUsernames.push(text);\r",
+									"    pm.environment.set(\"usedUsernames\", JSON.stringify(usedUsernames));\r",
+									"\r",
+									"    pm.environment.set(\"usernameReceiver\", text);\r",
+									"\r",
+									"    return text;\r",
+									"}\r",
+									"// generate between 2 and 20 \r",
+									"const length = Math.floor(Math.random() * 19) + 2;\r",
+									"console.log(makeid(length));\r",
+									"\r",
+									"\r",
+									"// generate email\r",
+									"\r",
+									"const uuid = Math.random().toString(36).substring(2, 15) +\r",
+									"            Math.random().toString(36).substring(2, 15);\r",
+									"const email = \"test.account.\" + uuid + \"@abv.bg\";\r",
+									"pm.environment.set(\"email\", email);\r",
+									"\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID={{sessionID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{usernameReceiver}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointUsers}}",
+							"host": [
+								"{{baseUrl}}{{endpointUsers}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate sender",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"    console.log(pm.response);\r",
+									"\r",
+									"   "
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{usernameSender}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Project.10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
+							"host": [
+								"{{baseUrl}}{{endpointAuthenticate}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"    pm.test(\"Status code is 200\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"    });\r",
+									"\r",
+									"    var responseText = pm.response.text();\r",
+									"\r",
+									"    pm.test(\"Phrase 'send friend request to' exists in response\", function () {\r",
+									"        pm.expect(responseText).to.include(\"send friend request to\");\r",
+									"    });\r",
+									"\r",
+									"var usernameSender = pm.environment.get(\"usernameSender\");\r",
+									"var usernameReceiver = pm.environment.get(\"usernameReceiver\")\r",
+									"\r",
+									"pm.test(\"UsernameSender exists in response\", function () {\r",
+									"    pm.expect(responseText).to.include(`${usernameSender}`);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"UsernameReceiver exists in response\", function () {\r",
+									"    pm.expect(responseText).to.include(` ${usernameReceiver}`);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{userIdReceiver}}\",\r\n    \"username\":\"{{usernameReceiver}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointRequestSender}}={{firstNameSender}}",
+							"host": [
+								"{{baseUrl}}{{endpointRequestSender}}={{firstNameSender}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate receiver",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"        pm.environment.set(\"sessionID - receiver\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"        console.log(responseBody);\r",
+									"\r",
+									"      ;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{usernameReceiver}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Project.10",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
+							"host": [
+								"{{baseUrl}}{{endpointAuthenticate}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user requests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"requestId\", jsonData[0].id);\r",
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response contains expected properties\", function () {\r",
+									"    pm.expect(jsonData[0]).to.have.property('id');\r",
+									"    pm.expect(jsonData[0]).to.have.property('approved');\r",
+									"    pm.expect(jsonData[0]).to.have.property('seen');\r",
+									"    pm.expect(jsonData[0]).to.have.property('timeStamp');\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}/request/",
+							"host": [
+								"{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}"
+							],
+							"path": [
+								"request",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"var responseText = pm.response.text();\r",
+									"\r",
+									"pm.test(\"Word 'approved' exists in response\", function () {\r",
+									"    pm.expect(responseText).to.include(\"approved\");\r",
+									"});\r",
+									"\r",
+									"var usernameSender = pm.environment.get(\"usernameSender\");\r",
+									"var usernameReceiver = pm.environment.get(\"usernameReceiver\")\r",
+									"\r",
+									"pm.test(\"UsernameSender exists in response\", function () {\r",
+									"    pm.expect(responseText).to.include(`${usernameSender}`);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"UsernameReceiver exists in response\", function () {\r",
+									"    pm.expect(responseText).to.include(`${usernameReceiver}`);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}{{endpointRequestAprrove}}={{requestId}}",
+							"host": [
+								"{{baseUrl}}{{endpointAuth}}{{userIdReceiver}}{{endpointRequestAprrove}}={{requestId}}"
 							]
 						}
 					},
