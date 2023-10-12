@@ -42,11 +42,11 @@ public class GetNewsFeed extends BaseTestSetup {
         System.out.println(response.asString());
         isResponse200(response);
 
-        int arraySize = response.jsonPath().getList("$").size();
-        String content = response.jsonPath().getString("content[0]");
+        PostModel[] posts = response.as(PostModel[].class);
+        Assert.assertNotNull(posts, "Posts are null");
+        Assert.assertTrue(posts.length > 0, "The array size is more than or equal to 1");
 
-        Assert.assertTrue(arraySize >= 1, "The array size is more than or equal to 1");
-        Assert.assertNotNull(content, "Content is null");
+        Assert.assertNotNull(posts[0].content, "Content is null");
         System.out.println("Successfully fetched all posts.");
     }
 }
