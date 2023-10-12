@@ -6,7 +6,6 @@ import models.UserPersonal;
 import models.UserProfile;
 import models.UserRegister;
 import org.testng.annotations.BeforeClass;
-import weare.api.testing.skills.CreateSkillTests;
 
 import java.security.SecureRandom;
 

@@ -1,4 +1,4 @@
-package weare.api.testing.skills;
+package weare.api.testing.skill;
 
 import Utils.ModelGenerator;
 import api.SkillController;
@@ -10,11 +10,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class CreateSkillTests extends BaseTestSetup {
+public class GetOneSkillTests extends BaseTestSetup {
 
     @BeforeClass
     public void setup() {
-
         if(!isRegistered){
 
             currentUsername = generateUniqueUsername();
@@ -24,13 +23,14 @@ public class CreateSkillTests extends BaseTestSetup {
 
             isRegistered = true;
         }
-    }
 
-    @Test
-    public void createSkillSuccessfully() {
         skillToCreated = ModelGenerator.generateSkillModel(155);
+        createdSkill = SkillController.createSkill(cookies, skillToCreated).as(Skill.class);
+    }
+    @Test
+    public void getOneSkillByIdSuccessfully() {
+        Response response = SkillController.getOneSkillById(cookies, createdSkill.skillId);
 
-        Response response = SkillController.createSkill(cookies, skillToCreated);
         isResponse200(response);
 
         createdSkill = response.as(Skill.class);
@@ -40,7 +40,7 @@ public class CreateSkillTests extends BaseTestSetup {
 
     @AfterClass
     public void tearDown() {
-        SkillController.deleteSkill(createdSkill.skillId);
+        Response response = SkillController.deleteSkill(createdSkill.skillId);
+        isResponse200(response);
     }
-
 }

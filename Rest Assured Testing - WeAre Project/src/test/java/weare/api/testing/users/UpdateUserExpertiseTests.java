@@ -1,12 +1,9 @@
 package weare.api.testing.users;
 
 import Utils.Serializer;
-import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import weare.api.testing.skills.CreateSkillTests;
 
 import static Utils.Endpoints.BASE_URL;
 import static Utils.Endpoints.UPDATE_ENDPOINT;

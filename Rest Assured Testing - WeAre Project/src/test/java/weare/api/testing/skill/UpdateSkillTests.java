@@ -1,24 +1,19 @@
-package weare.api.testing.skills;
+package weare.api.testing.skill;
 
 import Utils.ModelGenerator;
 import api.SkillController;
 import base.BaseTestSetup;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.Skill;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Endpoints.BASE_URL;
-import static Utils.Endpoints.SKILL_ENDPOINT;
-
-public class GetAllSkillsTests extends BaseTestSetup {
+public class UpdateSkillTests extends BaseTestSetup {
 
     @BeforeClass
     public void setup() {
-        if(!isRegistered){
+        if (!isRegistered) {
 
             currentUsername = generateUniqueUsername();
             currentEmail = generateUniqueEmail();
@@ -33,17 +28,9 @@ public class GetAllSkillsTests extends BaseTestSetup {
     }
 
     @Test
-    public void newlyCreatedSkill_returned_whenGetAllSkills() {
-
-        Response response = SkillController.getAllSkills(cookies);
-
+    public void updateSkillSuccessfully() {
+        Response response = SkillController.updateOneSkill(cookies, createdSkill);
         isResponse200(response);
-
-        Skill[] skillsList = response.as(Skill[].class);
-
-        Assert.assertTrue(skillsList.length > 0, "Skills list is empty");
-        Assert.assertTrue(assertCreatedSkillIdIsPresent(skillsList, createdSkill.skillId));
-
     }
 
     @AfterClass
@@ -51,15 +38,4 @@ public class GetAllSkillsTests extends BaseTestSetup {
         Response response = SkillController.deleteSkill(createdSkill.skillId);
         isResponse200(response);
     }
-
-    private boolean assertCreatedSkillIdIsPresent(Skill[] skillsList, int id) {
-        for (Skill skill : skillsList) {
-            if (skill.skillId == id) {
-                return true;
-            }
-        }
-        Assert.fail("Skill with id " + id + " was not found");
-        return false;
-    }
 }
-

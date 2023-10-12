@@ -1,14 +1,11 @@
-package weare.api.testing.skills;
+package weare.api.testing.skill;
 import Utils.ModelGenerator;
 import api.SkillController;
 import base.BaseTestSetup;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.Skill;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import static Utils.Endpoints.*;
 
 public class DeleteSkillTests  extends BaseTestSetup{
 
