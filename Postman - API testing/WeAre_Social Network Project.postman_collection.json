@@ -941,7 +941,7 @@
 									"        if (match && match[1]) {\r",
 									"        var userId = match[1];\r",
 									"        console.log(\"User ID:\", userId);\r",
-									"        pm.environment.set(\"userId_post\", userId);\r",
+									"        pm.environment.set(\"userIdPost\", userId);\r",
 									"        } else {\r",
 									"        console.error(\"User ID not found in the response.\");\r",
 									"        }\r",
@@ -1000,7 +1000,7 @@
 									"    usedUsernames.push(text);\r",
 									"    pm.environment.set(\"usedUsernames\", JSON.stringify(usedUsernames));\r",
 									"\r",
-									"    pm.environment.set(\"username_post\", text);\r",
+									"    pm.environment.set(\"usernamePost\", text);\r",
 									"\r",
 									"    return text;\r",
 									"}\r",
@@ -1014,7 +1014,7 @@
 									"const uuid = Math.random().toString(36).substring(2, 15) +\r",
 									"            Math.random().toString(36).substring(2, 15);\r",
 									"const email = \"testaccount.\" + uuid + \"@abv.bg\";\r",
-									"pm.environment.set(\"email_post\", email);\r",
+									"pm.environment.set(\"emailPost\", email);\r",
 									"\r",
 									"\r",
 									"\r",
@@ -1036,7 +1036,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{email_post}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{username_post}}\"\r\n}\r\n\r\n",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{emailPost}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{usernamePost}}\"\r\n}\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1087,7 +1087,7 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "{{username_post}}",
+									"value": "{{usernamePost}}",
 									"type": "text"
 								},
 								{
@@ -1450,7 +1450,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"commentId\": 0,\r\n  \"content\": \"Testing\",\r\n  \"deletedConfirmed\": true,\r\n  \"postId\": {{postId}},\r\n  \"userId\": {{userId_post}}\r\n}",
+							"raw": "{\r\n  \"commentId\": 0,\r\n  \"content\": \"Testing\",\r\n  \"deletedConfirmed\": true,\r\n  \"postId\": {{postId}},\r\n  \"userId\": {{userIdPost}}\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1590,7 +1590,7 @@
 			"name": "rest-comment-controller",
 			"item": [
 				{
-					"name": "Create post_additional",
+					"name": "Create post",
 					"event": [
 						{
 							"listen": "test",
@@ -1720,7 +1720,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"commentId\": 0,\r\n  \"content\": \"Testing\",\r\n  \"deletedConfirmed\": true,\r\n  \"postId\": {{postId}},\r\n  \"userId\": {{userId_post}}\r\n}",
+							"raw": "{\r\n  \"commentId\": 0,\r\n  \"content\": \"Testing\",\r\n  \"deletedConfirmed\": true,\r\n  \"postId\": {{postId}},\r\n  \"userId\": {{userIdPost}}\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1882,7 +1882,7 @@
 					"response": []
 				},
 				{
-					"name": "Find all comments of a Post",
+					"name": "Find all comments of a post",
 					"event": [
 						{
 							"listen": "test",
@@ -1941,7 +1941,7 @@
 					"response": []
 				},
 				{
-					"name": "Get one comment of a Post",
+					"name": "Get one comment of a post",
 					"event": [
 						{
 							"listen": "test",
@@ -2170,7 +2170,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"    pm.environment.set(\"sessionIdSender\", pm.cookies.get(\"JSESSIONID\"));\r",
 									"    console.log(pm.cookies);\r",
 									"\r",
 									" "
@@ -2434,7 +2434,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"    pm.environment.set(\"sessionIdSender\", pm.cookies.get(\"JSESSIONID\"));\r",
 									"    console.log(pm.response);\r",
 									"\r",
 									"   "
@@ -2536,7 +2536,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"        pm.environment.set(\"sessionID - receiver\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"        pm.environment.set(\"sessionIdReceiver\", pm.cookies.get(\"JSESSIONID\"));\r",
 									"        console.log(responseBody);\r",
 									"\r",
 									"      ;"
