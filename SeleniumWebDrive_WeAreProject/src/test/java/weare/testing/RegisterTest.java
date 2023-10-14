@@ -8,11 +8,14 @@ public class RegisterTest extends BaseTestSetup {
 
     @Test
     public void userRegisterWhenInputValidData() {
-        BaseTestSetup.generatedUsername = BaseTestSetup.generateRandomUsername(6);
-        BaseTestSetup.generatedPassword = BaseTestSetup.generateRandomPassword(12);
-        BaseTestSetup.generatedEmail = BaseTestSetup.generateRandomEmail();
+        String username = BaseTestSetup.generateRandomUsername(6);
+        String password = BaseTestSetup.generateRandomPassword(10);
+        String email = BaseTestSetup.generateRandomEmail();
 
-        registerPage.userRegister(BaseTestSetup.generatedUsername, BaseTestSetup.generatedPassword, BaseTestSetup.generatedEmail);
+
+        registerPage.userRegister(username, password, email);
+
+        LoginPage.loginUser(username, password);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -21,11 +24,14 @@ public class RegisterTest extends BaseTestSetup {
 
     @Test
     public void userRegisterSuccessfullyWhenInputUsernameWithMinLength() {
-        BaseTestSetup.generatedUsername = BaseTestSetup.generateRandomUsername(2);
-        BaseTestSetup.generatedPassword = BaseTestSetup.generateRandomPassword(12);
-        BaseTestSetup.generatedEmail = BaseTestSetup.generateRandomEmail();
+        String username = BaseTestSetup.generateRandomUsername(2);
+        String password = BaseTestSetup.generateRandomPassword(10);
+        String email = BaseTestSetup.generateRandomEmail();
 
-        registerPage.userRegister(BaseTestSetup.generatedUsername, BaseTestSetup.generatedPassword, BaseTestSetup.generatedEmail);
+
+        registerPage.userRegister(username, password, email);
+
+        LoginPage.loginUser(username, password);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -34,23 +40,27 @@ public class RegisterTest extends BaseTestSetup {
 
     @Test
     public void userRegisterSuccessfullyWhenInputUsernameWithMaxLength() {
-        BaseTestSetup.generatedUsername = BaseTestSetup.generateRandomUsername(20);
-        BaseTestSetup.generatedPassword = BaseTestSetup.generateRandomPassword(10);
-        BaseTestSetup.generatedEmail = BaseTestSetup.generateRandomEmail();
+        String username = BaseTestSetup.generateRandomUsername(20);
+        String password = BaseTestSetup.generateRandomPassword(10);
+        String email = BaseTestSetup.generateRandomEmail();
 
-        registerPage.userRegister(BaseTestSetup.generatedUsername, BaseTestSetup.generatedPassword, BaseTestSetup.generatedEmail);
+        registerPage.userRegister(username, password, email);
 
+        LoginPage.loginUser(username, password);
 
         BasePage.assertElementPresent("//a[@id='button']");
     }
 
     @Test
     public void userRegisterUnsuccessfullyWhenInputUsernameWithOneSymbol() {
-        BaseTestSetup.generatedUsername = BaseTestSetup.generateRandomUsername(1);
-        BaseTestSetup.generatedPassword = BaseTestSetup.generateRandomPassword(12);
-        BaseTestSetup.generatedEmail = BaseTestSetup.generateRandomEmail();
+        String username = BaseTestSetup.generateRandomUsername(1);
+        String password = BaseTestSetup.generateRandomPassword(12);
+        String email = BaseTestSetup.generateRandomEmail();
 
-        registerPage.userRegister(BaseTestSetup.generatedUsername, BaseTestSetup.generatedPassword, BaseTestSetup.generatedEmail);
+
+        registerPage.userRegister(username, password, email);
+
+        LoginPage.loginUser(username, password);
 
 
         BasePage.assertErrorPresent("//h1[text()='Whitelabel Error Page']", "User is registered with an invalid number of password characters");
@@ -58,11 +68,14 @@ public class RegisterTest extends BaseTestSetup {
 
     @Test
     public void userRegisterUnsuccessfullyUsernameLengthExceedingLimit() {
-        BaseTestSetup.generatedUsername = BaseTestSetup.generateRandomUsername(21);
-        BaseTestSetup.generatedPassword = BaseTestSetup.generateRandomPassword(12);
-        BaseTestSetup.generatedEmail = BaseTestSetup.generateRandomEmail();
+        String username = BaseTestSetup.generateRandomUsername(21);
+        String password = BaseTestSetup.generateRandomPassword(12);
+        String email = BaseTestSetup.generateRandomEmail();
 
-        registerPage.userRegister(BaseTestSetup.generatedUsername, BaseTestSetup.generatedPassword, BaseTestSetup.generatedEmail);
+
+        registerPage.userRegister(username, password, email);
+
+        LoginPage.loginUser(username, password);
 
         BasePage.assertErrorPresent("//h1[text()='Whitelabel Error Page']", "User is registered with an invalid number of username characters");
 
@@ -70,11 +83,14 @@ public class RegisterTest extends BaseTestSetup {
 
     @Test
     public void userRegisterUnsuccessfullyWithThreeCharactersPassword() {
-        BaseTestSetup.generatedUsername = BaseTestSetup.generateRandomUsername(8);
-        BaseTestSetup.generatedPassword = BaseTestSetup.generateRandomPassword(3);
-        BaseTestSetup.generatedEmail = BaseTestSetup.generateRandomEmail();
+        String username = BaseTestSetup.generateRandomUsername(8);
+        String password = BaseTestSetup.generateRandomPassword(3);
+        String email = BaseTestSetup.generateRandomEmail();
 
-        registerPage.userRegister(BaseTestSetup.generatedUsername, BaseTestSetup.generatedPassword, BaseTestSetup.generatedEmail);
+
+        registerPage.userRegister(username, password, email);
+
+        LoginPage.loginUser(username, password);
 
         BasePage.assertErrorPresent("//i[@style='color: red'][text()='password must be minimum 6 characters']", "User is registered with an invalid number of password characters");
 
@@ -82,11 +98,14 @@ public class RegisterTest extends BaseTestSetup {
 
     @Test
     public void userRegisterUnsuccessfullyWithSevenCharactersPassword() {
-        BaseTestSetup.generatedUsername = BaseTestSetup.generateRandomUsername(7);
-        BaseTestSetup.generatedPassword = BaseTestSetup.generateRandomPassword(7);
-        BaseTestSetup.generatedEmail = BaseTestSetup.generateRandomEmail();
+        String username = BaseTestSetup.generateRandomUsername(7);
+        String password = BaseTestSetup.generateRandomPassword(7);
+        String email = BaseTestSetup.generateRandomEmail();
 
-        registerPage.userRegister(BaseTestSetup.generatedUsername, BaseTestSetup.generatedPassword, BaseTestSetup.generatedEmail);
+
+        registerPage.userRegister(username, password, email);
+
+        LoginPage.loginUser(username, password);
 
         BasePage.assertErrorPresent("//i[@style='color: red'][text()='password must be minimum 6 characters']", "User is registered with an invalid number of password characters");
 
@@ -94,13 +113,13 @@ public class RegisterTest extends BaseTestSetup {
 
     @Test
     public void userRegisterUnsuccessfullyWithLetterPassword() {
-        BaseTestSetup.generatedUsername = BaseTestSetup.generateRandomUsername(7);
-        BaseTestSetup.generatedLetterPassword = BaseTestSetup.generateLetterPassword(8);
-        BaseTestSetup.generatedEmail = BaseTestSetup.generateRandomEmail();
+        String username = BaseTestSetup.generateRandomUsername(7);
+        String letterPassword = BaseTestSetup.generateLetterPassword(10);
+        String email = BaseTestSetup.generateRandomEmail();
 
-        registerPage.userRegister(BaseTestSetup.generatedUsername, BaseTestSetup.generatedLetterPassword , BaseTestSetup.generatedEmail);
+        registerPage.userRegister(username, letterPassword, email);
 
-        BasePage.assertErrorPresent("//h1[text()='Whitelabel Error Page']", "User can be registered with only letter password");
+        BasePage.assertErrorPresent("//h1[text()='Whitelabel Error Page']", "User can be registered with a password consisting only of letters");
 
     }
 

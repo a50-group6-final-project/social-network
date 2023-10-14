@@ -7,14 +7,15 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 
 public class BaseTestSetup {
-    public static RegisterPage registerPage;
-    public static WebDriver driver;
+    protected static RegisterPage registerPage;
+    protected static WebDriver driver;
 
-    public static String generatedUsername;
-    public static String generatedPassword;
-    public static String generatedEmail;
+    protected static String generatedUsername;
+    protected static String generatedPassword;
+    protected static String generatedEmail;
 
-    public static String generatedLetterPassword;
+    protected static String generatedLetterPassword;
+    protected static String generateLetterPassword;
 
     private static Faker faker = new Faker();
 
