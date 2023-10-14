@@ -1,10 +1,13 @@
 package weare.api.testing.skill;
 
+import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import api.SkillController;
+import api.UserController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
 import models.Skill;
+import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -16,11 +19,8 @@ public class CreateSkillTests extends BaseTestSetup {
     public void setup() {
 
         if (!isRegistered) {
-            currentUsername = generateUniqueUsername();
-            currentEmail = generateUniqueEmail();
-            register(currentUsername, currentEmail);
-            authenticateAndFetchCookies(currentUsername, currentEmail);
-            isRegistered = true;
+            UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
+            register(userRegister);
         }
     }
 
@@ -38,6 +38,8 @@ public class CreateSkillTests extends BaseTestSetup {
 
     @AfterClass
     public void tearDown() {
-        SkillController.deleteSkill(createdSkill.skillId);
+        if(createdSkill != null){
+            SkillController.deleteSkill(createdSkill.skillId);
+        }
     }
 }
