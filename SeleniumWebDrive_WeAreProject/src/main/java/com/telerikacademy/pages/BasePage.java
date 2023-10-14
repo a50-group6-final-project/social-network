@@ -3,7 +3,12 @@ package com.telerikacademy.pages;
 import com.telerikacademy.testframework.UserActions;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static com.telerikacademy.testframework.Utils.*;
 import static java.lang.String.format;
@@ -47,5 +52,15 @@ public abstract class BasePage {
     public static void assertElementPresent(String locator) {
         Assertions.assertNotNull(driver.findElement(By.xpath(getUIMappingByKey(locator))),
                 format("Element with %s doesn't present.", locator));
+    }
+
+
+    public static void assertErrorPresent(String xpath, String message) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+        } catch (TimeoutException e) {
+            Assertions.fail(message);
+        }
     }
 }

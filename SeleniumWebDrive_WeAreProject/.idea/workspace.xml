@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="Add LoginTest and Refactoring BaseTestSetup">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/RegisterTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="Adding AdminPage" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -43,7 +47,38 @@
     "last_opened_file_path": "C:/Users/rosti.WIN-IC28P738AEI/Desktop/Versions"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.RegisterTest.userRegisterSuccessfullyWhenInputUsernameWithMaxLength">
+  <component name="RunManager" selected="JUnit.AdministrativePartTests.adminRegisterWhenInputValidData">
+    <configuration name="AdministrativePartTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdministrativePartTests.adminRegisterWhenInputValidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
+      <option name="METHOD_NAME" value="adminRegisterWhenInputValidData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoginTests.loginUserWhenEnterValidCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
@@ -60,7 +95,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTest.userRegisterSuccessfullyWhenInputUsernameWithMaxLength" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisterTest.userRegisterUnsuccessfullyWithLetterPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -70,13 +105,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
       <option name="MAIN_CLASS_NAME" value="weare.testing.RegisterTest" />
-      <option name="METHOD_NAME" value="userRegisterSuccessfullyWhenInputUsernameWithMaxLength" />
+      <option name="METHOD_NAME" value="userRegisterUnsuccessfullyWithLetterPassword" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTest.userRegisterSuccessfullyWhenInputUsernameWithMinLength" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisterTest.userRegistrationSuccessfullyWhenProfessionalCategorySelected" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -86,39 +121,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
       <option name="MAIN_CLASS_NAME" value="weare.testing.RegisterTest" />
-      <option name="METHOD_NAME" value="userRegisterSuccessfullyWhenInputUsernameWithMinLength" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RegisterTest.userRegisterWhenInputUserNameWithMinLength" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.RegisterTest" />
-      <option name="METHOD_NAME" value="userRegisterWhenInputUserNameWithMinLength" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RegisterTest.userRegisterWhenInputValidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.RegisterTest" />
-      <option name="METHOD_NAME" value="userRegisterWhenInputValidData" />
+      <option name="METHOD_NAME" value="userRegistrationSuccessfullyWhenProfessionalCategorySelected" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -126,11 +129,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegisterTest.userRegisterSuccessfullyWhenInputUsernameWithMaxLength" />
-        <item itemvalue="JUnit.RegisterTest.userRegisterSuccessfullyWhenInputUsernameWithMinLength" />
-        <item itemvalue="JUnit.RegisterTest.userRegisterWhenInputValidData" />
+        <item itemvalue="JUnit.AdministrativePartTests.adminRegisterWhenInputValidData" />
+        <item itemvalue="JUnit.AdministrativePartTests" />
+        <item itemvalue="JUnit.RegisterTest.userRegistrationSuccessfullyWhenProfessionalCategorySelected" />
+        <item itemvalue="JUnit.RegisterTest.userRegisterUnsuccessfullyWithLetterPassword" />
         <item itemvalue="JUnit.LoginTests.loginUserWhenEnterValidCredentials" />
-        <item itemvalue="JUnit.RegisterTest.userRegisterWhenInputUserNameWithMinLength" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +174,56 @@
       <option name="project" value="LOCAL" />
       <updated>1697272479161</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Adding tests in RegisterTest">
+      <created>1697273743217</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697273743217</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Adding tests in RegisterTest">
+      <created>1697277633536</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697277633536</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Adding tests in LoginTest and Refactoring code">
+      <created>1697279255386</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1697279255386</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Adding test in RegisterTest">
+      <created>1697289645601</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1697289645601</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Adding test in AdministrativePartsTest">
+      <created>1697294106727</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1697294106727</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Refactoring test names">
+      <created>1697295008775</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697295008775</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Adding AdminPage">
+      <created>1697295071772</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1697295071772</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -179,6 +231,12 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Add RegisterTest" />
     <MESSAGE value="Add LoginTest and Refactoring BaseTestSetup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add LoginTest and Refactoring BaseTestSetup" />
+    <MESSAGE value="Adding tests in RegisterTest" />
+    <MESSAGE value="Adding tests in LoginTest and Refactoring code" />
+    <MESSAGE value="Adding test in RegisterTest" />
+    <MESSAGE value="Adding test in AdministrativePartsTest" />
+    <MESSAGE value="Refactoring test names" />
+    <MESSAGE value="Adding AdminPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding AdminPage" />
   </component>
 </project>

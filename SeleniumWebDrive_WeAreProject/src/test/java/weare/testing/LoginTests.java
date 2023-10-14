@@ -1,22 +1,35 @@
 package weare.testing;
 
 import org.junit.jupiter.api.Test;
-import static weare.testing.RegisterPage.*;
 
 public class LoginTests extends BaseTestSetup {
 
 
     @Test
-    public void loginUserWhenEnterValidCredentials() {
-        BaseTestSetup.generatedUsername = BaseTestSetup.generateRandomUsername(6);
-        BaseTestSetup.generatedPassword = BaseTestSetup.generateRandomPassword();
-        BaseTestSetup.generatedEmail = BaseTestSetup.generateRandomEmail();
+    public void UserLoggedIn_When_EnterValidCredentials() {
+        String username = BaseTestSetup.generateRandomUsername(6);
+        String password = BaseTestSetup.generateRandomPassword(10);
+        String email = BaseTestSetup.generateRandomEmail();
 
-        registerPage.userRegister(BaseTestSetup.generatedUsername, BaseTestSetup.generatedPassword, BaseTestSetup.generatedEmail);
+        registerPage.userRegister(username, password, email);
 
-        LoginPage.loginUser(BaseTestSetup.generatedUsername, BaseTestSetup.generatedPassword);
+        LoginPage.loginUser(username, password);
 
-       LoginPage.assertElementPresent("//a[@href='/logout' and text()='LOGOUT']");
+        LoginPage.assertElementPresent("//a[@href='/logout' and text()='LOGOUT']");
     }
+
+    @Test
+    public void LoginFailed_When_TryToLogin_With_WrongPassword() {
+        String username = BaseTestSetup.generateRandomUsername(6);
+        String password = BaseTestSetup.generateRandomPassword(10);
+        String email = BaseTestSetup.generateRandomEmail();
+        String wrongPassword = BaseTestSetup.generateLetterPassword(10);
+
+        registerPage.userRegister(username, password, email);
+
+        LoginPage.loginUser(username, wrongPassword);
+        LoginPage.assertErrorPresent("//i[text()=' Wrong username or password. ']", "User is registered with wrong password");
+    }
+
 }
 
