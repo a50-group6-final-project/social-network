@@ -14,6 +14,8 @@ public class BaseTestSetup {
     public static String generatedPassword;
     public static String generatedEmail;
 
+    public static String generatedLetterPassword;
+
     private static Faker faker = new Faker();
 
     @BeforeAll
@@ -33,19 +35,33 @@ public class BaseTestSetup {
         generatedUsername = faker.regexify("[a-zA-Z]{" + usernameLength + "}");
         registerPage.userRegister(generatedUsername, generatedPassword, generatedEmail);
     }
+
     public static String generateRandomUsername(int length) {
         generatedUsername = faker.regexify("[a-zA-Z]{" + length + "}");
         return generatedUsername;
     }
-    public static String generateRandomPassword() {
-        generatedPassword = faker.internet().password(8, 14, true, true) + faker.number().digit() + faker.regexify("[!@#$%^&*()]");
+
+    public static String generateRandomPassword(int length) {
+        String randomPassword = faker.lorem().characters(length - 2);
+        String randomDigit = faker.number().digit();
+        String specialChar = faker.regexify("[!@#$%^&*()]");
+
+        generatedPassword = randomPassword + randomDigit + specialChar;
         return generatedPassword;
     }
+
+    public static String generateLetterPassword(int length) {
+        generatedLetterPassword = faker.lorem().characters(length);
+        return  generatedLetterPassword;
+    }
+
+
 
     public static String generateRandomEmail() {
         generatedEmail = faker.internet().emailAddress();
         return generatedEmail;
     }
+
 
 }
 
