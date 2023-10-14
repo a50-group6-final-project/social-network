@@ -1,6 +1,7 @@
 package Utils;
 
 import models.Category;
+import models.CommentModel;
 import models.PostModel;
 import models.Skill;
 
@@ -26,5 +27,15 @@ public class ModelGenerator {
         createPost.mypublic = true;
 
         return createPost;
+    }
+
+    public static CommentModel generateCommentModel(String uniqueContent, int postId, int userId){
+        CommentModel createComment = new CommentModel();
+        createComment.commentId = 0;
+        createComment.content = uniqueContent;
+        createComment.deletedConfirmed = true;
+        createComment.postId = postId;
+        createComment.userId = userId;
+        return createComment;
     }
 }
