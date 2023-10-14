@@ -21,12 +21,14 @@ public class UpdateUserExpertiseTests extends BaseUserSetup {
     public void setup() {
         if (isRegistered == false) {
             userToRegister = ModelGenerator.generateUserRegisterModel();
+            register(userToRegister);
+            isRegistered = true;
 
         }
         if (currentUserPersonalProfile == null) {
             currentUserPersonalProfile = ModelGenerator.generateUserPersonalModel();
         }
-        register(userToRegister);
+
     }
 
     @Test

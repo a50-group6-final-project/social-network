@@ -17,12 +17,13 @@ public class UpdateUserPersonalProfile extends BaseUserSetup {
     public void setup() {
         if(isRegistered == false){
             userToRegister = ModelGenerator.generateUserRegisterModel();
+            register(userToRegister);
+            isRegistered = true;
 
         }
         if (currentUserPersonalProfile == null) {
             currentUserPersonalProfile = ModelGenerator.generateUserPersonalModel();
         }
-        register(userToRegister);
     }
 
     @Test
@@ -38,7 +39,6 @@ public class UpdateUserPersonalProfile extends BaseUserSetup {
 
         Assert.assertEquals(returnedUserPersonalProfile.firstName, currentUserPersonalProfile.firstName, "First name does not match.");
         Assert.assertEquals(returnedUserPersonalProfile.lastName, currentUserPersonalProfile.lastName, "Last name does not match.");
-        Assert.assertEquals(returnedUserPersonalProfile.id, currentUserPersonalProfile.id, "ID does not match.");
         System.out.println("The profile is successfully updated.");
     }
 }

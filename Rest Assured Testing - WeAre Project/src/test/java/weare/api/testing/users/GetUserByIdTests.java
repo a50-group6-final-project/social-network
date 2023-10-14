@@ -17,12 +17,10 @@ public class GetUserByIdTests extends BaseUserSetup {
     public void setup() {
         if(isRegistered == false){
             userToRegister = ModelGenerator.generateUserRegisterModel();
+            register(userToRegister);
+            isRegistered = true;
+        }
 
-        }
-        if (currentUserPersonalProfile == null) {
-            currentUserPersonalProfile = ModelGenerator.generateUserPersonalModel();
-        }
-        register(userToRegister);
     }
     @Test
     public void getUserById_Successful() {
@@ -31,8 +29,6 @@ public class GetUserByIdTests extends BaseUserSetup {
         isResponse200(response);
 
         userPersonal = response.as(UserPersonal.class);
-
-        currentUserPersonalProfile = userPersonal;
 
         Assert.assertEquals(userPersonal.username, currentUsername, "Usernames don't match!");
         Assert.assertEquals(userPersonal.email, currentEmail, "Emails don't match!");

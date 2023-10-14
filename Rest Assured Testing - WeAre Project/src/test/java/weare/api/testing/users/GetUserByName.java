@@ -25,12 +25,12 @@ public class GetUserByName extends BaseTestSetup {
     public void setup() {
         if(isRegistered == false){
             userToRegister = ModelGenerator.generateUserRegisterModel();
-
+            register(userToRegister);
+            isRegistered = true;
         }
         if (currentUserPersonalProfile == null) {
             currentUserPersonalProfile = ModelGenerator.generateUserPersonalModel();
         }
-        register(userToRegister);
     }
     @Test
     public void getUserByName_Successful() {
