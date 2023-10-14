@@ -9,16 +9,22 @@ public class RegisterTest extends BaseTestSetup {
 
     @Test
     public void userRegisterWhenInputValidData() {
-        generateRandomUsername();
-        generateRandomPassword();
-        generateRandomEmail();
-        registerPage.userRegister();
+
+       registerNewUser(8);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+
+        registerPage.assertElementPresent("//a[@id='button']");
+    }
+
+
+
+    @Test
+    public void userRegisterWhenInputUserNameWithMinLength() {
+        registerNewUser(2);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 
         registerPage.assertElementPresent("//a[@id='button']");
     }
 }
-
-
-
