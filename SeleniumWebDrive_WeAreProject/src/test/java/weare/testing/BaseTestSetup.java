@@ -13,9 +13,8 @@ public class BaseTestSetup {
     protected static String generatedUsername;
     protected static String generatedPassword;
     protected static String generatedEmail;
-
+    protected static String generatedAdminUsername;
     protected static String generatedLetterPassword;
-    protected static String generateLetterPassword;
 
     private static Faker faker = new Faker();
 
@@ -32,14 +31,18 @@ public class BaseTestSetup {
         driver.quit();
     }
 
-    public static void registerNewUser(int usernameLength) {
-        generatedUsername = faker.regexify("[a-zA-Z]{" + usernameLength + "}");
-        registerPage.userRegister(generatedUsername, generatedPassword, generatedEmail);
-    }
+
 
     public static String generateRandomUsername(int length) {
         generatedUsername = faker.regexify("[a-zA-Z]{" + length + "}");
         return generatedUsername;
+    }
+
+    public static String generateRandomUsernameWithAdmin(int length) {
+        generatedUsername = faker.regexify("[a-zA-Z]{" + length + "}");
+        generatedAdminUsername = "Admin" + generatedUsername;
+
+        return generatedAdminUsername;
     }
 
     public static String generateRandomPassword(int length) {
