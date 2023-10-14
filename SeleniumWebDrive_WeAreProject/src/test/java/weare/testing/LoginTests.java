@@ -4,16 +4,19 @@ import org.junit.jupiter.api.Test;
 import static weare.testing.RegisterPage.*;
 
 public class LoginTests extends BaseTestSetup {
+
+
     @Test
     public void loginUserWhenEnterValidCredentials() {
-        generateRandomUsername();
-        generateRandomPassword();
-        generateRandomEmail();
+        BaseTestSetup.generatedUsername = BaseTestSetup.generateRandomUsername(6);
+        BaseTestSetup.generatedPassword = BaseTestSetup.generateRandomPassword();
+        BaseTestSetup.generatedEmail = BaseTestSetup.generateRandomEmail();
 
-        registerPage.userRegister();
+        registerPage.userRegister(BaseTestSetup.generatedUsername, BaseTestSetup.generatedPassword, BaseTestSetup.generatedEmail);
 
-        pageLogin.loginUser();
+        LoginPage.loginUser(BaseTestSetup.generatedUsername, BaseTestSetup.generatedPassword);
 
-        pageLogin.assertElementPresent("//a[@href='/logout' and text()='LOGOUT']");
+       LoginPage.assertElementPresent("//a[@href='/logout' and text()='LOGOUT']");
     }
 }
+

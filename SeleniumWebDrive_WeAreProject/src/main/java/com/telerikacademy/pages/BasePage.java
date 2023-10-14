@@ -11,8 +11,8 @@ import static java.lang.String.format;
 public abstract class BasePage {
 
     protected String url;
-    protected WebDriver driver;
-    public UserActions actions;
+    protected static WebDriver driver;
+    public static UserActions actions;
 
     public BasePage(WebDriver driver, String urlKey) {
         String pageUrl = getConfigPropertyByKey(urlKey);
@@ -44,7 +44,7 @@ public abstract class BasePage {
         Assertions.assertTrue(currentUrl.contains(url), "Landed URL is not as expected. Actual URL: " + currentUrl + ". Expected URL: " + url);
     }
 
-    public void assertElementPresent(String locator) {
+    public static void assertElementPresent(String locator) {
         Assertions.assertNotNull(driver.findElement(By.xpath(getUIMappingByKey(locator))),
                 format("Element with %s doesn't present.", locator));
     }
