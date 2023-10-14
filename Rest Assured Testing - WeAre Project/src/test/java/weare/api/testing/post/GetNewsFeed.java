@@ -1,11 +1,13 @@
 package weare.api.testing.post;
 
+import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.PostModel;
+import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -16,14 +18,11 @@ public class GetNewsFeed extends BaseTestSetup {
     @BeforeClass
     public void setup() {
         if (!isRegistered) {
-            postCreatorUsername = generateUniqueUsername();
-            currentEmail = generateUniqueEmail();
-            register(postCreatorUsername, currentEmail);
-            authenticateAndFetchCookies(postCreatorUsername, "Project.10");
-            isRegistered = true;
+            UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
+            register(userRegister);
         }
 
-        String uniqueContent = generateUniqueContentPost();
+        String uniqueContent = DataGenerator.generateUniqueContentPost();
         createPost = ModelGenerator.generatePostModel(uniqueContent);
         Response response = PostController.createPost(cookies, createPost);
         createdPost = response.as(PostModel.class);

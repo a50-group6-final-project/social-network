@@ -1,30 +1,35 @@
 package weare.api.testing.users;
 
+import Utils.ModelGenerator;
 import Utils.Serializer;
+import api.UserController;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.UserPersonal;
+import models.UserProfile;
+import models.UserRegister;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class UpdateUserPersonalProfile extends BaseUserSetup {
+    @BeforeClass
+    public void setup() {
+        if(isRegistered == null){
+            userToRegister = ModelGenerator.generateUserRegisterModel();
 
+        }
+        if (currentUserPersonalProfile == null) {
+            currentUserPersonalProfile = ModelGenerator.generateUserPersonalModel();
+        }
+        register(userToRegister);
+    }
 
     @Test
     public void updateUserPersonalProfile_Successful() {
-        currentUserPersonalProfile.firstName = "firstTestUpdated";
-        currentUserPersonalProfile.lastNAme = "lastTestUpdated";
-        currentUserPersonalProfile.gender = "MALE";
-        currentUserPersonalProfile.city = "Sofia";
-        currentUserPersonalProfile.birthYear = "1990";
-        String bodyUpdatedPersonalProfileString = Serializer.convertObjectToJsonString(currentUserPersonalProfile);
 
-        Response response = RestAssured.given()
-                .cookie("JSESSIONID", JSESSIONID)
-                .contentType("application/json")
-                .body(bodyUpdatedPersonalProfileString)
-                .when()
-                .post("/api/users/auth/" + currentUserId + "/personal");
+//        authenticateAndFetchCookies(currentUsername, "Project.10");
+        Response response = UserController.updatePersonalProfile(cookies, currentUserPersonalProfile, currentUserId);
 
         System.out.println(response.asString());
         isResponse200(response);

@@ -1,5 +1,6 @@
 package weare.api.testing.connection;
 
+import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import api.ConnectionController;
 import base.BaseTestSetup;
@@ -7,6 +8,7 @@ import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import models.ApproveRequest;
+import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
@@ -18,29 +20,11 @@ public class GetUserRequestsTests extends BaseConnectionSetup {
 
     Response sentRequestResponse;
 
-    @BeforeTest
-    public void setup() {
-        if (!isRegistered) {
-            senderUsername = generateUniqueUsername();
-            currentEmail = generateUniqueEmail();
-            register(senderUsername, currentEmail);
-            authenticateAndFetchCookies(senderUsername, "Password.10");
-            senderCookies = cookies;
-            senderUserId = currentUserId;
-            System.out.println("Successfully created a new user with Id" + " " + senderUserId);
-
-            receiverUsername = generateUniqueUsername();
-            currentEmail = generateUniqueEmail();
-            register(receiverUsername, currentEmail);
-            authenticateAndFetchCookies(receiverUsername, "Password.10");
-            receiverCookies = cookies;
-            receiverUserId = currentUserId;
-            System.out.println("Successfully created a new user with Id" + " " + receiverUserId);
-
-            isRegistered = true;
-        }
+    @BeforeClass
+    public void setupTest() {
+        authenticateAndFetchCookies(senderUsername, "Project.10");
         sendRequestToUser = ModelGenerator.generateSendRequestModel(receiverUserId, receiverUsername);
-        sentRequestResponse = ConnectionController.sendRequest(sendRequestToUser, senderCookies, senderUsername);
+        sentRequestResponse = ConnectionController.sendRequest(sendRequestToUser, cookies, senderUsername);
         System.out.println(sentRequestResponse.asString());
     }
 

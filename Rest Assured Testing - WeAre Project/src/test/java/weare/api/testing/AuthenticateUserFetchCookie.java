@@ -22,7 +22,6 @@ public class AuthenticateUserFetchCookie extends BaseTestSetup {
                 .when()
                 .post(AUTHENTICATE_ENDPOINT);
 
-        //I managed to fetch cookies but the status code is 302
         cookies = response.detailedCookies();
         int statusCodeAuthentication = response.getStatusCode();
         System.out.println("The status code is:" + statusCodeAuthentication);

@@ -1,10 +1,13 @@
 package weare.api.testing.users;
 
+import Utils.DataGenerator;
+import Utils.ModelGenerator;
 import Utils.Serializer;
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.SearchUser;
+import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -20,19 +23,17 @@ public class GetUserByName extends BaseTestSetup {
     @Test
     public void getUserByName_Successful() {
 
-        SearchUser byName=new SearchUser();
-        byName.index=0;
-        byName.next=true;
-        byName.searchParam1="";
-        byName.searchParam2="Lili Ivanova";
-        byName.size=1;
+        SearchUser byName = new SearchUser();
+        byName.index = 0;
+        byName.next = true;
+        byName.searchParam1 = "";
+        byName.searchParam2 = "Lili Ivanova";
+        byName.size = 1;
 
         String bodyGetUserByName = Serializer.convertObjectToJsonString(byName);
 
-        currentUsername= generateUniqueUsername();
-        currentEmail = generateUniqueEmail();
-
-        register(currentUsername, currentEmail);
+        UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
+        register(userRegister);
 
         authenticateAndFetchCookies(currentUsername, "Project.10");
         RestAssured.baseURI = BASE_URL;
@@ -47,7 +48,7 @@ public class GetUserByName extends BaseTestSetup {
 
         System.out.println(response.asString());
 
-       isResponse200(response);
+        isResponse200(response);
 
         String username = response.jsonPath().getString("[0].username");
         int userId = response.jsonPath().getInt("[0].userId");

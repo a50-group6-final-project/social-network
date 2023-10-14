@@ -1,6 +1,8 @@
 package weare.api.testing.users;
 
+import Utils.ModelGenerator;
 import Utils.Serializer;
+import api.UserController;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.Page;
@@ -16,16 +18,8 @@ public class GetUsersTests extends BaseUserSetup {
 
     @Test
     public void getUsers_Successful() {
-        Page page = generatePageModel(1000);
-        String bodyPageString = Serializer.convertObjectToJsonString(page);
-
-        Response response = RestAssured
-                .given()
-                .baseUri(BASE_URL)
-                .contentType("application/json")
-                .body(bodyPageString)
-                .when()
-                .post(GET_USERS_BY_NAME_ENDPOINT);
+        Page page = ModelGenerator.generatePageModel(1500);
+        Response response = UserController.getUsers(page);
 
         isResponse200(response);
 
@@ -54,11 +48,5 @@ public class GetUsersTests extends BaseUserSetup {
                 return userProfile;
             }
         return null;
-    }
-
-    private Page generatePageModel(int size) {
-        Page page = new Page();
-        page.size = size;
-        return page;
     }
 }
