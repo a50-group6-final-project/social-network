@@ -11,7 +11,7 @@ public class UserPersonal {
     public ArrayList<String> authorities;
     public String email;
     public Object firstName;
-    public Object lastNAme;
+    public Object lastName;
     public Object gender;
     public Object city = "";
     public Object birthYear;

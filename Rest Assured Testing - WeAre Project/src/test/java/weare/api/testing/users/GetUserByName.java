@@ -3,12 +3,14 @@ package weare.api.testing.users;
 import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import Utils.Serializer;
+import api.UserController;
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.SearchUser;
 import models.UserRegister;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static Utils.Constants.APPLICATION_JSON;
@@ -19,32 +21,22 @@ import static org.testng.Assert.assertEquals;
 
 public class GetUserByName extends BaseTestSetup {
 
+    @BeforeClass
+    public void setup() {
+        if(isRegistered == false){
+            userToRegister = ModelGenerator.generateUserRegisterModel();
 
+        }
+        if (currentUserPersonalProfile == null) {
+            currentUserPersonalProfile = ModelGenerator.generateUserPersonalModel();
+        }
+        register(userToRegister);
+    }
     @Test
     public void getUserByName_Successful() {
 
-        SearchUser byName = new SearchUser();
-        byName.index = 0;
-        byName.next = true;
-        byName.searchParam1 = "";
-        byName.searchParam2 = "Lili Ivanova";
-        byName.size = 1;
-
-        String bodyGetUserByName = Serializer.convertObjectToJsonString(byName);
-
-        UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
-        register(userRegister);
-
-        authenticateAndFetchCookies(currentUsername, "Project.10");
-        RestAssured.baseURI = BASE_URL;
-
-
-        Response response = RestAssured.given()
-                .cookies(cookies)
-                .contentType(APPLICATION_JSON)
-                .body(bodyGetUserByName)
-                .when()
-                .post(GET_USERS_BY_NAME_ENDPOINT);
+        SearchUser searchUser = ModelGenerator.generateSearchUserModel("Lili Ivanova");
+        Response response = UserController.getUserByName(cookies, searchUser);
 
         System.out.println(response.asString());
 

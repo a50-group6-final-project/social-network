@@ -15,7 +15,7 @@ public class GetUserByIdTests extends BaseUserSetup {
 
     @BeforeClass
     public void setup() {
-        if(isRegistered == null){
+        if(isRegistered == false){
             userToRegister = ModelGenerator.generateUserRegisterModel();
 
         }

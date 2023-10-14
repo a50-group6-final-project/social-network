@@ -84,7 +84,7 @@ public class ModelGenerator {
     public static UserPersonal generateUserPersonalModel(){
         UserPersonal profile = new UserPersonal();
         profile.firstName = "firstTestUpdated";
-        profile.lastNAme = "lastTestUpdated";
+        profile.lastName = "lastTestUpdated";
         profile.gender = "MALE";
         profile.city = "Sofia";
         profile.birthYear = "1990-04-04";
@@ -95,5 +95,15 @@ public class ModelGenerator {
         UserProfile profile = new UserProfile();
 
         return profile;
+    }
+
+    public static SearchUser generateSearchUserModel(String name){
+        SearchUser byName = new SearchUser();
+        byName.index = 0;
+        byName.next = true;
+        byName.searchParam1 = "";
+        byName.searchParam2 = name;
+        byName.size = 1;
+        return byName;
     }
 }

@@ -5,9 +5,11 @@ import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import models.Page;
+import models.SearchUser;
 import models.UserPersonal;
 import models.UserRegister;
 
+import static Utils.Constants.APPLICATION_JSON;
 import static Utils.Endpoints.*;
 
 public class UserController {
@@ -34,7 +36,15 @@ public class UserController {
                 .when()
                 .post(GET_USERS_BY_NAME_ENDPOINT);
     }
-
+    public static Response getUserByName(Cookies cookies, SearchUser user){
+        String bodyGetUserByName = Serializer.convertObjectToJsonString(user);
+        return RestAssured.given()
+                .cookies(cookies)
+                .contentType(APPLICATION_JSON)
+                .body(bodyGetUserByName)
+                .when()
+                .post(GET_USERS_BY_NAME_ENDPOINT);
+    }
     public static Response updatePersonalProfile(Cookies cookies, UserPersonal userPersonal, int currentUserId){
         String bodyUpdatedPersonalProfileString = Serializer.convertObjectToJsonString(userPersonal);
         return RestAssured.given()
@@ -44,6 +54,15 @@ public class UserController {
                 .body(bodyUpdatedPersonalProfileString)
                 .when()
                 .post("/api/users/auth/{currentUserId}/personal");
+    }
+
+    public static Response getUserById(String currentUsername, int currentUserId){
+        return RestAssured.given()
+                .baseUri(BASE_URL)
+                .contentType("application/json")
+                .queryParam("principal", currentUsername)
+                .when()
+                .get("/api/users/auth/" + currentUserId);
     }
 
     public static Cookies authenticatedAndFetchCookies(){

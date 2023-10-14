@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class UpdateUserPersonalProfile extends BaseUserSetup {
     @BeforeClass
     public void setup() {
-        if(isRegistered == null){
+        if(isRegistered == false){
             userToRegister = ModelGenerator.generateUserRegisterModel();
 
         }
@@ -37,9 +37,8 @@ public class UpdateUserPersonalProfile extends BaseUserSetup {
         UserPersonal returnedUserPersonalProfile = response.as(UserPersonal.class);
 
         Assert.assertEquals(returnedUserPersonalProfile.firstName, currentUserPersonalProfile.firstName, "First name does not match.");
-        Assert.assertEquals(returnedUserPersonalProfile.lastNAme, currentUserPersonalProfile.lastNAme, "Last name does not match.");
+        Assert.assertEquals(returnedUserPersonalProfile.lastName, currentUserPersonalProfile.lastName, "Last name does not match.");
         Assert.assertEquals(returnedUserPersonalProfile.id, currentUserPersonalProfile.id, "ID does not match.");
-
         System.out.println("The profile is successfully updated.");
     }
 }
