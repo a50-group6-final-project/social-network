@@ -1,5 +1,7 @@
 package models;
 
+import java.util.ArrayList;
+
 public class CommentModel {
     public int commentId;
     public String content;
@@ -8,6 +10,6 @@ public class CommentModel {
     public int userId;
 
     public String date;
-    public String likes[];
+    public ArrayList<Object> likes;
     public boolean liked;
 }

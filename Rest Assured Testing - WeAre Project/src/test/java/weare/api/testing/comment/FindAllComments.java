@@ -1,35 +1,41 @@
 package weare.api.testing.comment;
 
+import api.CommentController;
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import models.CommentModel;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static Utils.Endpoints.*;
 
 public class FindAllComments extends BaseTestSetup {
+    @BeforeClass
+    public void setup(){
+        if (!isRegistered) {
+            postCreatorUsername = generateUniqueUsername();
+            currentEmail = generateUniqueEmail();
+            register(postCreatorUsername, currentEmail);
+            authenticateAndFetchCookies(postCreatorUsername, "Project.10");
+            isRegistered = true;
+            userId = currentUserId;
+            System.out.println("Successfully created a new user with Id" + " " + userId);
+        }
+    }
     @Test
     public void findAllComments_Successful() {
-        postCreatorUsername = generateUniqueUsername();
-        currentEmail = generateUniqueEmail();
-        register(postCreatorUsername, currentEmail);
-        authenticateAndFetchCookies(postCreatorUsername, "Project.10");
 
-        RestAssured.baseURI = BASE_URL;
-        Response response = RestAssured.given()
-                .cookies(cookies)
-                .when()
-                .get(FIND_ALL_COMMENTS_ENDPOINT);
+        Response response = CommentController.findAllComments(cookies);
 
         System.out.println(response.asString());
         isResponse200(response);
 
-        int arraySize = response.jsonPath().getList("$").size();
-        String content = response.jsonPath().getString("content[0]");
+        CommentModel[] commentList = response.as(CommentModel[].class);
 
-        Assert.assertTrue(arraySize >= 1, "The array size is more than or equal to 1");
-        Assert.assertNotNull(content, "Content is null");
+        Assert.assertTrue(commentList.length >= 1, "The array size is more than or equal to 1");
+        Assert.assertNotNull(commentList[0].content, "Content is null");
         System.out.println("Successfully fetched all comments.");
     }
 }

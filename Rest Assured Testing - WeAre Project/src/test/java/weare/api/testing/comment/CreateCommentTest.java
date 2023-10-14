@@ -71,12 +71,12 @@ public class CreateCommentTest extends BaseTestSetup {
         if (!isDeletedPost){
             PostController.deletePost(cookies, createdPost.postId);
             System.out.println("Successfully delete a post with Id" + " " + createdPost.postId);
-
+            isDeletedPost = true;
         }
         if(!isCommentDeleted){
             CommentController.deleteComment(cookies, createdComment.commentId);
             System.out.println("Successfully delete a comment with Id" + " " + createdPost.postId);
-
+            isCommentDeleted = true;
         }
     }
 }

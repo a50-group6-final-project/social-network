@@ -36,6 +36,7 @@ public class ModelGenerator {
         createComment.deletedConfirmed = true;
         createComment.postId = postId;
         createComment.userId = userId;
+        createComment.likes = null;
         return createComment;
     }
 }
