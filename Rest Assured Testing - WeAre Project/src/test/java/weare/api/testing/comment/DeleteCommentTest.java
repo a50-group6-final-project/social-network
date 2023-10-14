@@ -1,5 +1,6 @@
 package weare.api.testing.comment;
 
+import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import api.CommentController;
 import api.PostController;
@@ -7,6 +8,7 @@ import base.BaseTestSetup;
 import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
+import models.UserRegister;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -18,16 +20,12 @@ public class DeleteCommentTest extends BaseTestSetup {
     public void setup() {
 
         if(!isRegistered) {
-            postCreatorUsername = generateUniqueUsername();
-            currentEmail = generateUniqueEmail();
-            register(postCreatorUsername, currentEmail);
-            authenticateAndFetchCookies(postCreatorUsername, "Project.10");
-            userId = currentUserId;
-            isRegistered = true;
+            UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
+            register(userRegister);
         }
 
         if(isDeletedPost){
-            uniqueContent = generateUniqueContentPost();
+            uniqueContent = DataGenerator.generateUniqueContentPost();
             createPost = ModelGenerator.generatePostModel(uniqueContent);
             Response response = PostController.createPost(cookies, createPost);
 
@@ -38,7 +36,7 @@ public class DeleteCommentTest extends BaseTestSetup {
             isDeletedPost = false;
         }
         if(isCommentDeleted){
-            createComment = ModelGenerator.generateCommentModel(generateUniqueContentPost(), postId, userId);
+            createComment = ModelGenerator.generateCommentModel(DataGenerator.generateUniqueContentPost(), postId, userId);
 
             Response response = CommentController.createComment(cookies, createComment);
             isResponse200(response);

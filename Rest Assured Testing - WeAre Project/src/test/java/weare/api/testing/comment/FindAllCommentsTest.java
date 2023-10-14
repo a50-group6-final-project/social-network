@@ -1,9 +1,12 @@
 package weare.api.testing.comment;
 
+import Utils.DataGenerator;
+import Utils.ModelGenerator;
 import api.CommentController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
 import models.CommentModel;
+import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -12,11 +15,8 @@ public class FindAllCommentsTest extends BaseTestSetup {
     @BeforeClass
     public void setup() {
         if (!isRegistered) {
-            postCreatorUsername = generateUniqueUsername();
-            currentEmail = generateUniqueEmail();
-            register(postCreatorUsername, currentEmail);
-            authenticateAndFetchCookies(postCreatorUsername, "Project.10");
-            isRegistered = true;
+            UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
+            register(userRegister);
             userId = currentUserId;
             System.out.println("Successfully created a new user with Id" + " " + userId);
         }

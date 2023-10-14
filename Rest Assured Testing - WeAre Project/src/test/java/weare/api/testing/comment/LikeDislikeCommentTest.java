@@ -1,5 +1,6 @@
 package weare.api.testing.comment;
 
+import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import Utils.Serializer;
 import api.CommentController;
@@ -9,6 +10,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
+import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -20,16 +22,13 @@ public class LikeDislikeCommentTest extends BaseTestSetup {
     @BeforeClass
     public void setup() {
         if (!isRegistered) {
-            postCreatorUsername = generateUniqueUsername();
-            currentEmail = generateUniqueEmail();
-            register(postCreatorUsername, currentEmail);
-            authenticateAndFetchCookies(postCreatorUsername, "Project.10");
-            isRegistered = true;
+            UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
+            register(userRegister);
             userId = currentUserId;
             System.out.println("Successfully created a new user with Id" + " " + userId);
         }
         if (isDeletedPost) {
-            uniqueContent = generateUniqueContentPost();
+            uniqueContent = DataGenerator.generateUniqueContentPost();
             createPost = ModelGenerator.generatePostModel(uniqueContent);
             Response response = PostController.createPost(cookies, createPost);
 
@@ -42,7 +41,7 @@ public class LikeDislikeCommentTest extends BaseTestSetup {
         }
 
         if (isCommentDeleted) {
-            createComment = ModelGenerator.generateCommentModel(generateUniqueContentPost(), postId, userId);
+            createComment = ModelGenerator.generateCommentModel(DataGenerator.generateUniqueContentPost(), postId, userId);
 
             Response response = CommentController.createComment(cookies, createComment);
             isResponse200(response);

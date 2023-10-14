@@ -1,5 +1,6 @@
 package weare.api.testing.comment;
 
+import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import api.CommentController;
 import api.PostController;
@@ -7,6 +8,7 @@ import base.BaseTestSetup;
 import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
+import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -21,16 +23,13 @@ public class CreateCommentTest extends BaseTestSetup {
     @BeforeClass
     public void setup() {
         if (!isRegistered) {
-            postCreatorUsername = generateUniqueUsername();
-            currentEmail = generateUniqueEmail();
-            register(postCreatorUsername, currentEmail);
-            authenticateAndFetchCookies(postCreatorUsername, "Project.10");
-            isRegistered = true;
+            UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
+            register(userRegister);
             userId = currentUserId;
             System.out.println("Successfully created a new user with Id" + " " + userId);
         }
         if (isDeletedPost) {
-            uniqueContent = generateUniqueContentPost();
+            uniqueContent = DataGenerator.generateUniqueContentPost();
             createPost = ModelGenerator.generatePostModel(uniqueContent);
             Response response = PostController.createPost(cookies, createPost);
 
@@ -45,7 +44,7 @@ public class CreateCommentTest extends BaseTestSetup {
 
     @Test
     public void createComment_Successful() {
-        String uniqueContent = generateUniqueContentPost();
+        String uniqueContent = DataGenerator.generateUniqueContentPost();
         createComment = ModelGenerator.generateCommentModel(uniqueContent, postId, userId);
 
         Response response = CommentController.createComment(cookies, createComment);
