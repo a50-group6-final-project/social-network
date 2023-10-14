@@ -16,7 +16,7 @@ import static Utils.Endpoints.BASE_URL;
 public class ApproveRequestTest extends BaseConnectionSetup {
     int requestId;
     @BeforeClass
-    public void setup(){
+    public void setupTest(){
         sendRequestToUser = ModelGenerator.generateSendRequestModel(receiverUserId, receiverUsername);
         authenticateAndFetchCookies(senderUsername, "Password.10");
         Response response = ConnectionController.sendRequest(sendRequestToUser, cookies, senderUsername);
