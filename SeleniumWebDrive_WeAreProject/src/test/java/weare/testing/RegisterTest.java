@@ -7,7 +7,7 @@ import java.time.Duration;
 public class RegisterTest extends BaseTestSetup {
 
     @Test
-    public void userRegisterWhenInputValidData() {
+    public void UserRegistered_When_InputValidData() {
         String username = BaseTestSetup.generateRandomUsername(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -18,7 +18,7 @@ public class RegisterTest extends BaseTestSetup {
     }
 
     @Test
-    public void userRegisterSuccessfullyWhenInputUsernameWithMinLength() {
+    public void UserRegisteredSuccessfully_When_InputUsernameWithMinLength() {
         String username = BaseTestSetup.generateRandomUsername(2);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -32,7 +32,7 @@ public class RegisterTest extends BaseTestSetup {
     }
 
     @Test
-    public void userRegisterSuccessfullyWhenInputUsernameWithMaxLength() {
+    public void UserRegisteredSuccessfully_When_InputUsernameWithMaxLength() {
         String username = BaseTestSetup.generateRandomUsername(20);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -44,7 +44,7 @@ public class RegisterTest extends BaseTestSetup {
     }
 
     @Test
-    public void userRegisterUnsuccessfullyWhenInputUsernameWithOneSymbol() {
+    public void UserNotRegistered_When_TryToInputUsernameWithOneSymbol() {
         String username = BaseTestSetup.generateRandomUsername(1);
         String password = BaseTestSetup.generateRandomPassword(12);
         String email = BaseTestSetup.generateRandomEmail();
@@ -56,7 +56,7 @@ public class RegisterTest extends BaseTestSetup {
     }
 
     @Test
-    public void userRegisterUnsuccessfullyUsernameLengthExceedingLimit() {
+    public void UserNotRegistered_When_TryToInputUsernameExceedingLimit() {
         String username = BaseTestSetup.generateRandomUsername(21);
         String password = BaseTestSetup.generateRandomPassword(12);
         String email = BaseTestSetup.generateRandomEmail();
@@ -70,7 +70,7 @@ public class RegisterTest extends BaseTestSetup {
     }
 
     @Test
-    public void userRegisterUnsuccessfullyWithThreeCharactersPassword() {
+    public void UserNotRegistered_When_TryToInputPasswordWithThreeCharacters() {
         String username = BaseTestSetup.generateRandomUsername(8);
         String password = BaseTestSetup.generateRandomPassword(3);
         String email = BaseTestSetup.generateRandomEmail();
@@ -84,7 +84,7 @@ public class RegisterTest extends BaseTestSetup {
     }
 
     @Test
-    public void userRegisterUnsuccessfullyWithSevenCharactersPassword() {
+    public void UserNotRegistered_When_TryToInputPasswordWithSevenCharacters() {
         String username = BaseTestSetup.generateRandomUsername(7);
         String password = BaseTestSetup.generateRandomPassword(7);
         String email = BaseTestSetup.generateRandomEmail();
@@ -97,7 +97,7 @@ public class RegisterTest extends BaseTestSetup {
     }
 
     @Test
-    public void userRegisterUnsuccessfullyWithLetterPassword() {
+    public void UserNotRegistered_When_TryToInputPasswordWithLettersOnly() {
         String username = BaseTestSetup.generateRandomUsername(7);
         String letterPassword = BaseTestSetup.generateLetterPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -109,7 +109,7 @@ public class RegisterTest extends BaseTestSetup {
     }
 
     @Test
-    public void userRegistrationSuccessfullyWhenProfessionalCategorySelected () {
+    public void UserRegisteredSuccessfully_When_SelectProfessionalCategory() {
         String username = BaseTestSetup.generateRandomUsername(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();

@@ -6,7 +6,7 @@ public class LoginTests extends BaseTestSetup {
 
 
     @Test
-    public void loginUserWhenEnterValidCredentials() {
+    public void UserLoggedIn_When_EnterValidCredentials() {
         String username = BaseTestSetup.generateRandomUsername(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -19,7 +19,7 @@ public class LoginTests extends BaseTestSetup {
     }
 
     @Test
-    public void loginFailsWithWrongPassword() {
+    public void LoginFailed_When_TryToLogin_With_WrongPassword() {
         String username = BaseTestSetup.generateRandomUsername(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
