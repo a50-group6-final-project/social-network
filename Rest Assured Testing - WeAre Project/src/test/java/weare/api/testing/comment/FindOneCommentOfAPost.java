@@ -10,10 +10,7 @@ import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import static Utils.Endpoints.*;
 import static org.testng.Assert.assertEquals;
@@ -67,5 +64,19 @@ public class FindOneCommentOfAPost extends BaseTestSetup {
         CommentModel comment = response.as(CommentModel.class);
         Assert.assertEquals(comment.content, createdComment.content, "Content does not match.");
         System.out.println("Successfully fetched one comment with Id" + " " + createdComment.commentId + " " + "of post with Id" + " " + postId + " " + "successfully.");
+    }
+
+    @AfterClass
+    public void tearDown(){
+        if (!isDeletedPost){
+            PostController.deletePost(cookies, createdPost.postId);
+            System.out.println("Successfully delete a post with Id" + " " + createdPost.postId);
+            isDeletedPost = true;
+        }
+        if(!isCommentDeleted){
+            CommentController.deleteComment(cookies, createdComment.commentId);
+            System.out.println("Successfully delete a comment with Id" + " " + createdPost.postId);
+            isCommentDeleted = true;
+        }
     }
 }

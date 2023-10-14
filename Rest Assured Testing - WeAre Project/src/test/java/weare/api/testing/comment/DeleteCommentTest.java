@@ -50,10 +50,11 @@ public class DeleteCommentTest extends BaseTestSetup {
     }
 
     @Test
-    public void deleteComment_Successful() {
+    public void deleteComment_Successful() throws InterruptedException {
         Response response = CommentController.deleteComment(cookies, createdComment.commentId);
         isResponse200(response);
         System.out.println("Successfully deleted comment with Id" + " " + commentId + " " + "successfully.");
         isCommentDeleted = true;
+        Thread.sleep(1000);
     }
 }

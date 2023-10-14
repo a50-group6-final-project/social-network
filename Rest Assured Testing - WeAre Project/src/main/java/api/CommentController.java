@@ -60,7 +60,13 @@ public class CommentController {
                 .get(FIND_ONE_COMMENT_OF_A_POST_ENDPOINT);
     }
 
-    public static Response LikeDislikeComment(){
-        return null;
+    public static Response LikeDislikeComment(Cookies cookies, int commentId){
+
+        return RestAssured.given().baseUri(BASE_URL)
+                .cookies(cookies)
+                .contentType("application/json")
+                .queryParam("commentId", commentId)
+                .when()
+                .post(LIKE_COMMENT_ENDPOINT);
     }
 }
