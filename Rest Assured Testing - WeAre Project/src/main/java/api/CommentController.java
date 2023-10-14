@@ -27,8 +27,13 @@ public class CommentController {
                 .when()
                 .delete(DELETE_COMMENT_ENDPOINT);
     }
-    public static Response editComment(){
-        return null;
+    public static Response editComment(Cookies cookies, int commentId, String updatedUniqueContent){
+        return RestAssured.given()
+                .cookies(cookies)
+                .queryParam("commentId", commentId)
+                .queryParam("content", updatedUniqueContent)
+                .when()
+                .put("http://localhost:8081/api/comment/auth/editor");
     }
 
     public static Response findAllComments(Cookies cookies){
@@ -42,8 +47,13 @@ public class CommentController {
         return null;
     }
 
-    public static Response findOneCommentOfAPost(){
-        return null;
+    public static Response findOneCommentOfAPost(Cookies cookies, int commentId){
+
+        return RestAssured.given()
+                .cookies(cookies)
+                .queryParam("commentId", commentId)
+                .when()
+                .get(FIND_ONE_COMMENT_OF_A_POST_ENDPOINT);
     }
 
     public static Response LikeDislikeComment(){

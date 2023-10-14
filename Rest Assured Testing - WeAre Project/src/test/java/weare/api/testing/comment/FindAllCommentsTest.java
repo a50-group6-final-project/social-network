@@ -2,16 +2,13 @@ package weare.api.testing.comment;
 
 import api.CommentController;
 import base.BaseTestSetup;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.CommentModel;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Endpoints.*;
-
-public class FindAllComments extends BaseTestSetup {
+public class FindAllCommentsTest extends BaseTestSetup {
     @BeforeClass
     public void setup(){
         if (!isRegistered) {

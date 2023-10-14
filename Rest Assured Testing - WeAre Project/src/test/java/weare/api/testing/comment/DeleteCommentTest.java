@@ -1,23 +1,18 @@
 package weare.api.testing.comment;
 
 import Utils.ModelGenerator;
-import Utils.Serializer;
 import api.CommentController;
 import api.PostController;
 import base.BaseTestSetup;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import static Utils.Endpoints.*;
 import static org.testng.Assert.assertEquals;
 
-public class DeleteComment extends BaseTestSetup {
+public class DeleteCommentTest extends BaseTestSetup {
     String uniqueContent;
     @BeforeClass
     public void setup() {
@@ -49,7 +44,7 @@ public class DeleteComment extends BaseTestSetup {
 
             createdComment = response.as(CommentModel.class);
             System.out.println("Successfully created a new comment with Id" + " " + createdComment.commentId);
-
+            isCommentDeleted = false;
         }
     }
 
