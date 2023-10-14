@@ -28,11 +28,11 @@ public class ConnectionController {
                 .get("/api/auth/users/{receiverUserId}/request/");
     }
 
-    public static Response approveRequest(Cookies cookies, int receiverUserId, int idRequest){
+    public static Response approveRequest(Cookies cookies, int receiverUserId, int requestId){
         return  RestAssured.given()
                 .cookies(cookies)
                 .pathParam("receiverUserId", receiverUserId)
-                .queryParam("requestId", idRequest)
+                .queryParam("requestId", requestId)
                 .when()
                 .post("/api/auth/users/{receiverUserId}/request/");
     }

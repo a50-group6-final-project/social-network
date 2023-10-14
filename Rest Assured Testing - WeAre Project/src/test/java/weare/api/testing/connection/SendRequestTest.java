@@ -27,9 +27,7 @@ public class SendRequestTest extends BaseConnectionSetup {
     @Test
     public void sendRequest_successful() {
         authenticateAndFetchCookies(senderUsername, "Password.10");
-        sendCookies = cookies;
-
-        Response response = ConnectionController.sendRequest(sendRequestToUser, sendCookies, senderUsername);
+        Response response = ConnectionController.sendRequest(sendRequestToUser, cookies, senderUsername);
         isResponse200(response);
         System.out.println(response.asString());
 
@@ -43,9 +41,9 @@ public class SendRequestTest extends BaseConnectionSetup {
         Assert.assertEquals(receiverUsername, receiverNameInResponse, "Receiver name does not match!");
     }
 
-    @AfterClass
-    public void tearDown(){
-        isRequestSent = true;
-    }
+//    @AfterClass
+//    public void tearDown(){
+//        isRequestSent = true;
+//    }
 
 }
