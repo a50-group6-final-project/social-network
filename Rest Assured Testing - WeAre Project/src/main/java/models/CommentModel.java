@@ -6,4 +6,8 @@ public class CommentModel {
     public boolean deletedConfirmed;
     public int postId;
     public int userId;
+
+    public String date;
+    public String likes[];
+    public boolean liked;
 }
