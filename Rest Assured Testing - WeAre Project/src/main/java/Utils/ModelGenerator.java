@@ -1,9 +1,13 @@
 package Utils;
 
+import com.github.javafaker.Faker;
 import models.*;
 
-public class ModelGenerator {
+import java.util.Random;
 
+public class ModelGenerator {
+    private static Faker faker = new Faker();
+    private static Random random = new Random();
 
     public static Skill generateSkillModel(int categoryId) {
         Category category = new Category();
@@ -42,5 +46,54 @@ public class ModelGenerator {
         sendRequestToUser.id = receiverUserId;
         sendRequestToUser.username = receiverUsername;
         return sendRequestToUser;
+    }
+
+    public static UserRegister generateUserRegisterModel() {
+        UserRegister userRegister = new UserRegister();
+        userRegister.email = DataGenerator.generateUniqueEmail();
+        userRegister.username = DataGenerator.generateUniqueUsername();
+        userRegister.password = "Project.10";
+        userRegister.confirmPassword = "Project.10";
+
+        Category category = new Category();
+        category.id = 100;
+        category.name = "All";
+        userRegister.category = category;
+        return userRegister;
+    }
+    public static UserRegister generateUserRegisterModel(String username, String email) {
+        UserRegister userRegister = new UserRegister();
+        userRegister.email = username;
+        userRegister.username = email;
+        userRegister.password = "Project.10";
+        userRegister.confirmPassword = "Project.10";
+
+        Category category = new Category();
+        category.id = 100;
+        category.name = "All";
+        userRegister.category = category;
+        return userRegister;
+    }
+
+    public static Page generatePageModel(int size){
+        Page page = new Page();
+        page.size = size;
+        return page;
+    }
+
+    public static UserPersonal generateUserPersonalModel(){
+        UserPersonal profile = new UserPersonal();
+        profile.firstName = "firstTestUpdated";
+        profile.lastNAme = "lastTestUpdated";
+        profile.gender = "MALE";
+        profile.city = "Sofia";
+        profile.birthYear = "1990-04-04";
+        return profile;
+    };
+
+    public static UserProfile generateUserProfileModel(){
+        UserProfile profile = new UserProfile();
+
+        return profile;
     }
 }
