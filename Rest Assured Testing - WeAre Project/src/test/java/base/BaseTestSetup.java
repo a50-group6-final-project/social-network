@@ -46,6 +46,7 @@ public class BaseTestSetup {
     public static SendRequest sendRequestToUser;
     public static PostModel createPost;
     public static CommentModel createComment;
+    public static Boolean isCommentDeleted = true;
     public static Skill skillToCreated;
     public static Skill createdSkill;
     public static String JSESSIONID;
