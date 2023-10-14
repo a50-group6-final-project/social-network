@@ -46,6 +46,7 @@ public class BaseTestSetup {
     public static SendRequest sendRequestToUser;
     public static PostModel createPost;
     public static CommentModel createComment;
+    public static Boolean isCommentDeleted = true;
     public static Skill skillToCreated;
     public static Skill createdSkill;
     public static String JSESSIONID;
@@ -59,7 +60,7 @@ public class BaseTestSetup {
     public static String generateUniqueUsername() {
         String username;
         do {
-            username = faker.regexify("[a-zA-Z]{2,20}");
+            username = faker.regexify("[a-zA-Z]{6,20}");
         } while (usedUsernames.contains(username));
         usedUsernames.add(username);
         return username;

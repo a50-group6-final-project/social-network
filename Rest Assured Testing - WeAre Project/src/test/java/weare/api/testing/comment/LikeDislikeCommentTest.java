@@ -1,125 +1,90 @@
 package weare.api.testing.comment;
 
+import Utils.ModelGenerator;
 import Utils.Serializer;
+import api.CommentController;
+import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import static Utils.Endpoints.*;
 import static org.testng.Assert.assertEquals;
 
 public class LikeDislikeCommentTest extends BaseTestSetup {
+    String uniqueContent;
+    @BeforeClass
+    public void setup() {
+        if (!isRegistered) {
+            postCreatorUsername = generateUniqueUsername();
+            currentEmail = generateUniqueEmail();
+            register(postCreatorUsername, currentEmail);
+            authenticateAndFetchCookies(postCreatorUsername, "Project.10");
+            isRegistered = true;
+            userId = currentUserId;
+            System.out.println("Successfully created a new user with Id" + " " + userId);
+        }
+        if (isDeletedPost) {
+            uniqueContent = generateUniqueContentPost();
+            createPost = ModelGenerator.generatePostModel(uniqueContent);
+            Response response = PostController.createPost(cookies, createPost);
 
-    @BeforeSuite
-    public void createPost_Successful() {
-        String uniqueContent = generateUniqueContentPost();
+            createdPost = response.as(PostModel.class);
+            assertEquals(createdPost.content, uniqueContent, "Content does not match.");
 
-        createPost = new PostModel();
-        createPost.content = uniqueContent;
-        createPost.picture = "";
-        createPost.mypublic = true;
+            postId = createdPost.postId;
+            System.out.println("Successfully created a new post with Id" + " " + postId);
+            isDeletedPost = false;
+        }
 
-        String bodyPostString = Serializer.convertObjectToJsonString(createPost);
+        if (isCommentDeleted) {
+            createComment = ModelGenerator.generateCommentModel(generateUniqueContentPost(), postId, userId);
 
-        postCreatorUsername = generateUniqueUsername();
-        currentEmail = generateUniqueEmail();
-        register(postCreatorUsername, currentEmail);
-        authenticateAndFetchCookies(postCreatorUsername, "Project.10");
+            Response response = CommentController.createComment(cookies, createComment);
+            isResponse200(response);
 
-        RestAssured.baseURI = BASE_URL;
-        Response response = RestAssured.given()
-                .cookies(cookies)
-                .contentType("application/json")
-                .body(bodyPostString)
-                .when()
-                .post(CREATЕ_POST_ENDPOINT);
-
-        System.out.println(response.asString());
-
-        String contentFromResponse = response.jsonPath().getString("content");
-        assertEquals(contentFromResponse, uniqueContent, "Content does not match.");
-
-        postId = response.jsonPath().getInt("postId");
-        userId = BaseTestSetup.currentUserId;
-
-        System.out.println("Successfully created a new post with Id" + " " + postId);
-        System.out.println("Successfully created a new user with Id" + " " + userId);
-    }
-
-    @BeforeTest
-    public void createComment_Successful(){
-        String uniqueContent = generateUniqueContentPost();
-
-        createComment = new CommentModel();
-        createComment.commentId = 0;
-        createComment.content = uniqueContent;
-        createComment.deletedConfirmed = true;
-        createComment.postId = postId;
-        createComment.userId = userId;
-
-        String bodyCommentString = Serializer.convertObjectToJsonString(createComment);
-
-        RestAssured.baseURI = BASE_URL;
-        Response response = RestAssured.given()
-                .cookies(cookies)
-                .contentType("application/json")
-                .body(bodyCommentString)
-                .when()
-                .post(CREATЕ_COMMENT_ENDPOINT);
-
-        System.out.println(response.asString());
-        String contentFromResponse = response.jsonPath().getString("content");
-        assertEquals(contentFromResponse, uniqueContent, "Content does not match.");
-
-        commentId = response.jsonPath().getInt("commentId");
-        System.out.println("Successfully created a new comment with Id" + " " + commentId);
+            createdComment = response.as(CommentModel.class);
+            System.out.println("Successfully created a new comment with Id" + " " + createdComment.commentId);
+            isCommentDeleted = false;
+        }
     }
 
     @Test
-    public void likeComment_Successful() {
+    public void likeDislikeComment_Successful() {
 
-        Response response = RestAssured.given().baseUri(BASE_URL)
-                .cookies(cookies)
-                .contentType("application/json")
-                .queryParam("commentId", commentId)
-                .when()
-                .post(LIKE_COMMENT_ENDPOINT);
-
+        Response response = CommentController.LikeDislikeComment(cookies, createdComment.commentId);
 
         isResponse200(response);
-        // Extract the "liked" property from the response JSON
-        boolean liked = response.jsonPath().getBoolean("liked");
-        // Assert that the post is liked
-        Assert.assertEquals(liked, true, "The post is not liked.");
-        System.out.println(response.asString());
-        System.out.println("Comment with Id" + " " + commentId + " " + "Liked successfully.");
+
+        CommentModel likedComment = response.as(CommentModel.class);
+        Assert.assertEquals(likedComment.liked, true, "The post is not liked.");
+        System.out.println("Comment with Id" + " " + createdComment.commentId + " " + "Liked successfully.");
+
+        response = CommentController.LikeDislikeComment(cookies, createdComment.commentId);
+        CommentModel dislikedComment = response.as(CommentModel.class);
+        Assert.assertEquals(dislikedComment.liked, false, "The post is disliked.");
+        System.out.println("Comment with Id" + " " + createdComment.commentId + " " + "Disliked successfully.");
+
     }
 
-    @AfterTest
-    public void dislikeComment_Successful()  {
-
-        Response response = RestAssured.given().baseUri(BASE_URL)
-                .cookies(cookies)
-                .contentType("application/json")
-                .queryParam("commentId", commentId)
-                .when()
-                .post(LIKE_COMMENT_ENDPOINT);
-
-
-        isResponse200(response);
-        // Extract the "liked" property from the response JSON
-        boolean liked = response.jsonPath().getBoolean("liked");
-        // Assert that the post is disliked
-        Assert.assertEquals(liked, false, "The post is liked.");
-        System.out.println(response.asString());
-        System.out.println("Comment with Id" + " " + commentId + " " + "Disliked successfully.");
-
+    @AfterClass
+    public void tearDown() {
+        if (!isDeletedPost) {
+            PostController.deletePost(cookies, createdPost.postId);
+            System.out.println("Successfully delete a post with Id" + " " + createdPost.postId);
+            isDeletedPost = true;
+        }
+        if (!isCommentDeleted) {
+            CommentController.deleteComment(cookies, createdComment.commentId);
+            System.out.println("Successfully delete a comment with Id" + " " + createdPost.postId);
+            isCommentDeleted = true;
+        }
     }
 }
+
+
+

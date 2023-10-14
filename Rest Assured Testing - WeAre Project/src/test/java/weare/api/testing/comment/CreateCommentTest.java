@@ -1,89 +1,79 @@
 package weare.api.testing.comment;
 
-import Utils.Serializer;
+import Utils.ModelGenerator;
+import api.CommentController;
+import api.PostController;
 import base.BaseTestSetup;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static Utils.Endpoints.*;
 import static org.testng.Assert.assertEquals;
 
 public class CreateCommentTest extends BaseTestSetup {
+    String uniqueContent;
 
-    @BeforeTest
-    public void createPost_Successful() {
-        String uniqueContent = generateUniqueContentPost();
+    @BeforeClass
+    public void setup() {
+        if (!isRegistered) {
+            postCreatorUsername = generateUniqueUsername();
+            currentEmail = generateUniqueEmail();
+            register(postCreatorUsername, currentEmail);
+            authenticateAndFetchCookies(postCreatorUsername, "Project.10");
+            isRegistered = true;
+            userId = currentUserId;
+            System.out.println("Successfully created a new user with Id" + " " + userId);
+        }
+        if (isDeletedPost) {
+            uniqueContent = generateUniqueContentPost();
+            createPost = ModelGenerator.generatePostModel(uniqueContent);
+            Response response = PostController.createPost(cookies, createPost);
 
-        createPost = new PostModel();
-        createPost.content = uniqueContent;
-        createPost.picture = "";
-        createPost.mypublic = true;
+            createdPost = response.as(PostModel.class);
+            assertEquals(createdPost.content, uniqueContent, "Content does not match.");
 
-        String bodyPostString = Serializer.convertObjectToJsonString(createPost);
-
-        postCreatorUsername = generateUniqueUsername();
-        currentEmail = generateUniqueEmail();
-        register(postCreatorUsername, currentEmail);
-        authenticateAndFetchCookies(postCreatorUsername, "Project.10");
-
-        RestAssured.baseURI = BASE_URL;
-        Response response = RestAssured.given()
-                .cookies(cookies)
-                .contentType("application/json")
-                .body(bodyPostString)
-                .when()
-                .post(CREATЕ_POST_ENDPOINT);
-
-        System.out.println(response.asString());
-
-        String contentFromResponse = response.jsonPath().getString("content");
-        assertEquals(contentFromResponse, uniqueContent, "Content does not match.");
-
-        postId = response.jsonPath().getInt("postId");
-        userId = BaseTestSetup.currentUserId;
-
-        System.out.println("Successfully created a new post with Id" + " " + postId);
-        System.out.println("Successfully created a new user with Id" + " " + userId);
+            postId = createdPost.postId;
+            System.out.println("Successfully created a new post with Id" + " " + postId);
+            isDeletedPost = false;
+        }
     }
+
     @Test
-    public void createComment_Successful(){
+    public void createComment_Successful() {
         String uniqueContent = generateUniqueContentPost();
+        createComment = ModelGenerator.generateCommentModel(uniqueContent, postId, userId);
 
-        createComment = new CommentModel();
-        createComment.commentId = 0;
-        createComment.content = uniqueContent;
-        createComment.deletedConfirmed = true;
-        createComment.postId = postId;
-        createComment.userId = userId;
-
-        String bodyCommentString = Serializer.convertObjectToJsonString(createComment);
-
-        RestAssured.baseURI = BASE_URL;
-        Response response = RestAssured.given()
-                .cookies(cookies)
-                .contentType("application/json")
-                .body(bodyCommentString)
-                .when()
-                .post(CREATЕ_COMMENT_ENDPOINT);
-
-        System.out.println(response.asString());
-        String contentFromResponse = response.jsonPath().getString("content");
-        assertEquals(contentFromResponse, uniqueContent, "Content does not match.");
-
+        Response response = CommentController.createComment(cookies, createComment);
         isResponse200(response);
-        Assert.assertNotNull(response.jsonPath().get("commentId"), "commentId is null");
-        Assert.assertNotNull(response.jsonPath().get("content"), "content is null");
-        Assert.assertNotNull(response.jsonPath().get("likes"), "likes is null");
-        Assert.assertNotNull(response.jsonPath().get("date"), "date is null");
-        Assert.assertNotNull(response.jsonPath().get("liked"), "liked is null");
 
-        commentId = response.jsonPath().getInt("commentId");
+        createdComment = response.as(CommentModel.class);
+        assertEquals(createdComment.content, uniqueContent, "Content does not match.");
+        Assert.assertNotNull(createdComment.commentId, "commentId is null");
+        Assert.assertNotNull(createdComment.content, "content is null");
+        Assert.assertNotNull(createdComment.likes, "likes is null");
+        Assert.assertNotNull(createdComment.date, "date is null");
+        Assert.assertNotNull(createdComment.liked, "liked is null");
+
+        commentId = createdComment.commentId;
         System.out.println("Successfully created a new comment with Id" + " " + commentId + ". All properties are not null.");
+    }
 
+    @AfterClass
+    public void tearDown() {
+        if (!isDeletedPost) {
+            PostController.deletePost(cookies, createdPost.postId);
+            System.out.println("Successfully delete a post with Id" + " " + createdPost.postId);
+            isDeletedPost = true;
+        }
+        if (!isCommentDeleted) {
+            CommentController.deleteComment(cookies, createdComment.commentId);
+            System.out.println("Successfully delete a comment with Id" + " " + createdPost.postId);
+            isCommentDeleted = true;
+        }
     }
 }
