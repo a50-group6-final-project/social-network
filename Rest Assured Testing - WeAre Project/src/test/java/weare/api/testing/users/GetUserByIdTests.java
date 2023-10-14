@@ -1,22 +1,32 @@
 package weare.api.testing.users;
 
+import Utils.ModelGenerator;
+import api.UserController;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.UserPersonal;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import static Utils.Endpoints.BASE_URL;
 
 public class GetUserByIdTests extends BaseUserSetup {
+
+    @BeforeClass
+    public void setup() {
+        if(isRegistered == null){
+            userToRegister = ModelGenerator.generateUserRegisterModel();
+
+        }
+        if (currentUserPersonalProfile == null) {
+            currentUserPersonalProfile = ModelGenerator.generateUserPersonalModel();
+        }
+        register(userToRegister);
+    }
     @Test
     public void getUserById_Successful() {
-        Response response = RestAssured.given()
-                .baseUri(BASE_URL)
-                .contentType("application/json")
-                .queryParam("principal", currentUsername)
-                .when()
-                .get("/api/users/auth/" + currentUserId);
+        Response response = UserController.getUserById(userToRegister.username, currentUserId);
 
         isResponse200(response);
 
