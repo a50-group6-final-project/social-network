@@ -3,7 +3,6 @@ package weare.testing;
 import com.telerikacademy.pages.BasePage;
 import org.junit.jupiter.api.Test;
 
-import static weare.testing.BaseTestSetup.registerPage;
 
 public class AdministrativePartTests extends BaseTestSetup{
 

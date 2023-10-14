@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="Adding test in AdministrativePartsTest">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/RegisterTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="Adding AdminPage" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -213,7 +209,21 @@
       <option name="project" value="LOCAL" />
       <updated>1697294106727</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Refactoring test names">
+      <created>1697295008775</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697295008775</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Adding AdminPage">
+      <created>1697295071772</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1697295071772</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -225,6 +235,8 @@
     <MESSAGE value="Adding tests in LoginTest and Refactoring code" />
     <MESSAGE value="Adding test in RegisterTest" />
     <MESSAGE value="Adding test in AdministrativePartsTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding test in AdministrativePartsTest" />
+    <MESSAGE value="Refactoring test names" />
+    <MESSAGE value="Adding AdminPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding AdminPage" />
   </component>
 </project>
