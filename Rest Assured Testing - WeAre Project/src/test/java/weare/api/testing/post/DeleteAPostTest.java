@@ -1,5 +1,6 @@
 package weare.api.testing.post;
 
+import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import Utils.Serializer;
 import api.PostController;
@@ -7,6 +8,7 @@ import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.PostModel;
+import models.UserRegister;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -18,14 +20,11 @@ public class DeleteAPostTest extends BaseTestSetup {
     @BeforeClass
     public void setup() {
         if (!isRegistered) {
-            postCreatorUsername = generateUniqueUsername();
-            currentEmail = generateUniqueEmail();
-            register(postCreatorUsername, currentEmail);
-            authenticateAndFetchCookies(postCreatorUsername, "Project.10");
-            isRegistered = true;
+            UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
+            register(userRegister);
         }
 
-        String uniqueContent = generateUniqueContentPost();
+        String uniqueContent = DataGenerator.generateUniqueContentPost();
         createPost = ModelGenerator.generatePostModel(uniqueContent);
         Response response = PostController.createPost(cookies, createPost);
         createdPost = response.as(PostModel.class);
