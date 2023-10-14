@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="Add RegisterTest">
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/Utils/ModelGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/api/PostController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/api/SkillController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/models/CommentModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/models/EditComment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/models/PostModelLikeDislike.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/CreateCommentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/DeleteComment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/EditCommentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllComments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllCommentsOfAPost.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindOneCommentOfAPost.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/LikeDislikeCommentTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/DeleteAPostTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/LikeDislikeAPostTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skill/CreateSkillTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skill/DeleteSkillTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skill/GetAllSkillsTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skill/GetOneSkillTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skill/UpdateSkillTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Postman - API testing/Rest-controller.postman_environment.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Postman - API testing/Rest-controller.postman_environment.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Postman - API testing/WeAre_Social Network Project.postman_collection.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Postman - API testing/WeAre_Social Network Project.postman_collection.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/Utils/Endpoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/Utils/Endpoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/models/PostModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/models/PostModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/base/BaseTestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/base/BaseTestSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/ApproveRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/ApproveRequestTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/GetUserRequestsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/GetUserRequestsTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/SendRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/SendRequestTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/CreatePostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/CreatePostTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/EditPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/EditPostTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/GetNewsFeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/GetNewsFeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skills/CreateSkillTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skills/DeleteSkillTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skills/GetAllSkillsTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skills/GetOneSkillTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skills/UpdateSkillTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/BaseUserSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/BaseUserSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/GetUserByName.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/GetUserByName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/RegistrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/RegistrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/UpdateUserExpertiseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/UpdateUserExpertiseTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/resources/skills_suite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/resources/skills_suite.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/test-classes/post_suite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/test-classes/post_suite.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/test-classes/skills_suite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/test-classes/skills_suite.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2WisKpO8fYoDfUUJbpBgFbmZgJa" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="RegisterTest.userRegisterWhenInputValidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.RegisterTest" />
+      <option name="METHOD_NAME" value="userRegisterWhenInputValidData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RegisterTest.userRegisterWhenInputValidData" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="" />
+      <created>1697226680501</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1697226680501</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Add RegisterTest">
+      <created>1697226985388</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697226985388</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Add RegisterTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add RegisterTest" />
+  </component>
+</project>

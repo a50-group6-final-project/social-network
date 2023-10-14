@@ -1,28 +1,39 @@
-### Final QA Project by Darina, Radostin and Tsvetan
+# Final QA Project by Darina, Radostin, and Tsvetan
 
-#### Group 6
+Welcome to our final QA project presentation. Our job is to test the 'Weare' social network using QA methods and techniques, ensuring our clients get a product that's ready for the market.
 
-Welcome to our final QA project presentation. This project is dedicated to ensuring the highest quality of software "Weare" through rigorous testing and QA practices.
+## Testing Methods and Tools for the 'Weare' Social Network:
 
-#### Objective
-Our goal is to thoroughly test the "WEare" application to deliver the most complete and reliable product possible for our clients and their end-users.
+1. **Test Plan:**
+   A comprehensive document detailing our entire testing strategy. You can find more about it in the link provided. Learn more [[here](https://docs.google.com/document/d/1qusFY8wjJVw9leNYCJ7APmfFNE0kEHXNIHZeShnHOB4/edit#heading=h.ko13e0l973xx)](#).
 
-#### QA Methodologies and Technologies
-- Manual Testing
-- Test Case Creation and Execution
-- Automated Testing using Postman, REST Assured, and Selenium Webdriver
-  
+2. **Test Cases:**
+   We use a planned method to create our tests. Check out our template [[here](https://docs.google.com/document/d/1YDBI0sy6ODsjIGpJVKsuTKlMj6wY28wweYQ9745Uajk/edit)](#).
 
-#### Features Tested
-- User Authentication
-- Public and Private Section Accessibility
-- Post Creation and Interactions
-- CRUD Operations
+3. **Bug Reports:**
+   When we find something wrong, we write it down. Check out our template [[here](https://docs.google.com/document/d/1v188BdkWdBaDQyoSngY2v4bKK9Iwz23AxYw_GooJ2b0/edit)](#).
+
+4. **Manual Testing - Exploratory Testing:**
 
 
-#### Team Members
-- Darina
-- Radostin
-- Tsvetan
+5. **Automated Testing:**
+   We use tools to help speed up our testing:
+   - **Backend Testing:** Using tools like Postman and REST Assured, we ensure our APIs are robust and meet expected standards.
+   - **Frontend Testing:** We use Selenium Webdriver to test what users see many times.
 
-Thank you for your time!
+If you want to see our API TESTING through Postman, please follow these steps:
+
+- Get the files from our 'Postman - API testing' folder.
+- Start Postman.
+- Add the "WeAre_Social Network Project.postman_collection.json" and "Rest-controller.postman_environment.json" files.
+- To run the entire collection or specific folders, select the desired folder or collection, and then click "Run".
+
+
+**To Test with Command Line:**
+Go to where the files are on your computer. Type this:
+```shell
+newman run "WeAre_Social Network Project.postman_collection.json" -e "Rest-controller.postman_environment.json" -r htmlextra --reporter-htmlextra-export "./WeAre_API_Testing.html"
+
+
+
+

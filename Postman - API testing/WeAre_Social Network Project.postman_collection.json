@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "f9449e2e-66e4-4b87-838c-c6cbf05d6478",
+		"_postman_id": "be334011-caca-4a26-b0ca-1ca9e0beae1e",
 		"name": "WeAre_Social Network Project",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "30132667",
-		"_collection_link": "https://dark-astronaut-260412.postman.co/workspace/Telerik---Final-Project-~17b108a4-3f4a-4892-826d-8bb170257f82/collection/30132667-f9449e2e-66e4-4b87-838c-c6cbf05d6478?action=share&source=collection_link&creator=30132667"
+		"_collection_link": "https://dark-astronaut-260412.postman.co/workspace/Telerik---Final-Project-~17b108a4-3f4a-4892-826d-8bb170257f82/collection/30132667-be334011-caca-4a26-b0ca-1ca9e0beae1e?action=share&source=collection_link&creator=30132667"
 	},
 	"item": [
 		{
@@ -107,7 +107,28 @@
 									"pm.environment.set(\"email\", email);\r",
 									"\r",
 									"\r",
-									"\r",
+									"function generatePassword() {\r",
+									"  const length = Math.floor(Math.random() * 9) + 8; \r",
+									"  const specialChars = \"+-*&^\";\r",
+									"  const numbers = \"0123456789\";\r",
+									"  const upperCaseLetters = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\r",
+									"  const lowerCaseLetters = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"  let password = \"\";\r",
+									"  password += specialChars[Math.floor(Math.random() * specialChars.length)];\r",
+									"  password += numbers[Math.floor(Math.random() * numbers.length)];\r",
+									"  password += upperCaseLetters[Math.floor(Math.random() * upperCaseLetters.length)];\r",
+									"  password += lowerCaseLetters[Math.floor(Math.random() * lowerCaseLetters.length)];\r",
+									"  \r",
+									"  const allChars = specialChars + numbers + upperCaseLetters + lowerCaseLetters;\r",
+									"  \r",
+									"  for (let i = 4; i < length; i++) {\r",
+									"    password += allChars[Math.floor(Math.random() * allChars.length)];\r",
+									"  }\r",
+									"  \r",
+									"  return password;\r",
+									"}\r",
+									"const password = generatePassword();\r",
+									"pm.environment.set(\"passwordRandom\", password);\r",
 									"\r",
 									""
 								],
@@ -126,7 +147,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{usernameController}}\"\r\n}\r\n",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{passwordRandom}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{passwordRandom}}\",\r\n  \"username\": \"{{usernameController}}\"\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -169,7 +190,7 @@
 								},
 								{
 									"key": "password",
-									"value": "{{password}}",
+									"value": "{{passwordRandom}}",
 									"type": "text"
 								}
 							]
@@ -941,7 +962,7 @@
 									"        if (match && match[1]) {\r",
 									"        var userId = match[1];\r",
 									"        console.log(\"User ID:\", userId);\r",
-									"        pm.environment.set(\"userId_post\", userId);\r",
+									"        pm.environment.set(\"userIdPost\", userId);\r",
 									"        } else {\r",
 									"        console.error(\"User ID not found in the response.\");\r",
 									"        }\r",
@@ -1000,7 +1021,7 @@
 									"    usedUsernames.push(text);\r",
 									"    pm.environment.set(\"usedUsernames\", JSON.stringify(usedUsernames));\r",
 									"\r",
-									"    pm.environment.set(\"username_post\", text);\r",
+									"    pm.environment.set(\"usernamePost\", text);\r",
 									"\r",
 									"    return text;\r",
 									"}\r",
@@ -1014,11 +1035,32 @@
 									"const uuid = Math.random().toString(36).substring(2, 15) +\r",
 									"            Math.random().toString(36).substring(2, 15);\r",
 									"const email = \"testaccount.\" + uuid + \"@abv.bg\";\r",
-									"pm.environment.set(\"email_post\", email);\r",
+									"pm.environment.set(\"emailPost\", email);\r",
 									"\r",
 									"\r",
 									"\r",
-									"\r",
+									"function generatePassword() {\r",
+									"  const length = Math.floor(Math.random() * 9) + 8; \r",
+									"  const specialChars = \"+-*&^\";\r",
+									"  const numbers = \"0123456789\";\r",
+									"  const upperCaseLetters = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\r",
+									"  const lowerCaseLetters = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"  let password = \"\";\r",
+									"  password += specialChars[Math.floor(Math.random() * specialChars.length)];\r",
+									"  password += numbers[Math.floor(Math.random() * numbers.length)];\r",
+									"  password += upperCaseLetters[Math.floor(Math.random() * upperCaseLetters.length)];\r",
+									"  password += lowerCaseLetters[Math.floor(Math.random() * lowerCaseLetters.length)];\r",
+									"  \r",
+									"  const allChars = specialChars + numbers + upperCaseLetters + lowerCaseLetters;\r",
+									"  \r",
+									"  for (let i = 4; i < length; i++) {\r",
+									"    password += allChars[Math.floor(Math.random() * allChars.length)];\r",
+									"  }\r",
+									"  \r",
+									"  return password;\r",
+									"}\r",
+									"const password = generatePassword();\r",
+									"pm.environment.set(\"passwordRandom\", password);\r",
 									""
 								],
 								"type": "text/javascript"
@@ -1036,7 +1078,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{password}}\",\r\n  \"email\": \"{{email_post}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"username\": \"{{username_post}}\"\r\n}\r\n\r\n",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{passwordRandom}}\",\r\n  \"email\": \"{{emailPost}}\",\r\n  \"password\": \"{{passwordRandom}}\",\r\n  \"username\": \"{{usernamePost}}\"\r\n}\r\n\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1087,12 +1129,12 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "{{username_post}}",
+									"value": "{{usernamePost}}",
 									"type": "text"
 								},
 								{
 									"key": "password",
-									"value": "Project.10",
+									"value": "{{passwordRandom}}",
 									"type": "text"
 								}
 							]
@@ -1450,7 +1492,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"commentId\": 0,\r\n  \"content\": \"Testing\",\r\n  \"deletedConfirmed\": true,\r\n  \"postId\": {{postId}},\r\n  \"userId\": {{userId_post}}\r\n}",
+							"raw": "{\r\n  \"commentId\": 0,\r\n  \"content\": \"Testing\",\r\n  \"deletedConfirmed\": true,\r\n  \"postId\": {{postId}},\r\n  \"userId\": {{userIdPost}}\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1590,7 +1632,7 @@
 			"name": "rest-comment-controller",
 			"item": [
 				{
-					"name": "Create post_additional",
+					"name": "Create post",
 					"event": [
 						{
 							"listen": "test",
@@ -1720,7 +1762,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"commentId\": 0,\r\n  \"content\": \"Testing\",\r\n  \"deletedConfirmed\": true,\r\n  \"postId\": {{postId}},\r\n  \"userId\": {{userId_post}}\r\n}",
+							"raw": "{\r\n  \"commentId\": 0,\r\n  \"content\": \"Testing\",\r\n  \"deletedConfirmed\": true,\r\n  \"postId\": {{postId}},\r\n  \"userId\": {{userIdPost}}\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1882,7 +1924,7 @@
 					"response": []
 				},
 				{
-					"name": "Find all comments of a Post",
+					"name": "Find all comments of a post",
 					"event": [
 						{
 							"listen": "test",
@@ -1941,7 +1983,7 @@
 					"response": []
 				},
 				{
-					"name": "Get one comment of a Post",
+					"name": "Get one comment of a post",
 					"event": [
 						{
 							"listen": "test",
@@ -2170,7 +2212,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"    pm.environment.set(\"sessionIdSender\", pm.cookies.get(\"JSESSIONID\"));\r",
 									"    console.log(pm.cookies);\r",
 									"\r",
 									" "
@@ -2198,7 +2240,7 @@
 								},
 								{
 									"key": "password",
-									"value": "Project.10",
+									"value": "{{password}}",
 									"type": "text"
 								}
 							]
@@ -2434,7 +2476,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"    pm.environment.set(\"sessionID - sender\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"    pm.environment.set(\"sessionIdSender\", pm.cookies.get(\"JSESSIONID\"));\r",
 									"    console.log(pm.response);\r",
 									"\r",
 									"   "
@@ -2462,7 +2504,7 @@
 								},
 								{
 									"key": "password",
-									"value": "Project.10",
+									"value": "{{password}}",
 									"type": "text"
 								}
 							]
@@ -2536,7 +2578,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"        pm.environment.set(\"sessionID - receiver\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"        pm.environment.set(\"sessionIdReceiver\", pm.cookies.get(\"JSESSIONID\"));\r",
 									"        console.log(responseBody);\r",
 									"\r",
 									"      ;"
@@ -2564,7 +2606,7 @@
 								},
 								{
 									"key": "password",
-									"value": "Project.10",
+									"value": "{{password}}",
 									"type": "text"
 								}
 							]
