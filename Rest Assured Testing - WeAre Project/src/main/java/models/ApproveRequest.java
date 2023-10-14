@@ -1,10 +1,10 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 public class ApproveRequest {
-
-
-    private int id;
-    private boolean approved;
-    private boolean seen;
-    private String timeStamp;
+    public int id;
+    public boolean approved;
+    public boolean seen;
+    public String timeStamp;
 }

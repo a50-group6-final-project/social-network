@@ -1,9 +1,6 @@
 package Utils;
 
-import models.Category;
-import models.CommentModel;
-import models.PostModel;
-import models.Skill;
+import models.*;
 
 public class ModelGenerator {
 
@@ -38,5 +35,12 @@ public class ModelGenerator {
         createComment.userId = userId;
         createComment.likes = null;
         return createComment;
+    }
+
+    public static SendRequest generateSendRequestModel( int receiverUserId, String receiverUsername){
+        SendRequest sendRequestToUser = new SendRequest();
+        sendRequestToUser.id = receiverUserId;
+        sendRequestToUser.username = receiverUsername;
+        return sendRequestToUser;
     }
 }
