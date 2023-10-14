@@ -1,17 +1,14 @@
 package weare.api.testing.comment;
 
 import Utils.ModelGenerator;
-import Utils.Serializer;
 import api.CommentController;
 import api.PostController;
 import base.BaseTestSetup;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
 import org.testng.annotations.*;
 
-import static Utils.Endpoints.*;
 import static org.testng.Assert.assertEquals;
 
 public class EditCommentTest extends BaseTestSetup {
@@ -57,10 +54,7 @@ public class EditCommentTest extends BaseTestSetup {
     @Test
     public void editComment_Successful() {
         String updatedUniqueContent = generateUniqueContentPost();
-
-        RestAssured.baseURI = BASE_URL;
         Response response = CommentController.editComment(cookies, createdComment.commentId, updatedUniqueContent);
-
         isResponse200(response);
         System.out.println("Successfully edited comment with Id" + " " + commentId + " " + "successfully.");
         //TODO get comment by id and assert that the content is updated

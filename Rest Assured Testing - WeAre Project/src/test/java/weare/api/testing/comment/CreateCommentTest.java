@@ -1,18 +1,15 @@
 package weare.api.testing.comment;
 
 import Utils.ModelGenerator;
-import Utils.Serializer;
 import api.CommentController;
 import api.PostController;
 import base.BaseTestSetup;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static Utils.Endpoints.*;
@@ -68,12 +65,12 @@ public class CreateCommentTest extends BaseTestSetup {
 
     @AfterClass
     public void tearDown() {
-        if (!isDeletedPost){
+        if (!isDeletedPost) {
             PostController.deletePost(cookies, createdPost.postId);
             System.out.println("Successfully delete a post with Id" + " " + createdPost.postId);
             isDeletedPost = true;
         }
-        if(!isCommentDeleted){
+        if (!isCommentDeleted) {
             CommentController.deleteComment(cookies, createdComment.commentId);
             System.out.println("Successfully delete a comment with Id" + " " + createdPost.postId);
             isCommentDeleted = true;

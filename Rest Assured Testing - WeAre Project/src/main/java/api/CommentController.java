@@ -33,7 +33,7 @@ public class CommentController {
                 .queryParam("commentId", commentId)
                 .queryParam("content", updatedUniqueContent)
                 .when()
-                .put("http://localhost:8081/api/comment/auth/editor");
+                .put(EDIT_COMMENT_ENDPOINT);
     }
 
     public static Response findAllComments(Cookies cookies){
@@ -43,8 +43,12 @@ public class CommentController {
                 .get(FIND_ALL_COMMENTS_ENDPOINT);
     }
 
-    public static Response findAllCommentsOfAPost(){
-        return null;
+    public static Response findAllCommentsOfAPost(Cookies cookies, int postId){
+        return RestAssured.given()
+                .cookies(cookies)
+                .queryParam("postId", postId)
+                .when()
+                .get(FIND_ALL_COMMENTS_OF_A_POST_ENDPOINT);
     }
 
     public static Response findOneCommentOfAPost(Cookies cookies, int commentId){

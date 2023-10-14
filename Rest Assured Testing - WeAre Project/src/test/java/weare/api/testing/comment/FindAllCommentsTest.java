@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class FindAllCommentsTest extends BaseTestSetup {
     @BeforeClass
-    public void setup(){
+    public void setup() {
         if (!isRegistered) {
             postCreatorUsername = generateUniqueUsername();
             currentEmail = generateUniqueEmail();
@@ -21,12 +21,11 @@ public class FindAllCommentsTest extends BaseTestSetup {
             System.out.println("Successfully created a new user with Id" + " " + userId);
         }
     }
+
     @Test
     public void findAllComments_Successful() {
 
         Response response = CommentController.findAllComments(cookies);
-
-        System.out.println(response.asString());
         isResponse200(response);
 
         CommentModel[] commentList = response.as(CommentModel[].class);

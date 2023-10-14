@@ -22,6 +22,7 @@ public class DeleteCommentTest extends BaseTestSetup {
             currentEmail = generateUniqueEmail();
             register(postCreatorUsername, currentEmail);
             authenticateAndFetchCookies(postCreatorUsername, "Project.10");
+            userId = currentUserId;
             isRegistered = true;
         }
 
@@ -53,5 +54,6 @@ public class DeleteCommentTest extends BaseTestSetup {
         Response response = CommentController.deleteComment(cookies, createdComment.commentId);
         isResponse200(response);
         System.out.println("Successfully deleted comment with Id" + " " + commentId + " " + "successfully.");
+        isCommentDeleted = true;
     }
 }
