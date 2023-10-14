@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="Adding tests in RegisterTest">
+    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="Adding tests in LoginTest and Refactoring code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/RegisterPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/RegisterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +44,7 @@
     "last_opened_file_path": "C:/Users/rosti.WIN-IC28P738AEI/Desktop/Versions"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.RegisterTest.userRegisterUnsuccessfullyWithLetterPassword">
+  <component name="RunManager" selected="JUnit.RegisterTest.userRegistrationSuccessfullyWhenProfessionalCategorySelected">
     <configuration name="LoginTests.loginFailsWithWrongPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
@@ -110,7 +109,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTest.userRegisterUnsuccessfullyWithSevenCharactersPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisterTest.userRegistrationSuccessfullyWhenProfessionalCategorySelected" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -120,7 +119,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
       <option name="MAIN_CLASS_NAME" value="weare.testing.RegisterTest" />
-      <option name="METHOD_NAME" value="userRegisterUnsuccessfullyWithSevenCharactersPassword" />
+      <option name="METHOD_NAME" value="userRegistrationSuccessfullyWhenProfessionalCategorySelected" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -128,11 +127,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RegisterTest.userRegistrationSuccessfullyWhenProfessionalCategorySelected" />
         <item itemvalue="JUnit.RegisterTest.userRegisterUnsuccessfullyWithLetterPassword" />
         <item itemvalue="JUnit.LoginTests.loginUserWhenEnterValidCredentials" />
         <item itemvalue="JUnit.LoginTests.loginFailsWithWrongPassword" />
         <item itemvalue="JUnit.LoginTests.loginUnsuccessfullyWithWrong" />
-        <item itemvalue="JUnit.RegisterTest.userRegisterUnsuccessfullyWithSevenCharactersPassword" />
       </list>
     </recent_temporary>
   </component>
@@ -187,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697277633536</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Adding tests in LoginTest and Refactoring code">
+      <created>1697279255386</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1697279255386</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -196,6 +202,7 @@
     <MESSAGE value="Add RegisterTest" />
     <MESSAGE value="Add LoginTest and Refactoring BaseTestSetup" />
     <MESSAGE value="Adding tests in RegisterTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding tests in RegisterTest" />
+    <MESSAGE value="Adding tests in LoginTest and Refactoring code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding tests in LoginTest and Refactoring code" />
   </component>
 </project>
