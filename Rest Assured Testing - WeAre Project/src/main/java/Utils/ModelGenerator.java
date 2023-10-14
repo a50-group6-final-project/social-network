@@ -3,6 +3,7 @@ package Utils;
 import com.github.javafaker.Faker;
 import models.*;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class ModelGenerator {
@@ -106,4 +107,14 @@ public class ModelGenerator {
         byName.size = 1;
         return byName;
     }
+
+    public static ExpertiseProfile generateUserExpertiseProfile(int categoryId, String categoryName, double availability){
+        ExpertiseProfile profile = new ExpertiseProfile();
+        profile.category = new Category();
+        profile.category.id = categoryId;
+        profile.category.name = categoryName;
+        profile.availability = availability;
+        profile.skills = new ArrayList<>();
+        return profile;
+    };
 }

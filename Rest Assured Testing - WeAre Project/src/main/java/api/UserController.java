@@ -4,10 +4,7 @@ import Utils.Serializer;
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import models.Page;
-import models.SearchUser;
-import models.UserPersonal;
-import models.UserRegister;
+import models.*;
 
 import static Utils.Constants.APPLICATION_JSON;
 import static Utils.Endpoints.*;
@@ -54,6 +51,17 @@ public class UserController {
                 .body(bodyUpdatedPersonalProfileString)
                 .when()
                 .post("/api/users/auth/{currentUserId}/personal");
+    }
+    public  static Response updateExpertiseProfile(Cookies cookies, ExpertiseProfile expertiseProfile, int currentUserId){
+        String bodyExpertiseProfileString = Serializer.convertObjectToJsonString(expertiseProfile);
+        return RestAssured.given()
+                .baseUri(BASE_URL)
+                .contentType("application/json")
+                .cookies(cookies)
+                .body(bodyExpertiseProfileString)
+                .when()
+//                .put("/api/users/expertise/" + currentUserId);
+                .post(UPDATE_ENDPOINT + currentUserId + "/expertise");
     }
 
     public static Response getUserById(String currentUsername, int currentUserId){
