@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class GetUsersTests extends BaseUserSetup {
 
 
-    @Test
+    @Test()
     public void getUsers_Successful() {
         Page page = ModelGenerator.generatePageModel(1500);
         Response response = UserController.getUsers(page);

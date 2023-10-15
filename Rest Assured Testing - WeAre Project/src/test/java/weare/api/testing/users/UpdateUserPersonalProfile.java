@@ -19,6 +19,7 @@ public class UpdateUserPersonalProfile extends BaseUserSetup {
         if (currentUserPersonalProfile == null) {
             currentUserPersonalProfile = ModelGenerator.generateUserPersonalModel();
         }
+        authenticateAndFetchCookies();
     }
 
     @Test
