@@ -10,7 +10,9 @@ import org.openqa.selenium.WebDriver;
 public class BaseTestSetup {
     protected static RegisterPage registerPage;
     protected static WebDriver driver;
+   protected static AdminPage adminPage;
 
+    protected static LoginPage loginPage;
     protected static String generatedUsername;
     protected static String generatedPassword;
     protected static String generatedEmail;
@@ -19,9 +21,6 @@ public class BaseTestSetup {
 
     private static Faker faker = new Faker();
 
-
-    UserActions userActions=new UserActions();
-
     @BeforeAll
     public static void setUp() {
         driver = CustomWebDriverManager.CustomWebDriverManagerEnum.INSTANCE.getDriver();
@@ -29,6 +28,7 @@ public class BaseTestSetup {
 
 
     }
+
 
     @AfterAll
     public static void tearDown() {
@@ -43,7 +43,6 @@ public class BaseTestSetup {
     }
 
     public static String generateRandomUsernameWithAdmin(int length) {
-//        generatedUsername="admin"+faker.name().firstName();
         generatedUsername = faker.regexify("[a-zA-Z]{" + length + "}");
         generatedAdminUsername = "admin" + generatedUsername;
 

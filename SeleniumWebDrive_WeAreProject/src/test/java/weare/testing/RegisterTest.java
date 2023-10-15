@@ -26,8 +26,6 @@ public class RegisterTest extends BaseTestSetup {
 
         registerPage.userRegister(username, password, email);
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
         BasePage.assertElementPresent("//a[@id='button']");
     }
 

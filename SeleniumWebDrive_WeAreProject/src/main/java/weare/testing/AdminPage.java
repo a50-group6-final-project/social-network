@@ -1,34 +1,34 @@
 package weare.testing;
 
-import org.openqa.selenium.WebDriver;
-
-public class AdminPage extends BaseWeArePage{
+public class AdminPage extends BaseWeArePage {
 
 
-    public AdminPage(WebDriver driver, String urlKey) {
-        super(driver, urlKey);
+    public AdminPage() {
+        super(driver, "http://localhost:8081/login");
     }
 
-    public void adminRegister(String username, String password, String email) {
-        navigateToPage();
-        assertNavigatedUrl();
+    public void adminEditUserProfile() {
 
-        actions.waitForElementVisible("(//a[text()='REGISTER'])[1]");
-        actions.clickElement("(//a[text()='REGISTER'])[1]");
+        actions.waitForElementClickable("//a[normalize-space(text())='GO TO admin zone']");
+        actions.clickElement("//a[normalize-space(text())='GO TO admin zone']");
 
-        actions.waitForElementVisible("//input[@id='name']");
-        actions.typeValueInField(username, "//input[@id='name']");
+        actions.waitForElementClickable("//input[@value='View Users']");
+        actions.clickElement("//input[@value='View Users']");
 
-        actions.waitForElementVisible("//input[@id='email']");
-        actions.typeValueInField(email, "//input[@id='email']");
+        actions.waitForElementClickable("//a[contains(@class,'btn btn-primary') and text()='See Profile']");
+        actions.clickElement("//a[contains(@class,'btn btn-primary') and text()='See Profile']");
 
-        actions.waitForElementVisible("//input[@id='password']");
-        actions.typeValueInField(password, "//input[@id='password']");
+        actions.waitForElementVisible("//a[contains(text(), 'edit') and @class='nav-link']");
+        actions.clickElement("//a[contains(text(), 'edit') and @class='nav-link']");
 
-        actions.waitForElementVisible("//input[@id='confirm']");
-        actions.typeValueInField(password, "//input[@id='confirm']");
+        actions.waitForElementClickable("//div[@class='col-8']/select[1]");
+        actions.clickElement("//div[@class='col-8']/select[1]");
 
-        actions.waitForElementClickable("//input[@type='submit' and @value='Register']");
-        actions.clickElement("//input[@type='submit' and @value='Register']");
+        actions.clickElement("//select[@id='category.id']/option[text()='Accountant']");
+
+        actions.waitForElementVisible("//*[@id='profile-expertise']/div/div/div[2]/div/form/div/div[2]/div/button");
+        actions.clickElement("//*[@id='profile-expertise']/div/div/div[2]/div/form/div/div[2]/div/button");
+
     }
+
 }
