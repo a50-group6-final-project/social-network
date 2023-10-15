@@ -22,7 +22,7 @@ public class GetUserRequestsTests extends BaseConnectionSetup {
 
     @BeforeClass
     public void setupTest() {
-        authenticateAndFetchCookies(senderUsername, "Project.10");
+        authenticateAndFetchCookies(senderUsername, senderPassword);
         sendRequestToUser = ModelGenerator.generateSendRequestModel(receiverUserId, receiverUsername);
         sentRequestResponse = ConnectionController.sendRequest(sendRequestToUser, cookies, senderUsername);
         System.out.println(sentRequestResponse.asString());
@@ -30,7 +30,7 @@ public class GetUserRequestsTests extends BaseConnectionSetup {
 
     @Test
     public void getUserRequestTest() {
-        authenticateAndFetchCookies(receiverUsername, "Password.10");
+        authenticateAndFetchCookies(receiverUsername, receiverPassword);
         Response response = ConnectionController.getUserRequests(cookies, receiverUserId);
 
 

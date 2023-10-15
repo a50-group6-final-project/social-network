@@ -18,10 +18,10 @@ public class ApproveRequestTest extends BaseConnectionSetup {
     @BeforeClass
     public void setupTest(){
         sendRequestToUser = ModelGenerator.generateSendRequestModel(receiverUserId, receiverUsername);
-        authenticateAndFetchCookies(senderUsername, "Password.10");
+        authenticateAndFetchCookies(senderUsername, senderPassword);
         Response response = ConnectionController.sendRequest(sendRequestToUser, cookies, senderUsername);
 
-        authenticateAndFetchCookies(receiverUsername, "Password.10");
+        authenticateAndFetchCookies(receiverUsername, receiverPassword);
         Response response2 = ConnectionController.getUserRequests(cookies, receiverUserId);
 
 

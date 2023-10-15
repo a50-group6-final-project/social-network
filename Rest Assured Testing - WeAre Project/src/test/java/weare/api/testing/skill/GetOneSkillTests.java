@@ -1,6 +1,5 @@
 package weare.api.testing.skill;
 
-import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import api.SkillController;
 import base.BaseTestSetup;

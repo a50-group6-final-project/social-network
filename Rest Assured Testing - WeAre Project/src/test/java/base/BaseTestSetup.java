@@ -28,6 +28,7 @@ public class BaseTestSetup {
     public static String currentUsername;
     public static String currentEmail;
     public static int currentUserId;
+    public static String currentPassword;
     public static int postId;
     public static int userId;
     public static int commentId;
@@ -83,8 +84,9 @@ public class BaseTestSetup {
     public void register(UserRegister userToRegister) {
         currentUsername = userToRegister.username;
         currentEmail = userToRegister.email;
+        currentPassword = userToRegister.password;
         Response response = UserController.registerUser(userToRegister);
-        authenticateAndFetchCookies(currentUsername, currentEmail);
+        cookies =  authenticateAndFetchCookies(currentUsername, currentEmail);
 
         isResponse200(response);
         isRegistered = true;
@@ -98,36 +100,31 @@ public class BaseTestSetup {
     }
 
 
-    public void authenticateAndFetchCookies(String username, String password) {
+    public Cookies authenticateAndFetchCookies() {
+        RestAssured.baseURI = BASE_URL;
+
+        Response response = RestAssured.given()
+                .contentType("multipart/form-data")
+                .multiPart("username", currentUsername)
+                .multiPart("password", currentPassword)
+                .when()
+                .post(AUTHENTICATE_ENDPOINT);
+
+        cookies = response.detailedCookies();
+        return cookies;
+    }
+
+    public Cookies authenticateAndFetchCookies(String username, String password) {
         RestAssured.baseURI = BASE_URL;
 
         Response response = RestAssured.given()
                 .contentType("multipart/form-data")
                 .multiPart("username", username)
-                .multiPart("password", "Project.10")
+                .multiPart("password", password)
                 .when()
                 .post(AUTHENTICATE_ENDPOINT);
 
         cookies = response.detailedCookies();
-        int statusCodeAuthentication = response.getStatusCode();
-        System.out.println("The status code is:" + statusCodeAuthentication);
+        return cookies;
     }
-
-    public String getJSESSIONIDCookie(String username, String password) {
-        try {
-            String JSESSIONID = RestAssured.given()
-                    .baseUri(BASE_URL)
-                    .contentType("multipart/form-data")
-                    .multiPart("username", username)
-                    .multiPart("password", password)
-                    .when()
-                    .post(AUTHENTICATE_ENDPOINT)
-                    .getCookie("JSESSIONID");
-            return JSESSIONID;
-        } catch (Exception e) {
-            throw new RuntimeException("Could not authenticate user");
-        }
-    }
-
-
 }

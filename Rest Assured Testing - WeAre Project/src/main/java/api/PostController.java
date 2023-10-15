@@ -40,7 +40,7 @@ public class PostController {
                 .put(EDIT_POST_ENDPOINT);
     }
 
-    public static Response getNewsFeed(Cookies cookies){
+    public static Response getNewsFeed(Cookies cookies) {
         return RestAssured.given()
                 .baseUri(BASE_URL)
                 .cookies(cookies)
@@ -50,7 +50,7 @@ public class PostController {
                 .get(GET_ALL_POSTS_ENDPOINT);
     }
 
-    public static Response likeAndDislikePost(Cookies cookies, int postId){
+    public static Response likeAndDislikePost(Cookies cookies, int postId) {
         return RestAssured.given().baseUri(BASE_URL)
                 .cookies(cookies)
                 .contentType("application/json")
@@ -58,5 +58,4 @@ public class PostController {
                 .when()
                 .post(LIKE_POST_ENDPOINT);
     }
-
 }

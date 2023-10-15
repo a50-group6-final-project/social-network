@@ -11,16 +11,19 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseConnectionSetup extends BaseTestSetup {
     public Cookies senderCookies;
+    public String senderPassword;
+    public String receiverPassword;
+
     public Cookies receiverCookies;
     SendRequest sendRequestToUser;
     Response sentRequestResponse;
     @BeforeClass
     public void setupClass() throws InterruptedException {
-        Thread.sleep(1000);
         if (!isRegisteredTwoUsers) {
             UserRegister userRegisterOne = ModelGenerator.generateUserRegisterModel();
             senderUsername = userRegisterOne.username;
             currentEmail = userRegisterOne.email;
+            senderPassword = userRegisterOne.password;
             register(userRegisterOne);
             senderCookies = cookies;
             senderUserId = currentUserId;
@@ -30,6 +33,7 @@ public class BaseConnectionSetup extends BaseTestSetup {
 
             receiverUsername = userRegisterTwo.username;
             receiverEmail = userRegisterTwo.email;
+            receiverPassword = userRegisterTwo.password;
             register(userRegisterTwo);
             receiverCookies = cookies;
             receiverUserId = currentUserId;

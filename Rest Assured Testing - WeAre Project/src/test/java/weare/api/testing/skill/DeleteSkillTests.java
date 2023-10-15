@@ -1,6 +1,5 @@
 package weare.api.testing.skill;
 
-import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import api.SkillController;
 import base.BaseTestSetup;
@@ -11,7 +10,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class DeleteSkillTests extends BaseTestSetup {
-
     @BeforeClass
     public void setup() {
         if (!isRegistered) {

@@ -1,9 +1,7 @@
 package weare.api.testing.skill;
 
-import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import api.SkillController;
-import api.UserController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
 import models.Skill;
@@ -14,10 +12,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class CreateSkillTests extends BaseTestSetup {
-
     @BeforeClass
     public void setup() {
-
         if (!isRegistered) {
             UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
             register(userRegister);
@@ -38,7 +34,7 @@ public class CreateSkillTests extends BaseTestSetup {
 
     @AfterClass
     public void tearDown() {
-        if(createdSkill != null){
+        if (createdSkill != null) {
             SkillController.deleteSkill(createdSkill.skillId);
         }
     }

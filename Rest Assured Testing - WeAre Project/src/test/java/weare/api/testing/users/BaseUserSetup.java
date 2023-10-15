@@ -19,8 +19,8 @@ public class BaseUserSetup extends BaseTestSetup {
     public UserPersonal currentUserPersonalProfile;
 
     @BeforeClass
-    public void setupClass() throws InterruptedException {
-        if(userToRegister == null){
+    public void setupClass() {
+        if (userToRegister == null) {
             userToRegister = ModelGenerator.generateUserRegisterModel();
         }
         if (currentUsername == null) {
@@ -30,9 +30,4 @@ public class BaseUserSetup extends BaseTestSetup {
             currentEmail = userToRegister.email;
         }
     }
-
-
-
-
-
 }

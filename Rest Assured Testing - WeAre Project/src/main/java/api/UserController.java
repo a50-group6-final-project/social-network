@@ -73,6 +73,20 @@ public class UserController {
                 .get("/api/users/auth/" + currentUserId);
     }
 
+    public static Response getProfilePosts(Cookies cookies, int currentUserId){
+        Page page = new Page();
+        page.size = 10;
+        String bodyPageString = Serializer.convertObjectToJsonString(page);
+        return RestAssured.given()
+                .baseUri(BASE_URL)
+                .cookies(cookies)
+                .contentType("application/json")
+                .pathParam("currentUserId", currentUserId)
+                .body(bodyPageString)
+                .when()
+                .get("http://localhost:8081/api/users/{currentUserId}/posts");
+    }
+
     public static Cookies authenticatedAndFetchCookies(){
         RestAssured.baseURI = BASE_URL;
         Response response = RestAssured.given()
@@ -83,25 +97,5 @@ public class UserController {
                 .post(AUTHENTICATE_ENDPOINT);
 
         return response.detailedCookies();
-    }
-
-    public String getJSESSIONIDCookie(String username, String password) {
-        try {
-            String JSESSIONID = RestAssured.given()
-                    .baseUri(BASE_URL)
-                    .contentType("multipart/form-data")
-                    .multiPart("username", username)
-                    .multiPart("password", password)
-                    .when()
-                    .post(AUTHENTICATE_ENDPOINT)
-                    .getCookie("JSESSIONID");
-            return JSESSIONID;
-        } catch (Exception e) {
-            throw new RuntimeException("Could not authenticate user");
-        }
-    }
-
-    public static Response autheticated(){
-        return null;
     }
 }
