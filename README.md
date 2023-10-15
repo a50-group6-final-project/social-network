@@ -13,15 +13,18 @@ Welcome to our final QA project presentation. Our job is to test the 'Weare' soc
 3. **Bug Reports:**
    When we find something wrong, we write it down. Check out our template [[here](https://docs.google.com/document/d/1v188BdkWdBaDQyoSngY2v4bKK9Iwz23AxYw_GooJ2b0/edit)](#).
 
-4. **Manual Testing - Exploratory Testing:**
-
-
+4. **Manual Testing:**
+   We utilize Xray to guide and document our testing process. Check out our high-level tests [[here](https://docs.google.com/document/d/13JbtgMkoewZqYxkTAWf48Ov5XlUKCpQye8NzAHrx_f4/edit?usp=sharing)](#).
+   
 5. **Automated Testing:**
    We use tools to help speed up our testing:
    - **Backend Testing:** Using tools like Postman and REST Assured, we ensure our APIs are robust and meet expected standards.
    - **Frontend Testing:** We use Selenium Webdriver to test what users see many times.
+  
 
-If you want to see our API TESTING through Postman, please follow these steps:
+     
+
+If you want to see our **API TESTING through Postman**, please follow these steps:
 
 - Get the files from our 'Postman - API testing' folder.
 - Start Postman.
@@ -29,7 +32,7 @@ If you want to see our API TESTING through Postman, please follow these steps:
 - To run the entire collection or specific folders, select the desired folder or collection, and then click "Run".
 
 
-**To Test with Command Line:**
+**To run with Command Line:**
 Go to where the files are on your computer. Type this:
 ```shell
 newman run "WeAre_Social Network Project.postman_collection.json" -e "Rest-controller.postman_environment.json" -r htmlextra --reporter-htmlextra-export "./WeAre_API_Testing.html"
