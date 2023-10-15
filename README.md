@@ -13,8 +13,8 @@ Welcome to our final QA project presentation. Our job is to test the 'Weare' soc
 3. **Bug Reports:**
    When we find something wrong, we write it down. Check out our template [[here](https://docs.google.com/document/d/1v188BdkWdBaDQyoSngY2v4bKK9Iwz23AxYw_GooJ2b0/edit)](#).
 
-2. **Test Cases:**
-   We use a planned method to create our tests. Check out our template [[here](https://docs.google.com/document/d/1YDBI0sy6ODsjIGpJVKsuTKlMj6wY28wweYQ9745Uajk/edit)](#).
+4. **Manual Testing:**
+   We utilize Xray to guide and document our testing process. Check out our high-level tests [[here](https://docs.google.com/document/d/13JbtgMkoewZqYxkTAWf48Ov5XlUKCpQye8NzAHrx_f4/edit?usp=sharing)](#).
    
 5. **Automated Testing:**
    We use tools to help speed up our testing:
