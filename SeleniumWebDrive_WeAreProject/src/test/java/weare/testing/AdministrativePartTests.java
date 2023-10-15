@@ -47,10 +47,25 @@ public class AdministrativePartTests extends BaseTestSetup{
 
         registerPage.userRegister(username, password, email);
         loginPage.loginUser(username,password);
-        adminPage.adminEditUserProfile();
+        adminPage.adminEditUserIndustrySelection();
         Thread.sleep(2000);
 
         BasePage.assertElementPresent("//a[contains(@href, 'searchParam1=Accountant')]");
+    }
+
+    @Test
+    public void UserDisabled_When_ClickDisableButton() {
+        String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
+        String password = BaseTestSetup.generateRandomPassword(10);
+        String email = BaseTestSetup.generateRandomEmail();
+
+        registerPage.userRegister(username, password, email);
+        loginPage.loginUser(username,password);
+        adminPage.adminDisableUser();
+
+        BasePage.assertElementPresent("//input[@value='enable']");
+
+
     }
 
 }

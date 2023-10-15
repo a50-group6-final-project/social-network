@@ -7,7 +7,7 @@ public class AdminPage extends BaseWeArePage {
         super(driver, "http://localhost:8081/login");
     }
 
-    public void adminEditUserProfile() {
+    public void adminEditUserIndustrySelection() {
 
         actions.waitForElementClickable("//a[normalize-space(text())='GO TO admin zone']");
         actions.clickElement("//a[normalize-space(text())='GO TO admin zone']");
@@ -28,6 +28,22 @@ public class AdminPage extends BaseWeArePage {
 
         actions.waitForElementVisible("//*[@id='profile-expertise']/div/div/div[2]/div/form/div/div[2]/div/button");
         actions.clickElement("//*[@id='profile-expertise']/div/div/div[2]/div/form/div/div[2]/div/button");
+
+    }
+
+    public void adminDisableUser(){
+
+        actions.waitForElementClickable("//a[normalize-space(text())='GO TO admin zone']");
+        actions.clickElement("//a[normalize-space(text())='GO TO admin zone']");
+
+        actions.waitForElementClickable("//input[@value='View Users']");
+        actions.clickElement("//input[@value='View Users']");
+
+        actions.waitForElementClickable("//a[contains(@class,'btn btn-primary') and text()='See Profile']");
+        actions.clickElement("//a[contains(@class,'btn btn-primary') and text()='See Profile']");
+
+        actions.waitForElementClickable("//input[@value='disable']");
+        actions.clickElement("//input[@value='disable']");
 
     }
 
