@@ -5,20 +5,21 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage extends BaseWeArePage {
 
     public LoginPage(WebDriver driver) {
-        super(driver, "http://localhost:8081/login");
+        super(driver, "home.page");
     }
 
     public static void loginUser(String username, String password) {
 
 
-        actions.waitForElementVisible("//a[@class='nav-link' and @href = '/login']");
-        actions.clickElement("//a[@class='nav-link' and @href = '/login']");
+        actions.waitForElementVisible("weAre.loginPage.loginNavLink");
+        actions.clickElement("weAre.loginPage.loginNavLink");
 
-        actions.waitForElementVisible("//input[@id='username']");
-        actions.typeValueInField(username, "//input[@id='username']");
-        actions.waitForElementVisible("//input[@id='password']");
-        actions.typeValueInField(password, "//input[@id='password']");
+        actions.waitForElementVisible("weAre.loginPage.usernameField");
+        actions.typeValueInField(username, "weAre.loginPage.usernameField");
+        actions.waitForElementVisible("weAre.loginPage.passwordField");
+        actions.typeValueInField(password, "weAre.loginPage.passwordField");
 
-        actions.clickElement("//input[@value='Login']");
+        actions.clickElement("weAre.loginPage.loginButton");
+
     }
 }

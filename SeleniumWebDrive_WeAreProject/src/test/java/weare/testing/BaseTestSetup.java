@@ -2,7 +2,6 @@ package weare.testing;
 
 import com.github.javafaker.Faker;
 import com.telerikacademy.testframework.CustomWebDriverManager;
-import com.telerikacademy.testframework.UserActions;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class BaseTestSetup {
     protected static RegisterPage registerPage;
     protected static WebDriver driver;
-   protected static AdminPage adminPage;
+    protected static AdminPage adminPage;
 
     protected static LoginPage loginPage;
     protected static String generatedUsername;
@@ -36,7 +35,6 @@ public class BaseTestSetup {
     }
 
 
-
     public static String generateRandomUsername(int length) {
         generatedUsername = faker.regexify("[a-zA-Z]{" + length + "}");
         return generatedUsername;
@@ -60,9 +58,8 @@ public class BaseTestSetup {
 
     public static String generateLetterPassword(int length) {
         generatedLetterPassword = faker.lorem().characters(length);
-        return  generatedLetterPassword;
+        return generatedLetterPassword;
     }
-
 
 
     public static String generateRandomEmail() {

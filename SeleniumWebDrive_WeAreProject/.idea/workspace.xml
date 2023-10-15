@@ -7,7 +7,11 @@
     <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="Adding test in AdministrativePartTests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/AdminPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/RegisterPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,23 +55,7 @@
     &quot;last_opened_file_path&quot;: &quot;C:/Users/rosti.WIN-IC28P738AEI/Desktop/Versions&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.AdministrativePartTests.UserDisabled_When_ClickDisableButton">
-    <configuration name="AdministrativePartTests.AdminLogin_When_InputValidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
-      <option name="METHOD_NAME" value="AdminLogin_When_InputValidData" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.AdministrativePartTests.AdminRegistered_When_InputValidData">
     <configuration name="AdministrativePartTests.AdminRegistered_When_InputValidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
@@ -100,7 +88,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdministrativePartTests.UserProfileEdited_When_AdminClicksEditButton" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTests.UserLoggedIn_When_EnterValidCredentials" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -109,14 +97,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
-      <option name="METHOD_NAME" value="UserProfileEdited_When_AdminClicksEditButton" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.LoginTests" />
+      <option name="METHOD_NAME" value="UserLoggedIn_When_EnterValidCredentials" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTest.UserRegistered_When_InputValidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisterTest.UserRegisteredSuccessfully_When_InputUsernameWithMaxLength" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -126,7 +114,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
       <option name="MAIN_CLASS_NAME" value="weare.testing.RegisterTest" />
-      <option name="METHOD_NAME" value="UserRegistered_When_InputValidData" />
+      <option name="METHOD_NAME" value="UserRegisteredSuccessfully_When_InputUsernameWithMaxLength" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterTest.UserRegisteredSuccessfully_When_SelectProfessionalCategory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.RegisterTest" />
+      <option name="METHOD_NAME" value="UserRegisteredSuccessfully_When_SelectProfessionalCategory" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AdministrativePartTests.UserDisabled_When_ClickDisableButton" />
-        <item itemvalue="JUnit.AdministrativePartTests.UserProfileEdited_When_AdminClicksEditButton" />
         <item itemvalue="JUnit.AdministrativePartTests.AdminRegistered_When_InputValidData" />
-        <item itemvalue="JUnit.RegisterTest.UserRegistered_When_InputValidData" />
-        <item itemvalue="JUnit.AdministrativePartTests.AdminLogin_When_InputValidData" />
+        <item itemvalue="JUnit.RegisterTest.UserRegisteredSuccessfully_When_SelectProfessionalCategory" />
+        <item itemvalue="JUnit.RegisterTest.UserRegisteredSuccessfully_When_InputUsernameWithMaxLength" />
+        <item itemvalue="JUnit.LoginTests.UserLoggedIn_When_EnterValidCredentials" />
+        <item itemvalue="JUnit.AdministrativePartTests.UserDisabled_When_ClickDisableButton" />
       </list>
     </recent_temporary>
   </component>
@@ -242,7 +246,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697369225217</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Adding test in AdministrativePartTests">
+      <created>1697378839907</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1697378839907</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

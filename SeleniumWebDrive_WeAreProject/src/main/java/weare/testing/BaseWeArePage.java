@@ -1,7 +1,6 @@
 package weare.testing;
 
 
-
 import com.telerikacademy.pages.BasePage;
 import org.openqa.selenium.WebDriver;
 

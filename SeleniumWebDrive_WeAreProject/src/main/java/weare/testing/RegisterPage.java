@@ -13,76 +13,54 @@ public class RegisterPage extends BaseWeArePage {
         navigateToPage();
         assertNavigatedUrl();
 
-        actions.waitForElementVisible("(//a[text()='REGISTER'])[1]");
-        actions.clickElement("(//a[text()='REGISTER'])[1]");
+        actions.waitForElementVisible("weAre.loginPage.registerLink");
+        actions.clickElement("weAre.loginPage.registerLink");
 
-        actions.waitForElementVisible("//input[@id='name']");
-        actions.typeValueInField(username, "//input[@id='name']");
+        actions.waitForElementVisible("weAre.registrationPage.nameField");
+        actions.typeValueInField(username, "weAre.registrationPage.nameField");
 
-        actions.waitForElementVisible("//input[@id='email']");
-        actions.typeValueInField(email, "//input[@id='email']");
+        actions.waitForElementVisible("weAre.registrationPage.emailField");
+        actions.typeValueInField(email, "weAre.registrationPage.emailField");
 
-        actions.waitForElementVisible("//input[@id='password']");
-        actions.typeValueInField(password, "//input[@id='password']");
+        actions.waitForElementVisible("weAre.registrationPage.passwordField");
+        actions.typeValueInField(password, "weAre.registrationPage.passwordField");
 
-        actions.waitForElementVisible("//input[@id='confirm']");
-        actions.typeValueInField(password, "//input[@id='confirm']");
+        actions.waitForElementVisible("weAre.registrationPage.confirmField");
+        actions.typeValueInField(password, "weAre.registrationPage.confirmField");
 
-        actions.waitForElementClickable("//input[@type='submit' and @value='Register']");
-        actions.clickElement("//input[@type='submit' and @value='Register']");
+        actions.waitForElementClickable("weAre.registrationPage.submitButton");
+        actions.clickElement("weAre.registrationPage.submitButton");
+
     }
 
     public void userRegisterWithProfessionalSelection(String username, String password, String email) {
         navigateToPage();
         assertNavigatedUrl();
 
-        actions.waitForElementVisible("(//a[text()='REGISTER'])[1]");
-        actions.clickElement("(//a[text()='REGISTER'])[1]");
+        actions.waitForElementVisible("weAre.loginPage.registerLink");
+        actions.clickElement("weAre.loginPage.registerLink");
 
-        actions.waitForElementVisible("//input[@id='name']");
-        actions.typeValueInField(username, "//input[@id='name']");
+        actions.waitForElementVisible("weAre.registrationPage.nameField");
+        actions.typeValueInField(username, "weAre.registrationPage.nameField");
 
-        actions.waitForElementVisible("//input[@id='email']");
-        actions.typeValueInField(email, "//input[@id='email']");
+        actions.waitForElementVisible("weAre.registrationPage.emailField");
+        actions.typeValueInField(email, "weAre.registrationPage.emailField");
 
-        actions.waitForElementVisible("//input[@id='password']");
-        actions.typeValueInField(password, "//input[@id='password']");
+        actions.waitForElementVisible("weAre.registrationPage.passwordField");
+        actions.typeValueInField(password, "weAre.registrationPage.passwordField");
 
-        actions.waitForElementVisible("//input[@id='confirm']");
-        actions.typeValueInField(password, "//input[@id='confirm']");
+        actions.waitForElementVisible("weAre.registrationPage.confirmField");
+        actions.typeValueInField(password, "weAre.registrationPage.confirmField");
 
-        actions.waitForElementClickable("//div[@class='col-8']/select[1]");
-        actions.clickElement("//div[@class='col-8']/select[1]");
+        actions.waitForElementClickable("weAre.registrationPage.categoryDropdown");
+        actions.clickElement("weAre.registrationPage.categoryDropdown");
 
-        actions.clickElement("//select[@id='category.id']/option[text()='Accountant']");
+        actions.clickElement("weAre.registrationPage.selectAccountant");
 
-        actions.waitForElementClickable("//input[@type='submit' and @value='Register']");
-        actions.clickElement("//input[@type='submit' and @value='Register']");
+        actions.waitForElementClickable("weAre.registrationPage.submitButton");
+        actions.clickElement("weAre.registrationPage.submitButton");
 
 
     }
 
-
-    public void adminRegister(String username, String password, String email) {
-        navigateToPage();
-        assertNavigatedUrl();
-
-        actions.waitForElementVisible("(//a[text()='REGISTER'])[1]");
-        actions.clickElement("(//a[text()='REGISTER'])[1]");
-
-        actions.waitForElementVisible("//input[@id='name']");
-        actions.typeValueInField(username, "//input[@id='name']");
-
-        actions.waitForElementVisible("//input[@id='email']");
-        actions.typeValueInField(email, "//input[@id='email']");
-
-        actions.waitForElementVisible("//input[@id='password']");
-        actions.typeValueInField(password, "//input[@id='password']");
-
-        actions.waitForElementVisible("//input[@id='confirm']");
-        actions.typeValueInField(password, "//input[@id='confirm']");
-
-        actions.waitForElementClickable("//input[@type='submit' and @value='Register']");
-        actions.clickElement("//input[@type='submit' and @value='Register']");
-    }
 }

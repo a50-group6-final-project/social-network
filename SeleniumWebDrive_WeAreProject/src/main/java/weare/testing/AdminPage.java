@@ -4,46 +4,47 @@ public class AdminPage extends BaseWeArePage {
 
 
     public AdminPage() {
-        super(driver, "http://localhost:8081/login");
+        super(driver, "home.page");
     }
 
     public void adminEditUserIndustrySelection() {
 
-        actions.waitForElementClickable("//a[normalize-space(text())='GO TO admin zone']");
-        actions.clickElement("//a[normalize-space(text())='GO TO admin zone']");
+        actions.waitForElementClickable("weAre.adminPage.gotoAdminZone");
+        actions.clickElement("weAre.adminPage.gotoAdminZone");
 
-        actions.waitForElementClickable("//input[@value='View Users']");
-        actions.clickElement("//input[@value='View Users']");
+        actions.waitForElementClickable("weAre.userPage.viewUsersButton");
+        actions.clickElement("weAre.userPage.viewUsersButton");
 
-        actions.waitForElementClickable("//a[contains(@class,'btn btn-primary') and text()='See Profile']");
-        actions.clickElement("//a[contains(@class,'btn btn-primary') and text()='See Profile']");
+        actions.waitForElementClickable("weAre.userPage.seeProfileButton");
+        actions.clickElement("weAre.userPage.seeProfileButton");
 
-        actions.waitForElementVisible("//a[contains(text(), 'edit') and @class='nav-link']");
-        actions.clickElement("//a[contains(text(), 'edit') and @class='nav-link']");
+        actions.waitForElementVisible("weAre.profilePage.editNavLink");
+        actions.clickElement("weAre.profilePage.editNavLink");
 
-        actions.waitForElementClickable("//div[@class='col-8']/select[1]");
-        actions.clickElement("//div[@class='col-8']/select[1]");
+        actions.waitForElementClickable("weAre.profilePage.categoryDropdown");
+        actions.clickElement("weAre.profilePage.categoryDropdown");
 
-        actions.clickElement("//select[@id='category.id']/option[text()='Accountant']");
+        actions.clickElement("weAre.profilePage.selectAccountant");
 
-        actions.waitForElementVisible("//*[@id='profile-expertise']/div/div/div[2]/div/form/div/div[2]/div/button");
-        actions.clickElement("//*[@id='profile-expertise']/div/div/div[2]/div/form/div/div[2]/div/button");
+        actions.waitForElementVisible("weAre.profilePage.saveButton");
+        actions.clickElement("weAre.profilePage.saveButton");
+
 
     }
 
-    public void adminDisableUser(){
+    public void adminDisableUser() {
 
-        actions.waitForElementClickable("//a[normalize-space(text())='GO TO admin zone']");
-        actions.clickElement("//a[normalize-space(text())='GO TO admin zone']");
+        actions.waitForElementClickable("weAre.adminPage.gotoAdminZone");
+        actions.clickElement("weAre.adminPage.gotoAdminZone");
 
-        actions.waitForElementClickable("//input[@value='View Users']");
-        actions.clickElement("//input[@value='View Users']");
+        actions.waitForElementClickable("weAre.userPage.viewUsersButton");
+        actions.clickElement("weAre.userPage.viewUsersButton");
 
-        actions.waitForElementClickable("//a[contains(@class,'btn btn-primary') and text()='See Profile']");
-        actions.clickElement("//a[contains(@class,'btn btn-primary') and text()='See Profile']");
+        actions.waitForElementClickable("weAre.userPage.seeProfileButton");
+        actions.clickElement("weAre.userPage.seeProfileButton");
 
-        actions.waitForElementClickable("//input[@value='disable']");
-        actions.clickElement("//input[@value='disable']");
+        actions.waitForElementClickable("weAre.userPage.disableButton");
+        actions.clickElement("weAre.userPage.disableButton");
 
     }
 

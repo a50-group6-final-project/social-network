@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
-public class AdministrativePartTests extends BaseTestSetup{
+public class AdministrativePartTests extends BaseTestSetup {
 
     private AdminPage adminPage;
 
@@ -16,37 +16,37 @@ public class AdministrativePartTests extends BaseTestSetup{
 
 
     @Test
-    public void  AdminRegistered_When_InputValidData() {
+    public void AdminRegistered_When_InputValidData() {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
 
-        registerPage.adminRegister(username, password, email);
+        registerPage.userRegister(username, password, email);
 
         BasePage.assertElementPresent("//a[@id='button']");
     }
 
     @Test
-    public void  AdminLogin_When_InputValidData() {
+    public void AdminLogin_When_InputValidData() {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
 
         registerPage.userRegister(username, password, email);
 
-        loginPage.loginUser(username,password);
+        loginPage.loginUser(username, password);
         BasePage.assertElementPresent("//a[normalize-space(text())='GO TO admin zone']");
     }
 
 
     @Test
-    public void  IndustrySelected_When_ClickDropdown_And_ChooseOption() throws InterruptedException {
+    public void IndustrySelected_When_ClickDropdown_And_ChooseOption() throws InterruptedException {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
 
         registerPage.userRegister(username, password, email);
-        loginPage.loginUser(username,password);
+        loginPage.loginUser(username, password);
         adminPage.adminEditUserIndustrySelection();
         Thread.sleep(2000);
 
@@ -60,7 +60,7 @@ public class AdministrativePartTests extends BaseTestSetup{
         String email = BaseTestSetup.generateRandomEmail();
 
         registerPage.userRegister(username, password, email);
-        loginPage.loginUser(username,password);
+        loginPage.loginUser(username, password);
         adminPage.adminDisableUser();
 
         BasePage.assertElementPresent("//input[@value='enable']");

@@ -1,8 +1,7 @@
 package weare.testing;
+
 import com.telerikacademy.pages.BasePage;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import java.time.Duration;
 
 public class RegisterTest extends BaseTestSetup {
 
@@ -111,10 +110,8 @@ public class RegisterTest extends BaseTestSetup {
         String username = BaseTestSetup.generateRandomUsername(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
-
-
+        
         registerPage.userRegisterWithProfessionalSelection(username, password, email);
-
 
         BasePage.assertElementPresent("//a[@id='button']");
     }
