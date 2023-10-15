@@ -1,38 +1,34 @@
 package weare.api.testing.connection;
 
 import Utils.ModelGenerator;
-import api.CommentController;
 import api.ConnectionController;
-import base.BaseTestSetup;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.ApproveRequest;
-import models.SendRequest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Endpoints.BASE_URL;
-
 public class ApproveRequestTest extends BaseConnectionSetup {
     int requestId;
-    @BeforeClass
-    public void setupTest(){
-        sendRequestToUser = ModelGenerator.generateSendRequestModel(receiverUserId, receiverUsername);
-        authenticateAndFetchCookies(senderUsername, senderPassword);
-        Response response = ConnectionController.sendRequest(sendRequestToUser, cookies, senderUsername);
 
-        authenticateAndFetchCookies(receiverUsername, receiverPassword);
-        Response response2 = ConnectionController.getUserRequests(cookies, receiverUserId);
+    @BeforeClass
+    public void setupTest() {
+        sendRequestToUser = ModelGenerator.generateSendRequestModel(receiverUserId, receiverUsername);
+        senderCookies = authenticateAndFetchCookies(senderUsername, senderPassword);
+        Response response = ConnectionController.sendRequest(sendRequestToUser, senderCookies, senderUsername);
+
+        receiverCookies = authenticateAndFetchCookies(receiverUsername, receiverPassword);
+        Response response2 = ConnectionController.getUserRequests(receiverCookies, receiverUserId);
 
 
         isResponse200(response2);
         ApproveRequest[] approveRequestList = response2.as(ApproveRequest[].class);
         requestId = approveRequestList[0].id;
     }
+
     @Test
     public void approveRequest_successful() {
 
-        authenticateAndFetchCookies(receiverUsername, "Password.10");
+        authenticateAndFetchCookies(receiverUsername, receiverPassword);
         ConnectionController.approveRequest(cookies, receiverUserId, requestId);
         Response response = ConnectionController.approveRequest(cookies, receiverUserId, requestId);
 

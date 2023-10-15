@@ -32,6 +32,7 @@ public class LikeDislikeAPostTest extends BaseTestSetup {
         if (isDeletedPost) {
             String uniqueContent = DataGenerator.generateUniqueContentPost();
             createPost = ModelGenerator.generatePostModel(uniqueContent);
+            authenticateAndFetchCookies();
             Response response = PostController.createPost(cookies, createPost);
             createdPost = response.as(PostModel.class);
             postId = createdPost.postId;

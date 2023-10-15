@@ -2,12 +2,9 @@ package weare.api.testing.post;
 
 import Utils.DataGenerator;
 import Utils.ModelGenerator;
-import Utils.Serializer;
 import api.PostController;
 import base.BaseTestSetup;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import models.EditPost;
 import models.PostModel;
 import models.UserRegister;
 import org.testng.Assert;
@@ -15,8 +12,6 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Endpoints.BASE_URL;
-import static Utils.Endpoints.CREATЕ_POST_ENDPOINT;
 import static org.testng.Assert.assertEquals;
 
 public class CreatePostTest extends BaseTestSetup {
@@ -31,6 +26,7 @@ public class CreatePostTest extends BaseTestSetup {
 
     @Test
     public void createPost_Successful() {
+        authenticateAndFetchCookies();
         String uniqueContent = DataGenerator.generateUniqueContentPost();
         createPost = ModelGenerator.generatePostModel(uniqueContent);
 
@@ -61,7 +57,7 @@ public class CreatePostTest extends BaseTestSetup {
         editPost = createdPost;
         postId = createdPost.postId;
 
-        if(!isDeletedPost){
+        if (!isDeletedPost) {
             PostController.deletePost(cookies, createdPost.postId);
             System.out.println("Post with Id" + " " + postId + " " + "Deleted successfully.");
             isDeletedPost = true;

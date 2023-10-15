@@ -2,19 +2,13 @@ package weare.api.testing.post;
 
 import Utils.DataGenerator;
 import Utils.ModelGenerator;
-import Utils.Serializer;
 import api.PostController;
 import base.BaseTestSetup;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.PostModel;
 import models.UserRegister;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
-import static Utils.Endpoints.*;
-import static org.testng.Assert.assertEquals;
 
 public class DeleteAPostTest extends BaseTestSetup {
     @BeforeClass
@@ -26,6 +20,7 @@ public class DeleteAPostTest extends BaseTestSetup {
 
         String uniqueContent = DataGenerator.generateUniqueContentPost();
         createPost = ModelGenerator.generatePostModel(uniqueContent);
+        authenticateAndFetchCookies();
         Response response = PostController.createPost(cookies, createPost);
         createdPost = response.as(PostModel.class);
     }

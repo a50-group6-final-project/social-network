@@ -25,12 +25,12 @@ public class FindOneCommentOfAPost extends BaseTestSetup {
         if (!isRegistered) {
             UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
             register(userRegister);
-            userId = currentUserId;
-            System.out.println("Successfully created a new user with Id" + " " + userId);
+            System.out.println("Successfully created a new user with Id" + " " + currentUserId);
         }
         if (isDeletedPost) {
             uniqueContent = DataGenerator.generateUniqueContentPost();
             createPost = ModelGenerator.generatePostModel(uniqueContent);
+            authenticateAndFetchCookies();
             Response response = PostController.createPost(cookies, createPost);
 
             createdPost = response.as(PostModel.class);
@@ -42,7 +42,7 @@ public class FindOneCommentOfAPost extends BaseTestSetup {
         }
 
         if (isCommentDeleted) {
-            createComment = ModelGenerator.generateCommentModel(DataGenerator.generateUniqueContentPost(), postId, userId);
+            createComment = ModelGenerator.generateCommentModel(DataGenerator.generateUniqueContentPost(), postId, currentUserId);
 
             Response response = CommentController.createComment(cookies, createComment);
             isResponse200(response);

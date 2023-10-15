@@ -17,8 +17,7 @@ public class FindAllCommentsTest extends BaseTestSetup {
         if (!isRegistered) {
             UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
             register(userRegister);
-            userId = currentUserId;
-            System.out.println("Successfully created a new user with Id" + " " + userId);
+            System.out.println("Successfully created a new user with Id" + " " + currentUserId);
         }
     }
 
