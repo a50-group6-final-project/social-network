@@ -110,7 +110,7 @@ public class RegisterTest extends BaseTestSetup {
         String username = BaseTestSetup.generateRandomUsername(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
-        
+
         registerPage.userRegisterWithProfessionalSelection(username, password, email);
 
         BasePage.assertElementPresent("//a[@id='button']");
