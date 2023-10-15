@@ -4,7 +4,6 @@ import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import api.PostController;
 import base.BaseTestSetup;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.PostModel;
 import models.UserRegister;
@@ -24,6 +23,7 @@ public class GetNewsFeed extends BaseTestSetup {
 
         String uniqueContent = DataGenerator.generateUniqueContentPost();
         createPost = ModelGenerator.generatePostModel(uniqueContent);
+        authenticateAndFetchCookies();
         Response response = PostController.createPost(cookies, createPost);
         createdPost = response.as(PostModel.class);
     }

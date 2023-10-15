@@ -4,12 +4,9 @@ import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import api.PostController;
 import base.BaseTestSetup;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import models.EditPost;
 import models.PostModel;
 import models.UserRegister;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -27,7 +24,9 @@ public class EditPostTest extends BaseTestSetup {
         if (isDeletedPost) {
             String uniqueContent = DataGenerator.generateUniqueContentPost();
             createPost = ModelGenerator.generatePostModel(uniqueContent);
+            authenticateAndFetchCookies();
             Response response = PostController.createPost(cookies, createPost);
+            isResponse200(response);
             createdPost = response.as(PostModel.class);
             postId = createdPost.postId;
             System.out.println("Successfully created a new post with Id" + " " + postId);
@@ -40,18 +39,12 @@ public class EditPostTest extends BaseTestSetup {
         createdPost.content = "I am looking for a painter";
         Response response = PostController.editPost(cookies, createdPost);
         isResponse200(response);
-
-//        editPost = response.as(PostModel.class);
-
-        //Add some assertions
-//        Assert.assertEquals(editPost.content, createdPost.content, "Content does not match.");
-
         System.out.println("Post with Id" + " " + createdPost.postId + " " + "edited successfully.");
     }
 
     @AfterTest
     public void tearDown() {
-        if(!isDeletedPost){
+        if (!isDeletedPost) {
             PostController.deletePost(cookies, createdPost.postId);
             System.out.println("Post with Id" + " " + postId + " " + "Deleted successfully.");
             isDeletedPost = true;

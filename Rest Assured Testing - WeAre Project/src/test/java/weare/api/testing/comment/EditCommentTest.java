@@ -5,6 +5,7 @@ import Utils.ModelGenerator;
 import api.CommentController;
 import api.PostController;
 import base.BaseTestSetup;
+import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
@@ -15,6 +16,7 @@ import static org.testng.Assert.assertEquals;
 
 public class EditCommentTest extends BaseTestSetup {
     String uniqueContent;
+    Cookies cookies;
 
     @BeforeClass
     public void setup() {
@@ -22,6 +24,8 @@ public class EditCommentTest extends BaseTestSetup {
             UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
             register(userRegister);
         }
+        cookies = authenticateAndFetchCookies();
+
         if (isDeletedPost) {
             uniqueContent = DataGenerator.generateUniqueContentPost();
             createPost = ModelGenerator.generatePostModel(uniqueContent);
@@ -36,9 +40,9 @@ public class EditCommentTest extends BaseTestSetup {
         }
 
         if (isCommentDeleted) {
-            createComment = ModelGenerator.generateCommentModel(DataGenerator.generateUniqueContentPost(), postId, userId);
-
+            createComment = ModelGenerator.generateCommentModel(DataGenerator.generateUniqueContentPost(), postId, currentUserId);
             Response response = CommentController.createComment(cookies, createComment);
+            System.out.println(response);
             isResponse200(response);
 
             createdComment = response.as(CommentModel.class);
@@ -55,6 +59,9 @@ public class EditCommentTest extends BaseTestSetup {
         isResponse200(response);
         System.out.println("Successfully edited comment with Id" + " " + commentId + " " + "successfully.");
         //TODO get comment by id and assert that the content is updated
+
+        Response comment = CommentController.findOneCommentOfAPost(cookies, createdComment.commentId);
+        System.out.println(comment.asString());
 //        CommentModel updatedComment = response.as(CommentModel.class);
 //        assertEquals(updatedComment.content, updatedUniqueContent, "Content does not match.");
 
@@ -62,12 +69,12 @@ public class EditCommentTest extends BaseTestSetup {
 
     @AfterClass
     public void tearDown() {
-        if (!isDeletedPost){
+        if (!isDeletedPost) {
             PostController.deletePost(cookies, createdPost.postId);
             System.out.println("Successfully delete a post with Id" + " " + createdPost.postId);
             isDeletedPost = true;
         }
-        if(!isCommentDeleted){
+        if (!isCommentDeleted) {
             CommentController.deleteComment(cookies, createdComment.commentId);
             System.out.println("Successfully delete a comment with Id" + " " + createdPost.postId);
             isCommentDeleted = true;

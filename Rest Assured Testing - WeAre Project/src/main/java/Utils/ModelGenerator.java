@@ -30,6 +30,14 @@ public class ModelGenerator {
 
         return createPost;
     }
+    public static PostModel generatePostModel(){
+        PostModel createPost = new PostModel();
+        createPost.content = DataGenerator.generateUniqueContentPost();
+        createPost.picture = "";
+        createPost.mypublic = true;
+
+        return createPost;
+    }
 
     public static CommentModel generateCommentModel(String uniqueContent, int postId, int userId){
         CommentModel createComment = new CommentModel();
@@ -50,11 +58,12 @@ public class ModelGenerator {
     }
 
     public static UserRegister generateUserRegisterModel() {
+        String password = DataGenerator.generateUniquePassword();
         UserRegister userRegister = new UserRegister();
         userRegister.email = DataGenerator.generateUniqueEmail();
         userRegister.username = DataGenerator.generateUniqueUsername();
-        userRegister.password = "Project.10";
-        userRegister.confirmPassword = "Project.10";
+        userRegister.password = password;
+        userRegister.confirmPassword = password;
 
         Category category = new Category();
         category.id = 100;
@@ -63,11 +72,12 @@ public class ModelGenerator {
         return userRegister;
     }
     public static UserRegister generateUserRegisterModel(String username, String email) {
+        String password = DataGenerator.generateUniquePassword();
         UserRegister userRegister = new UserRegister();
         userRegister.email = username;
         userRegister.username = email;
-        userRegister.password = "Project.10";
-        userRegister.confirmPassword = "Project.10";
+        userRegister.password = password;
+        userRegister.confirmPassword = password;
 
         Category category = new Category();
         category.id = 100;

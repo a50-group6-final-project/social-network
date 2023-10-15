@@ -1,6 +1,5 @@
 package weare.api.testing.skill;
 
-import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import api.SkillController;
 import base.BaseTestSetup;
@@ -26,7 +25,7 @@ public class GetOneSkillTests extends BaseTestSetup {
     }
 
     @Test
-    public void getOneSkillByIdSuccessfully() {
+    public void getOneSkillById_Successful() {
         Response response = SkillController.getOneSkillById(cookies, createdSkill.skillId);
 
         isResponse200(response);

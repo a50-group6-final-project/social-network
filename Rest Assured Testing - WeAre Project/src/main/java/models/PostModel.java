@@ -1,9 +1,11 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.ArrayList;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PostModel {
     public int postId;
     public String content;
@@ -17,6 +19,7 @@ public class PostModel {
     public boolean mypublic;
     public Category category;
     public boolean liked;
+    public String timestamp;
 
 }
 

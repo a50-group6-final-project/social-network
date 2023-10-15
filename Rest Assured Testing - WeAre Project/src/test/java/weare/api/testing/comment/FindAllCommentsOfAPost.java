@@ -28,6 +28,7 @@ public class FindAllCommentsOfAPost extends BaseTestSetup {
         if (isDeletedPost) {
             uniqueContent = DataGenerator.generateUniqueContentPost();
             createPost = ModelGenerator.generatePostModel(uniqueContent);
+            authenticateAndFetchCookies();
             Response response = PostController.createPost(cookies, createPost);
 
             createdPost = response.as(PostModel.class);
@@ -37,7 +38,7 @@ public class FindAllCommentsOfAPost extends BaseTestSetup {
             isDeletedPost = false;
         }
         if (isCommentDeleted) {
-            createComment = ModelGenerator.generateCommentModel(DataGenerator.generateUniqueContentPost(), postId, userId);
+            createComment = ModelGenerator.generateCommentModel(DataGenerator.generateUniqueContentPost(), postId, currentUserId);
 
             Response response = CommentController.createComment(cookies, createComment);
             isResponse200(response);
@@ -64,12 +65,12 @@ public class FindAllCommentsOfAPost extends BaseTestSetup {
 
     @AfterClass
     public void tearDown() {
-        if (!isDeletedPost){
+        if (!isDeletedPost) {
             PostController.deletePost(cookies, createdPost.postId);
             System.out.println("Successfully delete a post with Id" + " " + createdPost.postId);
             isDeletedPost = true;
         }
-        if(!isCommentDeleted){
+        if (!isCommentDeleted) {
             CommentController.deleteComment(cookies, createdComment.commentId);
             System.out.println("Successfully delete a comment with Id" + " " + createdPost.postId);
             isCommentDeleted = true;

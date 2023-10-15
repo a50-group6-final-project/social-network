@@ -5,6 +5,7 @@ import Utils.ModelGenerator;
 import api.CommentController;
 import api.PostController;
 import base.BaseTestSetup;
+import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
@@ -16,15 +17,17 @@ import static org.testng.Assert.assertEquals;
 
 public class DeleteCommentTest extends BaseTestSetup {
     String uniqueContent;
+    Cookies cookies;
+
     @BeforeClass
     public void setup() {
 
-        if(!isRegistered) {
+        if (!isRegistered) {
             UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
             register(userRegister);
         }
-
-        if(isDeletedPost){
+        cookies = authenticateAndFetchCookies();
+        if (isDeletedPost) {
             uniqueContent = DataGenerator.generateUniqueContentPost();
             createPost = ModelGenerator.generatePostModel(uniqueContent);
             Response response = PostController.createPost(cookies, createPost);
@@ -35,8 +38,8 @@ public class DeleteCommentTest extends BaseTestSetup {
             System.out.println("Successfully created a new post with Id" + " " + postId);
             isDeletedPost = false;
         }
-        if(isCommentDeleted){
-            createComment = ModelGenerator.generateCommentModel(DataGenerator.generateUniqueContentPost(), postId, userId);
+        if (isCommentDeleted) {
+            createComment = ModelGenerator.generateCommentModel(DataGenerator.generateUniqueContentPost(), postId, currentUserId);
 
             Response response = CommentController.createComment(cookies, createComment);
             isResponse200(response);

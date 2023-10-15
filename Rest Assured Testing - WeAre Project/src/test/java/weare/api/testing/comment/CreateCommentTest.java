@@ -5,6 +5,7 @@ import Utils.ModelGenerator;
 import api.CommentController;
 import api.PostController;
 import base.BaseTestSetup;
+import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
@@ -14,12 +15,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Endpoints.*;
 import static org.testng.Assert.assertEquals;
 
 public class CreateCommentTest extends BaseTestSetup {
     String uniqueContent;
-
+    Cookies cookies;
     @BeforeClass
     public void setup() {
         if (!isRegistered) {
@@ -28,6 +28,7 @@ public class CreateCommentTest extends BaseTestSetup {
             userId = currentUserId;
             System.out.println("Successfully created a new user with Id" + " " + userId);
         }
+        cookies = authenticateAndFetchCookies();
         if (isDeletedPost) {
             uniqueContent = DataGenerator.generateUniqueContentPost();
             createPost = ModelGenerator.generatePostModel(uniqueContent);
@@ -45,8 +46,7 @@ public class CreateCommentTest extends BaseTestSetup {
     @Test
     public void createComment_Successful() {
         String uniqueContent = DataGenerator.generateUniqueContentPost();
-        createComment = ModelGenerator.generateCommentModel(uniqueContent, postId, userId);
-
+        createComment = ModelGenerator.generateCommentModel(uniqueContent, postId, currentUserId);
         Response response = CommentController.createComment(cookies, createComment);
         isResponse200(response);
 
