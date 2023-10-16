@@ -2,19 +2,18 @@ package weare.api.testing.comment;
 
 import Utils.DataGenerator;
 import Utils.ModelGenerator;
-import Utils.Serializer;
 import api.CommentController;
 import api.PostController;
 import base.BaseTestSetup;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
 import models.UserRegister;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
-import static Utils.Endpoints.*;
 import static org.testng.Assert.assertEquals;
 
 public class LikeDislikeCommentTest extends BaseTestSetup {

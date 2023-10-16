@@ -1,18 +1,10 @@
 package weare.api.testing.users;
 
 import Utils.ModelGenerator;
-import Utils.Serializer;
 import api.UserController;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import models.Category;
-import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.security.SecureRandom;
-
-import static Utils.Endpoints.*;
 
 public class RegisterUserTests extends BaseUserSetup {
     @Test

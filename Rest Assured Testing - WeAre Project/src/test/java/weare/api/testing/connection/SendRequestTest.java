@@ -2,7 +2,6 @@ package weare.api.testing.connection;
 
 import Utils.ModelGenerator;
 import api.ConnectionController;
-import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;

@@ -10,7 +10,9 @@ import io.restassured.response.Response;
 import models.CommentModel;
 import models.PostModel;
 import models.UserRegister;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 

@@ -1,15 +1,10 @@
 package weare.api.testing.users;
 
-import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import base.BaseTestSetup;
-import models.Category;
 import models.UserPersonal;
 import models.UserProfile;
-import models.UserRegister;
 import org.testng.annotations.BeforeClass;
-
-import java.security.SecureRandom;
 
 public class BaseUserSetup extends BaseTestSetup {
 

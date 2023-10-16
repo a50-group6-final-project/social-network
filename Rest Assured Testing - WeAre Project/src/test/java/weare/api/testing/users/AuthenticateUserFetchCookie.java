@@ -1,7 +1,6 @@
 package weare.api.testing.users;
 
 import Utils.ModelGenerator;
-import base.BaseTestSetup;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;

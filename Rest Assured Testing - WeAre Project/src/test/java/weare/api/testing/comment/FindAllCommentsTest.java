@@ -1,6 +1,5 @@
 package weare.api.testing.comment;
 
-import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import api.CommentController;
 import base.BaseTestSetup;
