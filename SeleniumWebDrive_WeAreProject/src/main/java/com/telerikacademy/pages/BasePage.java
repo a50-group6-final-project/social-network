@@ -62,7 +62,5 @@ public abstract class BasePage {
         } catch (TimeoutException e) {
             Assertions.fail(message);
         }
-
-
     }
 }

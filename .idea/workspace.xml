@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67c60d26-ba1d-48be-9326-f199a0f24662" name="Changes" comment="Minor">
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/main/java/models/PostModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/main/java/models/PostModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/CreateCommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/CreateCommentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/DeleteCommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/DeleteCommentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/EditCommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/EditCommentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/ApproveRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/ApproveRequestTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/BaseConnectionSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/BaseConnectionSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/GetUserRequestsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/GetUserRequestsTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/SendRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/SendRequestTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/CreatePostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/CreatePostTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/DeleteAPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/DeleteAPostTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/EditPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/EditPostTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/GetNewsFeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/GetNewsFeed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/LikeDislikeAPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/LikeDislikeAPostTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skill/CreateSkillTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skill/CreateSkillTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skill/DeleteSkillTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skill/DeleteSkillTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skill/GetOneSkillTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skill/GetOneSkillTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skill/UpdateSkillTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/skill/UpdateSkillTests.java" afterDir="false" />
-    </list>
+    <list default="true" id="67c60d26-ba1d-48be-9326-f199a0f24662" name="Changes" comment="Minor" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,6 +49,7 @@
       <workItem from="1696952669838" duration="773000" />
       <workItem from="1697113805259" duration="16000" />
       <workItem from="1697352498792" duration="3000" />
+      <workItem from="1697389989311" duration="53000" />
     </task>
     <task id="LOCAL-00001" summary="Minor">
       <option name="closed" value="true" />

@@ -18,16 +18,14 @@ public class BaseTestSetup {
     protected static String generatedAdminUsername;
     protected static String generatedLetterPassword;
 
+    protected static String createPostPage;
     private static Faker faker = new Faker();
 
     @BeforeAll
     public static void setUp() {
         driver = CustomWebDriverManager.CustomWebDriverManagerEnum.INSTANCE.getDriver();
         registerPage = new RegisterPage(driver);
-
-
     }
-
 
     @AfterAll
     public static void tearDown() {

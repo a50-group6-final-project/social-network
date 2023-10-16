@@ -72,10 +72,7 @@ public class RegisterTest extends BaseTestSetup {
         String password = BaseTestSetup.generateRandomPassword(3);
         String email = BaseTestSetup.generateRandomEmail();
 
-
         registerPage.userRegister(username, password, email);
-
-
         BasePage.assertErrorPresent("//i[@style='color: red'][text()='password must be minimum 6 characters']", "User is registered with an invalid number of password characters");
 
     }
