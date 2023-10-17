@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage extends BaseWeArePage {
 
     public LoginPage(WebDriver driver) {
-        super(driver, "login.page");
+        super(driver, "home.page");
     }
 
     public static void loginUser(String username, String password) {

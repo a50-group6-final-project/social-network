@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 
 public class RegisterTest extends BaseTestSetup {
 
-
-
     @Test
     public void UserRegistered_When_InputValidData() {
         String username = BaseTestSetup.generateRandomUsername(6);
@@ -15,7 +13,7 @@ public class RegisterTest extends BaseTestSetup {
 
         registerPage.userRegister(username, password, email);
 
-        BasePage.assertElementPresent("weAre.basePage.registerSuccessButton");
+        BasePage.assertElementPresent("//a[@id='button']");
     }
 
     @Test
@@ -27,7 +25,7 @@ public class RegisterTest extends BaseTestSetup {
 
         registerPage.userRegister(username, password, email);
 
-        BasePage.assertElementPresent("weAre.basePage.registerSuccessButton");
+        BasePage.assertElementPresent("//a[@id='button']");
     }
 
     @Test
@@ -39,7 +37,7 @@ public class RegisterTest extends BaseTestSetup {
         registerPage.userRegister(username, password, email);
 
 
-        BasePage.assertElementPresent("weAre.basePage.registerSuccessButton");
+        BasePage.assertElementPresent("//a[@id='button']");
     }
 
     @Test
@@ -51,7 +49,7 @@ public class RegisterTest extends BaseTestSetup {
 
         registerPage.userRegister(username, password, email);
 
-        BasePage.assertErrorPresent("weAre.basePage.whitelabelError", "User is registered with an invalid number of password characters");
+        BasePage.assertErrorPresent("//h1[text()='Whitelabel Error Page']", "User is registered with an invalid number of password characters");
     }
 
     @Test
@@ -64,7 +62,7 @@ public class RegisterTest extends BaseTestSetup {
         registerPage.userRegister(username, password, email);
 
 
-        BasePage.assertErrorPresent("weAre.basePage.whitelabelError", "User is registered with an invalid number of username characters");
+        BasePage.assertErrorPresent("//h1[text()='Whitelabel Error Page']", "User is registered with an invalid number of username characters");
 
     }
 
@@ -75,7 +73,7 @@ public class RegisterTest extends BaseTestSetup {
         String email = BaseTestSetup.generateRandomEmail();
 
         registerPage.userRegister(username, password, email);
-        BasePage.assertErrorPresent("weAre.basePage.passwordError", "User is registered with an invalid number of password characters");
+        BasePage.assertErrorPresent("//i[@style='color: red'][text()='password must be minimum 6 characters']", "User is registered with an invalid number of password characters");
 
     }
 
@@ -88,7 +86,7 @@ public class RegisterTest extends BaseTestSetup {
 
         registerPage.userRegister(username, password, email);
 
-        BasePage.assertErrorPresent("weAre.basePage.passwordError", "User is registered with an invalid number of password characters");
+        BasePage.assertErrorPresent("//i[@style='color: red'][text()='password must be minimum 6 characters']", "User is registered with an invalid number of password characters");
 
     }
 
@@ -100,7 +98,7 @@ public class RegisterTest extends BaseTestSetup {
 
         registerPage.userRegister(username, letterPassword, email);
 
-        BasePage.assertErrorPresent("weAre.basePage.whitelabelError", "User can be registered with a password consisting only of letters");
+        BasePage.assertErrorPresent("//h1[text()='Whitelabel Error Page']", "User can be registered with a password consisting only of letters");
 
     }
 
@@ -112,8 +110,7 @@ public class RegisterTest extends BaseTestSetup {
 
         registerPage.userRegisterWithProfessionalSelection(username, password, email);
 
-        BasePage.assertElementPresent("weAre.basePage.registerSuccessButton");
-
+        BasePage.assertElementPresent("//a[@id='button']");
     }
 }
 

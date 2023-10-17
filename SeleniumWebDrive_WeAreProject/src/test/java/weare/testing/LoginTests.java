@@ -15,7 +15,7 @@ public class LoginTests extends BaseTestSetup {
 
         LoginPage.loginUser(username, password);
 
-        LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
+        LoginPage.assertElementPresent("//a[@href='/logout' and text()='LOGOUT']");
     }
 
     @Test
@@ -28,7 +28,7 @@ public class LoginTests extends BaseTestSetup {
         registerPage.userRegister(username, password, email);
 
         LoginPage.loginUser(username, wrongPassword);
-        LoginPage.assertErrorPresent("weAre.loginPage.errorMessage", "User is registered with wrong password");
+        LoginPage.assertErrorPresent("//i[text()=' Wrong username or password. ']", "User is registered with wrong password");
     }
 
 }
