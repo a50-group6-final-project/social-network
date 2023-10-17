@@ -22,19 +22,19 @@ public class ModelGenerator {
     }
 
 
-    public static PostModel generatePostModel(String uniqueContent){
+    public static PostModel generatePostModel(String uniqueContent, boolean isPublic){
         PostModel createPost = new PostModel();
         createPost.content = uniqueContent;
         createPost.picture = "";
-        createPost.mypublic = true;
+        createPost.mypublic = isPublic;
 
         return createPost;
     }
-    public static PostModel generatePostModel(){
+    public static PostModel generatePostModel(boolean isPublic){
         PostModel createPost = new PostModel();
         createPost.content = DataGenerator.generateUniqueContentPost();
         createPost.picture = "";
-        createPost.mypublic = true;
+        createPost.mypublic = isPublic;
 
         return createPost;
     }

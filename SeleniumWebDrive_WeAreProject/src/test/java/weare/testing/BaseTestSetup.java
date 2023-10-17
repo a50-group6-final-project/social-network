@@ -13,7 +13,9 @@ public class BaseTestSetup {
     protected static AdminPage adminPage;
     protected static NewPostPage newPostPage;
     protected static AllPostPage allPostPage;
+    protected static UserPage userPage;
     protected static PostPage postPage;
+    protected static LatestPostsPage latestPostsPage;
     protected static String generatedUsername;
     protected static String generatedPassword;
     protected static String generatedEmail;
@@ -26,9 +28,10 @@ public class BaseTestSetup {
     public static void setUp() {
         driver = CustomWebDriverManager.CustomWebDriverManagerEnum.INSTANCE.getDriver();
         registerPage = new RegisterPage(driver);
+        loginPage = new LoginPage(driver);
         newPostPage = new NewPostPage(driver);
         allPostPage = new AllPostPage(driver);
-        loginPage = new LoginPage(driver);
+        latestPostsPage = new LatestPostsPage(driver);
     }
 
     @AfterAll

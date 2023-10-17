@@ -59,7 +59,7 @@ public class PostTests extends BaseTestSetup {
     @Order(2)
     public void updatePublicPost_withValidInput() {
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
-
+        //TODO: fix url
         postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
         postPage.navigateToPage();
         postContentUpdate = DataGenerator.generateUniqueContentPost();
@@ -136,5 +136,13 @@ public class PostTests extends BaseTestSetup {
         Assertions.assertEquals(0, postsList.length);
     }
 
+    @Test
+    @Order(7)
+    public void likePost() {
+    }
 
+    @Test
+    @Order(8)
+    public void dislikePost() {
+    }
 }

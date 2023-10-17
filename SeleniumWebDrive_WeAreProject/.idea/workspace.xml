@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="add PostTests">
+    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="minor changes PostTests">
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/testing/LatestPostsPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/testing/UserPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/weare/testing/ConnectionTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/weare/testing/ProfileTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/AllPostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/AllPostPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/PostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/PostPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/telerikacademy/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/telerikacademy/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ModelGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ModelGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +69,7 @@
       <recent name="C:\Users\sesko\OneDrive\Desktop\final-pro\SeleniumWebDrive_WeAreProject\src\main\java\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PostTests">
+  <component name="RunManager" selected="JUnit.ProfileTests.getProfilePosts">
     <configuration name="PostTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
@@ -95,7 +101,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PostTests.updatePublicPost_withValidInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileTests.getProfilePosts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -104,8 +110,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.PostTests" />
-      <option name="METHOD_NAME" value="updatePublicPost_withValidInput" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.ProfileTests" />
+      <option name="METHOD_NAME" value="getProfilePosts" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -137,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ProfileTests.getProfilePosts" />
         <item itemvalue="JUnit.PostTests" />
         <item itemvalue="JUnit.PostTests.createPublicPost_withValidInput" />
         <item itemvalue="JUnit.testing in WeAre_Project" />
         <item itemvalue="JUnit.RegisterTest.UserNotRegistered_When_TryToInputUsernameWithOneSymbol" />
-        <item itemvalue="JUnit.PostTests.updatePublicPost_withValidInput" />
       </list>
     </recent_temporary>
   </component>
@@ -159,7 +165,7 @@
       <workItem from="1697468385550" duration="2222000" />
       <workItem from="1697475691238" duration="238000" />
       <workItem from="1697547002074" duration="7462000" />
-      <workItem from="1697565006807" duration="3246000" />
+      <workItem from="1697565006807" duration="6235000" />
     </task>
     <task id="LOCAL-00001" summary="Add RegisterTest">
       <created>1697226985388</created>
@@ -299,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697567556581</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="minor changes PostTests">
+      <option name="closed" value="true" />
+      <created>1697568279522</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1697568279522</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,7 +348,8 @@
     <MESSAGE value="add POST" />
     <MESSAGE value="add api controllers, models and factory classes" />
     <MESSAGE value="add PostTests" />
-    <option name="LAST_COMMIT_MESSAGE" value="add PostTests" />
+    <MESSAGE value="minor changes PostTests" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor changes PostTests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -362,6 +377,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java</url>
           <line>52</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/ConnectionTests.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
