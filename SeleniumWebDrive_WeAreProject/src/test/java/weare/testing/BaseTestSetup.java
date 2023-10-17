@@ -7,24 +7,28 @@ import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.WebDriver;
 
 public class BaseTestSetup {
-    protected static RegisterPage registerPage;
     protected static WebDriver driver;
-    protected static AdminPage adminPage;
-
+    protected static RegisterPage registerPage;
     protected static LoginPage loginPage;
+    protected static AdminPage adminPage;
+    protected static NewPostPage newPostPage;
+    protected static AllPostPage allPostPage;
+    protected static PostPage postPage;
     protected static String generatedUsername;
     protected static String generatedPassword;
     protected static String generatedEmail;
     protected static String generatedAdminUsername;
     protected static String generatedLetterPassword;
 
-    protected static String createPostPage;
     private static Faker faker = new Faker();
 
     @BeforeAll
     public static void setUp() {
         driver = CustomWebDriverManager.CustomWebDriverManagerEnum.INSTANCE.getDriver();
         registerPage = new RegisterPage(driver);
+        newPostPage = new NewPostPage(driver);
+        allPostPage = new AllPostPage(driver);
+        loginPage = new LoginPage(driver);
     }
 
     @AfterAll
