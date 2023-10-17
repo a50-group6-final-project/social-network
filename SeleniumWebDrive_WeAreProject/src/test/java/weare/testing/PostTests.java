@@ -12,9 +12,8 @@ import weare.models.UserRegister;
 
 import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class PostTests extends BaseTestSetup {
-
-
     static UserRegister userToRegister;
     static int registeredUserId;
     static Cookies cookies;
@@ -52,27 +51,45 @@ public class PostTests extends BaseTestSetup {
 
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         Assertions.assertEquals(postContent, postsList[0].content);
+        Assertions.assertEquals(true, postsList[0].mypublic, "Post is not public");
         System.out.println(postsList[0].postId);
     }
+
     @Test
     @Order(2)
-    public void updatePublicPost_withValidInput(){
+    public void updatePublicPost_withValidInput() {
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
 
-        postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId );
+        postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
         postPage.navigateToPage();
         postContentUpdate = DataGenerator.generateUniqueContentPost();
         postPage.update(postContentUpdate, "Public", postsList[0].postId);
 
-        allPostPage.assertNavigatedUrl();
-        allPostPage.assertElementPresent(String.format(getUIMappingByKey("weAre.allPostPage.postContent"), postContentUpdate));
+        postPage.assertNavigatedUrl();
+        postPage.assertElementPresent(String.format(getUIMappingByKey("weAre.allPostPage.postContent"), postContentUpdate));
 
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         Assertions.assertEquals(postContentUpdate, postsList[0].content);
+        Assertions.assertEquals(true, postsList[0].mypublic, "Post is not public");
     }
 
     @Test
     @Order(3)
+    public void deletePublicPost() {
+        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
+        Assertions.assertEquals(true, postsList[0].mypublic, "Post is not public");
+
+        postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
+        postPage.navigateToPage();
+        postPage.delete(postsList[0].postId);
+
+        postPage.assertElementPresent(String.format(getUIMappingByKey("weAre.allPostPage.deleteMessage"), "Post deleted successfully"));
+        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
+        Assertions.assertEquals(0, postsList.length);
+    }
+
+    @Test
+    @Order(4)
     public void createPrivatePost_withValidInput() {
         newPostPage.navigateToPage();
         newPostPage.createPost(postContent, "Private");
@@ -82,23 +99,41 @@ public class PostTests extends BaseTestSetup {
 
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         Assertions.assertEquals(postContent, postsList[0].content);
+        Assertions.assertEquals(false, postsList[0].mypublic, "Post is not private");
     }
 
     @Test
-    @Order(4)
-    public void updatePrivatePost_withValidInput(){
+    @Order(5)
+    public void updatePrivatePost_withValidInput() {
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
 
-        postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId );
+        postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
         postPage.navigateToPage();
         postContentUpdate = DataGenerator.generateUniqueContentPost();
         postPage.update(postContentUpdate, "Private", postsList[0].postId);
 
-        allPostPage.assertNavigatedUrl();
-        allPostPage.assertElementPresent(String.format(getUIMappingByKey("weAre.allPostPage.postContent"), postContentUpdate));
+        postPage.assertNavigatedUrl();
+        postPage.assertElementPresent(String.format(getUIMappingByKey("weAre.allPostPage.postContent"), postContentUpdate));
 
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         Assertions.assertEquals(postContentUpdate, postsList[0].content);
+        Assertions.assertEquals(false, postsList[0].mypublic, "Post is not private");
+
+    }
+
+    @Test
+    @Order(6)
+    public void deletePrivatePost() {
+        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
+        Assertions.assertEquals(false, postsList[0].mypublic, "Post is not private");
+
+        postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
+        postPage.navigateToPage();
+        postPage.delete(postsList[0].postId);
+
+        postPage.assertElementPresent(String.format(getUIMappingByKey("weAre.allPostPage.deleteMessage"), "Post deleted successfully"));
+        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
+        Assertions.assertEquals(0, postsList.length);
     }
 
 

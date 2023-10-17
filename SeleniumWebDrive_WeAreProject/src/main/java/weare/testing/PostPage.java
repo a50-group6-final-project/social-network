@@ -10,7 +10,7 @@ public class PostPage extends BaseWeArePage {
 
     public void update(String content, String visibility, int postId) {
         actions.waitForElementVisible("//a[contains(@href, 'editor/" + postId + "')]");
-        actions.clickElement("//a[contains(@href, 'editor/113')]");
+        actions.clickElement("//a[contains(@href, 'editor/" + postId + "')]");
         actions.waitForElementVisible("weAre.newPostPage.postVisibilityDropdown");
         actions.clickElement("weAre.newPostPage.postVisibilityDropdown");
         if (visibility.equals("Public")) {
@@ -22,5 +22,16 @@ public class PostPage extends BaseWeArePage {
         actions.clearField("weAre.newPostPage.messageField");
         actions.typeValueInField(content, "weAre.newPostPage.messageField");
         actions.clickElement("weAre.newPostPage.submitButton");
+    }
+
+    public void delete(int postId) {
+        actions.waitForElementVisible("//a[contains(@href, 'manager/" + postId + "')]");
+        actions.clickElement("//a[contains(@href, 'manager/" + postId + "')]");
+        actions.waitForElementVisible("weAre.newPostPage.postVisibilityDropdown");
+        actions.clickElement("weAre.newPostPage.postVisibilityDropdown");
+        actions.clickElement("weAre.postPage.selectDeletePost");
+        actions.clickElement("weAre.postPage.submitButton");
+
+
     }
 }
