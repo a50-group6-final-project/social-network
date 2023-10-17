@@ -2,6 +2,8 @@ package weare.testing;
 
 import org.openqa.selenium.WebDriver;
 
+import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
+
 public class PostPage extends BaseWeArePage {
 
     public PostPage(WebDriver driver, String urlKey) {
@@ -9,8 +11,8 @@ public class PostPage extends BaseWeArePage {
     }
 
     public void update(String content, String visibility, int postId) {
-        actions.waitForElementVisible("//a[contains(@href, 'editor/" + postId + "')]");
-        actions.clickElement("//a[contains(@href, 'editor/" + postId + "')]");
+        actions.waitForElementVisible(String.format(getUIMappingByKey("weAre.postPage.editButton"), postId));
+        actions.clickElement(String.format(getUIMappingByKey("weAre.postPage.editButton"), postId));
         actions.waitForElementVisible("weAre.newPostPage.postVisibilityDropdown");
         actions.clickElement("weAre.newPostPage.postVisibilityDropdown");
         if (visibility.equals("Public")) {
@@ -25,8 +27,8 @@ public class PostPage extends BaseWeArePage {
     }
 
     public void delete(int postId) {
-        actions.waitForElementVisible("//a[contains(@href, 'manager/" + postId + "')]");
-        actions.clickElement("//a[contains(@href, 'manager/" + postId + "')]");
+        actions.waitForElementVisible(String.format(getUIMappingByKey("weAre.postPage.deleteButton"), postId));
+        actions.clickElement(String.format(getUIMappingByKey("weAre.postPage.deleteButton"), postId));
         actions.waitForElementVisible("weAre.newPostPage.postVisibilityDropdown");
         actions.clickElement("weAre.newPostPage.postVisibilityDropdown");
         actions.clickElement("weAre.postPage.selectDeletePost");
