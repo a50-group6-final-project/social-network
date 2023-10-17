@@ -4,27 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="Add PostPage and PostTests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/weare/testing/TestTests.java" afterDir="false" />
+    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="add api controllers">
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/DataGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/Endpoints.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/ModelGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/Serializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/ApproveRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/City.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/CommentModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/EditComment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/EditPost.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/ExpertiseProfile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/Location.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/Page.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/PostModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/PostModelLikeDislike.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/SearchUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/SendRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/Skill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/UserPersonal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/UserProfile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/models/UserRegister.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/testing/AllPostPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/testing/PostPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/models/ApproveRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/models/ApproveRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/models/Skill.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/models/Skill.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/base/BaseTestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/base/BaseTestSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/EditCommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/EditCommentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllCommentsOfAPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllCommentsOfAPost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllCommentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllCommentsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindOneCommentOfAPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindOneCommentOfAPost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/LikeDislikeCommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/LikeDislikeCommentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/SendRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/SendRequestTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/LikeDislikeAPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/LikeDislikeAPostTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/AuthenticateUserFetchCookie.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/AuthenticateUserFetchCookie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/BaseUserSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/BaseUserSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/RegisterUserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/RegisterUserTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/RegisterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/telerikacademy/testframework/UserActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/telerikacademy/testframework/UserActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/ConnectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/ConnectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/SkillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/SkillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/NewPostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/NewPostPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/RegisterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,7 +81,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/rosti.WIN-IC28P738AEI/Desktop/Versions&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sesko/OneDrive/Desktop/final-pro/SeleniumWebDrive_WeAreProject/src/main/java/models&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -73,8 +92,14 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.RegisterTest.UserRegisteredSuccessfully_When_InputUsernameWithMaxLength">
-    <configuration name="AdministrativePartTests.AdminLogin_When_InputValidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sesko\OneDrive\Desktop\final-pro\SeleniumWebDrive_WeAreProject\src\main\java\models" />
+      <recent name="C:\Users\sesko\OneDrive\Desktop\final-pro\SeleniumWebDrive_WeAreProject\src\main\java\utils" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.PostTests">
+    <configuration name="PostTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -83,14 +108,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
-      <option name="METHOD_NAME" value="AdminLogin_When_InputValidData" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.PostTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdministrativePartTests.AdminRegistered_When_InputValidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PostTests.createPrivatePost_withValidInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -99,8 +123,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
-      <option name="METHOD_NAME" value="AdminRegistered_When_InputValidData" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.PostTests" />
+      <option name="METHOD_NAME" value="createPrivatePost_withValidInput" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,7 +146,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTest.UserRegisteredSuccessfully_When_InputUsernameWithMaxLength" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PostTests.updatePublicPost_withValidInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -131,14 +155,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.RegisterTest" />
-      <option name="METHOD_NAME" value="UserRegisteredSuccessfully_When_InputUsernameWithMaxLength" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.PostTests" />
+      <option name="METHOD_NAME" value="updatePublicPost_withValidInput" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTest.UserRegistered_When_InputValidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RegisterTest.UserNotRegistered_When_TryToInputUsernameWithOneSymbol" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -148,7 +172,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
       <option name="MAIN_CLASS_NAME" value="weare.testing.RegisterTest" />
-      <option name="METHOD_NAME" value="UserRegistered_When_InputValidData" />
+      <option name="METHOD_NAME" value="UserNotRegistered_When_TryToInputUsernameWithOneSymbol" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -156,11 +180,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RegisterTest.UserRegisteredSuccessfully_When_InputUsernameWithMaxLength" />
-        <item itemvalue="JUnit.RegisterTest.UserRegistered_When_InputValidData" />
-        <item itemvalue="JUnit.AdministrativePartTests.AdminLogin_When_InputValidData" />
-        <item itemvalue="JUnit.AdministrativePartTests.AdminRegistered_When_InputValidData" />
+        <item itemvalue="JUnit.PostTests" />
+        <item itemvalue="JUnit.RegisterTest.UserNotRegistered_When_TryToInputUsernameWithOneSymbol" />
+        <item itemvalue="JUnit.PostTests.updatePublicPost_withValidInput" />
         <item itemvalue="JUnit.PostTests.createPublicPost_withValidInput" />
+        <item itemvalue="JUnit.PostTests.createPrivatePost_withValidInput" />
       </list>
     </recent_temporary>
   </component>
@@ -177,6 +201,8 @@
       <workItem from="1697459677947" duration="1298000" />
       <workItem from="1697468385550" duration="2222000" />
       <workItem from="1697475691238" duration="238000" />
+      <workItem from="1697547002074" duration="7462000" />
+      <workItem from="1697565006807" duration="552000" />
     </task>
     <task id="LOCAL-00001" summary="Add RegisterTest">
       <created>1697226985388</created>
@@ -284,11 +310,30 @@
       <option name="project" value="LOCAL" />
       <updated>1697470054960</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add api controllers">
+      <option name="closed" value="true" />
+      <created>1697558425137</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1697558425137</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -304,7 +349,8 @@
     <MESSAGE value="Refactoring AdminPage" />
     <MESSAGE value="Adding test in AdministrativePartTests" />
     <MESSAGE value="Add PostPage and PostTests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add PostPage and PostTests" />
+    <MESSAGE value="add api controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="add api controllers" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -319,9 +365,24 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/weare/testing/NewPostPage.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/RegisterTest.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

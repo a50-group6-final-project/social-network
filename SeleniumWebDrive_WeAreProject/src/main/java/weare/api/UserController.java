@@ -1,19 +1,17 @@
 package weare.api;
 
-import Utils.Serializer;
+import utils.Serializer;
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import models.*;
 import weare.models.*;
 
-import static Utils.Constants.APPLICATION_JSON;
-import static Utils.Endpoints.*;
+import static utils.Endpoints.*;
 
 public class UserController {
 
-    public static Response registerUser(UserRegister user){
-         String bodyUserString = Serializer.convertObjectToJsonString(user);
+    public static Response registerUser(UserRegister user) {
+        String bodyUserString = Serializer.convertObjectToJsonString(user);
 
         return RestAssured.given().baseUri(BASE_URL)
                 .contentType("application/json")
@@ -23,7 +21,7 @@ public class UserController {
                 .then().log().body().extract().response();
     }
 
-    public static Response getUsers(Page page){
+    public static Response getUsers(Page page) {
         String bodyPageString = Serializer.convertObjectToJsonString(page);
 
         return RestAssured
@@ -34,16 +32,18 @@ public class UserController {
                 .when()
                 .post(GET_USERS_BY_NAME_ENDPOINT);
     }
-    public static Response getUserByName(Cookies cookies, SearchUser user){
+
+    public static Response getUserByName(Cookies cookies, SearchUser user) {
         String bodyGetUserByName = Serializer.convertObjectToJsonString(user);
         return RestAssured.given()
                 .cookies(cookies)
-                .contentType(APPLICATION_JSON)
+                .contentType("application/json")
                 .body(bodyGetUserByName)
                 .when()
                 .post(GET_USERS_BY_NAME_ENDPOINT);
     }
-    public static Response updatePersonalProfile(Cookies cookies, UserPersonal userPersonal, int currentUserId){
+
+    public static Response updatePersonalProfile(Cookies cookies, UserPersonal userPersonal, int currentUserId) {
         String bodyUpdatedPersonalProfileString = Serializer.convertObjectToJsonString(userPersonal);
         return RestAssured.given()
                 .cookies(cookies)
@@ -53,7 +53,8 @@ public class UserController {
                 .when()
                 .post("/api/users/auth/{currentUserId}/personal");
     }
-    public  static Response updateExpertiseProfile(Cookies cookies, ExpertiseProfile expertiseProfile, int currentUserId){
+
+    public static Response updateExpertiseProfile(Cookies cookies, ExpertiseProfile expertiseProfile, int currentUserId) {
         String bodyExpertiseProfileString = Serializer.convertObjectToJsonString(expertiseProfile);
         return RestAssured.given()
                 .baseUri(BASE_URL)
@@ -65,7 +66,7 @@ public class UserController {
                 .post(UPDATE_ENDPOINT + currentUserId + "/expertise");
     }
 
-    public static Response getUserById(String currentUsername, int currentUserId){
+    public static Response getUserById(String currentUsername, int currentUserId) {
         return RestAssured.given()
                 .baseUri(BASE_URL)
                 .contentType("application/json")
@@ -74,7 +75,7 @@ public class UserController {
                 .get("/api/users/auth/" + currentUserId);
     }
 
-    public static Response getProfilePosts(Cookies cookies, int currentUserId){
+    public static Response getProfilePosts(Cookies cookies, int currentUserId) {
         Page page = new Page();
         page.size = 10;
         String bodyPageString = Serializer.convertObjectToJsonString(page);
@@ -88,12 +89,12 @@ public class UserController {
                 .get("http://localhost:8081/api/users/{currentUserId}/posts");
     }
 
-    public static Cookies authenticatedAndFetchCookies(){
+    public static Cookies authenticatedAndFetchCookies(String username, String password) {
         RestAssured.baseURI = BASE_URL;
         Response response = RestAssured.given()
                 .contentType("multipart/form-data")
-                .multiPart("username", "currentUsername")
-                .multiPart("password", "Project.10")
+                .multiPart("username", username)
+                .multiPart("password", password)
                 .when()
                 .post(AUTHENTICATE_ENDPOINT);
 
