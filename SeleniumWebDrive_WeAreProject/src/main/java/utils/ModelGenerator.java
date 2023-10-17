@@ -99,6 +99,7 @@ public class ModelGenerator {
         profile.gender = "MALE";
         profile.city = "Sofia";
         profile.birthYear = "1990-04-04";
+        profile.email = DataGenerator.generateUniqueEmail();
         return profile;
     };
 

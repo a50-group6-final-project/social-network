@@ -2,12 +2,14 @@ package weare.testing;
 
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import utils.ModelGenerator;
 import weare.api.PostController;
 import weare.api.UserController;
 import weare.models.PostModel;
+import weare.models.UserPersonal;
 import weare.models.UserRegister;
 
 public class ProfileTests extends BaseTestSetup {
@@ -15,10 +17,6 @@ public class ProfileTests extends BaseTestSetup {
     static UserRegister userToRegister;
     static int registeredUserId;
     static Cookies cookies;
-
-    String postContent;
-    String postContentUpdate;
-    PostModel[] postsList;
 
     @BeforeAll
     public static void setup() {
@@ -34,22 +32,18 @@ public class ProfileTests extends BaseTestSetup {
         userPage = new UserPage(driver,String.format("http://localhost:8081/auth/users/%d/profile", registeredUserId));
         userPage.navigateToPage();
     }
+
     @Test
-    public void getProfilePosts(){
-        PostModel postOneModel = ModelGenerator.generatePostModel(true);
-        PostModel postOne = PostController.createPost(cookies, postOneModel).as(PostModel.class);
-        PostModel postTwoModel = ModelGenerator.generatePostModel(false);
-        PostModel postTwo = PostController.createPost(cookies, postTwoModel).as(PostModel.class);
+    public void updatePersonalProfile(){
+        System.out.println("Test");
 
-        PostModel[] posts = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
+        UserPersonal userPersonal = ModelGenerator.generateUserPersonalModel();
 
-        latestPostsPage.navigateToPage();
-        latestPostsPage.assertPostsCount(posts.length);
+        userPage.editPersonalProfile(userPersonal);
+        userPage.navigateToPage();
+        userPage.assertNamesArePresent(userPersonal.firstName, userPersonal.lastName);
+        userPage.assertEmailIsPresent(userPersonal.email);
+        userPage.assertBirthDateIsPresent(userPersonal.birthYear);
+
     }
-
-    @Test
-    public void updatePersonalProfile(){}
-
-    @Test
-    public void updateExpertiseProfile(){}
 }

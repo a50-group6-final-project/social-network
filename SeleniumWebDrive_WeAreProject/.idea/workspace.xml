@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="minor changes PostTests">
-      <change afterPath="$PROJECT_DIR$/src/main/java/weare/testing/LatestPostsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/weare/testing/UserPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/weare/testing/ConnectionTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/weare/testing/ProfileTests.java" afterDir="false" />
+    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="TO DO tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/telerikacademy/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/telerikacademy/pages/BasePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/ModelGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ModelGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/models/UserPersonal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/models/UserPersonal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/UserPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/ProfileTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/ProfileTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +63,7 @@
       <recent name="C:\Users\sesko\OneDrive\Desktop\final-pro\SeleniumWebDrive_WeAreProject\src\main\java\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProfileTests.getProfilePosts">
+  <component name="RunManager" selected="JUnit.ProfileTests.updatePersonalProfile">
     <configuration name="PostTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
@@ -101,6 +95,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ProfileTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.ProfileTests" />
+      <option name="METHOD_NAME" value="updatePersonalProfile" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ProfileTests.getProfilePosts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
@@ -117,7 +127,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegisterTest.UserNotRegistered_When_TryToInputUsernameWithOneSymbol" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ProfileTests.updatePersonalProfile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -126,28 +136,20 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.RegisterTest" />
-      <option name="METHOD_NAME" value="UserNotRegistered_When_TryToInputUsernameWithOneSymbol" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.ProfileTests" />
+      <option name="METHOD_NAME" value="updatePersonalProfile" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="testing in WeAre_Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <option name="TEST_OBJECT" value="directory" />
-      <dir value="$PROJECT_DIR$/src/test/java/weare/testing" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ProfileTests.updatePersonalProfile" />
+        <item itemvalue="JUnit.ProfileTests" />
         <item itemvalue="JUnit.ProfileTests.getProfilePosts" />
         <item itemvalue="JUnit.PostTests" />
         <item itemvalue="JUnit.PostTests.createPublicPost_withValidInput" />
-        <item itemvalue="JUnit.testing in WeAre_Project" />
-        <item itemvalue="JUnit.RegisterTest.UserNotRegistered_When_TryToInputUsernameWithOneSymbol" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +167,7 @@
       <workItem from="1697468385550" duration="2222000" />
       <workItem from="1697475691238" duration="238000" />
       <workItem from="1697547002074" duration="7462000" />
-      <workItem from="1697565006807" duration="6235000" />
+      <workItem from="1697565006807" duration="8892000" />
     </task>
     <task id="LOCAL-00001" summary="Add RegisterTest">
       <created>1697226985388</created>
@@ -313,7 +315,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697568279522</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="TO DO tests">
+      <option name="closed" value="true" />
+      <created>1697571455726</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1697571455726</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +359,8 @@
     <MESSAGE value="add api controllers, models and factory classes" />
     <MESSAGE value="add PostTests" />
     <MESSAGE value="minor changes PostTests" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes PostTests" />
+    <MESSAGE value="TO DO tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="TO DO tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -382,6 +393,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/weare/testing/ConnectionTests.java</url>
           <line>12</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/weare/testing/UserPage.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

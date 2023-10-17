@@ -10,11 +10,11 @@ public class UserPersonal {
     public String username;
     public ArrayList<String> authorities;
     public String email;
-    public Object firstName;
-    public Object lastName;
-    public Object gender;
+    public String firstName;
+    public String lastName;
+    public String gender;
     public Object city = "";
-    public Object birthYear;
+    public String birthYear;
     public Object personalReview = "";
     public String expertise = "Doctor";
     public Location location = new Location();
