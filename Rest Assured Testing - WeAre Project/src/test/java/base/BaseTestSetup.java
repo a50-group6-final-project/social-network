@@ -26,7 +26,6 @@ public class BaseTestSetup {
     public static int userId;
     public static int commentId;
     public static CommentModel createdComment;
-
     public static String senderUsername;
     public static String receiverUsername;
     public static String receiverEmail;
@@ -48,7 +47,6 @@ public class BaseTestSetup {
     public static UserPersonal currentUserPersonalProfile;
 
 
-
     public static void isResponse200(Response response) {
         int statusCode = response.getStatusCode();
         assertEquals(statusCode, SC_OK, "Incorrect status code.");
@@ -63,7 +61,7 @@ public class BaseTestSetup {
                 .appendDefaultContentCharsetToContentTypeIfUndefined(false);
         RestAssured.config = RestAssured.config().encoderConfig(encoderConfig);
 
-        if(userToRegister == null){
+        if (userToRegister == null) {
             userToRegister = ModelGenerator.generateUserRegisterModel();
         }
     }
@@ -74,7 +72,7 @@ public class BaseTestSetup {
         currentEmail = userToRegister.email;
         currentPassword = userToRegister.password;
         Response response = UserController.registerUser(userToRegister);
-        cookies =  authenticateAndFetchCookies(currentUsername, currentEmail);
+        cookies = authenticateAndFetchCookies(currentUsername, currentEmail);
 
         isResponse200(response);
         isRegistered = true;

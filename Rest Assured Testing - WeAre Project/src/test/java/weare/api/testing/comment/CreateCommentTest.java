@@ -15,18 +15,21 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.*;
 import static org.testng.Assert.assertEquals;
 
 public class CreateCommentTest extends BaseTestSetup {
     String uniqueContent;
     Cookies cookies;
+
     @BeforeClass
     public void setup() {
         if (!isRegistered) {
             UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
             register(userRegister);
             userId = currentUserId;
-            System.out.println("Successfully created a new user with Id" + " " + userId);
+            System.out.println(SUCCESS_MESSAGE + userId);
+
         }
         cookies = authenticateAndFetchCookies();
         if (isDeletedPost) {
@@ -35,10 +38,10 @@ public class CreateCommentTest extends BaseTestSetup {
             Response response = PostController.createPost(cookies, createPost);
 
             createdPost = response.as(PostModel.class);
-            assertEquals(createdPost.content, uniqueContent, "Content does not match.");
+            assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
 
             postId = createdPost.postId;
-            System.out.println("Successfully created a new post with Id" + " " + postId);
+            System.out.println(POST_SUCCESS_MESSAGE + postId);
             isDeletedPost = false;
         }
     }
@@ -51,27 +54,29 @@ public class CreateCommentTest extends BaseTestSetup {
         isResponse200(response);
 
         createdComment = response.as(CommentModel.class);
-        assertEquals(createdComment.content, uniqueContent, "Content does not match.");
-        Assert.assertNotNull(createdComment.commentId, "commentId is null");
-        Assert.assertNotNull(createdComment.content, "content is null");
-        Assert.assertNotNull(createdComment.likes, "likes is null");
-        Assert.assertNotNull(createdComment.date, "date is null");
-        Assert.assertNotNull(createdComment.liked, "liked is null");
+        assertEquals(createdComment.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
+        Assert.assertNotNull(createdComment.commentId, COMMENT_ID_NULL_MESSAGE);
+        Assert.assertNotNull(createdComment.content, CONTENT_NULL_MESSAGE);
+        Assert.assertNotNull(createdComment.likes, LIKES_NULL_MESSAGE);
+        Assert.assertNotNull(createdComment.date, DATE_NULL_MESSAGE);
+        Assert.assertNotNull(createdComment.liked, LIKED_NULL_MESSAGE);
+
 
         commentId = createdComment.commentId;
-        System.out.println("Successfully created a new comment with Id" + " " + commentId + ". All properties are not null.");
+        System.out.println(COMMENT_SUCCESS_MESSAGE + commentId + ALL_PROPERTIES_NOT_NULL);
+
     }
 
     @AfterClass
     public void tearDown() {
         if (!isDeletedPost) {
             PostController.deletePost(cookies, createdPost.postId);
-            System.out.println("Successfully delete a post with Id" + " " + createdPost.postId);
+            System.out.println(DELETE_POST_SUCCESS_MESSAGE + createdPost.postId);
             isDeletedPost = true;
         }
         if (!isCommentDeleted) {
             CommentController.deleteComment(cookies, createdComment.commentId);
-            System.out.println("Successfully delete a comment with Id" + " " + createdPost.postId);
+            System.out.println(DELETE_POST_SUCCESS_MESSAGE + createdPost.postId);
             isCommentDeleted = true;
         }
     }

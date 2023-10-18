@@ -6,6 +6,8 @@ import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import models.SendRequest;
 
+import static Utils.Constants.APPLICATION_JSON;
+
 public class ConnectionController {
 
     public static Response sendRequest(SendRequest sendRequestToUser, Cookies cookies, String senderUsername) {
@@ -14,7 +16,7 @@ public class ConnectionController {
         return RestAssured.given()
                 .cookies(cookies)
                 .header("name", senderUsername)
-                .contentType("application/json")
+                .contentType(APPLICATION_JSON)
                 .body(bodySendRequest)
                 .when()
                 .post("/api/auth/request");

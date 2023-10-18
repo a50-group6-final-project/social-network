@@ -14,6 +14,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.CONTENT_MISMATCH_MESSAGE;
+import static Utils.Constants.POST_SUCCESS_MESSAGE;
 import static org.testng.Assert.assertEquals;
 
 public class LikeDislikeCommentTest extends BaseTestSetup {
@@ -32,10 +34,10 @@ public class LikeDislikeCommentTest extends BaseTestSetup {
             Response response = PostController.createPost(cookies, createPost);
 
             createdPost = response.as(PostModel.class);
-            assertEquals(createdPost.content, uniqueContent, "Content does not match.");
+            assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
 
             postId = createdPost.postId;
-            System.out.println("Successfully created a new post with Id" + " " + postId);
+            System.out.println(POST_SUCCESS_MESSAGE  + " " + postId);
             isDeletedPost = false;
         }
 

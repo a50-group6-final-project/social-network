@@ -12,6 +12,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.CONTENT_MISMATCH_MESSAGE;
 import static org.testng.Assert.assertEquals;
 
 public class CreatePostTest extends BaseTestSetup {
@@ -36,7 +37,7 @@ public class CreatePostTest extends BaseTestSetup {
 
         createdPost = response.as(PostModel.class);
 
-        assertEquals(createdPost.content, uniqueContent, "Content does not match.");
+        assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
         Assert.assertNotNull(createdPost.postId, "postId is null");
         Assert.assertNotNull(createdPost.content, "content is null");
         Assert.assertNotNull(createdPost.picture, "picture is null");
