@@ -2,13 +2,13 @@ package weare.testing;
 
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import utils.ModelGenerator;
+import weare.api.ConnectionController;
 import weare.api.UserController;
+import weare.models.ConnectionModel;
 import weare.models.UserRegister;
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ConnectionTests extends BaseTestSetup {
 
     protected static UserRegister firstUser;
@@ -17,6 +17,8 @@ public class ConnectionTests extends BaseTestSetup {
     protected static UserRegister secondUser;
     protected static int secondUserId;
     protected static Cookies secondUserCookies;
+    protected static ConnectionModel[] connectionsList;
+
     @BeforeAll
     public static void setup() {
         firstUser = ModelGenerator.generateUserRegisterModel();
@@ -29,20 +31,72 @@ public class ConnectionTests extends BaseTestSetup {
         Response responseSecondUser = UserController.registerUser(secondUser);
         secondUserCookies = UserController.authenticatedAndFetchCookies(secondUser.username, secondUser.password);
         secondUserId = Integer.parseInt(responseSecondUser.asString().split(" ")[6]);
-
-
     }
-    @Test
-    public void sendConnectionRequest(){
+    @BeforeEach
+    public void beforeEach() {
         loginPage.navigateToPage();
+    }
+    @AfterEach
+    public void afterEach() {
+        homePage.navigateToPage();
+        homePage.logoutUser();
+    }
+
+    @Test
+    @Order(1)
+    public void sendConnectionRequest() {
         LoginPage.loginUser(firstUser.username, firstUser.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
 
-    };
+        userPage = new UserPage(driver, String.format("http://localhost:8081/auth/users/%d/profile", secondUserId));
+
+        connectionsList = ConnectionController.getUserRequests(secondUserCookies, secondUserId).as(ConnectionModel[].class);
+        Assertions.assertEquals(0, connectionsList.length, "Connection list is not empty");
+
+        userPage.navigateToPage();
+        userPage.sendConnectionRequest();
+        userPage.assertElementPresent("weAre.userPage.connectionRequestSentMessage");
+
+        connectionsList = ConnectionController.getUserRequests(secondUserCookies, secondUserId).as(ConnectionModel[].class);
+        Assertions.assertEquals(1, connectionsList.length, "Connection list is empty");
+    }
 
     @Test
-    public void approveConnectionRequest(){};
+    @Order(2)
+    public void approveConnectionRequest() {
+        LoginPage.loginUser(secondUser.username, secondUser.password);
+        LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
+
+        userPage = new UserPage(driver, String.format("http://localhost:8081/auth/users/%d/profile", secondUserId));
+
+        connectionsList = ConnectionController.getUserRequests(secondUserCookies, secondUserId).as(ConnectionModel[].class);
+        Assertions.assertEquals(1, connectionsList.length, "Connection list is empty");
+        Assertions.assertEquals(connectionsList[0].approved, false, "Connection is already approved");
+
+        userPage.navigateToPage();
+        userPage.approveConnectionRequest();
+
+        userPage.navigateToPage();
+        userPage.assertHasOneFriend();
+
+        connectionsList = ConnectionController.getUserRequests(secondUserCookies, secondUserId).as(ConnectionModel[].class);
+        Assertions.assertEquals(0, connectionsList.length, "Connection list is not empty");
+    }
+
+    ;
 
     @Test
-    public void removeConnection(){};
+    @Order(3)
+    public void removeConnection() {
+        LoginPage.loginUser(firstUser.username, firstUser.password);
+        LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
+
+        userPage = new UserPage(driver, String.format("http://localhost:8081/auth/users/%d/profile", secondUserId));
+        userPage.navigateToPage();
+        userPage.disconnectFromUser();
+        userPage.navigateToPage();
+        userPage.assertHasNoFriends();
+    }
+
+    ;
 }

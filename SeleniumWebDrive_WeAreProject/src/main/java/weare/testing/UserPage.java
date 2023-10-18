@@ -24,7 +24,21 @@ public class UserPage extends BaseWeArePage {
         actions.clickElement("//form[contains(@action,'/profile/personal')]//button[@type='submit']");
     }
 
-    public void assertNamesArePresent(String firstName, String lastName){
+    public void sendConnectionRequest() {
+        actions.clickElement("weAre.userPage.connectButton");
+    }
+
+    public void approveConnectionRequest() {
+        actions.clickElement("weAre.userPage.newRequestsButton");
+        actions.waitForElementVisible("weAre.userPage.approveButton");
+        actions.clickElement("weAre.userPage.approveButton");
+    }
+
+    public void disconnectFromUser() {
+        actions.clickElement("weAre.userPage.disconnectButton");
+    }
+
+    public void assertNamesArePresent(String firstName, String lastName) {
         try {
             actions.assertElementPresent(String.format("//p[text()='%s %s']", firstName, lastName));
         } catch (Exception e) {
@@ -32,7 +46,7 @@ public class UserPage extends BaseWeArePage {
         }
     }
 
-    public void assertBirthDateIsPresent(String birthDate){
+    public void assertBirthDateIsPresent(String birthDate) {
         try {
             actions.assertElementPresent(String.format("//p[text()='%s']", birthDate));
         } catch (Exception e) {
@@ -40,11 +54,27 @@ public class UserPage extends BaseWeArePage {
         }
     }
 
-    public void assertEmailIsPresent(String email){
+    public void assertEmailIsPresent(String email) {
         try {
             actions.assertElementPresent(String.format("//p[text()='%s']", email));
         } catch (Exception e) {
             Assertions.fail("Birth date is not present.");
+        }
+    }
+
+    public void assertHasOneFriend() {
+        try {
+            actions.assertElementPresent("weAre.userPage.oneFriend");
+        } catch (Exception e) {
+            Assertions.fail("User has no friends.");
+        }
+    }
+
+    public void assertHasNoFriends() {
+        try {
+            actions.assertElementPresent("weAre.userPage.noFriends");
+        } catch (Exception e) {
+            Assertions.fail("User has friends.");
         }
     }
 }
