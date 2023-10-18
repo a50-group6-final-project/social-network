@@ -59,22 +59,22 @@ Welcome to our QA project focused on testing the social network "WeAre." We've s
    - Start Postman.
    - Add the "WeAre_Social Network Project.postman_collection.json" and "Rest-controller.postman_environment.json" files.
    - To run the entire collection or specific folders, select the desired folder or collection, and then click "Run".
- 
-   **To run with Command Line:**
-   Go to where the files are on your computer. Type this:
-   ```shell
-   newman run "WeAre_Social Network Project.postman_collection.json" -e "Rest-controller.postman_environment.json" -r htmlextra --reporter-htmlextra-export "./WeAre_API_Testing.html"
+ To run with Command Line:
+ ```
+To run with Command Line:
+Go to where the files are on your computer. Type this:
+```shell
+newman run "WeAre_Social Network Project.postman_collection.json" -e "Rest-controller.postman_environment.json" -r htmlextra --reporter-htmlextra-export "./WeAre_API_Testing.html"
+```
 
+<a id="selenium-webdriver-for-frontend-testing"></a>
 
-<a id="selenium-webdriver"></a>
 ## 3. Selenium WebDriver for Frontend Testing
 We employ Selenium WebDriver as our primary tool for executing end-to-end frontend tests, validating the functionality and responsiveness of our web applications.
 
-
 <a id="performance-testing"></a>
+
 ## 4. Performance Testing
-
 For ensuring optimal user experience, we conduct performance tests to measure and optimize the responsiveness, scalability, and stability of our system under different loads.
-
 
 
