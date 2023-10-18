@@ -133,7 +133,5 @@ public class AdministrativePartTests extends BaseTestSetup {
         BasePage.assertElementPresent("weAre.BasePage.firstName");
         BasePage.assertElementPresent("weAre.BasePage.lastName");
         homePage.logoutUser();
-
-
     }
 }
