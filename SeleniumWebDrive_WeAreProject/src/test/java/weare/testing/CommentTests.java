@@ -63,6 +63,10 @@ public class CommentTests extends BaseTestSetup {
         postPage.assertCommentPresent(createdComment);
         postPage.likeComment(comment.commentId);
         postPage.assertCommentIsLiked(comment.commentId);
+
+        comment = CommentController.findAllCommentsOfAPost(cookies, createdPost.postId).as(CommentModel[].class)[0];
+
+        Assertions.assertEquals(1, comment.likes.size());
     }
 
     @Test
@@ -75,6 +79,9 @@ public class CommentTests extends BaseTestSetup {
 
         createdComment.content = updateCommentString;
         postPage.assertCommentPresent(createdComment);
+
+        comment = CommentController.findAllCommentsOfAPost(cookies, createdPost.postId).as(CommentModel[].class)[0];
+        Assertions.assertEquals(updateCommentString, comment.content);
     }
 
     ;;
@@ -84,6 +91,9 @@ public class CommentTests extends BaseTestSetup {
         postPage.assertCommentPresent(createdComment);
         postPage.dislikeComment(comment.commentId);
         postPage.assertCommentIsDisliked(comment.commentId);
+
+        comment = CommentController.findAllCommentsOfAPost(cookies, createdPost.postId).as(CommentModel[].class)[0];
+        Assertions.assertEquals(0, comment.likes.size());
     }
 
     ;
@@ -92,7 +102,10 @@ public class CommentTests extends BaseTestSetup {
     public void deleteComment() {
         postPage.assertCommentPresent(createdComment);
         postPage.deleteComment(comment.commentId);
-//        postPage.assertCommentIsDeleted(comment.commentId);
+        postPage.assertCommentIsDeleted();
+
+        CommentModel[] commentsList = CommentController.findAllCommentsOfAPost(cookies, createdPost.postId).as(CommentModel[].class);
+        Assertions.assertEquals(0, commentsList.length);
     }
 
     ;

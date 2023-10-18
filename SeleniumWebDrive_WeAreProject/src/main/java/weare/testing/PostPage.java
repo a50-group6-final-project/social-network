@@ -45,6 +45,13 @@ public class PostPage extends BaseWeArePage {
     public void deleteComment(int commentId) {
         actions.waitForElementVisible(String.format(getUIMappingByKey("weAre.postPage.deleteCommentButton"), commentId));
         actions.clickElement(String.format(getUIMappingByKey("weAre.postPage.deleteCommentButton"), commentId));
+
+        actions.waitForElementVisible("weAre.postPage.deleteCommentDropdown");
+        actions.clickElement("weAre.postPage.deleteCommentDropdown");
+        actions.waitForElementVisible("weAre.postPage.optionDeleteComment");
+        actions.clickElement("weAre.postPage.optionDeleteComment");
+
+        actions.clickElement("weAre.postPage.submitButton");
     }
 
     public void likeComment(int commentId) {
@@ -82,6 +89,10 @@ public class PostPage extends BaseWeArePage {
 //        actions.clickElement("weAre.postPage.showCommentsButton");
         actions.waitForElementVisible(String.format(getUIMappingByKey("weAre.postPage.commentContent"), commentModel.content));
         actions.assertElementPresent(String.format(getUIMappingByKey("weAre.postPage.commentContent"), commentModel.content));
+    }
 
+    public void assertCommentIsDeleted(){
+        actions.waitForElementVisible("weAre.postPage.deleteCommentConformationMessage");
+        actions.assertElementPresent("weAre.postPage.deleteCommentConformationMessage");
     }
 }
