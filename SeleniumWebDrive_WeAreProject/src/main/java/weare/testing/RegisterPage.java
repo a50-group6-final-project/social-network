@@ -8,6 +8,7 @@ public class RegisterPage extends BaseWeArePage {
         super(driver, "home.page");
     }
 
+
     public void userRegister(String username, String password, String email) {
         navigateToPage();
         assertNavigatedUrl();
@@ -58,8 +59,7 @@ public class RegisterPage extends BaseWeArePage {
 
         actions.waitForElementClickable("weAre.registrationPage.submitButton");
         actions.clickElement("weAre.registrationPage.submitButton");
-
-
     }
 
 }
+
