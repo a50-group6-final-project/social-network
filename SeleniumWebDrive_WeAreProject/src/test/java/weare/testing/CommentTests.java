@@ -2,8 +2,8 @@ package weare.testing;
 
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import utils.DataGenerator;
 import utils.ModelGenerator;
 import weare.api.CommentController;
 import weare.api.PostController;
@@ -12,12 +12,14 @@ import weare.models.CommentModel;
 import weare.models.PostModel;
 import weare.models.UserRegister;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CommentTests extends BaseTestSetup {
     static UserRegister userToRegister;
     static int registeredUserId;
     static Cookies cookies;
     static PostModel createdPost;
     static CommentModel createdComment;
+    static CommentModel comment;
 
     @BeforeAll
     public static void setup() {
@@ -31,36 +33,66 @@ public class CommentTests extends BaseTestSetup {
         loginPage.navigateToPage();
         LoginPage.loginUser(userToRegister.username, userToRegister.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
+        postPage = new PostPage(driver, "http://localhost:8081/posts/" + createdPost.postId);
     }
 
-    @Test
-    public void createComment() {
-        System.out.println("Test");
+    @BeforeEach
+    public void beforeEach() {
         postPage.navigateToPage();
+
     }
 
-    ;
-
     @Test
-    public void editComment() {
+    @Order(1)
+    public void createComment() {
+
+
+        createdComment = ModelGenerator.generateCommentModel(createdPost.postId, registeredUserId);
+        postPage.createComment(createdComment);
+        postPage.navigateToPage();
+
+        postPage.assertCommentPresent(createdComment);
+
+        comment = CommentController.findAllCommentsOfAPost(cookies, createdPost.postId).as(CommentModel[].class)[0];
+        Assertions.assertEquals(createdComment.content, comment.content);
     }
 
-    ;
-
     @Test
+    @Order(2)
     void likeComment() {
+        postPage.assertCommentPresent(createdComment);
+        postPage.likeComment(comment.commentId);
+        postPage.assertCommentIsLiked(comment.commentId);
     }
 
-    ;
+    @Test
+    @Order(3)
+    public void editComment() {
+        String updateCommentString = DataGenerator.generateUniqueContentPost();
+        postPage.assertCommentPresent(createdComment);
+        postPage.editComment(comment.commentId, updateCommentString);
+        postPage.navigateToPage();
+
+        createdComment.content = updateCommentString;
+        postPage.assertCommentPresent(createdComment);
+    }
+
+    ;;
 
     @Test
     void dislikeComment() {
+        postPage.assertCommentPresent(createdComment);
+        postPage.dislikeComment(comment.commentId);
+        postPage.assertCommentIsDisliked(comment.commentId);
     }
 
     ;
 
     @Test
     public void deleteComment() {
+        postPage.assertCommentPresent(createdComment);
+        postPage.deleteComment(comment.commentId);
+//        postPage.assertCommentIsDeleted(comment.commentId);
     }
 
     ;

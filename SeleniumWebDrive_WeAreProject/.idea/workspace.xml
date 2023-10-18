@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="updated AdministrativePartTests">
+    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="finish PostTests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/telerikacademy/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/telerikacademy/pages/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/telerikacademy/testframework/UserActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/telerikacademy/testframework/UserActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/LatestPostsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/LatestPostsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/PostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/PostPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/ConnectionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/ConnectionTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" afterDir="false" />
@@ -59,7 +59,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.PostTests">
+  <component name="RunManager" selected="JUnit.CommentTests">
     <configuration name="AdministrativePartTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
@@ -75,7 +75,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdministrativePartTests.PersonalProfileEdited_When_AdminTriesToEditProfile_And_ConfirmChanges" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -84,14 +84,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
-      <option name="METHOD_NAME" value="PersonalProfileEdited_When_AdminTriesToEditProfile_And_ConfirmChanges" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.CommentTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommentTests.createComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.CommentTests" />
+      <option name="METHOD_NAME" value="createComment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdministrativePartTests.PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentTests.likeComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -100,8 +115,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
-      <option name="METHOD_NAME" value="PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.CommentTests" />
+      <option name="METHOD_NAME" value="likeComment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,29 +137,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PostTests.likePublicPost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.PostTests" />
-      <option name="METHOD_NAME" value="likePublicPost" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CommentTests" />
+        <item itemvalue="JUnit.CommentTests.likeComment" />
+        <item itemvalue="JUnit.CommentTests.createComment" />
         <item itemvalue="JUnit.PostTests" />
         <item itemvalue="JUnit.AdministrativePartTests" />
-        <item itemvalue="JUnit.PostTests.likePublicPost" />
-        <item itemvalue="JUnit.AdministrativePartTests.PersonalProfileEdited_When_AdminTriesToEditProfile_And_ConfirmChanges" />
-        <item itemvalue="JUnit.AdministrativePartTests.PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit" />
       </list>
     </recent_temporary>
   </component>
@@ -283,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697648765313</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="finish PostTests">
+      <option name="closed" value="true" />
+      <created>1697651006620</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1697651006620</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,7 +323,8 @@
     <MESSAGE value="Add PostPage and PostTests" />
     <MESSAGE value="Refactor variables" />
     <MESSAGE value="updated AdministrativePartTests" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated AdministrativePartTests" />
+    <MESSAGE value="finish PostTests" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish PostTests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -336,14 +344,19 @@
           <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="43" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/weare/testing/LatestPostsPage.java</url>
           <line>22</line>
           <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

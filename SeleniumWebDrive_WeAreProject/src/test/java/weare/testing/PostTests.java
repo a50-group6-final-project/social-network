@@ -22,7 +22,6 @@ public class PostTests extends BaseTestSetup {
 
     @BeforeAll
     public static void setup() {
-
         userToRegister = ModelGenerator.generateUserRegisterModel();
         Response response = UserController.registerUser(userToRegister);
         cookies = UserController.authenticatedAndFetchCookies(userToRegister.username, userToRegister.password);

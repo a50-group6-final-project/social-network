@@ -1,6 +1,9 @@
 package weare.testing;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import weare.models.CommentModel;
 
 import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
 
@@ -33,7 +36,52 @@ public class PostPage extends BaseWeArePage {
         actions.clickElement("weAre.newPostPage.postVisibilityDropdown");
         actions.clickElement("weAre.postPage.selectDeletePost");
         actions.clickElement("weAre.postPage.submitButton");
+    }
 
+    public void createComment(CommentModel commentModel) {
+        actions.typeValueInField(commentModel.content, "weAre.postPage.commentField");
+        actions.clickElement("weAre.postPage.postCommentButton");
+    }
+    public void deleteComment(int commentId) {
+        actions.waitForElementVisible(String.format(getUIMappingByKey("weAre.postPage.deleteCommentButton"), commentId));
+        actions.clickElement(String.format(getUIMappingByKey("weAre.postPage.deleteCommentButton"), commentId));
+    }
+
+    public void likeComment(int commentId) {
+        actions.waitForElementVisible(String.format(getUIMappingByKey("weAre.postPage.likeCommentButton"), commentId));
+        actions.clickElement(String.format(getUIMappingByKey("weAre.postPage.likeCommentButton"), commentId));
+    }
+    public void dislikeComment(int commentId) {
+        actions.waitForElementVisible(String.format(getUIMappingByKey("weAre.postPage.dislikeCommentButton"), commentId));
+        actions.clickElement(String.format(getUIMappingByKey("weAre.postPage.dislikeCommentButton"), commentId));
+    }
+
+    public void editComment(int commentId, String content) {
+        actions.clickElement( String.format(getUIMappingByKey("weAre.postPage.editCommentButton"), commentId));
+        actions.waitForElementVisible("weAre.postPage.commentField");
+        actions.typeValueInField(content, "weAre.postPage.commentField");
+        actions.clickElement("weAre.postPage.postCommentButton");
+    }
+
+    public void assertCommentIsLiked(int commentId) {
+        actions.waitForElementVisible(String.format(getUIMappingByKey("weAre.postPage.spanLikes"), commentId));
+        actions.assertElementPresent(String.format(getUIMappingByKey("weAre.postPage.spanLikes"), commentId));
+
+        actions.getElement(String.format(getUIMappingByKey("weAre.postPage.spanLikes"), commentId)).getText().equals("Likes: 1");
+    }
+    public void assertCommentIsDisliked(int commentId) {
+        actions.waitForElementVisible(String.format(getUIMappingByKey("weAre.postPage.spanLikes"), commentId));
+        actions.assertElementPresent(String.format(getUIMappingByKey("weAre.postPage.spanLikes"), commentId));
+
+        actions.getElement(String.format(getUIMappingByKey("weAre.postPage.spanLikes"), commentId)).getText().equals("Likes: 0");
+    }
+
+    public void assertCommentPresent(CommentModel commentModel) {
+        actions.waitForElementClickable("weAre.postPage.showCommentsButton");
+        actions.clickElement("weAre.postPage.showCommentsButton");
+//        actions.clickElement("weAre.postPage.showCommentsButton");
+        actions.waitForElementVisible(String.format(getUIMappingByKey("weAre.postPage.commentContent"), commentModel.content));
+        actions.assertElementPresent(String.format(getUIMappingByKey("weAre.postPage.commentContent"), commentModel.content));
 
     }
 }
