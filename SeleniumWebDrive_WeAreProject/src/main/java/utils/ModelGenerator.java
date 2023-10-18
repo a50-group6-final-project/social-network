@@ -43,7 +43,17 @@ public class ModelGenerator {
         CommentModel createComment = new CommentModel();
         createComment.commentId = 0;
         createComment.content = uniqueContent;
-        createComment.deletedConfirmed = true;
+//        createComment.deletedConfirmed = true;
+        createComment.postId = postId;
+        createComment.userId = userId;
+        createComment.likes = null;
+        return createComment;
+    }
+    public static CommentModel generateCommentModel(int postId, int userId){
+        CommentModel createComment = new CommentModel();
+        createComment.commentId = 0;
+        createComment.content = DataGenerator.generateUniqueContentPost();
+//        createComment.deletedConfirmed = true;
         createComment.postId = postId;
         createComment.userId = userId;
         createComment.likes = null;

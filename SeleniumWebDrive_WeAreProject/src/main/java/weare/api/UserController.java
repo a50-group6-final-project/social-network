@@ -1,9 +1,9 @@
 package weare.api;
 
-import utils.Serializer;
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
+import utils.Serializer;
 import weare.models.*;
 
 import static utils.Endpoints.*;

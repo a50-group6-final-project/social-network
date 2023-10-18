@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="TO DO tests">
+      <change afterPath="$PROJECT_DIR$/src/main/java/weare/testing/HomePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/ModelGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ModelGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/models/UserPersonal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/models/UserPersonal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/UserPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/ConnectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/ConnectionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/SkillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/SkillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/ProfileTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/ProfileTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +73,22 @@
       <recent name="C:\Users\sesko\OneDrive\Desktop\final-pro\SeleniumWebDrive_WeAreProject\src\main\java\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ProfileTests.updatePersonalProfile">
+  <component name="RunManager" selected="JUnit.LoginTests">
+    <configuration name="LoginTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.LoginTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PostTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
@@ -75,22 +100,6 @@
       <option name="PACKAGE_NAME" value="weare.testing" />
       <option name="MAIN_CLASS_NAME" value="weare.testing.PostTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PostTests.createPublicPost_withValidInput" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.PostTests" />
-      <option name="METHOD_NAME" value="createPublicPost_withValidInput" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -145,11 +154,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoginTests" />
         <item itemvalue="JUnit.ProfileTests.updatePersonalProfile" />
         <item itemvalue="JUnit.ProfileTests" />
         <item itemvalue="JUnit.ProfileTests.getProfilePosts" />
         <item itemvalue="JUnit.PostTests" />
-        <item itemvalue="JUnit.PostTests.createPublicPost_withValidInput" />
       </list>
     </recent_temporary>
   </component>
@@ -168,6 +177,8 @@
       <workItem from="1697475691238" duration="238000" />
       <workItem from="1697547002074" duration="7462000" />
       <workItem from="1697565006807" duration="8892000" />
+      <workItem from="1697625425023" duration="2854000" />
+      <workItem from="1697644535880" duration="1191000" />
     </task>
     <task id="LOCAL-00001" summary="Add RegisterTest">
       <created>1697226985388</created>
@@ -375,18 +386,13 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/weare/testing/RegisterTest.java</url>
           <line>46</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java</url>
-          <line>52</line>
+          <line>51</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -398,6 +404,21 @@
           <url>file://$PROJECT_DIR$/src/main/java/weare/testing/UserPage.java</url>
           <line>22</line>
           <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

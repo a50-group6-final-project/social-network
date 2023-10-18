@@ -1,9 +1,10 @@
 package weare.testing;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class LoginTests extends BaseTestSetup {
-
 
     @Test
     public void UserLoggedIn_When_EnterValidCredentials() {
@@ -16,6 +17,7 @@ public class LoginTests extends BaseTestSetup {
         LoginPage.loginUser(username, password);
 
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
+        homePage.logoutUser();
     }
 
     @Test

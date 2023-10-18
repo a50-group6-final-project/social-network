@@ -3,7 +3,6 @@ package weare.testing;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.Order;
 import utils.DataGenerator;
 import utils.ModelGenerator;
 import weare.api.UserController;
@@ -75,6 +74,11 @@ public class PostTests extends BaseTestSetup {
 
     @Test
     @Order(3)
+    public void likePublicPost() {
+    }
+
+    @Test
+    @Order(4)
     public void deletePublicPost() {
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         Assertions.assertEquals(true, postsList[0].mypublic, "Post is not public");
@@ -89,7 +93,7 @@ public class PostTests extends BaseTestSetup {
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     public void createPrivatePost_withValidInput() {
         newPostPage.navigateToPage();
         newPostPage.createPost(postContent, "Private");
@@ -103,7 +107,7 @@ public class PostTests extends BaseTestSetup {
     }
 
     @Test
-    @Order(5)
+    @Order(6)
     public void updatePrivatePost_withValidInput() {
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
 
@@ -122,7 +126,12 @@ public class PostTests extends BaseTestSetup {
     }
 
     @Test
-    @Order(6)
+    @Order(7)
+    public void dislikePrivatePost() {
+    }
+
+    @Test
+    @Order(8)
     public void deletePrivatePost() {
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         Assertions.assertEquals(false, postsList[0].mypublic, "Post is not private");
@@ -136,13 +145,5 @@ public class PostTests extends BaseTestSetup {
         Assertions.assertEquals(0, postsList.length);
     }
 
-    @Test
-    @Order(7)
-    public void likePost() {
-    }
 
-    @Test
-    @Order(8)
-    public void dislikePost() {
-    }
 }

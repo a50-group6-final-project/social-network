@@ -2,13 +2,10 @@ package weare.testing;
 
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import utils.ModelGenerator;
-import weare.api.PostController;
 import weare.api.UserController;
-import weare.models.PostModel;
 import weare.models.UserPersonal;
 import weare.models.UserRegister;
 
@@ -44,6 +41,5 @@ public class ProfileTests extends BaseTestSetup {
         userPage.assertNamesArePresent(userPersonal.firstName, userPersonal.lastName);
         userPage.assertEmailIsPresent(userPersonal.email);
         userPage.assertBirthDateIsPresent(userPersonal.birthYear);
-
     }
 }

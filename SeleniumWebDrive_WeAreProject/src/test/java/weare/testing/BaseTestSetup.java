@@ -15,6 +15,7 @@ public class BaseTestSetup {
     protected static AllPostPage allPostPage;
     protected static UserPage userPage;
     protected static PostPage postPage;
+    protected static HomePage homePage;
     protected static LatestPostsPage latestPostsPage;
     protected static String generatedUsername;
     protected static String generatedPassword;
@@ -32,6 +33,7 @@ public class BaseTestSetup {
         newPostPage = new NewPostPage(driver);
         allPostPage = new AllPostPage(driver);
         latestPostsPage = new LatestPostsPage(driver);
+        homePage = new HomePage(driver);
     }
 
     @AfterAll
@@ -71,7 +73,6 @@ public class BaseTestSetup {
         generatedEmail = faker.internet().emailAddress();
         return generatedEmail;
     }
-
 
 }
 
