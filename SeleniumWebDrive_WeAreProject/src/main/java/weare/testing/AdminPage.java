@@ -48,4 +48,19 @@ public class AdminPage extends BaseWeArePage {
 
     }
 
+    public void adminEditUserPost(){
+
+        actions.waitForElementClickable("weAre.adminPage.gotoAdminZone");
+        actions.clickElement("weAre.adminPage.gotoAdminZone");
+
+        actions.waitForElementClickable("//a[@href='/posts' and @class='nav-link']");
+        actions.clickElement("//a[@href='/posts' and @class='nav-link']");
+
+
+
+
+
+
+    }
+
 }
