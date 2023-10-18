@@ -67,4 +67,59 @@ public class AdministrativePartTests extends BaseTestSetup {
 
     }
 
+    @Test
+    public void PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit() {
+        String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
+        String password = BaseTestSetup.generateRandomPassword(10);
+        String email = BaseTestSetup.generateRandomEmail();
+
+        registerPage.userRegister(username, password, email);
+        loginPage.loginUser(username, password);
+
+        adminPage.adminEditUserPost();
+    }
+
+
+    @Test
+    public void PostDeleted_When_AdminTriesToEditPost_And_ConfirmEdit() {
+        String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
+        String password = BaseTestSetup.generateRandomPassword(10);
+        String email = BaseTestSetup.generateRandomEmail();
+        registerPage.userRegister(username, password, email);
+        loginPage.loginUser(username, password);
+    }
+    @Test
+    public void CommentEdited_When_AdminTriesToEditPost_And_ConfirmEdit() {
+        String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
+        String password = BaseTestSetup.generateRandomPassword(10);
+        String email = BaseTestSetup.generateRandomEmail();
+        registerPage.userRegister(username, password, email);
+        loginPage.loginUser(username, password);
+    }
+
+
+
+        @Test
+    public void CommentDeleted_When_AdminTriesToEditPost_And_ConfirmEdit() {
+            String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
+            String password = BaseTestSetup.generateRandomPassword(10);
+            String email = BaseTestSetup.generateRandomEmail();
+            registerPage.userRegister(username, password, email);
+            loginPage.loginUser(username, password);
+    }
+
+    @Test
+    public void PersonalProfileEdited_When_AdminTriesToEditProfile_And_ConfirmChanges() {
+        String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
+        String password = BaseTestSetup.generateRandomPassword(10);
+        String email = BaseTestSetup.generateRandomEmail();
+
+        registerPage.userRegister(username, password, email);
+        loginPage.loginUser(username, password);
+        adminPage.adminEditPersonalProfile();
+        BasePage.assertElementPresent("weAre.BasePage.firstName");
+        BasePage.assertElementPresent("weAre.BasePage.lastName");
+
+
+    }
 }

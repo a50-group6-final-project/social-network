@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="TO DO tests">
-      <change afterPath="$PROJECT_DIR$/src/main/java/weare/testing/HomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="Refactor variables">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ModelGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ModelGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/ConnectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/ConnectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/SkillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/SkillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/ProfileTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/ProfileTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/AdminPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +45,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/sesko/OneDrive/Desktop/final-pro/SeleniumWebDrive_WeAreProject/src/main/java/models&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rosti.WIN-IC28P738AEI/Desktop/Versions&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -67,14 +56,8 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\sesko\OneDrive\Desktop\final-pro\SeleniumWebDrive_WeAreProject\src\main\java\models" />
-      <recent name="C:\Users\sesko\OneDrive\Desktop\final-pro\SeleniumWebDrive_WeAreProject\src\main\java\utils" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JUnit.LoginTests">
-    <configuration name="LoginTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.AdministrativePartTests.PersonalProfileEdited_When_AdminTriesToEditProfile_And_ConfirmChanges">
+    <configuration name="AdministrativePartTests.AdminRegistered_When_InputValidData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -83,13 +66,62 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.LoginTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
+      <option name="METHOD_NAME" value="AdminRegistered_When_InputValidData" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PostTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdministrativePartTests.PersonalProfileEdited_When_AdminTriesToEditProfile_And_ConfirmChanges" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
+      <option name="METHOD_NAME" value="PersonalProfileEdited_When_AdminTriesToEditProfile_And_ConfirmChanges" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdministrativePartTests.PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
+      <option name="METHOD_NAME" value="PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdministrativePartTests.UserDisabled_When_ClickDisableButton" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
+      <option name="METHOD_NAME" value="UserDisabled_When_ClickDisableButton" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostTests.deletePrivatePost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -99,54 +131,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
       <option name="MAIN_CLASS_NAME" value="weare.testing.PostTests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProfileTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.ProfileTests" />
-      <option name="METHOD_NAME" value="updatePersonalProfile" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProfileTests.getProfilePosts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.ProfileTests" />
-      <option name="METHOD_NAME" value="getProfilePosts" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProfileTests.updatePersonalProfile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.ProfileTests" />
-      <option name="METHOD_NAME" value="updatePersonalProfile" />
+      <option name="METHOD_NAME" value="deletePrivatePost" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -154,11 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LoginTests" />
-        <item itemvalue="JUnit.ProfileTests.updatePersonalProfile" />
-        <item itemvalue="JUnit.ProfileTests" />
-        <item itemvalue="JUnit.ProfileTests.getProfilePosts" />
-        <item itemvalue="JUnit.PostTests" />
+        <item itemvalue="JUnit.AdministrativePartTests.PersonalProfileEdited_When_AdminTriesToEditProfile_And_ConfirmChanges" />
+        <item itemvalue="JUnit.AdministrativePartTests.PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit" />
+        <item itemvalue="JUnit.PostTests.deletePrivatePost" />
+        <item itemvalue="JUnit.AdministrativePartTests.UserDisabled_When_ClickDisableButton" />
+        <item itemvalue="JUnit.AdministrativePartTests.AdminRegistered_When_InputValidData" />
       </list>
     </recent_temporary>
   </component>
@@ -175,10 +160,6 @@
       <workItem from="1697459677947" duration="1298000" />
       <workItem from="1697468385550" duration="2222000" />
       <workItem from="1697475691238" duration="238000" />
-      <workItem from="1697547002074" duration="7462000" />
-      <workItem from="1697565006807" duration="8892000" />
-      <workItem from="1697625425023" duration="2854000" />
-      <workItem from="1697644535880" duration="1191000" />
     </task>
     <task id="LOCAL-00001" summary="Add RegisterTest">
       <created>1697226985388</created>
@@ -286,55 +267,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697470054960</updated>
     </task>
-    <task id="LOCAL-00016" summary="add api controllers">
-      <option name="closed" value="true" />
-      <created>1697558425137</created>
+    <task id="LOCAL-00016" summary="Refactor variables">
+      <created>1697625909363</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1697558425137</updated>
+      <updated>1697625909363</updated>
     </task>
-    <task id="LOCAL-00017" summary="add POST">
-      <option name="closed" value="true" />
-      <created>1697565656658</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1697565656658</updated>
-    </task>
-    <task id="LOCAL-00018" summary="add api controllers, models and factory classes">
-      <option name="closed" value="true" />
-      <created>1697565697160</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1697565697160</updated>
-    </task>
-    <task id="LOCAL-00019" summary="add PostTests">
-      <option name="closed" value="true" />
-      <created>1697567556581</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1697567556581</updated>
-    </task>
-    <task id="LOCAL-00020" summary="minor changes PostTests">
-      <option name="closed" value="true" />
-      <created>1697568279522</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1697568279522</updated>
-    </task>
-    <task id="LOCAL-00021" summary="TO DO tests">
-      <option name="closed" value="true" />
-      <created>1697571455726</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1697571455726</updated>
-    </task>
-    <option name="localTasksCounter" value="22" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,13 +305,8 @@
     <MESSAGE value="Refactoring AdminPage" />
     <MESSAGE value="Adding test in AdministrativePartTests" />
     <MESSAGE value="Add PostPage and PostTests" />
-    <MESSAGE value="add api controllers" />
-    <MESSAGE value="add POST" />
-    <MESSAGE value="add api controllers, models and factory classes" />
-    <MESSAGE value="add PostTests" />
-    <MESSAGE value="minor changes PostTests" />
-    <MESSAGE value="TO DO tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="TO DO tests" />
+    <MESSAGE value="Refactor variables" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor variables" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -386,39 +321,9 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/RegisterTest.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java</url>
-          <line>51</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/ConnectionTests.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/weare/testing/UserPage.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="35" />
+          <url>file://$PROJECT_DIR$/src/main/java/weare/testing/NewPostPage.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
