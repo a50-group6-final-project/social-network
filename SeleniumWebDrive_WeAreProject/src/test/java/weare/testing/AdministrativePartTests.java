@@ -1,6 +1,7 @@
 package weare.testing;
 
 import com.telerikacademy.pages.BasePage;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +13,6 @@ public class AdministrativePartTests extends BaseTestSetup {
     public void setup() {
         adminPage = new AdminPage();
     }
-
 
     @Test
     public void AdminRegistered_When_InputValidData() {
@@ -35,6 +35,8 @@ public class AdministrativePartTests extends BaseTestSetup {
 
         loginPage.loginUser(username, password);
         BasePage.assertElementPresent("weAre.basePage.goToAdminZoneButton");
+        homePage.logoutUser();
+
     }
 
 
@@ -50,6 +52,7 @@ public class AdministrativePartTests extends BaseTestSetup {
         Thread.sleep(2000);
 
         BasePage.assertElementPresent("weAre.basePage.accountantSearchLink");
+        homePage.logoutUser();
     }
 
     @Test
@@ -57,13 +60,13 @@ public class AdministrativePartTests extends BaseTestSetup {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
-
+        homePage.navigateToPage();
         registerPage.userRegister(username, password, email);
         loginPage.loginUser(username, password);
         adminPage.adminDisableUser();
 
         BasePage.assertElementPresent("weAre.basePage.enableInput");
-
+        homePage.logoutUser();
 
     }
 
@@ -72,11 +75,12 @@ public class AdministrativePartTests extends BaseTestSetup {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
-
         registerPage.userRegister(username, password, email);
         loginPage.loginUser(username, password);
 
         adminPage.adminEditUserPost();
+        homePage.logoutUser();
+
     }
 
 
@@ -85,16 +89,23 @@ public class AdministrativePartTests extends BaseTestSetup {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
+        homePage.navigateToPage();
         registerPage.userRegister(username, password, email);
         loginPage.loginUser(username, password);
+        homePage.logoutUser();
+
     }
     @Test
     public void CommentEdited_When_AdminTriesToEditPost_And_ConfirmEdit() {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
+        homePage.navigateToPage();
+
         registerPage.userRegister(username, password, email);
         loginPage.loginUser(username, password);
+        homePage.logoutUser();
+
     }
 
 
@@ -106,7 +117,9 @@ public class AdministrativePartTests extends BaseTestSetup {
             String email = BaseTestSetup.generateRandomEmail();
             registerPage.userRegister(username, password, email);
             loginPage.loginUser(username, password);
-    }
+            homePage.logoutUser();
+
+        }
 
     @Test
     public void PersonalProfileEdited_When_AdminTriesToEditProfile_And_ConfirmChanges() {
@@ -119,6 +132,7 @@ public class AdministrativePartTests extends BaseTestSetup {
         adminPage.adminEditPersonalProfile();
         BasePage.assertElementPresent("weAre.BasePage.firstName");
         BasePage.assertElementPresent("weAre.BasePage.lastName");
+        homePage.logoutUser();
 
 
     }

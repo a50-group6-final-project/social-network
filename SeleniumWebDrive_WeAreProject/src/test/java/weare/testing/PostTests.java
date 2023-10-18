@@ -16,9 +16,9 @@ public class PostTests extends BaseTestSetup {
     static UserRegister userToRegister;
     static int registeredUserId;
     static Cookies cookies;
-    String postContent;
-    String postContentUpdate;
-    PostModel[] postsList;
+    static String postContent;
+    static String postContentUpdate;
+    static PostModel[] postsList;
 
     @BeforeAll
     public static void setup() {
@@ -32,6 +32,7 @@ public class PostTests extends BaseTestSetup {
         LoginPage.loginUser(userToRegister.username, userToRegister.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
 
+        postContentUpdate = DataGenerator.generateUniqueContentPost();
     }
 
     @BeforeEach
@@ -61,7 +62,6 @@ public class PostTests extends BaseTestSetup {
         //TODO: fix url
         postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
         postPage.navigateToPage();
-        postContentUpdate = DataGenerator.generateUniqueContentPost();
         postPage.update(postContentUpdate, "Public", postsList[0].postId);
 
         postPage.assertNavigatedUrl();
@@ -75,6 +75,9 @@ public class PostTests extends BaseTestSetup {
     @Test
     @Order(3)
     public void likePublicPost() {
+        latestPostsPage.navigateToPage();
+    latestPostsPage.assertElementPresent(String.format(getUIMappingByKey("weAre.latestPostsPage.likeButton"), postsList[0].postId));
+        System.out.println(postsList[0].postId);
     }
 
     @Test
