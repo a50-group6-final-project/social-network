@@ -6,6 +6,7 @@ import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import models.Skill;
 
+import static Utils.Constants.APPLICATION_JSON;
 import static Utils.Endpoints.*;
 
 public class SkillController {
@@ -14,7 +15,7 @@ public class SkillController {
         String bodySkillString = Serializer.convertObjectToJsonString(model);
         Response response = RestAssured.given().baseUri(BASE_URL)
                 .cookies(cookies)
-                .contentType("application/json")
+                .contentType(APPLICATION_JSON)
                 .body(bodySkillString)
                 .when()
                 .post(SKILL_CREATE_ENDPOINT)

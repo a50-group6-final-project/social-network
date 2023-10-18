@@ -15,7 +15,7 @@ public class UserController {
          String bodyUserString = Serializer.convertObjectToJsonString(user);
 
         return RestAssured.given().baseUri(BASE_URL)
-                .contentType("application/json")
+                .contentType(APPLICATION_JSON)
                 .body(bodyUserString)
                 .when()
                 .post(USERS_ENDPOINT)
@@ -28,7 +28,7 @@ public class UserController {
         return RestAssured
                 .given()
                 .baseUri(BASE_URL)
-                .contentType("application/json")
+                .contentType(APPLICATION_JSON)
                 .body(bodyPageString)
                 .when()
                 .post(GET_USERS_BY_NAME_ENDPOINT);
@@ -46,7 +46,7 @@ public class UserController {
         String bodyUpdatedPersonalProfileString = Serializer.convertObjectToJsonString(userPersonal);
         return RestAssured.given()
                 .cookies(cookies)
-                .contentType("application/json")
+                .contentType(APPLICATION_JSON)
                 .pathParam("currentUserId", currentUserId)
                 .body(bodyUpdatedPersonalProfileString)
                 .when()
@@ -56,7 +56,7 @@ public class UserController {
         String bodyExpertiseProfileString = Serializer.convertObjectToJsonString(expertiseProfile);
         return RestAssured.given()
                 .baseUri(BASE_URL)
-                .contentType("application/json")
+                .contentType(APPLICATION_JSON)
                 .cookies(cookies)
                 .body(bodyExpertiseProfileString)
                 .when()
@@ -67,7 +67,7 @@ public class UserController {
     public static Response getUserById(String currentUsername, int currentUserId){
         return RestAssured.given()
                 .baseUri(BASE_URL)
-                .contentType("application/json")
+                .contentType(APPLICATION_JSON)
                 .queryParam("principal", currentUsername)
                 .when()
                 .get("/api/users/auth/" + currentUserId);
@@ -80,7 +80,7 @@ public class UserController {
         return RestAssured.given()
                 .baseUri(BASE_URL)
                 .cookies(cookies)
-                .contentType("application/json")
+                .contentType(APPLICATION_JSON)
                 .pathParam("currentUserId", currentUserId)
                 .body(bodyPageString)
                 .when()
