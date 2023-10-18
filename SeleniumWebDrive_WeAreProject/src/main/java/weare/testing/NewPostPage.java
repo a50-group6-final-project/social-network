@@ -9,7 +9,7 @@ public class NewPostPage extends BaseWeArePage {
         super(driver, "newPost.page");
     }
 
-    public void createPost(String title, String content, String visibility) {
+    public void createPost(String content, String visibility) {
         actions.waitForElementVisible("weAre.newPostPage.postVisibilityDropdown");
         actions.clickElement("weAre.newPostPage.postVisibilityDropdown");
         if (visibility.equals("Public")) {
@@ -18,8 +18,10 @@ public class NewPostPage extends BaseWeArePage {
             actions.clickElement("weAre.newPostPage.selectPrivate");
         }
         actions.waitForElementPresent("weAre.newPostPage.messageField");
-        actions.typeValueInField(title, "weAre.newPostPage.messageField");
+        actions.typeValueInField(content, "weAre.newPostPage.messageField");
         actions.clickElement("weAre.newPostPage.submitButton");
     }
+
+
 
 }

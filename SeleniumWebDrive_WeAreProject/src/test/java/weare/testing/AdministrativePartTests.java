@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 
 public class AdministrativePartTests extends BaseTestSetup {
 
-    private AdminPage adminPage;
 
     @BeforeEach
     public void setup() {
@@ -23,7 +22,7 @@ public class AdministrativePartTests extends BaseTestSetup {
 
         registerPage.userRegister(username, password, email);
 
-        BasePage.assertElementPresent("//a[@id='button']");
+        BasePage.assertElementPresent("weAre.basePage.buttonElement");
     }
 
     @Test
@@ -35,7 +34,7 @@ public class AdministrativePartTests extends BaseTestSetup {
         registerPage.userRegister(username, password, email);
 
         loginPage.loginUser(username, password);
-        BasePage.assertElementPresent("//a[normalize-space(text())='GO TO admin zone']");
+        BasePage.assertElementPresent("weAre.basePage.goToAdminZoneButton");
     }
 
 
@@ -50,7 +49,7 @@ public class AdministrativePartTests extends BaseTestSetup {
         adminPage.adminEditUserIndustrySelection();
         Thread.sleep(2000);
 
-        BasePage.assertElementPresent("//a[contains(@href, 'searchParam1=Accountant')]");
+        BasePage.assertElementPresent("weAre.basePage.accountantSearchLink");
     }
 
     @Test
@@ -63,7 +62,7 @@ public class AdministrativePartTests extends BaseTestSetup {
         loginPage.loginUser(username, password);
         adminPage.adminDisableUser();
 
-        BasePage.assertElementPresent("//input[@value='enable']");
+        BasePage.assertElementPresent("weAre.basePage.enableInput");
 
 
     }

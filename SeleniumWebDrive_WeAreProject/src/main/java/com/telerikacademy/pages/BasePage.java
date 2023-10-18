@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -62,5 +63,9 @@ public abstract class BasePage {
         } catch (TimeoutException e) {
             Assertions.fail(message);
         }
+    }
+
+    public static WebElement[] findElements(String locator) {
+        return driver.findElements(By.xpath(getUIMappingByKey(locator))).toArray(new WebElement[0]);
     }
 }

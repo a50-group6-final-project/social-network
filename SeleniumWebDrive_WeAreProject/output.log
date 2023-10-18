@@ -1,8 +1,0 @@
-2023-10-17 23:55:43,649 INFO  [main] Initializing WebDriver
-2023-10-17 23:55:43,658 INFO  [main] Initializing WebDriver
-2023-10-17 23:55:44,592 INFO  [main] Clicking on element weAre.privatePage.loginNavLink
-2023-10-17 23:55:44,961 INFO  [main] Clicking on element weAre.privatePage.loginButton
-2023-10-17 23:55:46,101 INFO  [main] Clicking on element weAre.privatePage.personalProfileButton
-2023-10-17 23:55:48,106 INFO  [main] Clicking on element weAre.privatePage.editButton
-2023-10-17 23:55:53,600 INFO  [main] Clicking on element weAre.privatePage.picturePrivacy
-2023-10-17 23:55:53,629 INFO  [main] Clicking on element weAre.privatePage.updateButtonFour

@@ -6,7 +6,6 @@ public class RegisterPage extends BaseWeArePage {
 
     public RegisterPage(WebDriver driver) {
         super(driver, "home.page");
-        this.driver = driver;
     }
 
     public void userRegister(String username, String password, String email) {
