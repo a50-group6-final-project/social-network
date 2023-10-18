@@ -10,7 +10,6 @@ public class UserPage extends BaseWeArePage {
     }
 
     public void editPersonalProfile(UserPersonal userPersonal) {
-
         actions.clickElement("//a[contains(@href, 'profile/editor')]");
         actions.waitForElementClickable("//div[@id='profile-personal']");
         actions.clearField("//input[@name='firstName']");

@@ -30,12 +30,15 @@ public class ConnectionTests extends BaseTestSetup {
         secondUserCookies = UserController.authenticatedAndFetchCookies(secondUser.username, secondUser.password);
         secondUserId = Integer.parseInt(responseSecondUser.asString().split(" ")[6]);
 
+
+    }
+    @Test
+    public void sendConnectionRequest(){
         loginPage.navigateToPage();
         LoginPage.loginUser(firstUser.username, firstUser.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
-    }
-    @Test
-    public void sendConnectionRequest(){};
+
+    };
 
     @Test
     public void approveConnectionRequest(){};
