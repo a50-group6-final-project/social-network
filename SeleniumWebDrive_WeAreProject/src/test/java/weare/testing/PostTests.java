@@ -76,8 +76,11 @@ public class PostTests extends BaseTestSetup {
     @Order(3)
     public void likePublicPost() {
         latestPostsPage.navigateToPage();
-    latestPostsPage.assertElementPresent(String.format(getUIMappingByKey("weAre.latestPostsPage.likeButton"), postsList[0].postId));
-        System.out.println(postsList[0].postId);
+        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
+
+        latestPostsPage.assertPostIsPresent(postsList[0].content);
+        latestPostsPage.likePost(postsList[0].postId);
+        latestPostsPage.assertPostIsLiked(postsList[0].postId);
     }
 
     @Test
@@ -131,6 +134,11 @@ public class PostTests extends BaseTestSetup {
     @Test
     @Order(7)
     public void dislikePrivatePost() {
+        latestPostsPage.navigateToPage();
+        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
+        latestPostsPage.assertPostIsPresent(postsList[0].content);
+        latestPostsPage.likePost(postsList[0].postId);
+        latestPostsPage.assertPostDisliked(postsList[0].postId);
     }
 
     @Test

@@ -43,6 +43,11 @@ public class UserActions {
         WebElement element = driver.findElement(By.xpath(locator));
         element.click();
     }
+    public WebElement getElement(String key, Object... arguments){
+        String locator = getLocatorValueByKey(key, arguments);
+        LOGGER.info("Getting element " + key);
+        return driver.findElement(By.xpath(locator));
+    }
 
     public void typeValueInField(String value, String field, Object... fieldArguments) {
         String locator = getLocatorValueByKey(field, fieldArguments);
@@ -98,6 +103,7 @@ public class UserActions {
     public void waitForElementClickable(String locatorKey, Object... arguments) {
         waitForElementToBeClickableUntilTimeout(locatorKey, defaultTimeout, arguments);
     }
+
 
     //############# WAITS #########
     public void waitForElementPresent(String locator, Object... arguments) {
@@ -182,4 +188,6 @@ public class UserActions {
             Assertions.fail("Element with locator: '" + xpath + "' was not found.");
         }
     }
+
+
 }

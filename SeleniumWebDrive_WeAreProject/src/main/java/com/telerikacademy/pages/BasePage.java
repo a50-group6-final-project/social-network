@@ -19,10 +19,12 @@ public abstract class BasePage {
     protected String url;
     protected static WebDriver driver;
     public static UserActions actions;
+    protected static WebDriverWait wait;
 
     public BasePage(WebDriver driver, String urlKey) {
         String pageUrl = getConfigPropertyByKey(urlKey);
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         this.url = pageUrl;
         actions = new UserActions();
     }
@@ -51,6 +53,7 @@ public abstract class BasePage {
     }
 
     public static void assertElementPresent(String locator) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(getUIMappingByKey(locator))));
         Assertions.assertNotNull(driver.findElement(By.xpath(getUIMappingByKey(locator))),
                 format("Element with %s doesn't present.", locator));
     }
