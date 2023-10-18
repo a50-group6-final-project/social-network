@@ -14,6 +14,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.COMMENT_SUCCESS_MESSAGE;
+import static Utils.Constants.CONTENT_MISMATCH_MESSAGE;
 import static org.testng.Assert.assertEquals;
 
 public class FindOneCommentOfAPost extends BaseTestSetup {
@@ -33,7 +35,7 @@ public class FindOneCommentOfAPost extends BaseTestSetup {
             Response response = PostController.createPost(cookies, createPost);
 
             createdPost = response.as(PostModel.class);
-            assertEquals(createdPost.content, uniqueContent, "Content does not match.");
+            assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
 
             postId = createdPost.postId;
             System.out.println("Successfully created a new post with Id" + " " + postId);
@@ -47,7 +49,7 @@ public class FindOneCommentOfAPost extends BaseTestSetup {
             isResponse200(response);
 
             createdComment = response.as(CommentModel.class);
-            System.out.println("Successfully created a new comment with Id" + " " + createdComment.commentId);
+            System.out.println(COMMENT_SUCCESS_MESSAGE  + " " + createdComment.commentId);
             isCommentDeleted = false;
         }
     }

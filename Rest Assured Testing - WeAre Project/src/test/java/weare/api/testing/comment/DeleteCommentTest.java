@@ -13,6 +13,8 @@ import models.UserRegister;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.CONTENT_MISMATCH_MESSAGE;
+import static Utils.Constants.POST_SUCCESS_MESSAGE;
 import static org.testng.Assert.assertEquals;
 
 public class DeleteCommentTest extends BaseTestSetup {
@@ -33,9 +35,9 @@ public class DeleteCommentTest extends BaseTestSetup {
             Response response = PostController.createPost(cookies, createPost);
 
             createdPost = response.as(PostModel.class);
-            assertEquals(createdPost.content, uniqueContent, "Content does not match.");
+            assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE );
             postId = createdPost.postId;
-            System.out.println("Successfully created a new post with Id" + " " + postId);
+            System.out.println(POST_SUCCESS_MESSAGE  + " " + postId);
             isDeletedPost = false;
         }
         if (isCommentDeleted) {
@@ -45,7 +47,7 @@ public class DeleteCommentTest extends BaseTestSetup {
             isResponse200(response);
 
             createdComment = response.as(CommentModel.class);
-            System.out.println("Successfully created a new comment with Id" + " " + createdComment.commentId);
+            System.out.println(POST_SUCCESS_MESSAGE  + " " + createdComment.commentId);
             isCommentDeleted = false;
         }
     }
