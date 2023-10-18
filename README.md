@@ -69,12 +69,12 @@ newman run "WeAre_Social Network Project.postman_collection.json" -e "Rest-contr
 
 <a id="selenium-webdriver-for-frontend-testing"></a>
 
-### 3. Selenium WebDriver for Frontend Testing
+## 3. Selenium WebDriver for Frontend Testing
 We employ Selenium WebDriver as our primary tool for executing end-to-end frontend tests, validating the functionality and responsiveness of our web applications.
 
 <a id="performance-testing"></a>
 
-### 4. Performance Testing
+## 4. Performance Testing
 For ensuring optimal user experience, we conduct performance tests to measure and optimize the responsiveness, scalability, and stability of our system under different loads.
 
 
