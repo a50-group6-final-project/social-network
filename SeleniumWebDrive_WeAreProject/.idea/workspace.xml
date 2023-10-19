@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="refactor and clean code">
+    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="Refactoring code according to test naming convention">
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/RegisterUserTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/RegisterUserTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/UpdateUserExpertiseTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/UpdateUserExpertiseTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/UpdateUserPersonalProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/UpdateUserPersonalProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/AdminPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/AccessToPrivatePageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/AccessToPrivatePageTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/AccessToPublicPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/AccessToPublicPageTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/ConnectionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/ConnectionTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" afterDir="false" />
     </list>
@@ -333,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697660451207</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Refactoring code according to test naming convention">
+      <created>1697720824138</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1697720824138</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +381,8 @@
     <MESSAGE value="update and refactor" />
     <MESSAGE value="finish ConnectionTests" />
     <MESSAGE value="refactor and clean code" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor and clean code" />
+    <MESSAGE value="Refactoring code according to test naming convention" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring code according to test naming convention" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -403,12 +413,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
-          <line>98</line>
+          <line>109</line>
           <option name="timeStamp" value="61" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
-          <line>66</line>
+          <line>77</line>
           <option name="timeStamp" value="62" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

@@ -29,7 +29,7 @@ public class AccessToPublicPageTests extends BaseTestSetup {
         privatePage.navigateToPage();
     }
     @Test
-    public void UpdatePersonalInformation() {
+    public void PersonalInformationUpdated_When_ClickEditProfile() {
 
         UserPersonal userPersonal = ModelGenerator.generateUserPersonalModel();
         privatePage.updatePersonalInformation(userPersonal);
@@ -38,7 +38,7 @@ public class AccessToPublicPageTests extends BaseTestSetup {
     }
 
     @Test
-    public void accessToPublicPage() {
+    public void AccessToPublicPage_When_UserClicksHomeButton() {
 
         publicPage = new PublicPage(driver,String.format("http://localhost:8081/"));
         publicPage.navigateToPage();
@@ -47,7 +47,7 @@ public class AccessToPublicPageTests extends BaseTestSetup {
 
     }
     @Test
-    public void searchForAProfileByUsername() {
+    public void ProfileFoundByUsername_When_UserEntersNameInSearch() {
         UserPersonal userPersonal = ModelGenerator.generateUserPersonalModel();
 
         publicPage = new PublicPage(driver,String.format("http://localhost:8081/"));
@@ -57,7 +57,7 @@ public class AccessToPublicPageTests extends BaseTestSetup {
     }
 
     @Test
-    public void searchForAProfileByInvalidUsername() {
+    public void ProfileNotDisplayed_When_TrySearchingWithInvalidUsername () {
         publicPage = new PublicPage(driver,String.format("http://localhost:8081/"));
         publicPage.navigateToPage();
 
