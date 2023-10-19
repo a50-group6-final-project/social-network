@@ -79,4 +79,11 @@ public class Constants {
 
     public static final String STATUS_CODE_MESSAGE = "The status code is: %s";
 
+    public static final String FETCHED_COMMENTS_MESSAGE = "Successfully fetched all comments of post with Id %s successfully.";
+    public static final String SENDER_NAME_MISMATCH_MESSAGE = "Sender name does not match!";
+    public static final String RECEIVER_NAME_MISMATCH_MESSAGE = "Receiver name does not match!";
+
+    public static final String FETCH_ONE_COMMENT_SUCCESS_MESSAGE = "Successfully fetched one comment with Id %s of post with Id %s successfully.";
+
+
 }

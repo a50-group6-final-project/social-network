@@ -48,7 +48,7 @@ public class FindOneCommentOfAPost extends BaseTestSetup {
             isResponse200(response);
 
             createdComment = response.as(CommentModel.class);
-            System.out.println(COMMENT_SUCCESS_MESSAGE  + " " + createdComment.commentId);
+            System.out.println(COMMENT_SUCCESS_MESSAGE + " " + createdComment.commentId);
             isCommentDeleted = false;
         }
     }
@@ -61,18 +61,18 @@ public class FindOneCommentOfAPost extends BaseTestSetup {
         isResponse200(response);
 
         CommentModel comment = response.as(CommentModel.class);
-        Assert.assertEquals(comment.content, createdComment.content, "Content does not match.");
-        System.out.println("Successfully fetched one comment with Id" + " " + createdComment.commentId + " " + "of post with Id" + " " + postId + " " + "successfully.");
+        Assert.assertEquals(comment.content, createdComment.content, CONTENT_MISMATCH_MESSAGE);
+        System.out.println(String.format(FETCH_ONE_COMMENT_SUCCESS_MESSAGE, createdComment.commentId, postId));
     }
 
     @AfterClass
-    public void tearDown(){
-        if (!isDeletedPost){
+    public void tearDown() {
+        if (!isDeletedPost) {
             PostController.deletePost(cookies, createdPost.postId);
             System.out.println(DELETE_POST_SUCCESS_MESSAGE + " " + createdPost.postId);
             isDeletedPost = true;
         }
-        if(!isCommentDeleted){
+        if (!isCommentDeleted) {
             CommentController.deleteComment(cookies, createdComment.commentId);
             System.out.println(DELETE_COMMENT_ID_SUCCESS_MESSAGE + " " + createdPost.postId);
             isCommentDeleted = true;

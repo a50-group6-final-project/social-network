@@ -61,9 +61,9 @@ public class FindAllCommentsOfAPost extends BaseTestSetup {
         isResponse200(response);
 
         CommentModel[] commentsList = response.as(CommentModel[].class);
-        Assert.assertTrue(commentsList.length >= 1, "The array size is more than or equal to 1");
-        Assert.assertNotNull(commentsList[0].content, "Content is null");
-        System.out.println("Successfully fetched all comments of post with Id" + " " + postId + " " + "successfully.");
+        Assert.assertTrue(commentsList.length >= 1, ARRAY_SIZE_MESSAGE);
+        Assert.assertNotNull(commentsList[0].content, CONTENT_IS_NULL_MESSAGE);
+        System.out.println(String.format(FETCHED_COMMENTS_MESSAGE, postId));
     }
 
     @AfterClass
