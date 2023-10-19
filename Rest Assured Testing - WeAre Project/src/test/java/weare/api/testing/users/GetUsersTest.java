@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import static utils.Constants.EMPTY_USER_LIST_MESSAGE;
 import static utils.Constants.USER_NOT_FOUND_MESSAGE;
 
-public class GetUsersTests extends BaseUserSetup {
+public class GetUsersTest extends BaseUserSetup {
 
 
     @Test()

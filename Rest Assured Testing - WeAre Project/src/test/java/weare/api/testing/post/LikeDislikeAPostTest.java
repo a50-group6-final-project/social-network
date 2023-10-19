@@ -16,7 +16,6 @@ import org.testng.annotations.Test;
 import static utils.Constants.*;
 
 public class LikeDislikeAPostTest extends BaseTestSetup {
-    PostModelLikeDislike editPost;
 
     @BeforeClass
     public void PostCreated_When_InputValidNumberOfCharactersAndClickCreatePostButton() {

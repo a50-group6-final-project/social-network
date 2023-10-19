@@ -17,7 +17,7 @@ import org.testng.annotations.Test;
 import static utils.Constants.*;
 import static org.testng.Assert.assertEquals;
 
-public class FindOneCommentOfAPost extends BaseTestSetup {
+public class FindOneCommentOfAPostTest extends BaseTestSetup {
     String uniqueContent;
 
     @BeforeClass

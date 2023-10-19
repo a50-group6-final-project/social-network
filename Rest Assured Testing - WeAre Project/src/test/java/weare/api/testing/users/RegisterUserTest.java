@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import static utils.Constants.REGISTER_SUCCESS_MESSAGE;
 
-public class RegisterUserTests extends BaseUserSetup {
+public class RegisterUserTest extends BaseUserSetup {
     @Test
     public void UserRegistration_When_InputValidData() {
         userToRegister = ModelGenerator.generateUserRegisterModel();

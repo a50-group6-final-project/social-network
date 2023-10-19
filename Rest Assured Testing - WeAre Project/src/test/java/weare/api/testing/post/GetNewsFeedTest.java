@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import static utils.Constants.*;
 
 
-public class GetNewsFeed extends BaseTestSetup {
+public class GetNewsFeedTest extends BaseTestSetup {
 
     @BeforeClass
     public void setup() {
@@ -29,6 +29,7 @@ public class GetNewsFeed extends BaseTestSetup {
         Response response = PostController.createPost(cookies, createPost);
         createdPost = response.as(Post.class);
     }
+
     @Test
     public void AllPostsRetrieved_When_ClickGetAllPostsButton() {
         Response response = PostController.getNewsFeed(cookies);

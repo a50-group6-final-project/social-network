@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import static utils.Constants.*;
 
-public class GetProfilePostsTests extends BaseUserSetup {
+public class GetProfilePostsTest extends BaseUserSetup {
     Post postToCreate;
     Post post;
 

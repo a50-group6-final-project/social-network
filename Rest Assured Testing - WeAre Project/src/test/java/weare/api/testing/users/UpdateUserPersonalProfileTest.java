@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import static utils.Constants.*;
 
-public class UpdateUserPersonalProfile extends BaseUserSetup {
+public class UpdateUserPersonalProfileTest extends BaseUserSetup {
     @BeforeClass
     public void setup() {
         if(isRegistered == false){

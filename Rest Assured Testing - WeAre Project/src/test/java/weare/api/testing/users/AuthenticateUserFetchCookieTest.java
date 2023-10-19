@@ -11,7 +11,7 @@ import static utils.Constants.*;
 import static utils.Endpoints.AUTHENTICATE_ENDPOINT;
 import static utils.Endpoints.BASE_URL;
 
-public class AuthenticateUserFetchCookie extends BaseUserSetup {
+public class AuthenticateUserFetchCookieTest extends BaseUserSetup {
 
 
     @BeforeClass

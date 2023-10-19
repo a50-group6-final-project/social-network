@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import static utils.Constants.*;
 
-public class GetUserByName extends BaseTestSetup {
+public class GetUserByNameTest extends BaseTestSetup {
 
     @BeforeClass
     public void setup() {

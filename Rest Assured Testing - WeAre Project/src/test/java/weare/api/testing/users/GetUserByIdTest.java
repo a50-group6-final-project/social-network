@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import static utils.Constants.*;
 
-public class GetUserByIdTests extends BaseUserSetup {
+public class GetUserByIdTest extends BaseUserSetup {
 
     @BeforeClass
     public void setup() {

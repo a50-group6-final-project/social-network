@@ -11,7 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class CreateSkillTests extends BaseTestSetup {
+public class CreateSkillTest extends BaseTestSetup {
     @BeforeClass
     public void setup() {
         if (!isRegistered) {

@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import static utils.Constants.ARRAY_SIZE_MESSAGE;
 
-public class GetUserRequestsTests extends BaseConnectionSetup {
+public class GetUserRequestsTest extends BaseConnectionSetup {
 
     Response sentRequestResponse;
 

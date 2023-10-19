@@ -10,7 +10,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class UpdateSkillTests extends BaseTestSetup {
+public class UpdateSkillTest extends BaseTestSetup {
 
     @BeforeClass
     public void setup() {

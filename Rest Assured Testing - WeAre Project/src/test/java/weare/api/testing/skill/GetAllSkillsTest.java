@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import static utils.Constants.EMPTY_SKILLS_LIST_MESSAGE;
 import static utils.Constants.SKILL_NOT_FOUND_MESSAGE_FORMAT;
 
-public class GetAllSkillsTests extends BaseTestSetup {
+public class GetAllSkillsTest extends BaseTestSetup {
 
     @BeforeClass
     public void setup() {

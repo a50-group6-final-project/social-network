@@ -9,7 +9,7 @@ import models.UserRegister;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class DeleteSkillTests extends BaseTestSetup {
+public class DeleteSkillTest extends BaseTestSetup {
     @BeforeClass
     public void setup() {
         if (!isRegistered) {
