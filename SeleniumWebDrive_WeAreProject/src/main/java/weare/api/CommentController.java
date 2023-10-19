@@ -17,7 +17,7 @@ public class CommentController {
                 .contentType("application/json")
                 .body(bodyCommentString)
                 .when()
-                .post(CREATЕ_COMMENT_ENDPOINT);
+                .post(CREATE_COMMENT_ENDPOINT);
     }
 
     public static Response deleteComment(Cookies cookies, int commentId) {

@@ -17,7 +17,7 @@ public class PostController {
                 .contentType("application/json")
                 .body(bodyPostString)
                 .when()
-                .post(CREATЕ_POST_ENDPOINT);
+                .post(CREATE_POST_ENDPOINT);
     }
 
     public static Response deletePost(Cookies cookies, int postId) {

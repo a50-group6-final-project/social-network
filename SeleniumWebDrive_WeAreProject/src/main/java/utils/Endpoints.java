@@ -7,12 +7,12 @@ public class Endpoints {
     public static final String USERS_ENDPOINT = "/api/users/";
 
     public static final String GET_ALL_POSTS_ENDPOINT = "/api/post/";
-    public static final String CREATЕ_POST_ENDPOINT = "/api/post/auth/creator";
+    public static final String CREATE_POST_ENDPOINT = "/api/post/auth/creator";
     public static final String LIKE_POST_ENDPOINT = "/api/post/auth/likesUp";
     public static final String DELETE_POST_ENDPOINT = "/api/post/auth/manager";
     public static final String EDIT_POST_ENDPOINT = "/api/post/auth/editor?postId=";
 
-    public static final String CREATЕ_COMMENT_ENDPOINT = "/api/comment/auth/creator";
+    public static final String CREATE_COMMENT_ENDPOINT = "/api/comment/auth/creator";
     public static final String EDIT_COMMENT_ENDPOINT = "/api/comment/auth/editor";
     public static final String LIKE_COMMENT_ENDPOINT = "/api/comment/auth/likesUp";
     public static final String DELETE_COMMENT_ENDPOINT = "/api/comment/auth/manager";
