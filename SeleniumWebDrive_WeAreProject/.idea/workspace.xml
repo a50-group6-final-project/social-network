@@ -5,26 +5,111 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="refactoring">
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/CreateCommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/CreateCommentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/DeleteCommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/DeleteCommentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/EditCommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/EditCommentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllCommentsOfAPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllCommentsOfAPost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllCommentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllCommentsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindOneCommentOfAPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindOneCommentOfAPost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/LikeDislikeCommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/LikeDislikeCommentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/ApproveRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/ApproveRequestTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/GetUserRequestsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/GetUserRequestsTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/SendRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/SendRequestTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/026ceceb-9aeb-472d-a9c0-245de377f318-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/0c94c1ed-240f-4acd-aa94-3a6a6ee2070c-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/0cbb0352-4b0a-4788-aec9-07c007d80eae-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/16a0f7d3-a4d5-43bf-8c59-fb4f65cc7aba-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/1bbf0361-b019-4a14-84c6-90b44eee31bd-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/1da1ef2a-f50f-4f21-942f-05be2d6f1edc-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/1e021d16-60a8-41a8-a0db-f9824b89812b-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/2551ad89-4acf-4309-b3f3-4bca4e3ae72e-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/264e4615-688c-4d24-805d-00af60e7f24f-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/2a1859eb-d5e3-41ff-a8f5-6dafb19c76bd-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/30c13e65-c9dd-4b2e-93c6-5b2d6549d5d0-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/323ff6d8-0cad-4828-966b-7f5f5cf74e23-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/38dce1b9-5541-4a7e-811c-0e73a924afbd-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/3964feff-29e6-419e-a41a-3c6775f62432-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/3c5ae008-b046-4bfd-9246-3347cc0b5eb8-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/43a78641-f208-49b5-99b6-934d4adf047c-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/451b8160-8364-4e29-abb2-a38063e67b20-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/4a158229-26d3-4aa9-88ee-7674d7d85d45-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/4c6a37b4-15fa-4385-9e0a-c9a79042b0e0-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/4c7fc030-d990-4f32-b845-0c4e21884c9b-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/4cd9d2ee-7944-4f1e-b76d-c185a68c5b2d-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/4ce89a97-47e1-448b-8a22-7f53d5b112ca-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/4f0599be-a24f-4be4-98eb-3d31fd59b55b-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/518ef34f-4d6b-4bb6-bcb0-716a7640a481-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/59ac05a0-e135-490f-9d02-391177951eb8-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/5b14309d-5983-43ff-9d89-15e5891a404f-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/5beaa6a8-4b50-4355-b077-4af4d20fdf43-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/5c89c688-b220-4ba6-aa69-7858ed4af0f1-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/60b66307-58cb-4685-853b-52599474e71b-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/697bf7c2-d2ac-4212-9bf0-a4280b2aa302-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/6e05c122-23c5-44cb-8941-8c4f66f34206-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/6e60c662-2f16-4c07-9d5c-fa51261c3aef-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/71fc118d-9da9-4cb8-b265-8b41d9e92b44-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/792856da-cc86-4627-9811-c35b59a6d6ba-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/7dfbaafa-b7ff-4f4d-9d6b-5d6e87df6622-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/8831743b-f1a3-415d-be19-9a063d2f4ca7-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/8acaacb3-88cc-4b16-a5e1-4a99d4fd83ee-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/8b53d5f6-a528-4159-b9a2-8e2cfe4f0515-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/8f7b7ec2-0102-41f7-9a19-3bf2a74f7806-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/968d1a77-3b5d-4bf6-8a14-15203f61e2d0-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/99323f85-4126-4a5a-b432-57f243460400-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/a007b204-f197-4307-9a25-4169b707590d-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/a06efda8-6102-4bc4-ac9e-be900426e29e-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/a3aa0b0b-6c45-44aa-8183-d6b770125b17-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/a5bd2904-d42a-4797-a9d7-88edcce14138-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/aaa49a96-e90f-481b-8b02-7c29c9918399-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/bcaae69d-d3ed-4a42-903d-730c44165fb7-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/bd315653-1c67-4130-bfaf-cbeb0debc2d6-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/c2f35c86-82af-43af-a632-fd9980029076-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/c41353c7-ebfd-47de-b875-e3cabf852945-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/c449abcc-ef1e-4716-990d-836f208fb006-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/cab6b4e3-1d36-4eac-9f8f-d65cf058cf98-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/cd31a024-af12-4284-86d2-2f3d6fc70cdf-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/cdad43aa-99f0-4d1e-8294-2ec6a22f75d6-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/d12bf630-dcd1-4e15-bf3c-76f835dff40f-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/d866290c-6621-4313-b76e-065cfe7708fd-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/d9bd1400-d8aa-4676-b14b-c2c4604b553e-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/db62c509-688d-42d5-87bc-df11e1cbe3e9-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/e3cad08e-a2ae-40f1-af8a-c39a635e6135-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/e8296117-263a-4a86-a7b6-c2a06929cc28-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/eba2c591-3d0e-44c3-9974-84a9c4941a42-container.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/ec93a324-e1e2-4942-be07-49a065dfce6a-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/f1e30a59-ba43-46f4-835b-9b62ee288dd3-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/f27e12d4-1276-44be-8c70-f6dc9c332f18-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/ffd7c664-a409-4e1e-81c3-d4b8d364f839-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/fff830e9-ae84-403e-b093-07dd6be7c610-result.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/Utils/DataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/main/java/Utils/DataGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/CreatePostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/CreatePostTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/DeleteAPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/DeleteAPostTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/EditPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/EditPostTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/GetNewsFeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/GetNewsFeed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/LikeDislikeAPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/LikeDislikeAPostTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/GetProfilePostsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/users/GetProfilePostsTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/Surefire suite/Surefire test.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/Surefire suite/Surefire test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/Surefire suite/Surefire test.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/Surefire suite/Surefire test.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/Surefire suite/testng-failed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/Surefire suite/testng-failed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/TEST-TestSuite.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/TEST-TestSuite.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/TestSuite.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/TestSuite.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/emailable-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/emailable-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.comment.CreateCommentTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.comment.CreateCommentTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.comment.DeleteCommentTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.comment.DeleteCommentTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.comment.EditCommentTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.comment.EditCommentTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.comment.FindAllCommentsTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.comment.FindAllCommentsTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.comment.LikeDislikeCommentTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.comment.LikeDislikeCommentTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.connection.ApproveRequestTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.connection.ApproveRequestTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.connection.GetUserRequestsTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.connection.GetUserRequestsTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.connection.SendRequestTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.connection.SendRequestTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.post.CreatePostTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.post.CreatePostTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.post.DeleteAPostTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.post.DeleteAPostTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.post.EditPostTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.post.EditPostTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.post.LikeDislikeAPostTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.post.LikeDislikeAPostTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.skill.CreateSkillTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.skill.CreateSkillTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.skill.DeleteSkillTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.skill.DeleteSkillTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.skill.GetAllSkillsTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.skill.GetAllSkillsTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.skill.GetOneSkillTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.skill.GetOneSkillTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.skill.UpdateSkillTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.skill.UpdateSkillTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.users.GetProfilePostsTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.users.GetProfilePostsTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.users.GetUserByIdTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.users.GetUserByIdTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.users.GetUsersTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.users.GetUsersTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.users.RegisterUserTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.users.RegisterUserTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.users.UpdateUserExpertiseTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/junitreports/TEST-weare.api.testing.users.UpdateUserExpertiseTests.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/old/Surefire suite/classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/old/Surefire suite/classes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/old/Surefire suite/methods-alphabetical.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/old/Surefire suite/methods-alphabetical.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/old/Surefire suite/methods.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/old/Surefire suite/methods.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/testng-failed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/testng-failed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/testng-results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/target/surefire-reports/testng-results.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/AccessToPublicPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/AccessToPublicPageTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,23 +157,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.LoginTests.LoginFailed_When_TryToLoginWithWrongPassword">
-    <configuration name="AccessToPublicPageTests.AccessToPublicPage_When_UserClicksHomeButton" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.AccessToPublicPageTests" />
-      <option name="METHOD_NAME" value="AccessToPublicPage_When_UserClicksHomeButton" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.AdministrativePartTests">
     <configuration name="AdministrativePartTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
@@ -104,7 +173,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdministrativePartTests.IndustrySelected_When_ClickDropdownAndChooseOption" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdministrativePartTests.PostDeleted_When_AdminTriesToEditPost_And_ConfirmEdit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -114,13 +183,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
       <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
-      <option name="METHOD_NAME" value="IndustrySelected_When_ClickDropdownAndChooseOption" />
+      <option name="METHOD_NAME" value="PostDeleted_When_AdminTriesToEditPost_And_ConfirmEdit" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdministrativePartTests.PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -129,13 +198,29 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.LoginTests" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
+      <option name="METHOD_NAME" value="PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PostTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.PostTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTests.LoginFailed_When_TryToLoginWithWrongPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PostTests.PrivatePostDeleted_When_UserDeletesPrivatePost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -144,8 +229,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.LoginTests" />
-      <option name="METHOD_NAME" value="LoginFailed_When_TryToLoginWithWrongPassword" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.PostTests" />
+      <option name="METHOD_NAME" value="PrivatePostDeleted_When_UserDeletesPrivatePost" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -153,11 +238,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LoginTests.LoginFailed_When_TryToLoginWithWrongPassword" />
-        <item itemvalue="JUnit.LoginTests" />
-        <item itemvalue="JUnit.AccessToPublicPageTests.AccessToPublicPage_When_UserClicksHomeButton" />
         <item itemvalue="JUnit.AdministrativePartTests" />
-        <item itemvalue="JUnit.AdministrativePartTests.IndustrySelected_When_ClickDropdownAndChooseOption" />
+        <item itemvalue="JUnit.PostTests" />
+        <item itemvalue="JUnit.PostTests.PrivatePostDeleted_When_UserDeletesPrivatePost" />
+        <item itemvalue="JUnit.AdministrativePartTests.PostDeleted_When_AdminTriesToEditPost_And_ConfirmEdit" />
+        <item itemvalue="JUnit.AdministrativePartTests.PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit" />
       </list>
     </recent_temporary>
   </component>
@@ -351,14 +436,7 @@
       <option name="project" value="LOCAL" />
       <updated>1697720824138</updated>
     </task>
-    <task id="LOCAL-00025" summary="refactoring">
-      <created>1697732115840</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1697732115840</updated>
-    </task>
-    <option name="localTasksCounter" value="26" />
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,8 +476,7 @@
     <MESSAGE value="finish ConnectionTests" />
     <MESSAGE value="refactor and clean code" />
     <MESSAGE value="Refactoring code according to test naming convention" />
-    <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring code according to test naming convention" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

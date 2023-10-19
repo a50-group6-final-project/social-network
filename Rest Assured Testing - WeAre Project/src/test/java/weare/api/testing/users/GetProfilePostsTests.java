@@ -24,6 +24,7 @@ public class GetProfilePostsTests extends BaseUserSetup {
         }
 
         postToCreate = ModelGenerator.generatePostModel();
+        authenticateAndFetchCookies();
         Response postResponse = PostController.createPost(cookies, postToCreate);
         isResponse200(postResponse);
         post = postResponse.as(PostModel.class);

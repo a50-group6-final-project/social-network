@@ -1,13 +1,13 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 22, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 10.56 s <<< FAILURE! -- in TestSuite
-weare.api.testing.comment.FindAllCommentsTest.findAllComments_Successful -- Time elapsed: 0.040 s <<< FAILURE!
+Tests run: 22, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 49.82 s <<< FAILURE! -- in TestSuite
+weare.api.testing.comment.FindAllCommentsTest.findAllComments_Successful -- Time elapsed: 0.219 s <<< FAILURE!
 java.lang.AssertionError: The array size is more than or equal to 1 expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
 	at org.testng.Assert.assertTrue(Assert.java:57)
-	at weare.api.testing.comment.FindAllCommentsTest.findAllComments_Successful(FindAllCommentsTest.java:31)
+	at weare.api.testing.comment.FindAllCommentsTest.findAllComments_Successful(FindAllCommentsTest.java:33)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -42,7 +42,7 @@ java.lang.AssertionError: The array size is more than or equal to 1 expected [tr
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-weare.api.testing.users.GetUserByIdTests.getUserById_Successful -- Time elapsed: 0.017 s <<< FAILURE!
+weare.api.testing.users.GetUserByIdTests.getUserById_Successful -- Time elapsed: 0.230 s <<< FAILURE!
 java.lang.AssertionError: Incorrect status code. expected [200] but found [404]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
@@ -51,7 +51,7 @@ java.lang.AssertionError: Incorrect status code. expected [200] but found [404]
 	at org.testng.Assert.assertEquals(Assert.java:1419)
 	at org.testng.Assert.assertEquals(Assert.java:1383)
 	at base.BaseTestSetup.isResponse200(BaseTestSetup.java:52)
-	at weare.api.testing.users.GetUserByIdTests.getUserById_Successful(GetUserByIdTests.java:25)
+	at weare.api.testing.users.GetUserByIdTests.getUserById_Successful(GetUserByIdTests.java:27)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -86,7 +86,7 @@ java.lang.AssertionError: Incorrect status code. expected [200] but found [404]
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-weare.api.testing.users.UpdateUserExpertiseTests.updateUserExpertise_Successful -- Time elapsed: 0.169 s <<< FAILURE!
+weare.api.testing.users.UpdateUserExpertiseTests.UserSuccessfullyUpdatesExpertise_When_ExpertiseChanged -- Time elapsed: 0.621 s <<< FAILURE!
 java.lang.AssertionError: Incorrect status code. expected [200] but found [500]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
@@ -95,7 +95,7 @@ java.lang.AssertionError: Incorrect status code. expected [200] but found [500]
 	at org.testng.Assert.assertEquals(Assert.java:1419)
 	at org.testng.Assert.assertEquals(Assert.java:1383)
 	at base.BaseTestSetup.isResponse200(BaseTestSetup.java:52)
-	at weare.api.testing.users.UpdateUserExpertiseTests.updateUserExpertise_Successful(UpdateUserExpertiseTests.java:31)
+	at weare.api.testing.users.UpdateUserExpertiseTests.UserSuccessfullyUpdatesExpertise_When_ExpertiseChanged(UpdateUserExpertiseTests.java:33)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
