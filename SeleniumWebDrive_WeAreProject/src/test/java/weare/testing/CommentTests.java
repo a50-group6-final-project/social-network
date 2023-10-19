@@ -44,9 +44,7 @@ public class CommentTests extends BaseTestSetup {
 
     @Test
     @Order(1)
-    public void createComment() {
-
-
+    public void CommentCreated_When_UserCreatesComment() {
         createdComment = ModelGenerator.generateCommentModel(createdPost.postId, registeredUserId);
         postPage.createComment(createdComment);
         postPage.navigateToPage();
@@ -59,7 +57,7 @@ public class CommentTests extends BaseTestSetup {
 
     @Test
     @Order(2)
-    void likeComment() {
+    void CommentLiked_When_UserClicksOnLikeButton() {
         postPage.assertCommentPresent(createdComment);
         postPage.likeComment(comment.commentId);
         postPage.assertCommentIsLiked(comment.commentId);
@@ -71,7 +69,7 @@ public class CommentTests extends BaseTestSetup {
 
     @Test
     @Order(3)
-    public void editComment() {
+    public void CommentEdited_When_UserEditsComment() {
         String updateCommentString = DataGenerator.generateUniqueContentPost();
         postPage.assertCommentPresent(createdComment);
         postPage.editComment(comment.commentId, updateCommentString);
@@ -85,7 +83,7 @@ public class CommentTests extends BaseTestSetup {
     }
     @Test
     @Order(4)
-    void dislikeComment() {
+    void CommentDisliked_When_UserClicksOnDislikeButton() {
         postPage.assertCommentPresent(createdComment);
         postPage.dislikeComment(comment.commentId);
         postPage.assertCommentIsDisliked(comment.commentId);
@@ -96,7 +94,7 @@ public class CommentTests extends BaseTestSetup {
 
     @Test
     @Order(5)
-    public void deleteComment() {
+    public void CommentDeleted_When_UserDeletesComment() {
         postPage.assertCommentPresent(createdComment);
         postPage.deleteComment(comment.commentId);
         postPage.assertCommentIsDeleted();

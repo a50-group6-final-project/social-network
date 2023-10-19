@@ -31,7 +31,7 @@ public class ProfileTests extends BaseTestSetup {
     }
 
     @Test
-    public void updatePersonalProfile_withValidInput(){
+    public void PersonalProfileUpdated_When_UserUpdatesPersonalProfileWithValidInput(){
         System.out.println("Test");
 
         UserPersonal userPersonal = ModelGenerator.generateUserPersonalModel();
@@ -43,5 +43,5 @@ public class ProfileTests extends BaseTestSetup {
         userPage.assertBirthDateIsPresent(userPersonal.birthYear);
     }
 
-    public void updateExpertiseProfile_withValidInput(){};
+    public void ExpertiseProfileUpdated_When_UserUpdatesExpertiseProfileWithValidInput(){};
 }

@@ -21,7 +21,7 @@ public class LoginTests extends BaseTestSetup {
     }
 
     @Test
-    public void LoginFailed_When_TryToLogin_With_WrongPassword() {
+    public void LoginFailed_When_TryToLoginWithWrongPassword() {
         String username = BaseTestSetup.generateRandomUsername(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();

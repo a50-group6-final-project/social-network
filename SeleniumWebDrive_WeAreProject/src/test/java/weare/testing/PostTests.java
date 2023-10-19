@@ -41,7 +41,7 @@ public class PostTests extends BaseTestSetup {
 
     @Test
     @Order(1)
-    public void createPublicPost_withValidInput() {
+    public void PublicPostCreated_When_UserCreatesPublicPostWithValidInput() {
         newPostPage.navigateToPage();
         newPostPage.createPost(postContent, "Public");
 
@@ -56,7 +56,7 @@ public class PostTests extends BaseTestSetup {
 
     @Test
     @Order(2)
-    public void updatePublicPost_withValidInput() {
+    public void PublicPostUpdated_When_UserUpdatesPublicPostWithValidInput() {
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         //TODO: fix url
         postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
@@ -73,7 +73,7 @@ public class PostTests extends BaseTestSetup {
 
     @Test
     @Order(3)
-    public void likePublicPost() {
+    public void PublicPostLiked_When_UserLikesPublicPost() {
         latestPostsPage.navigateToPage();
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
 
@@ -84,7 +84,7 @@ public class PostTests extends BaseTestSetup {
 
     @Test
     @Order(4)
-    public void deletePublicPost() {
+    public void PublicPostDeleted_When_UserDeletesPublicPost() {
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         Assertions.assertEquals(true, postsList[0].mypublic, "Post is not public");
 
@@ -99,7 +99,7 @@ public class PostTests extends BaseTestSetup {
 
     @Test
     @Order(5)
-    public void createPrivatePost_withValidInput() {
+    public void PrivatePostCreated_When_UserCreatesPrivatePostWithValidInput() {
         newPostPage.navigateToPage();
         newPostPage.createPost(postContent, "Private");
 
@@ -113,7 +113,7 @@ public class PostTests extends BaseTestSetup {
 
     @Test
     @Order(6)
-    public void updatePrivatePost_withValidInput() {
+    public void PrivatePostUpdated_When_UserUpdatesPrivatePostWithValidInput() {
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
 
         postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
@@ -132,7 +132,7 @@ public class PostTests extends BaseTestSetup {
 
     @Test
     @Order(7)
-    public void dislikePrivatePost() {
+    public void PrivatePostDisliked_When_UserDislikesPrivatePost() {
         latestPostsPage.navigateToPage();
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         latestPostsPage.assertPostIsPresent(postsList[0].content);
@@ -142,7 +142,7 @@ public class PostTests extends BaseTestSetup {
 
     @Test
     @Order(8)
-    public void deletePrivatePost() {
+    public void PrivatePostDeleted_When_UserDeletesPrivatePost() {
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         Assertions.assertEquals(false, postsList[0].mypublic, "Post is not private");
 

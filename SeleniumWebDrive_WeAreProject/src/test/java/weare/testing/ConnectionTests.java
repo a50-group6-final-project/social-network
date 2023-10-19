@@ -44,7 +44,7 @@ public class ConnectionTests extends BaseTestSetup {
 
     @Test
     @Order(1)
-    public void sendConnectionRequest() {
+    public void ConnectionRequestSent_When_UserClicksOnSendRequestButton() {
         LoginPage.loginUser(firstUser.username, firstUser.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
 
@@ -63,7 +63,7 @@ public class ConnectionTests extends BaseTestSetup {
 
     @Test
     @Order(2)
-    public void approveConnectionRequest() {
+    public void ConnectionRequestApproved_When_UserClicksOnApproveButton() {
         LoginPage.loginUser(secondUser.username, secondUser.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
 
@@ -87,7 +87,7 @@ public class ConnectionTests extends BaseTestSetup {
 
     @Test
     @Order(3)
-    public void removeConnection() {
+    public void ConnectionRemoved_When_UserRemovesConnection() {
         LoginPage.loginUser(firstUser.username, firstUser.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
 
