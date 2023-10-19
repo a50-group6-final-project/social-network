@@ -1,15 +1,15 @@
 package weare.api.testing.users;
 
-import Utils.ModelGenerator;
+import utils.ModelGenerator;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.*;
-import static Utils.Endpoints.AUTHENTICATE_ENDPOINT;
-import static Utils.Endpoints.BASE_URL;
+import static utils.Constants.*;
+import static utils.Endpoints.AUTHENTICATE_ENDPOINT;
+import static utils.Endpoints.BASE_URL;
 
 public class AuthenticateUserFetchCookie extends BaseUserSetup {
 

@@ -1,7 +1,7 @@
 package weare.api.testing.post;
 
-import Utils.DataGenerator;
-import Utils.ModelGenerator;
+import utils.DataGenerator;
+import utils.ModelGenerator;
 import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
@@ -13,7 +13,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.*;
+import static utils.Constants.*;
 
 public class LikeDislikeAPostTest extends BaseTestSetup {
     PostModelLikeDislike editPost;

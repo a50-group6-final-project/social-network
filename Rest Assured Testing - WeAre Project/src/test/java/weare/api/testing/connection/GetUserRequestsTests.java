@@ -1,6 +1,6 @@
 package weare.api.testing.connection;
 
-import Utils.ModelGenerator;
+import utils.ModelGenerator;
 import api.ConnectionController;
 import io.restassured.response.Response;
 import models.ApproveRequest;
@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.ARRAY_SIZE_MESSAGE;
+import static utils.Constants.ARRAY_SIZE_MESSAGE;
 
 public class GetUserRequestsTests extends BaseConnectionSetup {
 

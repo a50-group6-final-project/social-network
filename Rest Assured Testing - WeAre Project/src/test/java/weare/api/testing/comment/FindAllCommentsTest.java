@@ -1,6 +1,6 @@
 package weare.api.testing.comment;
 
-import Utils.ModelGenerator;
+import utils.ModelGenerator;
 import api.CommentController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
@@ -10,7 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.*;
+import static utils.Constants.*;
 
 public class FindAllCommentsTest extends BaseTestSetup {
     @BeforeClass

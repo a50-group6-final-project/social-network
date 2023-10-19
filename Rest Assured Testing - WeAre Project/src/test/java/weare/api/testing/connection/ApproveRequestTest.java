@@ -1,13 +1,13 @@
 package weare.api.testing.connection;
 
-import Utils.ModelGenerator;
+import utils.ModelGenerator;
 import api.ConnectionController;
 import io.restassured.response.Response;
 import models.ApproveRequest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.STATUS_CODE_MESSAGE;
+import static utils.Constants.STATUS_CODE_MESSAGE;
 
 public class ApproveRequestTest extends BaseConnectionSetup {
     int requestId;

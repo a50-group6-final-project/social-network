@@ -1,6 +1,6 @@
 package weare.api.testing.users;
 
-import Utils.ModelGenerator;
+import utils.ModelGenerator;
 import base.BaseTestSetup;
 import models.UserPersonal;
 import models.UserProfile;

@@ -1,14 +1,14 @@
 package weare.api.testing.connection;
 
-import Utils.ModelGenerator;
+import utils.ModelGenerator;
 import api.ConnectionController;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.RECEIVER_NAME_MISMATCH_MESSAGE;
-import static Utils.Constants.SENDER_NAME_MISMATCH_MESSAGE;
+import static utils.Constants.RECEIVER_NAME_MISMATCH_MESSAGE;
+import static utils.Constants.SENDER_NAME_MISMATCH_MESSAGE;
 
 public class SendRequestTest extends BaseConnectionSetup {
 

@@ -1,6 +1,6 @@
 package weare.api.testing.skill;
 
-import Utils.ModelGenerator;
+import utils.ModelGenerator;
 import api.SkillController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
@@ -11,8 +11,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.EMPTY_SKILLS_LIST_MESSAGE;
-import static Utils.Constants.SKILL_NOT_FOUND_MESSAGE_FORMAT;
+import static utils.Constants.EMPTY_SKILLS_LIST_MESSAGE;
+import static utils.Constants.SKILL_NOT_FOUND_MESSAGE_FORMAT;
 
 public class GetAllSkillsTests extends BaseTestSetup {
 

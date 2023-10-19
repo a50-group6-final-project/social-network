@@ -1,12 +1,12 @@
 package weare.api.testing.users;
 
-import Utils.ModelGenerator;
+import utils.ModelGenerator;
 import api.UserController;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.REGISTER_SUCCESS_MESSAGE;
+import static utils.Constants.REGISTER_SUCCESS_MESSAGE;
 
 public class RegisterUserTests extends BaseUserSetup {
     @Test

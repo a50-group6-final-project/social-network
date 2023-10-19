@@ -1,7 +1,7 @@
 package weare.api.testing.post;
 
-import Utils.DataGenerator;
-import Utils.ModelGenerator;
+import utils.DataGenerator;
+import utils.ModelGenerator;
 import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;

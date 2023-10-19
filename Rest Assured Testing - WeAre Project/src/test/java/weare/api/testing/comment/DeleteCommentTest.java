@@ -1,7 +1,7 @@
 package weare.api.testing.comment;
 
-import Utils.DataGenerator;
-import Utils.ModelGenerator;
+import utils.DataGenerator;
+import utils.ModelGenerator;
 import api.CommentController;
 import api.PostController;
 import base.BaseTestSetup;
@@ -13,7 +13,7 @@ import models.UserRegister;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.*;
+import static utils.Constants.*;
 import static org.testng.Assert.assertEquals;
 
 public class DeleteCommentTest extends BaseTestSetup {

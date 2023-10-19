@@ -1,6 +1,6 @@
 package weare.api.testing.users;
 
-import Utils.ModelGenerator;
+import utils.ModelGenerator;
 import api.PostController;
 import api.UserController;
 import io.restassured.response.Response;
@@ -9,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.*;
+import static utils.Constants.*;
 
 public class GetProfilePostsTests extends BaseUserSetup {
     Post postToCreate;

@@ -1,14 +1,14 @@
 package api;
 
-import Utils.Serializer;
+import utils.Serializer;
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import models.Post;
 
-import static Utils.Constants.APPLICATION_JSON;
-import static Utils.Constants.POST_ID;
-import static Utils.Endpoints.*;
+import static utils.Constants.APPLICATION_JSON;
+import static utils.Constants.POST_ID;
+import static utils.Endpoints.*;
 
 public class PostController {
 

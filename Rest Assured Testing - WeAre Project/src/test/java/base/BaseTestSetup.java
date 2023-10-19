@@ -1,6 +1,6 @@
 package base;
 
-import Utils.ModelGenerator;
+import utils.ModelGenerator;
 import api.UserController;
 import io.restassured.RestAssured;
 import io.restassured.config.EncoderConfig;
@@ -10,8 +10,8 @@ import models.*;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 
-import static Utils.Endpoints.AUTHENTICATE_ENDPOINT;
-import static Utils.Endpoints.BASE_URL;
+import static utils.Endpoints.AUTHENTICATE_ENDPOINT;
+import static utils.Endpoints.BASE_URL;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.testng.Assert.assertEquals;
 

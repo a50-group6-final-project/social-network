@@ -1,13 +1,13 @@
 package weare.api.testing.connection;
 
-import Utils.ModelGenerator;
+import utils.ModelGenerator;
 import base.BaseTestSetup;
 import io.restassured.http.Cookies;
 import models.SendRequest;
 import models.UserRegister;
 import org.testng.annotations.BeforeClass;
 
-import static Utils.Constants.USER_SUCCESS_MESSAGE;
+import static utils.Constants.USER_SUCCESS_MESSAGE;
 
 public class BaseConnectionSetup extends BaseTestSetup {
     public Cookies senderCookies;

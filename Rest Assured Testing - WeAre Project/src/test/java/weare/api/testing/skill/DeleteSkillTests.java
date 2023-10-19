@@ -1,6 +1,6 @@
 package weare.api.testing.skill;
 
-import Utils.ModelGenerator;
+import utils.ModelGenerator;
 import api.SkillController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;

@@ -1,13 +1,13 @@
 package api;
 
-import Utils.Serializer;
+import utils.Serializer;
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import models.Comment;
 
-import static Utils.Constants.*;
-import static Utils.Endpoints.*;
+import static utils.Constants.*;
+import static utils.Endpoints.*;
 
 public class CommentController {
 
