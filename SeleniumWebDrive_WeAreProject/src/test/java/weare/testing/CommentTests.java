@@ -40,7 +40,7 @@ public class CommentTests extends BaseTestSetup {
     @BeforeEach
     public void beforeEach(TestInfo testInfo) {
         createCommentModel = ModelGenerator.generateCommentModel(createdPost.postId, registeredUserId);
-        if (!testInfo.getDisplayName().equals("createComment()")) {
+        if (!testInfo.getDisplayName().contains("createComment")) {
             comment = CommentController.createComment(cookies, createCommentModel).as(CommentModel.class);
             System.out.println("Comment with " + comment.commentId + " created");
         }
