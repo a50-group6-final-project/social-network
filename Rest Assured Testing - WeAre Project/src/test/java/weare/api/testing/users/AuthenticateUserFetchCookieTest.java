@@ -1,11 +1,11 @@
 package weare.api.testing.users;
 
-import utils.ModelGenerator;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import utils.ModelGenerator;
 
 import static utils.Constants.*;
 import static utils.Endpoints.AUTHENTICATE_ENDPOINT;

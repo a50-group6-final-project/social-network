@@ -1,7 +1,5 @@
 package weare.api.testing.post;
 
-import utils.DataGenerator;
-import utils.ModelGenerator;
 import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
@@ -10,6 +8,8 @@ import models.UserRegister;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import utils.DataGenerator;
+import utils.ModelGenerator;
 
 
 public class EditPostTest extends BaseTestSetup {

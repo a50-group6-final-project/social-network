@@ -1,10 +1,10 @@
 package weare.api.testing.users;
 
-import utils.ModelGenerator;
 import base.BaseTestSetup;
 import models.UserPersonal;
 import models.UserProfile;
 import org.testng.annotations.BeforeClass;
+import utils.ModelGenerator;
 
 public class BaseUserSetup extends BaseTestSetup {
 

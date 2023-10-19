@@ -1,6 +1,5 @@
 package weare.api.testing.skill;
 
-import utils.ModelGenerator;
 import api.SkillController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
@@ -9,6 +8,7 @@ import models.UserRegister;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import utils.ModelGenerator;
 
 public class UpdateSkillTest extends BaseTestSetup {
 

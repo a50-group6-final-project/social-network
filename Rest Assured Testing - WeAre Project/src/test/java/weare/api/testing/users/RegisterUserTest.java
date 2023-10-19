@@ -1,10 +1,10 @@
 package weare.api.testing.users;
 
-import utils.ModelGenerator;
 import api.UserController;
 import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.ModelGenerator;
 
 import static utils.Constants.REGISTER_SUCCESS_MESSAGE;
 

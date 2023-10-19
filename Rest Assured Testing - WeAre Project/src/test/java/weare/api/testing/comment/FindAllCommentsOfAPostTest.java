@@ -1,7 +1,5 @@
 package weare.api.testing.comment;
 
-import utils.DataGenerator;
-import utils.ModelGenerator;
 import api.CommentController;
 import api.PostController;
 import base.BaseTestSetup;
@@ -13,9 +11,11 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import utils.DataGenerator;
+import utils.ModelGenerator;
 
-import static utils.Constants.*;
 import static org.testng.Assert.assertEquals;
+import static utils.Constants.*;
 
 public class FindAllCommentsOfAPostTest extends BaseTestSetup {
     String uniqueContent;

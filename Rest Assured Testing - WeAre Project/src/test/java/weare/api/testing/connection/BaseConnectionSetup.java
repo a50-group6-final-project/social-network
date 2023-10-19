@@ -1,11 +1,11 @@
 package weare.api.testing.connection;
 
-import utils.ModelGenerator;
 import base.BaseTestSetup;
 import io.restassured.http.Cookies;
 import models.SendRequest;
 import models.UserRegister;
 import org.testng.annotations.BeforeClass;
+import utils.ModelGenerator;
 
 import static utils.Constants.USER_SUCCESS_MESSAGE;
 

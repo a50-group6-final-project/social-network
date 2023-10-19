@@ -1,13 +1,14 @@
 package api;
 
-import utils.Serializer;
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import models.SendRequest;
+import utils.Serializer;
 
 import static utils.Constants.APPLICATION_JSON;
-import static utils.Endpoints.*;
+import static utils.Endpoints.GET_REQUESTS_ENDPOINT;
+import static utils.Endpoints.SEND_REQUEST_ENDPOINT;
 public class ConnectionController {
 
     public static Response sendRequest(SendRequest sendRequestToUser, Cookies cookies, String senderUsername) {

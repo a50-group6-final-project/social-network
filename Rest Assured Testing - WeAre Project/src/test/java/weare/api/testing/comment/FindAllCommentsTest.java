@@ -1,6 +1,5 @@
 package weare.api.testing.comment;
 
-import utils.ModelGenerator;
 import api.CommentController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
@@ -9,6 +8,7 @@ import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import utils.ModelGenerator;
 
 import static utils.Constants.*;
 

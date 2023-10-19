@@ -1,12 +1,12 @@
 package weare.api.testing.users;
 
-import utils.ModelGenerator;
 import api.UserController;
 import io.restassured.response.Response;
 import models.Page;
 import models.UserProfile;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.ModelGenerator;
 
 import static utils.Constants.EMPTY_USER_LIST_MESSAGE;
 import static utils.Constants.USER_NOT_FOUND_MESSAGE;

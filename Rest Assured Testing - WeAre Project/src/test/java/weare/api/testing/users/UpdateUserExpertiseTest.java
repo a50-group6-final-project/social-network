@@ -1,12 +1,12 @@
 package weare.api.testing.users;
 
-import utils.ModelGenerator;
 import api.UserController;
 import io.restassured.response.Response;
 import models.ExpertiseProfile;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import utils.ModelGenerator;
 
 import static utils.Constants.*;
 

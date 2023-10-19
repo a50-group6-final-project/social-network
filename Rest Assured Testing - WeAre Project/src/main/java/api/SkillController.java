@@ -1,10 +1,10 @@
 package api;
 
-import utils.Serializer;
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import models.Skill;
+import utils.Serializer;
 
 import static utils.Constants.APPLICATION_JSON;
 import static utils.Endpoints.*;
