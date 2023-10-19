@@ -39,6 +39,7 @@ public class PostPage extends BaseWeArePage {
     }
 
     public void createComment(CommentModel commentModel) {
+        actions.waitForElementVisible("weAre.postPage.commentField");
         actions.typeValueInField(commentModel.content, "weAre.postPage.commentField");
         actions.clickElement("weAre.postPage.postCommentButton");
     }

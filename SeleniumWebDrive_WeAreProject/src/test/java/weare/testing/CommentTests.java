@@ -12,14 +12,14 @@ import weare.models.CommentModel;
 import weare.models.PostModel;
 import weare.models.UserRegister;
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class CommentTests extends BaseTestSetup {
     static UserRegister userToRegister;
     static int registeredUserId;
     static Cookies cookies;
     static PostModel createdPost;
-    static CommentModel createdComment;
+    static CommentModel createCommentModel;
     static CommentModel comment;
+
 
     @BeforeAll
     public static void setup() {
@@ -34,33 +34,42 @@ public class CommentTests extends BaseTestSetup {
         LoginPage.loginUser(userToRegister.username, userToRegister.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
         postPage = new PostPage(driver, "http://localhost:8081/posts/" + createdPost.postId);
+
     }
 
     @BeforeEach
-    public void beforeEach() {
+    public void beforeEach(TestInfo testInfo) {
+        createCommentModel = ModelGenerator.generateCommentModel(createdPost.postId, registeredUserId);
+        if (!testInfo.getDisplayName().equals("createComment()")) {
+            comment = CommentController.createComment(cookies, createCommentModel).as(CommentModel.class);
+            System.out.println("Comment with " + comment.commentId + " created");
+        }
         postPage.navigateToPage();
+    }
 
+    @AfterEach
+    public void afterEach(TestInfo testInfo) {
+        if (!testInfo.getDisplayName().equals("deleteComment()")) {
+            postPage.deleteComment(comment.commentId);
+            System.out.println("Comment with " + comment.commentId + " deleted");
+        }
     }
 
     @Test
-    @Order(1)
     public void createComment() {
-
-
-        createdComment = ModelGenerator.generateCommentModel(createdPost.postId, registeredUserId);
-        postPage.createComment(createdComment);
+        postPage.createComment(createCommentModel);
         postPage.navigateToPage();
 
-        postPage.assertCommentPresent(createdComment);
+        postPage.assertCommentPresent(createCommentModel);
 
         comment = CommentController.findAllCommentsOfAPost(cookies, createdPost.postId).as(CommentModel[].class)[0];
-        Assertions.assertEquals(createdComment.content, comment.content);
+        Assertions.assertEquals(createCommentModel.content, comment.content);
+
     }
 
     @Test
-    @Order(2)
     void likeComment() {
-        postPage.assertCommentPresent(createdComment);
+        postPage.assertCommentPresent(comment);
         postPage.likeComment(comment.commentId);
         postPage.assertCommentIsLiked(comment.commentId);
 
@@ -70,23 +79,24 @@ public class CommentTests extends BaseTestSetup {
     }
 
     @Test
-    @Order(3)
     public void editComment() {
-        String updateCommentString = DataGenerator.generateUniqueContentPost();
-        postPage.assertCommentPresent(createdComment);
+        String updateCommentString = DataGenerator.generateUniqueContentPost() + " Updated";
+        postPage.assertCommentPresent(createCommentModel);
         postPage.editComment(comment.commentId, updateCommentString);
         postPage.navigateToPage();
 
-        createdComment.content = updateCommentString;
-        postPage.assertCommentPresent(createdComment);
+        createCommentModel.content = updateCommentString;
+        postPage.assertCommentPresent(createCommentModel);
 
         comment = CommentController.findAllCommentsOfAPost(cookies, createdPost.postId).as(CommentModel[].class)[0];
         Assertions.assertEquals(updateCommentString, comment.content);
     }
+
     @Test
-    @Order(4)
     void dislikeComment() {
-        postPage.assertCommentPresent(createdComment);
+        postPage.assertCommentPresent(createCommentModel);
+
+        postPage.likeComment(comment.commentId);
         postPage.dislikeComment(comment.commentId);
         postPage.assertCommentIsDisliked(comment.commentId);
 
@@ -95,9 +105,8 @@ public class CommentTests extends BaseTestSetup {
     }
 
     @Test
-    @Order(5)
     public void deleteComment() {
-        postPage.assertCommentPresent(createdComment);
+        postPage.assertCommentPresent(createCommentModel);
         postPage.deleteComment(comment.commentId);
         postPage.assertCommentIsDeleted();
 
