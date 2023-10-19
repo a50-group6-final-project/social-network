@@ -30,7 +30,7 @@ public class GetNewsFeed extends BaseTestSetup {
         createdPost = response.as(PostModel.class);
     }
     @Test
-    public void getAllPosts_Successful() {
+    public void AllPostsRetrieved_When_ClickGetAllPostsButton() {
         Response response = PostController.getNewsFeed(cookies);
         isResponse200(response);
 

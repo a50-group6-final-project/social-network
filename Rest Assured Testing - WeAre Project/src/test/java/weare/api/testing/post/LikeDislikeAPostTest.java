@@ -19,7 +19,7 @@ public class LikeDislikeAPostTest extends BaseTestSetup {
     PostModelLikeDislike editPost;
 
     @BeforeClass
-    public void createPost_Successful() {
+    public void PostCreated_When_InputValidNumberOfCharactersAndClickCreatePostButton() {
         if (!isRegistered) {
             UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
             register(userRegister);
@@ -38,7 +38,7 @@ public class LikeDislikeAPostTest extends BaseTestSetup {
     }
 
     @Test
-    public void likeAndDislikePost_Successful() {
+    public void PostLikedAndDisliked_When_ClickLikeAndDislikeButtons() {
 
         Response response = PostController.likeAndDislikePost(cookies, postId);
         isResponse200(response);
@@ -49,8 +49,7 @@ public class LikeDislikeAPostTest extends BaseTestSetup {
 
         Response dislikeResponse = PostController.likeAndDislikePost(cookies, postId);
         isResponse200(dislikeResponse);
-//        editPost = dislikeResponse.as(PostModel.class);
-//        Assert.assertEquals(editPost.liked, false, "The post is disliked liked.");
+
         System.out.println(String.format(POST_DISLIKED_MESSAGE, postId));
 
     }

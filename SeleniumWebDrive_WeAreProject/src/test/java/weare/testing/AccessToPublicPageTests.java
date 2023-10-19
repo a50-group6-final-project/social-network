@@ -40,7 +40,7 @@ public class AccessToPublicPageTests extends BaseTestSetup {
     @Test
     public void AccessToPublicPage_When_UserClicksHomeButton() {
 
-        publicPage = new PublicPage(driver,String.format("http://localhost:8081/"));
+        publicPage = new PublicPage(driver,String.format("home.page"));
         publicPage.navigateToPage();
         publicPage.assertRegisterButton();
         publicPage.assertHomeButton();
@@ -50,7 +50,7 @@ public class AccessToPublicPageTests extends BaseTestSetup {
     public void ProfileFoundByUsername_When_UserEntersNameInSearch() {
         UserPersonal userPersonal = ModelGenerator.generateUserPersonalModel();
 
-        publicPage = new PublicPage(driver,String.format("http://localhost:8081/"));
+        publicPage = new PublicPage(driver,String.format("home.page"));
         publicPage.navigateToPage();
         publicPage.accessToPublicSection_ValidUser(userPersonal);
         publicPage.assertValidProfilePresent();
@@ -58,7 +58,7 @@ public class AccessToPublicPageTests extends BaseTestSetup {
 
     @Test
     public void ProfileNotDisplayed_When_TrySearchingWithInvalidUsername () {
-        publicPage = new PublicPage(driver,String.format("http://localhost:8081/"));
+        publicPage = new PublicPage(driver,String.format("home.page"));
         publicPage.navigateToPage();
 
         String username = "Petar";

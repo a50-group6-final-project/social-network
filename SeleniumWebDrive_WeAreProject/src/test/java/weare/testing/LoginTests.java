@@ -30,7 +30,7 @@ public class LoginTests extends BaseTestSetup {
         registerPage.userRegister(username, password, email);
 
         LoginPage.loginUser(username, wrongPassword);
-        LoginPage.assertErrorPresent("weAre.loginPage.errorMessage", "User is registered with wrong password");
+        LoginPage.assertElementPresent("weAre.loginPage.errorMessage");
     }
 
 }
