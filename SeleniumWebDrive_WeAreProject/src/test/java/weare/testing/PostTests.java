@@ -177,19 +177,17 @@ public class PostTests extends BaseTestSetup {
         postPage.delete(postsList[0].postId);
     }
 
-//    @Test
-//    public void PrivatePostDeleted_When_UserDeletesPrivatePost() {
-//        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
-//        Assertions.assertEquals(false, postsList[0].mypublic, "Post is not private");
-//
-//        postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
-//        postPage.navigateToPage();
-//        postPage.delete(postsList[0].postId);
-//
-//        postPage.assertElementPresent(String.format(getUIMappingByKey("weAre.allPostPage.deleteMessage"), "Post deleted successfully"));
-//        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
-//        Assertions.assertEquals(0, postsList.length);
-//    }
+    @Test
+    public void PrivatePostDeleted_When_UserDeletesPrivatePost() {
+        post = PostController.createPost(cookies, ModelGenerator.generatePostModel(postContent, false)).as(PostModel.class);
+        Assertions.assertEquals(false, post.mypublic, "Post is not private");
 
+        postPage = new PostPage(driver, "http://localhost:8081/posts/" + post.postId);
+        postPage.navigateToPage();
+        postPage.delete(post.postId);
 
+        postPage.assertElementPresent(String.format(getUIMappingByKey("weAre.allPostPage.deleteMessage"), "Post deleted successfully"));
+        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
+        Assertions.assertEquals(0, postsList.length);
+    }
 }
