@@ -3,11 +3,11 @@
 <suite name="Users Suite">
     <test name="Users API">
         <classes>
-            <class name="weare.api.testing.users.RegisterUserTests"/>
-            <class name="weare.api.testing.users.GetUserByIdTests"/>
-            <class name="weare.api.testing.users.GetUsersTests"/>
-            <class name="weare.api.testing.users.UpdateUserExpertiseTests"/>
-            <class name="weare.api.testing.users.UpdateUserPersonalProfile"/>
+            <class name="weare.api.testing.users.RegisterUserTest"/>
+            <class name="weare.api.testing.users.GetUserByIdTest"/>
+            <class name="weare.api.testing.users.GetUsersTest"/>
+            <class name="weare.api.testing.users.UpdateUserExpertiseTest"/>
+            <class name="weare.api.testing.users.UpdateUserPersonalProfileTest"/>
         </classes>
     </test>
 </suite>

@@ -7,7 +7,7 @@ import io.restassured.response.Response;
 import models.SendRequest;
 
 import static utils.Constants.APPLICATION_JSON;
-
+import static utils.Endpoints.*;
 public class ConnectionController {
 
     public static Response sendRequest(SendRequest sendRequestToUser, Cookies cookies, String senderUsername) {
@@ -19,7 +19,7 @@ public class ConnectionController {
                 .contentType(APPLICATION_JSON)
                 .body(bodySendRequest)
                 .when()
-                .post("/api/auth/request");
+                .post(SEND_REQUEST_ENDPOINT);
     }
 
     public static Response getUserRequests(Cookies cookies, int receiverUserId){
@@ -27,7 +27,7 @@ public class ConnectionController {
                 .cookies(cookies)
                 .pathParam("receiverUserId", receiverUserId)
                 .when()
-                .get("/api/auth/users/{receiverUserId}/request/");
+                .get(GET_REQUESTS_ENDPOINT);
     }
 
     public static Response approveRequest(Cookies cookies, int receiverUserId, int requestId){
@@ -36,6 +36,6 @@ public class ConnectionController {
                 .pathParam("receiverUserId", receiverUserId)
                 .queryParam("requestId", requestId)
                 .when()
-                .post("/api/auth/users/{receiverUserId}/request/");
+                .post(GET_REQUESTS_ENDPOINT);
     }
 }

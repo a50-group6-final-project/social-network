@@ -29,11 +29,9 @@ public class DeleteAPostTest extends BaseTestSetup {
     @Test
     public void PostDeleted_When_ClickDeletePost() {
         authenticateAndFetchCookies();
-        Post[] post = UserController.getProfilePosts(cookies, createdPost.postId).as(Post[].class);
         Response response = PostController.deletePost(cookies, createdPost.postId);
         isResponse200(response);
 
-        Post[] posts = UserController.getProfilePosts(cookies, createdPost.postId).as(Post[].class);
         System.out.println("Post with Id" + " " + createdPost.postId + " " + "Deleted successfully.");
         isDeletedPost = true;
 

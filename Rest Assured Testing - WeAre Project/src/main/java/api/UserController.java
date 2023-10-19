@@ -11,8 +11,8 @@ import static utils.Endpoints.*;
 
 public class UserController {
 
-    public static Response registerUser(UserRegister user){
-         String bodyUserString = Serializer.convertObjectToJsonString(user);
+    public static Response registerUser(UserRegister user) {
+        String bodyUserString = Serializer.convertObjectToJsonString(user);
 
         return RestAssured.given().baseUri(BASE_URL)
                 .contentType(APPLICATION_JSON)
@@ -22,7 +22,7 @@ public class UserController {
                 .then().log().body().extract().response();
     }
 
-    public static Response getUsers(Page page){
+    public static Response getUsers(Page page) {
         String bodyPageString = Serializer.convertObjectToJsonString(page);
 
         return RestAssured
@@ -33,7 +33,8 @@ public class UserController {
                 .when()
                 .post(GET_USERS_BY_NAME_ENDPOINT);
     }
-    public static Response getUserByName(Cookies cookies, SearchUser user){
+
+    public static Response getUserByName(Cookies cookies, SearchUser user) {
         String bodyGetUserByName = Serializer.convertObjectToJsonString(user);
         return RestAssured.given()
                 .cookies(cookies)
@@ -42,7 +43,8 @@ public class UserController {
                 .when()
                 .post(GET_USERS_BY_NAME_ENDPOINT);
     }
-    public static Response updatePersonalProfile(Cookies cookies, UserPersonal userPersonal, int currentUserId){
+
+    public static Response updatePersonalProfile(Cookies cookies, UserPersonal userPersonal, int currentUserId) {
         String bodyUpdatedPersonalProfileString = Serializer.convertObjectToJsonString(userPersonal);
         return RestAssured.given()
                 .cookies(cookies)
@@ -52,7 +54,8 @@ public class UserController {
                 .when()
                 .post("/api/users/auth/{currentUserId}/personal");
     }
-    public  static Response updateExpertiseProfile(Cookies cookies, ExpertiseProfile expertiseProfile, int currentUserId){
+
+    public static Response updateExpertiseProfile(Cookies cookies, ExpertiseProfile expertiseProfile, int currentUserId) {
         String bodyExpertiseProfileString = Serializer.convertObjectToJsonString(expertiseProfile);
         return RestAssured.given()
                 .baseUri(BASE_URL)
@@ -64,16 +67,16 @@ public class UserController {
                 .post(UPDATE_ENDPOINT + currentUserId + "/expertise");
     }
 
-    public static Response getUserById(String currentUsername, int currentUserId){
+    public static Response getUserById(String currentUsername, int currentUserId) {
         return RestAssured.given()
                 .baseUri(BASE_URL)
                 .contentType(APPLICATION_JSON)
                 .queryParam("principal", currentUsername)
                 .when()
-                .get("/api/users/auth/" + currentUserId);
+                .get(UPDATE_ENDPOINT + currentUserId);
     }
 
-    public static Response getProfilePosts(Cookies cookies, int currentUserId){
+    public static Response getProfilePosts(Cookies cookies, int currentUserId) {
         Page page = new Page();
         page.size = 10;
         String bodyPageString = Serializer.convertObjectToJsonString(page);
@@ -84,18 +87,6 @@ public class UserController {
                 .pathParam("currentUserId", currentUserId)
                 .body(bodyPageString)
                 .when()
-                .get("http://localhost:8081/api/users/{currentUserId}/posts");
-    }
-
-    public static Cookies authenticatedAndFetchCookies(){
-        RestAssured.baseURI = BASE_URL;
-        Response response = RestAssured.given()
-                .contentType("multipart/form-data")
-                .multiPart("username", "currentUsername")
-                .multiPart("password", "Project.10")
-                .when()
-                .post(AUTHENTICATE_ENDPOINT);
-
-        return response.detailedCookies();
+                .get(GET_PROFILE_POSTS_ENDPOINT);
     }
 }
