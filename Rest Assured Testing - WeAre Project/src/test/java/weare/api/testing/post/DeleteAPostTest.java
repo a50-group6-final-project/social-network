@@ -29,7 +29,7 @@ public class DeleteAPostTest extends BaseTestSetup {
     }
 
     @Test
-    public void deletePost_Successful() {
+    public void PostDeleted_When_ClickDeletePost() {
         authenticateAndFetchCookies();
         PostModel[] post = UserController.getProfilePosts(cookies, createdPost.postId).as(PostModel[].class);
         Response response = PostController.deletePost(cookies, createdPost.postId);
