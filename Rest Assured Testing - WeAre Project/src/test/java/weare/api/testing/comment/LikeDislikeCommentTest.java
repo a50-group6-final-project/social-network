@@ -19,6 +19,7 @@ import static org.testng.Assert.assertEquals;
 
 public class LikeDislikeCommentTest extends BaseTestSetup {
     String uniqueContent;
+
     @BeforeClass
     public void setup() {
         if (!isRegistered) {
@@ -36,7 +37,7 @@ public class LikeDislikeCommentTest extends BaseTestSetup {
             assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
 
             postId = createdPost.postId;
-            System.out.println(POST_SUCCESS_MESSAGE  + " " + postId);
+            System.out.println(POST_SUCCESS_MESSAGE + " " + postId);
             isDeletedPost = false;
         }
 
@@ -60,12 +61,12 @@ public class LikeDislikeCommentTest extends BaseTestSetup {
         isResponse200(response);
 
         CommentModel likedComment = response.as(CommentModel.class);
-        Assert.assertEquals(likedComment.liked, true, "The post is not liked.");
+        Assert.assertEquals(likedComment.liked, true, POST_NOT_LIKED_MESSAGE);
         System.out.println(String.format(LIKE_COMMENT_SUCCESS_MESSAGE, createdComment.commentId));
 
         response = CommentController.LikeDislikeComment(cookies, createdComment.commentId);
         CommentModel dislikedComment = response.as(CommentModel.class);
-        Assert.assertEquals(dislikedComment.liked, false, "The post is disliked.");
+        Assert.assertEquals(dislikedComment.liked, false, POST_NOT_DISLIKED_MESSAGE);
         System.out.println(String.format(DISLIKE_COMMENT_SUCCESS_MESSAGE, createdComment.commentId));
 
     }

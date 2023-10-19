@@ -38,7 +38,7 @@ public class EditCommentTest extends BaseTestSetup {
             assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
 
             postId = createdPost.postId;
-            System.out.println(POST_SUCCESS_MESSAGE  + " " + postId);
+            System.out.println(POST_SUCCESS_MESSAGE + " " + postId);
             isDeletedPost = false;
         }
 
@@ -49,11 +49,10 @@ public class EditCommentTest extends BaseTestSetup {
             isResponse200(response);
 
             createdComment = response.as(CommentModel.class);
-            System.out.println(COMMENT_SUCCESS_MESSAGE  + " " + createdComment.commentId);
+            System.out.println(COMMENT_SUCCESS_MESSAGE + " " + createdComment.commentId);
             isCommentDeleted = false;
         }
     }
-
 
     @Test
     public void editComment_Successful() {
