@@ -10,6 +10,8 @@ import models.UserRegister;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.POST_DELETED_SUCCESS_MESSAGE;
+
 public class DeleteAPostTest extends BaseTestSetup {
     @BeforeClass
     public void setup() {
@@ -32,7 +34,7 @@ public class DeleteAPostTest extends BaseTestSetup {
         isResponse200(response);
 
         System.out.println(response.asString());
-        System.out.println("Post with Id" + " " + postId + " " + "Deleted successfully.");
+        System.out.println(String.format(POST_DELETED_SUCCESS_MESSAGE, postId));
         isDeletedPost = true;
 
     }

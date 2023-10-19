@@ -47,7 +47,6 @@ public class CreatePostTest extends BaseTestSetup {
         Assert.assertNotNull(createdPost.mypublic, PUBLIC_NULL_MESSAGE);
 
 
-
         System.out.println(String.format(POST_SUCCESS_ALL_PROPERTIES_NOT_NULL, createdPost.postId));
     }
 

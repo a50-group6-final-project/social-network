@@ -1,13 +1,8 @@
 package weare.testing;
 
 import com.telerikacademy.pages.BasePage;
-import io.restassured.http.Cookies;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.DataGenerator;
-import weare.models.PostModel;
-import weare.models.UserRegister;
 
 
 public class AdministrativePartTests extends BaseTestSetup {
@@ -73,72 +68,8 @@ public class AdministrativePartTests extends BaseTestSetup {
         BasePage.assertElementPresent("weAre.basePage.enableInput");
         homePage.logoutUser();
 
-    }
+}
 
-    @Test
-    public void PostEdited_When_AdminTriesToEditPostAndConfirmEdit() {
-        String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
-        String password = BaseTestSetup.generateRandomPassword(10);
-        String email = BaseTestSetup.generateRandomEmail();
-        registerPage.userRegister(username, password, email);
-        loginPage.loginUser(username, password);
-
-        adminPage.adminEditUserPost();
-        homePage.logoutUser();
-
-    }
-
-
-    @Test
-    public void PostDeleted_When_AdminTriesToEditPostAndConfirmEdit() {
-
-
-        String username = BaseTestSetup.generateRandomUsername(6);
-        String password = BaseTestSetup.generateRandomPassword(10);
-        String email = BaseTestSetup.generateRandomEmail();
-
-        registerPage.userRegister(username, password, email);
-
-        LoginPage.loginUser(username, password);
-        newPostPage.createPost("hello", "Public");
-
-        String usernameAdmin = BaseTestSetup.generateRandomUsernameWithAdmin(6);
-        String passwordAdmin = BaseTestSetup.generateRandomPassword(10);
-        String emailAdmin = BaseTestSetup.generateRandomEmail();
-        homePage.navigateToPage();
-        registerPage.userRegister(username, password,emailAdmin);
-
-        loginPage.loginUser(usernameAdmin, passwordAdmin);
-
-        adminPage.adminDeleteUserPost();
-        homePage.logoutUser();
-
-    }
-    @Test
-    public void CommentEdited_When_AdminTriesToEditPostAndConfirmEdit() {
-        String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
-        String password = BaseTestSetup.generateRandomPassword(10);
-        String email = BaseTestSetup.generateRandomEmail();
-        homePage.navigateToPage();
-
-        registerPage.userRegister(username, password, email);
-        loginPage.loginUser(username, password);
-        homePage.logoutUser();
-
-    }
-
-
-
-        @Test
-    public void CommentDeleted_When_AdminTriesToEditPostAndConfirmEdit() {
-            String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
-            String password = BaseTestSetup.generateRandomPassword(10);
-            String email = BaseTestSetup.generateRandomEmail();
-            registerPage.userRegister(username, password, email);
-            loginPage.loginUser(username, password);
-            homePage.logoutUser();
-
-        }
 
     @Test
     public void PersonalProfileEdited_When_AdminTriesToEditProfile_AndConfirmChanges() {

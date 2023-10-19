@@ -34,9 +34,9 @@ public class DeleteCommentTest extends BaseTestSetup {
             Response response = PostController.createPost(cookies, createPost);
 
             createdPost = response.as(PostModel.class);
-            assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE );
+            assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
             postId = createdPost.postId;
-            System.out.println(POST_SUCCESS_MESSAGE  + " " + postId);
+            System.out.println(POST_SUCCESS_MESSAGE + " " + postId);
             isDeletedPost = false;
         }
         if (isCommentDeleted) {
@@ -46,7 +46,7 @@ public class DeleteCommentTest extends BaseTestSetup {
             isResponse200(response);
 
             createdComment = response.as(CommentModel.class);
-            System.out.println(POST_SUCCESS_MESSAGE  + " " + createdComment.commentId);
+            System.out.println(POST_SUCCESS_MESSAGE + " " + createdComment.commentId);
             isCommentDeleted = false;
         }
     }

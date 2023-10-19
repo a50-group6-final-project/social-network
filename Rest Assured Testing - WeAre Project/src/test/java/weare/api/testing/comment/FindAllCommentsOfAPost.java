@@ -37,7 +37,7 @@ public class FindAllCommentsOfAPost extends BaseTestSetup {
             createdPost = response.as(PostModel.class);
             assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
             postId = createdPost.postId;
-            System.out.println(POST_SUCCESS_MESSAGE  + " " + postId);
+            System.out.println(POST_SUCCESS_MESSAGE + " " + postId);
             isDeletedPost = false;
         }
         if (isCommentDeleted) {
