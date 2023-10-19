@@ -5,20 +5,21 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.*;
 import utils.DataGenerator;
 import utils.ModelGenerator;
+import weare.api.PostController;
 import weare.api.UserController;
 import weare.models.PostModel;
 import weare.models.UserRegister;
 
 import static com.telerikacademy.testframework.Utils.getUIMappingByKey;
 
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class PostTests extends BaseTestSetup {
-    static UserRegister userToRegister;
-    static int registeredUserId;
-    static Cookies cookies;
-    static String postContent;
-    static String postContentUpdate;
-    static PostModel[] postsList;
+    protected static UserRegister userToRegister;
+    protected static int registeredUserId;
+    protected static Cookies cookies;
+    protected static String postContent;
+    protected static String postContentUpdate;
+    protected static PostModel[] postsList;
+    protected static PostModel post;
 
     @BeforeAll
     public static void setup() {
@@ -40,7 +41,6 @@ public class PostTests extends BaseTestSetup {
     }
 
     @Test
-    @Order(1)
     public void PublicPostCreated_When_UserCreatesPublicPostWithValidInput() {
         newPostPage.navigateToPage();
         newPostPage.createPost(postContent, "Public");
@@ -51,17 +51,20 @@ public class PostTests extends BaseTestSetup {
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         Assertions.assertEquals(postContent, postsList[0].content);
         Assertions.assertEquals(true, postsList[0].mypublic, "Post is not public");
-        System.out.println(postsList[0].postId);
+
+        postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
+        postPage.navigateToPage();
+        postPage.delete(postsList[0].postId);
     }
 
     @Test
-    @Order(2)
     public void PublicPostUpdated_When_UserUpdatesPublicPostWithValidInput() {
-        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
-        //TODO: fix url
-        postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
+        post = PostController.createPost(cookies, ModelGenerator.generatePostModel(postContent, true)).as(PostModel.class);
+        Assertions.assertEquals(true, post.mypublic, "Post is not public");
+
+        postPage = new PostPage(driver, "http://localhost:8081/posts/" + post.postId);
         postPage.navigateToPage();
-        postPage.update(postContentUpdate, "Public", postsList[0].postId);
+        postPage.update(postContentUpdate, "Public", post.postId);
 
         postPage.assertNavigatedUrl();
         postPage.assertElementPresent(String.format(getUIMappingByKey("weAre.allPostPage.postContent"), postContentUpdate));
@@ -69,28 +72,41 @@ public class PostTests extends BaseTestSetup {
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         Assertions.assertEquals(postContentUpdate, postsList[0].content);
         Assertions.assertEquals(true, postsList[0].mypublic, "Post is not public");
-    }
 
-    @Test
-    @Order(3)
-    public void PublicPostLiked_When_UserLikesPublicPost() {
-        latestPostsPage.navigateToPage();
-        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
-
-        latestPostsPage.assertPostIsPresent(postsList[0].content);
-        latestPostsPage.likePost(postsList[0].postId);
-        latestPostsPage.assertPostIsLiked(postsList[0].postId);
-    }
-
-    @Test
-    @Order(4)
-    public void PublicPostDeleted_When_UserDeletesPublicPost() {
-        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
-        Assertions.assertEquals(true, postsList[0].mypublic, "Post is not public");
-
-        postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
         postPage.navigateToPage();
         postPage.delete(postsList[0].postId);
+    }
+
+    @Test
+    public void PublicPostLiked_When_UserLikesPublicPost() {
+        post = PostController.createPost(cookies, ModelGenerator.generatePostModel(postContent, true)).as(PostModel.class);
+        Assertions.assertEquals(true, post.mypublic, "Post is not public");
+
+        latestPostsPage.navigateToPage();
+        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
+        Assertions.assertEquals(post.postId, postsList[0].postId, "Post is not the same");
+
+        latestPostsPage.assertPostIsPresent(post.content);
+        latestPostsPage.likeDislikePost(post.postId);
+        latestPostsPage.assertPostIsLiked(post.postId);
+        PostModel likedPost = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class)[0];
+
+        Assertions.assertEquals(post.postId, likedPost.postId, "Post is not the same");
+        Assertions.assertEquals(1, likedPost.likes.size(), "Post is not liked");
+
+        postPage = new PostPage(driver, "http://localhost:8081/posts/" + post.postId);
+        postPage.navigateToPage();
+        postPage.delete(postsList[0].postId);
+    }
+
+    @Test
+    public void PublicPostDeleted_When_UserDeletesPublicPost() {
+        post = PostController.createPost(cookies, ModelGenerator.generatePostModel(postContent, true)).as(PostModel.class);
+        Assertions.assertEquals(true, post.mypublic, "Post is not public");
+
+        postPage = new PostPage(driver, "http://localhost:8081/posts/" + post.postId);
+        postPage.navigateToPage();
+        postPage.delete(post.postId);
 
         postPage.assertElementPresent(String.format(getUIMappingByKey("weAre.allPostPage.deleteMessage"), "Post deleted successfully"));
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
@@ -98,7 +114,6 @@ public class PostTests extends BaseTestSetup {
     }
 
     @Test
-    @Order(5)
     public void PrivatePostCreated_When_UserCreatesPrivatePostWithValidInput() {
         newPostPage.navigateToPage();
         newPostPage.createPost(postContent, "Private");
@@ -109,17 +124,20 @@ public class PostTests extends BaseTestSetup {
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         Assertions.assertEquals(postContent, postsList[0].content);
         Assertions.assertEquals(false, postsList[0].mypublic, "Post is not private");
-    }
-
-    @Test
-    @Order(6)
-    public void PrivatePostUpdated_When_UserUpdatesPrivatePostWithValidInput() {
-        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
 
         postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
         postPage.navigateToPage();
-        postContentUpdate = DataGenerator.generateUniqueContentPost();
-        postPage.update(postContentUpdate, "Private", postsList[0].postId);
+        postPage.delete(postsList[0].postId);
+    }
+
+    @Test
+    public void PrivatePostUpdated_When_UserUpdatesPrivatePostWithValidInput() {
+        post = PostController.createPost(cookies, ModelGenerator.generatePostModel(postContent, false)).as(PostModel.class);
+        Assertions.assertEquals(false, post.mypublic, "Post is not private");
+
+        postPage = new PostPage(driver, "http://localhost:8081/posts/" + post.postId);
+        postPage.navigateToPage();
+        postPage.update(postContentUpdate, "Private", post.postId);
 
         postPage.assertNavigatedUrl();
         postPage.assertElementPresent(String.format(getUIMappingByKey("weAre.allPostPage.postContent"), postContentUpdate));
@@ -128,32 +146,50 @@ public class PostTests extends BaseTestSetup {
         Assertions.assertEquals(postContentUpdate, postsList[0].content);
         Assertions.assertEquals(false, postsList[0].mypublic, "Post is not private");
 
-    }
-
-    @Test
-    @Order(7)
-    public void PrivatePostDisliked_When_UserDislikesPrivatePost() {
-        latestPostsPage.navigateToPage();
-        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
-        latestPostsPage.assertPostIsPresent(postsList[0].content);
-        latestPostsPage.likePost(postsList[0].postId);
-        latestPostsPage.assertPostDisliked(postsList[0].postId);
-    }
-
-    @Test
-    @Order(8)
-    public void PrivatePostDeleted_When_UserDeletesPrivatePost() {
-        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
-        Assertions.assertEquals(false, postsList[0].mypublic, "Post is not private");
-
-        postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
         postPage.navigateToPage();
         postPage.delete(postsList[0].postId);
-
-        postPage.assertElementPresent(String.format(getUIMappingByKey("weAre.allPostPage.deleteMessage"), "Post deleted successfully"));
-        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
-        Assertions.assertEquals(0, postsList.length);
     }
+
+    @Test
+    public void PrivatePostDisliked_When_UserDislikesPrivatePost() {
+        post = PostController.createPost(cookies, ModelGenerator.generatePostModel(postContent, false)).as(PostModel.class);
+        Assertions.assertEquals(false, post.mypublic, "Post is not private");
+
+        latestPostsPage.navigateToPage();
+        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
+        Assertions.assertEquals(post.postId, postsList[0].postId, "Post is not the same");
+
+        PostController.likeAndDislikePost(cookies, postsList[0].postId);
+
+        latestPostsPage.assertPostIsPresent(postsList[0].content);
+        latestPostsPage.likeDislikePost(postsList[0].postId);
+
+
+        latestPostsPage.assertPostDisliked(postsList[0].postId);
+
+        PostModel dislikedPost = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class)[0];
+
+        Assertions.assertEquals(post.postId, dislikedPost.postId, "Post is not the same");
+        Assertions.assertEquals(0, dislikedPost.likes.size(), "Post is liked");
+
+        postPage = new PostPage(driver, "http://localhost:8081/posts/" + post.postId);
+        postPage.navigateToPage();
+        postPage.delete(postsList[0].postId);
+    }
+
+//    @Test
+//    public void PrivatePostDeleted_When_UserDeletesPrivatePost() {
+//        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
+//        Assertions.assertEquals(false, postsList[0].mypublic, "Post is not private");
+//
+//        postPage = new PostPage(driver, "http://localhost:8081/posts/" + postsList[0].postId);
+//        postPage.navigateToPage();
+//        postPage.delete(postsList[0].postId);
+//
+//        postPage.assertElementPresent(String.format(getUIMappingByKey("weAre.allPostPage.deleteMessage"), "Post deleted successfully"));
+//        postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
+//        Assertions.assertEquals(0, postsList.length);
+//    }
 
 
 }

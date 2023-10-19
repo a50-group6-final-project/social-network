@@ -53,7 +53,7 @@ public abstract class BasePage {
     }
 
     public static void assertElementPresent(String locator) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(getUIMappingByKey(locator))));
+        actions.waitForElementVisible(locator);
         Assertions.assertNotNull(driver.findElement(By.xpath(getUIMappingByKey(locator))),
                 format("Element with %s doesn't present.", locator));
     }
