@@ -5,7 +5,7 @@ import Utils.ModelGenerator;
 import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
-import models.PostModel;
+import models.Post;
 import models.UserRegister;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -27,7 +27,7 @@ public class EditPostTest extends BaseTestSetup {
             authenticateAndFetchCookies();
             Response response = PostController.createPost(cookies, createPost);
             isResponse200(response);
-            createdPost = response.as(PostModel.class);
+            createdPost = response.as(Post.class);
             postId = createdPost.postId;
             System.out.println("Successfully created a new post with Id" + " " + postId);
             isDeletedPost = false;

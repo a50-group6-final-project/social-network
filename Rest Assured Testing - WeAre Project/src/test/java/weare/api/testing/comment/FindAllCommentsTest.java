@@ -4,7 +4,7 @@ import Utils.ModelGenerator;
 import api.CommentController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
-import models.CommentModel;
+import models.Comment;
 import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -28,7 +28,7 @@ public class FindAllCommentsTest extends BaseTestSetup {
         Response response = CommentController.findAllComments(cookies);
         isResponse200(response);
 
-        CommentModel[] commentList = response.as(CommentModel[].class);
+        Comment[] commentList = response.as(Comment[].class);
 
         Assert.assertTrue(commentList.length >= 1, ARRAY_SIZE_MESSAGE);
         Assert.assertNotNull(commentList[0].content, CONTENT_NULL_MESSAGE);

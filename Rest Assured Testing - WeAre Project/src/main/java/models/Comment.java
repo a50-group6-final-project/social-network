@@ -2,7 +2,7 @@ package models;
 
 import java.util.ArrayList;
 
-public class CommentModel {
+public class Comment {
     public int commentId;
     public String content;
     public boolean deletedConfirmed;

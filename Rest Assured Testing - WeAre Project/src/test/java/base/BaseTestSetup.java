@@ -25,21 +25,21 @@ public class BaseTestSetup {
     public static int postId;
     public static int userId;
     public static int commentId;
-    public static CommentModel createdComment;
+    public static Comment createdComment;
     public static String senderUsername;
     public static String receiverUsername;
     public static String receiverEmail;
     public static int senderUserId;
     public static int receiverUserId;
-    public static PostModel createdPost;
-    public static PostModel editPost;
+    public static Post createdPost;
+    public static Post editPost;
 
     public static Boolean isRegistered = false;
     public static Boolean isRegisteredTwoUsers = false;
     public static Boolean isDeletedPost = true;
     public static UserRegister userToRegister;
-    public static PostModel createPost;
-    public static CommentModel createComment;
+    public static Post createPost;
+    public static Comment createComment;
     public static Boolean isCommentDeleted = true;
     public static Skill skillToCreated;
     public static Skill createdSkill;

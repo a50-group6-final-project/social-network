@@ -6,8 +6,8 @@ import api.CommentController;
 import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
-import models.CommentModel;
-import models.PostModel;
+import models.Comment;
+import models.Post;
 import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -34,7 +34,7 @@ public class FindAllCommentsOfAPost extends BaseTestSetup {
             authenticateAndFetchCookies();
             Response response = PostController.createPost(cookies, createPost);
 
-            createdPost = response.as(PostModel.class);
+            createdPost = response.as(Post.class);
             assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
             postId = createdPost.postId;
             System.out.println(POST_SUCCESS_MESSAGE + " " + postId);
@@ -46,7 +46,7 @@ public class FindAllCommentsOfAPost extends BaseTestSetup {
             Response response = CommentController.createComment(cookies, createComment);
             isResponse200(response);
 
-            createdComment = response.as(CommentModel.class);
+            createdComment = response.as(Comment.class);
             System.out.println(String.format(CREATE_COMMENT_SUCCESS_MESSAGE, createdComment.commentId));
             isCommentDeleted = false;
         }
@@ -60,7 +60,7 @@ public class FindAllCommentsOfAPost extends BaseTestSetup {
         System.out.println(response.asString());
         isResponse200(response);
 
-        CommentModel[] commentsList = response.as(CommentModel[].class);
+        Comment[] commentsList = response.as(Comment[].class);
         Assert.assertTrue(commentsList.length >= 1, ARRAY_SIZE_MESSAGE);
         Assert.assertNotNull(commentsList[0].content, CONTENT_IS_NULL_MESSAGE);
         System.out.println(String.format(FETCHED_COMMENTS_MESSAGE, postId));

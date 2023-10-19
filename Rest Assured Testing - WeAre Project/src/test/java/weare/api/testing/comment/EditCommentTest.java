@@ -7,8 +7,8 @@ import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import models.CommentModel;
-import models.PostModel;
+import models.Comment;
+import models.Post;
 import models.UserRegister;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -34,7 +34,7 @@ public class EditCommentTest extends BaseTestSetup {
             createPost = ModelGenerator.generatePostModel(uniqueContent);
             Response response = PostController.createPost(cookies, createPost);
 
-            createdPost = response.as(PostModel.class);
+            createdPost = response.as(Post.class);
             assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
 
             postId = createdPost.postId;
@@ -48,7 +48,7 @@ public class EditCommentTest extends BaseTestSetup {
             System.out.println(response);
             isResponse200(response);
 
-            createdComment = response.as(CommentModel.class);
+            createdComment = response.as(Comment.class);
             System.out.println(COMMENT_SUCCESS_MESSAGE + " " + createdComment.commentId);
             isCommentDeleted = false;
         }

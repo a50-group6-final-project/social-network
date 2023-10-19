@@ -5,7 +5,7 @@ import Utils.ModelGenerator;
 import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
-import models.PostModel;
+import models.Post;
 import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -35,7 +35,7 @@ public class CreatePostTest extends BaseTestSetup {
 
         isResponse200(response);
 
-        createdPost = response.as(PostModel.class);
+        createdPost = response.as(Post.class);
 
         assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
         Assert.assertNotNull(createdPost.postId, POST_ID_NULL_MESSAGE);
@@ -60,7 +60,7 @@ public class CreatePostTest extends BaseTestSetup {
 
         isResponse200(response);
 
-        createdPost = response.as(PostModel.class);
+        createdPost = response.as(Post.class);
 
         assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
         Assert.assertNotNull(createdPost.postId, POST_ID_NULL_MESSAGE);
@@ -85,7 +85,7 @@ public class CreatePostTest extends BaseTestSetup {
 
         isResponse200(response);
 
-        createdPost = response.as(PostModel.class);
+        createdPost = response.as(Post.class);
 
         assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
         Assert.assertNotNull(createdPost.postId, POST_ID_NULL_MESSAGE);

@@ -4,7 +4,7 @@ import Utils.ModelGenerator;
 import api.PostController;
 import api.UserController;
 import io.restassured.response.Response;
-import models.PostModel;
+import models.Post;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -12,8 +12,8 @@ import org.testng.annotations.Test;
 import static Utils.Constants.*;
 
 public class GetProfilePostsTests extends BaseUserSetup {
-    PostModel postToCreate;
-    PostModel post;
+    Post postToCreate;
+    Post post;
 
     @BeforeClass
     public void setup() {
@@ -27,7 +27,7 @@ public class GetProfilePostsTests extends BaseUserSetup {
         authenticateAndFetchCookies();
         Response postResponse = PostController.createPost(cookies, postToCreate);
         isResponse200(postResponse);
-        post = postResponse.as(PostModel.class);
+        post = postResponse.as(Post.class);
         System.out.println(String.format(POST_CREATED_MESSAGE_FORMAT, post.postId));
 
     }
@@ -38,7 +38,7 @@ public class GetProfilePostsTests extends BaseUserSetup {
         Response response = UserController.getProfilePosts(cookies, currentUserId);
         isResponse200(response);
 
-        PostModel[] getPostList = response.as(PostModel[].class);
+        Post[] getPostList = response.as(Post[].class);
         Assert.assertEquals(getPostList[0].postId, post.postId, POST_ID_MISMATCH_MESSAGE);
         Assert.assertEquals(getPostList[0].content, post.content, CONTENT_MISMATCH_MESSAGE);
         Assert.assertEquals(getPostList[0].picture, post.picture, PICTURE_MISMATCH_MESSAGE);

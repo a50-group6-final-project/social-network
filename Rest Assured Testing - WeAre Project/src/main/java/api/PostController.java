@@ -4,7 +4,7 @@ import Utils.Serializer;
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import models.PostModel;
+import models.Post;
 
 import static Utils.Constants.APPLICATION_JSON;
 import static Utils.Constants.POST_ID;
@@ -12,7 +12,7 @@ import static Utils.Endpoints.*;
 
 public class PostController {
 
-    public static Response createPost(Cookies cookies, PostModel post) {
+    public static Response createPost(Cookies cookies, Post post) {
         String bodyPostString = Serializer.convertObjectToJsonString(post);
         return RestAssured.given()
                 .cookies(cookies)
@@ -31,7 +31,7 @@ public class PostController {
                 .delete(DELETE_POST_ENDPOINT);
     }
 
-    public static Response editPost(Cookies cookies, PostModel editedPost) {
+    public static Response editPost(Cookies cookies, Post editedPost) {
         String bodyEditPostString = Serializer.convertObjectToJsonString(editedPost);
         return RestAssured.given()
                 .cookies(cookies)

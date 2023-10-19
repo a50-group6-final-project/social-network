@@ -7,8 +7,8 @@ import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import models.CommentModel;
-import models.PostModel;
+import models.Comment;
+import models.Post;
 import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -37,7 +37,7 @@ public class CreateCommentTest extends BaseTestSetup {
             createPost = ModelGenerator.generatePostModel(uniqueContent);
             Response response = PostController.createPost(cookies, createPost);
 
-            createdPost = response.as(PostModel.class);
+            createdPost = response.as(Post.class);
             assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
 
             postId = createdPost.postId;
@@ -53,7 +53,7 @@ public class CreateCommentTest extends BaseTestSetup {
         Response response = CommentController.createComment(cookies, createComment);
         isResponse200(response);
 
-        createdComment = response.as(CommentModel.class);
+        createdComment = response.as(Comment.class);
         assertEquals(createdComment.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
         Assert.assertNotNull(createdComment.commentId, COMMENT_ID_NULL_MESSAGE);
         Assert.assertNotNull(createdComment.content, CONTENT_NULL_MESSAGE);

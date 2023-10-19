@@ -6,8 +6,8 @@ import api.CommentController;
 import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
-import models.CommentModel;
-import models.PostModel;
+import models.Comment;
+import models.Post;
 import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -33,7 +33,7 @@ public class LikeDislikeCommentTest extends BaseTestSetup {
             authenticateAndFetchCookies();
             Response response = PostController.createPost(cookies, createPost);
 
-            createdPost = response.as(PostModel.class);
+            createdPost = response.as(Post.class);
             assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
 
             postId = createdPost.postId;
@@ -47,7 +47,7 @@ public class LikeDislikeCommentTest extends BaseTestSetup {
             Response response = CommentController.createComment(cookies, createComment);
             isResponse200(response);
 
-            createdComment = response.as(CommentModel.class);
+            createdComment = response.as(Comment.class);
             System.out.println(String.format(CREATE_COMMENT_SUCCESS_MESSAGE, createdComment.commentId));
             isCommentDeleted = false;
         }
@@ -60,12 +60,12 @@ public class LikeDislikeCommentTest extends BaseTestSetup {
 
         isResponse200(response);
 
-        CommentModel likedComment = response.as(CommentModel.class);
+        Comment likedComment = response.as(Comment.class);
         Assert.assertEquals(likedComment.liked, true, POST_NOT_LIKED_MESSAGE);
         System.out.println(String.format(LIKE_COMMENT_SUCCESS_MESSAGE, createdComment.commentId));
 
         response = CommentController.LikeDislikeComment(cookies, createdComment.commentId);
-        CommentModel dislikedComment = response.as(CommentModel.class);
+        Comment dislikedComment = response.as(Comment.class);
         Assert.assertEquals(dislikedComment.liked, false, POST_NOT_DISLIKED_MESSAGE);
         System.out.println(String.format(DISLIKE_COMMENT_SUCCESS_MESSAGE, createdComment.commentId));
 

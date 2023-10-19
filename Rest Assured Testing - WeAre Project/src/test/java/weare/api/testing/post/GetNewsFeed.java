@@ -5,7 +5,7 @@ import Utils.ModelGenerator;
 import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
-import models.PostModel;
+import models.Post;
 import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -27,14 +27,14 @@ public class GetNewsFeed extends BaseTestSetup {
         createPost = ModelGenerator.generatePostModel(uniqueContent);
         authenticateAndFetchCookies();
         Response response = PostController.createPost(cookies, createPost);
-        createdPost = response.as(PostModel.class);
+        createdPost = response.as(Post.class);
     }
     @Test
     public void AllPostsRetrieved_When_ClickGetAllPostsButton() {
         Response response = PostController.getNewsFeed(cookies);
         isResponse200(response);
 
-        PostModel[] posts = response.as(PostModel[].class);
+        Post[] posts = response.as(Post[].class);
         Assert.assertNotNull(posts, POSTS_ARE_NULL_MESSAGE);
         Assert.assertTrue(posts.length > 0, ARRAY_SIZE_MESSAGE);
 

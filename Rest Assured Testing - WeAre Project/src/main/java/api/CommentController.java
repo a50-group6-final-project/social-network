@@ -4,14 +4,14 @@ import Utils.Serializer;
 import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import models.CommentModel;
+import models.Comment;
 
 import static Utils.Constants.*;
 import static Utils.Endpoints.*;
 
 public class CommentController {
 
-    public static Response createComment(Cookies cookies, CommentModel createComment) {
+    public static Response createComment(Cookies cookies, Comment createComment) {
         String bodyCommentString = Serializer.convertObjectToJsonString(createComment);
         return RestAssured.given()
                 .cookies(cookies)

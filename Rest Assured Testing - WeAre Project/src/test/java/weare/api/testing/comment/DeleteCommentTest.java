@@ -7,8 +7,8 @@ import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import models.CommentModel;
-import models.PostModel;
+import models.Comment;
+import models.Post;
 import models.UserRegister;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -33,7 +33,7 @@ public class DeleteCommentTest extends BaseTestSetup {
             createPost = ModelGenerator.generatePostModel(uniqueContent);
             Response response = PostController.createPost(cookies, createPost);
 
-            createdPost = response.as(PostModel.class);
+            createdPost = response.as(Post.class);
             assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
             postId = createdPost.postId;
             System.out.println(POST_SUCCESS_MESSAGE + " " + postId);
@@ -45,7 +45,7 @@ public class DeleteCommentTest extends BaseTestSetup {
             Response response = CommentController.createComment(cookies, createComment);
             isResponse200(response);
 
-            createdComment = response.as(CommentModel.class);
+            createdComment = response.as(Comment.class);
             System.out.println(POST_SUCCESS_MESSAGE + " " + createdComment.commentId);
             isCommentDeleted = false;
         }

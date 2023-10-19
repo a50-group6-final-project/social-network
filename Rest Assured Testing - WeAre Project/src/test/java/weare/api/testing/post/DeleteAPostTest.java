@@ -6,12 +6,10 @@ import api.PostController;
 import api.UserController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
-import models.PostModel;
+import models.Post;
 import models.UserRegister;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import static Utils.Constants.POST_DELETED_SUCCESS_MESSAGE;
 
 public class DeleteAPostTest extends BaseTestSetup {
     @BeforeClass
@@ -25,17 +23,17 @@ public class DeleteAPostTest extends BaseTestSetup {
         createPost = ModelGenerator.generatePostModel(uniqueContent);
         authenticateAndFetchCookies();
         Response response = PostController.createPost(cookies, createPost);
-        createdPost = response.as(PostModel.class);
+        createdPost = response.as(Post.class);
     }
 
     @Test
     public void PostDeleted_When_ClickDeletePost() {
         authenticateAndFetchCookies();
-        PostModel[] post = UserController.getProfilePosts(cookies, createdPost.postId).as(PostModel[].class);
+        Post[] post = UserController.getProfilePosts(cookies, createdPost.postId).as(Post[].class);
         Response response = PostController.deletePost(cookies, createdPost.postId);
         isResponse200(response);
 
-        PostModel[] posts = UserController.getProfilePosts(cookies, createdPost.postId).as(PostModel[].class);
+        Post[] posts = UserController.getProfilePosts(cookies, createdPost.postId).as(Post[].class);
         System.out.println("Post with Id" + " " + createdPost.postId + " " + "Deleted successfully.");
         isDeletedPost = true;
 

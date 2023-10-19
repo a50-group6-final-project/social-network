@@ -6,8 +6,8 @@ import api.CommentController;
 import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
-import models.CommentModel;
-import models.PostModel;
+import models.Comment;
+import models.Post;
 import models.UserRegister;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -33,7 +33,7 @@ public class FindOneCommentOfAPost extends BaseTestSetup {
             authenticateAndFetchCookies();
             Response response = PostController.createPost(cookies, createPost);
 
-            createdPost = response.as(PostModel.class);
+            createdPost = response.as(Post.class);
             assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
 
             postId = createdPost.postId;
@@ -47,7 +47,7 @@ public class FindOneCommentOfAPost extends BaseTestSetup {
             Response response = CommentController.createComment(cookies, createComment);
             isResponse200(response);
 
-            createdComment = response.as(CommentModel.class);
+            createdComment = response.as(Comment.class);
             System.out.println(COMMENT_SUCCESS_MESSAGE + " " + createdComment.commentId);
             isCommentDeleted = false;
         }
@@ -60,7 +60,7 @@ public class FindOneCommentOfAPost extends BaseTestSetup {
         System.out.println(response.asString());
         isResponse200(response);
 
-        CommentModel comment = response.as(CommentModel.class);
+        Comment comment = response.as(Comment.class);
         Assert.assertEquals(comment.content, createdComment.content, CONTENT_MISMATCH_MESSAGE);
         System.out.println(String.format(FETCH_ONE_COMMENT_SUCCESS_MESSAGE, createdComment.commentId, postId));
     }

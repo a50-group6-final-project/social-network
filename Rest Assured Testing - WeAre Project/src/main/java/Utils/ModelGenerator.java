@@ -22,16 +22,16 @@ public class ModelGenerator {
     }
 
 
-    public static PostModel generatePostModel(String uniqueContent){
-        PostModel createPost = new PostModel();
+    public static Post generatePostModel(String uniqueContent){
+        Post createPost = new Post();
         createPost.content = uniqueContent;
         createPost.picture = "";
         createPost.mypublic = true;
 
         return createPost;
     }
-    public static PostModel generatePostModel(){
-        PostModel createPost = new PostModel();
+    public static Post generatePostModel(){
+        Post createPost = new Post();
         createPost.content = DataGenerator.generateUniqueContentPost();
         createPost.picture = "";
         createPost.mypublic = true;
@@ -39,8 +39,8 @@ public class ModelGenerator {
         return createPost;
     }
 
-    public static CommentModel generateCommentModel(String uniqueContent, int postId, int userId){
-        CommentModel createComment = new CommentModel();
+    public static Comment generateCommentModel(String uniqueContent, int postId, int userId){
+        Comment createComment = new Comment();
         createComment.commentId = 0;
         createComment.content = uniqueContent;
         createComment.deletedConfirmed = true;

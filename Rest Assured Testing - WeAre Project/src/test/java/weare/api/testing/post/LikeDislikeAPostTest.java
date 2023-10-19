@@ -5,7 +5,7 @@ import Utils.ModelGenerator;
 import api.PostController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
-import models.PostModel;
+import models.Post;
 import models.PostModelLikeDislike;
 import models.UserRegister;
 import org.testng.Assert;
@@ -30,7 +30,7 @@ public class LikeDislikeAPostTest extends BaseTestSetup {
             createPost = ModelGenerator.generatePostModel(uniqueContent);
             authenticateAndFetchCookies();
             Response response = PostController.createPost(cookies, createPost);
-            createdPost = response.as(PostModel.class);
+            createdPost = response.as(Post.class);
             postId = createdPost.postId;
             System.out.println(String.format(POST_CREATED_MESSAGE, postId));
             isDeletedPost = false;
