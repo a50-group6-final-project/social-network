@@ -43,6 +43,9 @@ public class DataGenerator {
     public static String generateUniqueContentPost() {
         return faker.lorem().characters(10, 50);
     }
+    public static String generateUniqueContentPost(int length) {
+        return faker.lorem().characters(length);
+    }
 
     private static String generateString(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";

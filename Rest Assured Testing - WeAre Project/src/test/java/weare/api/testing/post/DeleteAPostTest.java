@@ -3,6 +3,7 @@ package weare.api.testing.post;
 import Utils.DataGenerator;
 import Utils.ModelGenerator;
 import api.PostController;
+import api.UserController;
 import base.BaseTestSetup;
 import io.restassured.response.Response;
 import models.PostModel;
@@ -29,12 +30,13 @@ public class DeleteAPostTest extends BaseTestSetup {
 
     @Test
     public void deletePost_Successful() {
-
+        authenticateAndFetchCookies();
+        PostModel[] post = UserController.getProfilePosts(cookies, createdPost.postId).as(PostModel[].class);
         Response response = PostController.deletePost(cookies, createdPost.postId);
         isResponse200(response);
 
-        System.out.println(response.asString());
-        System.out.println(String.format(POST_DELETED_SUCCESS_MESSAGE, postId));
+        PostModel[] posts = UserController.getProfilePosts(cookies, createdPost.postId).as(PostModel[].class);
+        System.out.println("Post with Id" + " " + createdPost.postId + " " + "Deleted successfully.");
         isDeletedPost = true;
 
     }

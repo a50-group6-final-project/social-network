@@ -12,9 +12,9 @@
       </class> <!-- weare.api.testing.users.GetUserByIdTests -->
       <class name="weare.api.testing.users.UpdateUserExpertiseTests">
         <methods>
+          <include name="UserSuccessfullyUpdatesExpertise_When_ExpertiseChanged"/>
           <include name="setup"/>
           <include name="setupClass"/>
-          <include name="updateUserExpertise_Successful"/>
         </methods>
       </class> <!-- weare.api.testing.users.UpdateUserExpertiseTests -->
       <class name="weare.api.testing.comment.FindAllCommentsTest">
