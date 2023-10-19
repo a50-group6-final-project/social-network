@@ -58,7 +58,7 @@ public class CreatePostTest extends BaseTestSetup {
 
         if (!isDeletedPost) {
             PostController.deletePost(cookies, createdPost.postId);
-            System.out.println("Post with Id" + " " + postId + " " + "Deleted successfully.");
+            System.out.println(String.format(POST_DELETED_MESSAGE, postId));
             isDeletedPost = true;
         }
     }

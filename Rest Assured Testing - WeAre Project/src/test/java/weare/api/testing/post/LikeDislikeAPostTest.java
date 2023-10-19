@@ -13,7 +13,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.POST_LIKED_MESSAGE_FORMAT;
+import static Utils.Constants.*;
 
 public class LikeDislikeAPostTest extends BaseTestSetup {
     PostModelLikeDislike editPost;
@@ -32,7 +32,7 @@ public class LikeDislikeAPostTest extends BaseTestSetup {
             Response response = PostController.createPost(cookies, createPost);
             createdPost = response.as(PostModel.class);
             postId = createdPost.postId;
-            System.out.println("Successfully created a new post with Id" + " " + postId);
+            System.out.println(String.format(POST_CREATED_MESSAGE, postId));
             isDeletedPost = false;
         }
     }
@@ -44,14 +44,14 @@ public class LikeDislikeAPostTest extends BaseTestSetup {
         isResponse200(response);
 
         PostModelLikeDislike editPostLikeDislike = response.as(PostModelLikeDislike.class);
-        Assert.assertEquals(editPostLikeDislike.liked, true, "The post is not liked.");
+        Assert.assertEquals(editPostLikeDislike.liked, true, POST_NOT_LIKED_MESSAGE);
         System.out.println(String.format(POST_LIKED_MESSAGE_FORMAT, postId));
 
         Response dislikeResponse = PostController.likeAndDislikePost(cookies, postId);
         isResponse200(dislikeResponse);
 //        editPost = dislikeResponse.as(PostModel.class);
 //        Assert.assertEquals(editPost.liked, false, "The post is disliked liked.");
-        System.out.println("Post with Id" + " " + postId + " " + "Disliked successfully.");
+        System.out.println(String.format(POST_DISLIKED_MESSAGE, postId));
 
     }
 
@@ -59,7 +59,7 @@ public class LikeDislikeAPostTest extends BaseTestSetup {
     public void tearDown() {
         if (!isDeletedPost) {
             PostController.deletePost(cookies, createdPost.postId);
-            System.out.println("Post with Id" + " " + postId + " " + "Deleted successfully.");
+            System.out.println(String.format(POST_DELETED_MESSAGE, postId));
             isDeletedPost = true;
         }
     }

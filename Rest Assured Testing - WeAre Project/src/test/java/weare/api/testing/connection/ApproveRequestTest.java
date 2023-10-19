@@ -7,6 +7,8 @@ import models.ApproveRequest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.STATUS_CODE_MESSAGE;
+
 public class ApproveRequestTest extends BaseConnectionSetup {
     int requestId;
 
@@ -33,6 +35,6 @@ public class ApproveRequestTest extends BaseConnectionSetup {
         Response response = ConnectionController.approveRequest(cookies, receiverUserId, requestId);
 
         int statusCode = response.getStatusCode();
-        System.out.println("The status code is: " + statusCode);
+        System.out.println(String.format(STATUS_CODE_MESSAGE, statusCode));
     }
 }

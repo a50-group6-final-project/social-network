@@ -1,9 +1,13 @@
 package weare.testing;
 
 import com.telerikacademy.pages.BasePage;
+import io.restassured.http.Cookies;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import utils.DataGenerator;
+import weare.models.PostModel;
+import weare.models.UserRegister;
 
 
 public class AdministrativePartTests extends BaseTestSetup {
@@ -13,6 +17,7 @@ public class AdministrativePartTests extends BaseTestSetup {
     public void setup() {
         adminPage = new AdminPage();
     }
+
 
     @Test
     public void AdminRegistered_When_InputValidData() {
@@ -41,7 +46,7 @@ public class AdministrativePartTests extends BaseTestSetup {
 
 
     @Test
-    public void IndustrySelected_When_ClickDropdown_And_ChooseOption() throws InterruptedException {
+    public void IndustrySelected_When_ClickDropdownAndChooseOption() throws InterruptedException {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -71,7 +76,7 @@ public class AdministrativePartTests extends BaseTestSetup {
     }
 
     @Test
-    public void PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit() {
+    public void PostEdited_When_AdminTriesToEditPostAndConfirmEdit() {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -85,18 +90,32 @@ public class AdministrativePartTests extends BaseTestSetup {
 
 
     @Test
-    public void PostDeleted_When_AdminTriesToEditPost_And_ConfirmEdit() {
-        String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
+    public void PostDeleted_When_AdminTriesToEditPostAndConfirmEdit() {
+
+
+        String username = BaseTestSetup.generateRandomUsername(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
-        homePage.navigateToPage();
+
         registerPage.userRegister(username, password, email);
-        loginPage.loginUser(username, password);
+
+        LoginPage.loginUser(username, password);
+        newPostPage.createPost("hello", "Public");
+
+        String usernameAdmin = BaseTestSetup.generateRandomUsernameWithAdmin(6);
+        String passwordAdmin = BaseTestSetup.generateRandomPassword(10);
+        String emailAdmin = BaseTestSetup.generateRandomEmail();
+        homePage.navigateToPage();
+        registerPage.userRegister(username, password,emailAdmin);
+
+        loginPage.loginUser(usernameAdmin, passwordAdmin);
+
+        adminPage.adminDeleteUserPost();
         homePage.logoutUser();
 
     }
     @Test
-    public void CommentEdited_When_AdminTriesToEditPost_And_ConfirmEdit() {
+    public void CommentEdited_When_AdminTriesToEditPostAndConfirmEdit() {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -111,7 +130,7 @@ public class AdministrativePartTests extends BaseTestSetup {
 
 
         @Test
-    public void CommentDeleted_When_AdminTriesToEditPost_And_ConfirmEdit() {
+    public void CommentDeleted_When_AdminTriesToEditPostAndConfirmEdit() {
             String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
             String password = BaseTestSetup.generateRandomPassword(10);
             String email = BaseTestSetup.generateRandomEmail();
@@ -122,7 +141,7 @@ public class AdministrativePartTests extends BaseTestSetup {
         }
 
     @Test
-    public void PersonalProfileEdited_When_AdminTriesToEditProfile_And_ConfirmChanges() {
+    public void PersonalProfileEdited_When_AdminTriesToEditProfile_AndConfirmChanges() {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();

@@ -10,6 +10,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.*;
+
 public class GetUserByName extends BaseTestSetup {
 
     @BeforeClass
@@ -25,13 +27,13 @@ public class GetUserByName extends BaseTestSetup {
     }
     @Test
     public void getUserByName_Successful() {
-        SearchUser searchUser = ModelGenerator.generateSearchUserModel("Lili Ivanova");
+        SearchUser searchUser = ModelGenerator.generateSearchUserModel(SEARCH_USER_NAME);
         Response response = UserController.getUserByName(cookies, searchUser);
 
         isResponse200(response);
 
         UserPersonal[] userPersonalList = response.as(UserPersonal[].class);
-        Assert.assertEquals(userPersonalList[0].username, "Bo", "Username does not match.");
+        Assert.assertEquals(userPersonalList[0].username, EXPECTED_USERNAME, USERNAME_DOES_NOT_MATCH_MESSAGE);
 //        Assert.assertEquals(userPersonalList[0].id, 779, "User Id does not match.");
     }
 }

@@ -56,5 +56,27 @@ public class Constants {
     public static final String SKILL_NOT_FOUND_MESSAGE_FORMAT = "Skill with id %s was not found";
     public static final String ARRAY_SIZE_MESSAGE = "The array size is more than or equal to 1";
     public static final String FETCH_COMMENTS_SUCCESS_MESSAGE = "Successfully fetched all comments.";
+    public static final String USER_NOT_FOUND_MESSAGE = "User with username %s was not found";
+    public static final String EMPTY_USER_LIST_MESSAGE = "Users list is empty";
+    public static final String SEARCH_USER_NAME = "Lili Ivanova";
+
+    public static final String EXPECTED_USERNAME = "Bo";
+    public static final String USERNAME_DOES_NOT_MATCH_MESSAGE = "Username does not match.";
+
+    public static final String CONTENT_TYPE_MULTIPART_FORM_DATA = "multipart/form-data";
+    public static final String FIELD_USERNAME = "username";
+    public static final String FIELD_PASSWORD = "password";
+    public static final String EMPTY_SKILLS_LIST_MESSAGE = "Skills list is empty";
+    public static final String POST_DISLIKED_MESSAGE = "Post with Id %s Disliked successfully.";
+    public static final String POST_DELETED_MESSAGE = "Post with Id %s Deleted successfully.";
+
+    public static final String POST_NOT_LIKED_MESSAGE = "The post is not liked.";
+    public static final String POST_CREATED_MESSAGE = "Successfully created a new post with Id %s";
+
+    public static final String CONTENT_IS_NULL_MESSAGE = "Content is null";
+    public static final String SUCCESSFULLY_FETCHED_ALL_POSTS_MESSAGE = "Successfully fetched all posts.";
+    public static final String POSTS_ARE_NULL_MESSAGE = "Posts are null";
+
+    public static final String STATUS_CODE_MESSAGE = "The status code is: %s";
 
 }

@@ -11,6 +11,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.EMPTY_SKILLS_LIST_MESSAGE;
 import static Utils.Constants.SKILL_NOT_FOUND_MESSAGE_FORMAT;
 
 public class GetAllSkillsTests extends BaseTestSetup {
@@ -31,7 +32,7 @@ public class GetAllSkillsTests extends BaseTestSetup {
         Response response = SkillController.getAllSkills(cookies);
         isResponse200(response);
         Skill[] skillsList = response.as(Skill[].class);
-        Assert.assertTrue(skillsList.length > 0, "Skills list is empty");
+        Assert.assertTrue(skillsList.length > 0, EMPTY_SKILLS_LIST_MESSAGE);
         Assert.assertTrue(assertCreatedSkillIdIsPresent(skillsList, createdSkill.skillId));
 
     }
