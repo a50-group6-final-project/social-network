@@ -2,7 +2,10 @@ package weare.testing;
 
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import utils.DataGenerator;
 import utils.ModelGenerator;
 import weare.api.PostController;
