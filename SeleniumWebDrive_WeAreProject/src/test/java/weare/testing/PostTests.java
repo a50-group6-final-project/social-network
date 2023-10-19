@@ -158,16 +158,16 @@ public class PostTests extends BaseTestSetup {
         latestPostsPage.navigateToPage();
         postsList = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class);
         Assertions.assertEquals(post.postId, postsList[0].postId, "Post is not the same");
-
         PostController.likeAndDislikePost(cookies, postsList[0].postId);
-
+        latestPostsPage.navigateToPage();
+        PostModel dislikedPost = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class)[0];
         latestPostsPage.assertPostIsPresent(postsList[0].content);
         latestPostsPage.likeDislikePost(postsList[0].postId);
 
 
         latestPostsPage.assertPostDisliked(postsList[0].postId);
 
-        PostModel dislikedPost = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class)[0];
+        dislikedPost = UserController.getProfilePosts(cookies, registeredUserId).as(PostModel[].class)[0];
 
         Assertions.assertEquals(post.postId, dislikedPost.postId, "Post is not the same");
         Assertions.assertEquals(0, dislikedPost.likes.size(), "Post is liked");
