@@ -13,7 +13,8 @@ public class LatestPostsPage extends BaseWeArePage{
         super(driver, "latestPosts.page");
     }
 
-    public void likePost(int id) {
+    public void likeDislikePost(int id) {
+        actions.waitForElementVisible(String.format(getUIMappingByKey("weAre.latestPostsPage.likeButton"), id));
         actions.clickElement(String.format(getUIMappingByKey("weAre.latestPostsPage.likeButton"), id));
     }
 
