@@ -8,6 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.ARRAY_SIZE_MESSAGE;
+
 public class GetUserRequestsTests extends BaseConnectionSetup {
 
     Response sentRequestResponse;
@@ -28,7 +30,7 @@ public class GetUserRequestsTests extends BaseConnectionSetup {
 
         isResponse200(response);
         ApproveRequest[] approveRequestList = response.as(ApproveRequest[].class);
-        Assert.assertEquals(approveRequestList.length >= 1, true, "The array size is more than or equal to 1");
+        Assert.assertEquals(approveRequestList.length >= 1, true, ARRAY_SIZE_MESSAGE);
     }
 
 }

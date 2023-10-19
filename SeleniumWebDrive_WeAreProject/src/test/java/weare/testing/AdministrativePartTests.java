@@ -5,9 +5,7 @@ import io.restassured.http.Cookies;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import utils.ModelGenerator;
-import weare.api.PostController;
-import weare.api.UserController;
+import utils.DataGenerator;
 import weare.models.PostModel;
 import weare.models.UserRegister;
 
@@ -19,6 +17,7 @@ public class AdministrativePartTests extends BaseTestSetup {
     public void setup() {
         adminPage = new AdminPage();
     }
+
 
     @Test
     public void AdminRegistered_When_InputValidData() {
@@ -47,7 +46,7 @@ public class AdministrativePartTests extends BaseTestSetup {
 
 
     @Test
-    public void IndustrySelected_When_ClickDropdown_And_ChooseOption() throws InterruptedException {
+    public void IndustrySelected_When_ClickDropdownAndChooseOption() throws InterruptedException {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -77,7 +76,7 @@ public class AdministrativePartTests extends BaseTestSetup {
     }
 
     @Test
-    public void PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit() {
+    public void PostEdited_When_AdminTriesToEditPostAndConfirmEdit() {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -91,31 +90,32 @@ public class AdministrativePartTests extends BaseTestSetup {
 
 
     @Test
-    public void PostDeleted_When_AdminTriesToEditPost_And_ConfirmEdit() {
-        UserRegister userToRegisterAdmin = ModelGenerator.generateUserRegisterModel();
-        userToRegisterAdmin.username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
-        userToRegisterAdmin.password = BaseTestSetup.generateRandomPassword(10);
-        userToRegisterAdmin.email = BaseTestSetup.generateRandomEmail();
-        UserController.registerUser(userToRegisterAdmin);
+    public void PostDeleted_When_AdminTriesToEditPostAndConfirmEdit() {
 
-        UserRegister userToRegister = ModelGenerator.generateUserRegisterModel();
-        UserController.registerUser(userToRegister);
 
-        Cookies cookies = UserController.authenticatedAndFetchCookies(userToRegister.username, userToRegister.password);
-        PostModel postModel = ModelGenerator.generatePostModel(false);
-        PostModel post = PostController.createPost(cookies, postModel).as(PostModel.class);
+        String username = BaseTestSetup.generateRandomUsername(6);
+        String password = BaseTestSetup.generateRandomPassword(10);
+        String email = BaseTestSetup.generateRandomEmail();
 
+        registerPage.userRegister(username, password, email);
+
+        LoginPage.loginUser(username, password);
+        newPostPage.createPost("hello", "Public");
+
+        String usernameAdmin = BaseTestSetup.generateRandomUsernameWithAdmin(6);
+        String passwordAdmin = BaseTestSetup.generateRandomPassword(10);
+        String emailAdmin = BaseTestSetup.generateRandomEmail();
         homePage.navigateToPage();
-        loginPage.loginUser(userToRegisterAdmin.username, userToRegisterAdmin.password);
+        registerPage.userRegister(username, password,emailAdmin);
 
-        postPage = new PostPage(driver, "http://localhost:8081/posts/" + post.postId);
-        postPage.navigateToPage();
+        loginPage.loginUser(usernameAdmin, passwordAdmin);
 
+        adminPage.adminDeleteUserPost();
         homePage.logoutUser();
 
     }
     @Test
-    public void CommentEdited_When_AdminTriesToEditPost_And_ConfirmEdit() {
+    public void CommentEdited_When_AdminTriesToEditPostAndConfirmEdit() {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -130,7 +130,7 @@ public class AdministrativePartTests extends BaseTestSetup {
 
 
         @Test
-    public void CommentDeleted_When_AdminTriesToEditPost_And_ConfirmEdit() {
+    public void CommentDeleted_When_AdminTriesToEditPostAndConfirmEdit() {
             String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
             String password = BaseTestSetup.generateRandomPassword(10);
             String email = BaseTestSetup.generateRandomEmail();
@@ -141,7 +141,7 @@ public class AdministrativePartTests extends BaseTestSetup {
         }
 
     @Test
-    public void PersonalProfileEdited_When_AdminTriesToEditProfile_And_ConfirmChanges() {
+    public void PersonalProfileEdited_When_AdminTriesToEditProfile_AndConfirmChanges() {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();

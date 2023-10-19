@@ -8,6 +8,9 @@ import models.UserProfile;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.EMPTY_USER_LIST_MESSAGE;
+import static Utils.Constants.USER_NOT_FOUND_MESSAGE;
+
 public class GetUsersTests extends BaseUserSetup {
 
 
@@ -19,7 +22,7 @@ public class GetUsersTests extends BaseUserSetup {
         isResponse200(response);
 
         userProfileList = response.then().extract().as(UserProfile[].class);
-        Assert.assertTrue(userProfileList.length > 0, "Users list is empty");
+        Assert.assertTrue(userProfileList.length > 0, EMPTY_USER_LIST_MESSAGE);
         Assert.assertTrue(assertUserIsPresented(userProfileList, currentUsername));
 
         userProfile = returnUserProfile(userProfileList, currentUsername);
@@ -32,7 +35,7 @@ public class GetUsersTests extends BaseUserSetup {
                 return true;
             }
         }
-        Assert.fail("User with username " + username + " was not found");
+        Assert.fail(String.format(USER_NOT_FOUND_MESSAGE, username));
         return false;
     }
 

@@ -11,6 +11,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.*;
+
 
 public class GetNewsFeed extends BaseTestSetup {
 
@@ -33,11 +35,11 @@ public class GetNewsFeed extends BaseTestSetup {
         isResponse200(response);
 
         PostModel[] posts = response.as(PostModel[].class);
-        Assert.assertNotNull(posts, "Posts are null");
-        Assert.assertTrue(posts.length > 0, "The array size is more than or equal to 1");
+        Assert.assertNotNull(posts, POSTS_ARE_NULL_MESSAGE);
+        Assert.assertTrue(posts.length > 0, ARRAY_SIZE_MESSAGE);
 
-        Assert.assertNotNull(posts[0].content, "Content is null");
-        System.out.println("Successfully fetched all posts.");
+        Assert.assertNotNull(posts[0].content, CONTENT_IS_NULL_MESSAGE);
+        System.out.println(SUCCESSFULLY_FETCHED_ALL_POSTS_MESSAGE);
     }
 }
 

@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.STATUS_CODE_MESSAGE_FORMAT;
+import static Utils.Constants.*;
 import static Utils.Endpoints.AUTHENTICATE_ENDPOINT;
 import static Utils.Endpoints.BASE_URL;
 
@@ -27,9 +27,9 @@ public class AuthenticateUserFetchCookie extends BaseUserSetup {
     public void authenticateAndFetchCookies_Successful() {
         RestAssured.baseURI = BASE_URL;
         Response response = RestAssured.given()
-                .contentType("multipart/form-data")
-                .multiPart("username", userToRegister.username)
-                .multiPart("password", userToRegister.password)
+                .contentType(CONTENT_TYPE_MULTIPART_FORM_DATA)
+                .multiPart(FIELD_USERNAME, userToRegister.username)
+                .multiPart(FIELD_PASSWORD, userToRegister.password)
                 .when()
                 .post(AUTHENTICATE_ENDPOINT);
 

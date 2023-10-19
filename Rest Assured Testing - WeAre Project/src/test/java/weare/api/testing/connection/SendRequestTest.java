@@ -7,6 +7,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.RECEIVER_NAME_MISMATCH_MESSAGE;
+import static Utils.Constants.SENDER_NAME_MISMATCH_MESSAGE;
+
 public class SendRequestTest extends BaseConnectionSetup {
 
     @BeforeClass
@@ -27,8 +30,9 @@ public class SendRequestTest extends BaseConnectionSetup {
         String receiverNameInResponse = parts[parts.length - 1];
 
 
-        Assert.assertEquals(senderUsername, senderNameInResponse, "Sender name does not match!");
-        Assert.assertEquals(receiverUsername, receiverNameInResponse, "Receiver name does not match!");
+        Assert.assertEquals(senderUsername, senderNameInResponse, SENDER_NAME_MISMATCH_MESSAGE);
+        Assert.assertEquals(receiverUsername, receiverNameInResponse, RECEIVER_NAME_MISMATCH_MESSAGE);
+
     }
 
 }
