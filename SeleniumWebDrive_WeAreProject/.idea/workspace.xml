@@ -5,26 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="refactor and clean code">
-      <change afterPath="$PROJECT_DIR$/src/main/java/weare/testing/PrivatePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/weare/testing/PublicPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/weare/testing/PrivatePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/weare/testing/PublicPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/0f116ceb-0727-42a7-90ad-a700e125a46a-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/3d8def90-22ab-4cfe-8fd5-120fa8448e67-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/5ca44bae-63e8-4e8a-8bd1-733e74969bce-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/766a2881-2594-40ae-8005-87fbb833d2f9-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/c21fa339-575d-4c30-8183-1bf3dd27ee68-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/ca6d4167-040d-4d9e-b0cd-c750c7dfc20d-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/cafc22b6-5c0c-4089-97b9-7d6ddc29c2f5-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/d0e85c43-e767-4b5c-94fa-0186e60924eb-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/df61991b-6f9a-4f6a-a6fa-75194f764dfe-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/f11e793d-82d4-4981-80c5-391b01ece81d-result.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/f32e820d-d34e-440e-b737-340476432bb2-container.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/allure-results/f6155c5c-ac65-4fda-ba57-6f7b7c4b9467-container.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/BaseTestSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/PostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/PostPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +61,22 @@
       <recent name="C:\Users\sesko\OneDrive\Desktop\final-pro\SeleniumWebDrive_WeAreProject\src\main\java\weare\testing" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CommentTests">
+  <component name="RunManager" selected="JUnit.CommentTests.deleteComment">
+    <configuration name="AccessToPrivatePageTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.AccessToPrivatePageTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CommentTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
@@ -110,7 +108,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommentTests.dislikeComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CommentTests.deleteComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -120,23 +118,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
       <option name="MAIN_CLASS_NAME" value="weare.testing.CommentTests" />
-      <option name="METHOD_NAME" value="dislikeComment" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CommentTests.editComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.CommentTests" />
-      <option name="METHOD_NAME" value="editComment" />
+      <option name="METHOD_NAME" value="deleteComment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -160,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CommentTests" />
-        <item itemvalue="JUnit.CommentTests.dislikeComment" />
-        <item itemvalue="JUnit.CommentTests.editComment" />
-        <item itemvalue="JUnit.CommentTests.likeComment" />
+        <item itemvalue="JUnit.CommentTests.deleteComment" />
         <item itemvalue="JUnit.CommentTests.createComment" />
+        <item itemvalue="JUnit.CommentTests" />
+        <item itemvalue="JUnit.CommentTests.likeComment" />
+        <item itemvalue="JUnit.AccessToPrivatePageTests" />
       </list>
     </recent_temporary>
   </component>
@@ -183,7 +165,7 @@
       <workItem from="1697475691238" duration="238000" />
       <workItem from="1697706239618" duration="1810000" />
       <workItem from="1697708065294" duration="25000" />
-      <workItem from="1697708099225" duration="1759000" />
+      <workItem from="1697708099225" duration="4169000" />
     </task>
     <task id="LOCAL-00001" summary="Add RegisterTest">
       <created>1697226985388</created>
@@ -362,7 +344,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697660600244</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="refactor and clean code">
+      <option name="closed" value="true" />
+      <created>1697718553082</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1697718553083</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,38 +407,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="80" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="82" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
-          <line>103</line>
-          <option name="timeStamp" value="83" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="85" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="87" />
+          <line>109</line>
+          <option name="timeStamp" value="94" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
