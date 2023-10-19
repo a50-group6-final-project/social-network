@@ -6,8 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="refactor and clean code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/PostPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/PostPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/AdminPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/ConnectionTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/ConnectionTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,30 +45,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/sesko/OneDrive/Desktop/final-pro/SeleniumWebDrive_WeAreProject/src/test/java/weare/testing",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rosti.WIN-IC28P738AEI/Desktop/Versions&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\sesko\OneDrive\Desktop\final-pro\SeleniumWebDrive_WeAreProject\src\test\java\weare\testing" />
-      <recent name="C:\Users\sesko\OneDrive\Desktop\final-pro\SeleniumWebDrive_WeAreProject\src\main\java\weare\testing" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JUnit.CommentTests.deleteComment">
-    <configuration name="AccessToPrivatePageTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+}</component>
+  <component name="RunManager" selected="JUnit.AdministrativePartTests.PostDeleted_When_AdminTriesToEditPost_And_ConfirmEdit">
+    <configuration name="AdministrativePartTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -71,13 +71,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.AccessToPrivatePageTests" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommentTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AdministrativePartTests.PostDeleted_When_AdminTriesToEditPost_And_ConfirmEdit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -86,13 +86,45 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.CommentTests" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
+      <option name="METHOD_NAME" value="PostDeleted_When_AdminTriesToEditPost_And_ConfirmEdit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdministrativePartTests.PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
+      <option name="METHOD_NAME" value="PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConnectionTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.ConnectionTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CommentTests.createComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConnectionTests.approveConnectionRequest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -101,40 +133,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.CommentTests" />
-      <option name="METHOD_NAME" value="createComment" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CommentTests.deleteComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.CommentTests" />
-      <option name="METHOD_NAME" value="deleteComment" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CommentTests.likeComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.CommentTests" />
-      <option name="METHOD_NAME" value="likeComment" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.ConnectionTests" />
+      <option name="METHOD_NAME" value="approveConnectionRequest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -142,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CommentTests.deleteComment" />
-        <item itemvalue="JUnit.CommentTests.createComment" />
-        <item itemvalue="JUnit.CommentTests" />
-        <item itemvalue="JUnit.CommentTests.likeComment" />
-        <item itemvalue="JUnit.AccessToPrivatePageTests" />
+        <item itemvalue="JUnit.AdministrativePartTests.PostDeleted_When_AdminTriesToEditPost_And_ConfirmEdit" />
+        <item itemvalue="JUnit.AdministrativePartTests.PostEdited_When_AdminTriesToEditPost_And_ConfirmEdit" />
+        <item itemvalue="JUnit.AdministrativePartTests" />
+        <item itemvalue="JUnit.ConnectionTests" />
+        <item itemvalue="JUnit.ConnectionTests.approveConnectionRequest" />
       </list>
     </recent_temporary>
   </component>
@@ -163,9 +163,6 @@
       <workItem from="1697459677947" duration="1298000" />
       <workItem from="1697468385550" duration="2222000" />
       <workItem from="1697475691238" duration="238000" />
-      <workItem from="1697706239618" duration="1810000" />
-      <workItem from="1697708065294" duration="25000" />
-      <workItem from="1697708099225" duration="4169000" />
     </task>
     <task id="LOCAL-00001" summary="Add RegisterTest">
       <created>1697226985388</created>
@@ -336,23 +333,7 @@
       <option name="project" value="LOCAL" />
       <updated>1697660451207</updated>
     </task>
-    <task id="LOCAL-00024" summary="refactor and clean code">
-      <option name="closed" value="true" />
-      <created>1697660600244</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1697660600244</updated>
-    </task>
-    <task id="LOCAL-00025" summary="refactor and clean code">
-      <option name="closed" value="true" />
-      <created>1697718553082</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1697718553083</updated>
-    </task>
-    <option name="localTasksCounter" value="26" />
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,9 +387,34 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/weare/testing/LatestPostsPage.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/PostTests.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="94" />
+          <line>98</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/CommentTests.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/ConnectionTests.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="69" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
