@@ -16,6 +16,8 @@ public class BaseTestSetup {
     protected static UserPage userPage;
     protected static PostPage postPage;
     protected static HomePage homePage;
+    protected static PrivatePage privatePage;
+    protected static PublicPage publicPage;
     protected static LatestPostsPage latestPostsPage;
     protected static String generatedUsername;
     protected static String generatedPassword;

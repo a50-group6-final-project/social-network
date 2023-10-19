@@ -1,0 +1,335 @@
+<html>
+<head>
+<title>TestNG:  Surefire test</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Surefire test</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>19/3/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Oct 18 23:53:25 EEST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>9 seconds (9160 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='weare.api.testing.comment.FindAllCommentsTest.findAllComments_Successful()'><b>findAllComments_Successful</b><br>Test class: weare.api.testing.comment.FindAllCommentsTest</td>
+<td><div><pre>java.lang.AssertionError: The array size is more than or equal to 1 expected [true] but found [false]
+	at weare.api.testing.comment.FindAllCommentsTest.findAllComments_Successful(FindAllCommentsTest.java:31)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 35 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1673518027", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1673518027'><pre>java.lang.AssertionError: The array size is more than or equal to 1 expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at weare.api.testing.comment.FindAllCommentsTest.findAllComments_Successful(FindAllCommentsTest.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>weare.api.testing.comment.FindAllCommentsTest@19e7a160</td></tr>
+<tr>
+<td title='weare.api.testing.users.GetUserByIdTests.getUserById_Successful()'><b>getUserById_Successful</b><br>Test class: weare.api.testing.users.GetUserByIdTests</td>
+<td><div><pre>java.lang.AssertionError: Incorrect status code. expected [200] but found [404]
+	at base.BaseTestSetup.isResponse200(BaseTestSetup.java:52)
+	at weare.api.testing.users.GetUserByIdTests.getUserById_Successful(GetUserByIdTests.java:25)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 38 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1522494105", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1522494105'><pre>java.lang.AssertionError: Incorrect status code. expected [200] but found [404]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at base.BaseTestSetup.isResponse200(BaseTestSetup.java:52)
+	at weare.api.testing.users.GetUserByIdTests.getUserById_Successful(GetUserByIdTests.java:25)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>weare.api.testing.users.GetUserByIdTests@4416d64f</td></tr>
+<tr>
+<td title='weare.api.testing.users.UpdateUserExpertiseTests.updateUserExpertise_Successful()'><b>updateUserExpertise_Successful</b><br>Test class: weare.api.testing.users.UpdateUserExpertiseTests</td>
+<td><div><pre>java.lang.AssertionError: Incorrect status code. expected [200] but found [500]
+	at base.BaseTestSetup.isResponse200(BaseTestSetup.java:52)
+	at weare.api.testing.users.UpdateUserExpertiseTests.updateUserExpertise_Successful(UpdateUserExpertiseTests.java:31)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+... Removed 38 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace853186557", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace853186557'><pre>java.lang.AssertionError: Incorrect status code. expected [200] but found [500]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at base.BaseTestSetup.isResponse200(BaseTestSetup.java:52)
+	at weare.api.testing.users.UpdateUserExpertiseTests.updateUserExpertise_Successful(UpdateUserExpertiseTests.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+</pre></div></td>
+<td>0</td>
+<td>weare.api.testing.users.UpdateUserExpertiseTests@732d0d24</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='weare.api.testing.connection.GetUserRequestsTests.getUserRequestTest()'><b>getUserRequestTest</b><br>Test class: weare.api.testing.connection.GetUserRequestsTests</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.connection.GetUserRequestsTests@2ce6c6ec</td></tr>
+<tr>
+<td title='weare.api.testing.comment.DeleteCommentTest.deleteComment_Successful()'><b>deleteComment_Successful</b><br>Test class: weare.api.testing.comment.DeleteCommentTest</td>
+<td></td>
+<td>1</td>
+<td>weare.api.testing.comment.DeleteCommentTest@2931522b</td></tr>
+<tr>
+<td title='weare.api.testing.skill.UpdateSkillTests.updateSkill_Successful()'><b>updateSkill_Successful</b><br>Test class: weare.api.testing.skill.UpdateSkillTests</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.skill.UpdateSkillTests@73a8da0f</td></tr>
+<tr>
+<td title='weare.api.testing.users.GetProfilePostsTests.getUserPosts_Successful()'><b>getUserPosts_Successful</b><br>Test class: weare.api.testing.users.GetProfilePostsTests</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.users.GetProfilePostsTests@50dfbc58</td></tr>
+<tr>
+<td title='weare.api.testing.skill.CreateSkillTests.createSkill_Successful()'><b>createSkill_Successful</b><br>Test class: weare.api.testing.skill.CreateSkillTests</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.skill.CreateSkillTests@5026735c</td></tr>
+<tr>
+<td title='weare.api.testing.connection.ApproveRequestTest.approveRequest_successful()'><b>approveRequest_successful</b><br>Test class: weare.api.testing.connection.ApproveRequestTest</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.connection.ApproveRequestTest@5c45d770</td></tr>
+<tr>
+<td title='weare.api.testing.connection.SendRequestTest.sendRequest_successful()'><b>sendRequest_successful</b><br>Test class: weare.api.testing.connection.SendRequestTest</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.connection.SendRequestTest@1bae316d</td></tr>
+<tr>
+<td title='weare.api.testing.comment.LikeDislikeCommentTest.likeDislikeComment_Successful()'><b>likeDislikeComment_Successful</b><br>Test class: weare.api.testing.comment.LikeDislikeCommentTest</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.comment.LikeDislikeCommentTest@662706a7</td></tr>
+<tr>
+<td title='weare.api.testing.skill.GetOneSkillTests.getOneSkillById_Successful()'><b>getOneSkillById_Successful</b><br>Test class: weare.api.testing.skill.GetOneSkillTests</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.skill.GetOneSkillTests@10f7f7de</td></tr>
+<tr>
+<td title='weare.api.testing.users.RegisterUserTests.registerUserSuccessfully()'><b>registerUserSuccessfully</b><br>Test class: weare.api.testing.users.RegisterUserTests</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.users.RegisterUserTests@5e3d57c7</td></tr>
+<tr>
+<td title='weare.api.testing.post.EditPostTest.editPost_Successful()'><b>editPost_Successful</b><br>Test class: weare.api.testing.post.EditPostTest</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.post.EditPostTest@7cbd9d24</td></tr>
+<tr>
+<td title='weare.api.testing.skill.GetAllSkillsTests.newlyCreatedSkill_returned_whenGetAllSkills()'><b>newlyCreatedSkill_returned_whenGetAllSkills</b><br>Test class: weare.api.testing.skill.GetAllSkillsTests</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.skill.GetAllSkillsTests@11f0a5a1</td></tr>
+<tr>
+<td title='weare.api.testing.comment.EditCommentTest.editComment_Successful()'><b>editComment_Successful</b><br>Test class: weare.api.testing.comment.EditCommentTest</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.comment.EditCommentTest@7674b62c</td></tr>
+<tr>
+<td title='weare.api.testing.post.LikeDislikeAPostTest.likeAndDislikePost_Successful()'><b>likeAndDislikePost_Successful</b><br>Test class: weare.api.testing.post.LikeDislikeAPostTest</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.post.LikeDislikeAPostTest@1672fe87</td></tr>
+<tr>
+<td title='weare.api.testing.users.GetUsersTests.getUsers_Successful()'><b>getUsers_Successful</b><br>Test class: weare.api.testing.users.GetUsersTests</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.users.GetUsersTests@6bf08014</td></tr>
+<tr>
+<td title='weare.api.testing.post.CreatePostTest.createPost_Successful()'><b>createPost_Successful</b><br>Test class: weare.api.testing.post.CreatePostTest</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.post.CreatePostTest@147a5d08</td></tr>
+<tr>
+<td title='weare.api.testing.post.DeleteAPostTest.deletePost_Successful()'><b>deletePost_Successful</b><br>Test class: weare.api.testing.post.DeleteAPostTest</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.post.DeleteAPostTest@6676f6a0</td></tr>
+<tr>
+<td title='weare.api.testing.comment.CreateCommentTest.createComment_Successful()'><b>createComment_Successful</b><br>Test class: weare.api.testing.comment.CreateCommentTest</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.comment.CreateCommentTest@2812b107</td></tr>
+<tr>
+<td title='weare.api.testing.skill.DeleteSkillTests.deleteSkill_Successful()'><b>deleteSkill_Successful</b><br>Test class: weare.api.testing.skill.DeleteSkillTests</td>
+<td></td>
+<td>0</td>
+<td>weare.api.testing.skill.DeleteSkillTests@1b45c0e</td></tr>
+</table><p>
+</body>
+</html>

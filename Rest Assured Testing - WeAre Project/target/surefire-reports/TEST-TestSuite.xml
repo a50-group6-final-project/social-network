@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="10.558" tests="22" errors="0" skipped="0" failures="3">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1251"/>
+    <property name="java.class.path" value="C:\Users\sesko\OneDrive\Desktop\final-pro\Rest Assured Testing - WeAre Project\target\test-classes;C:\Users\sesko\OneDrive\Desktop\final-pro\Rest Assured Testing - WeAre Project\target\classes;C:\Users\sesko\.m2\repository\io\rest-assured\rest-assured\5.3.1\rest-assured-5.3.1.jar;C:\Users\sesko\.m2\repository\org\apache\groovy\groovy\4.0.11\groovy-4.0.11.jar;C:\Users\sesko\.m2\repository\org\apache\groovy\groovy-xml\4.0.11\groovy-xml-4.0.11.jar;C:\Users\sesko\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\sesko\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\sesko\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\sesko\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\sesko\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\sesko\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\sesko\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\sesko\.m2\repository\io\rest-assured\json-path\5.3.1\json-path-5.3.1.jar;C:\Users\sesko\.m2\repository\org\apache\groovy\groovy-json\4.0.11\groovy-json-4.0.11.jar;C:\Users\sesko\.m2\repository\io\rest-assured\rest-assured-common\5.3.1\rest-assured-common-5.3.1.jar;C:\Users\sesko\.m2\repository\io\rest-assured\xml-path\5.3.1\xml-path-5.3.1.jar;C:\Users\sesko\.m2\repository\org\testng\testng\7.8.0\testng-7.8.0.jar;C:\Users\sesko\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\sesko\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\sesko\.m2\repository\org\webjars\jquery\3.6.1\jquery-3.6.1.jar;C:\Users\sesko\.m2\repository\com\github\javafaker\javafaker\1.0.2\javafaker-1.0.2.jar;C:\Users\sesko\.m2\repository\org\apache\commons\commons-lang3\3.5\commons-lang3-3.5.jar;C:\Users\sesko\.m2\repository\org\yaml\snakeyaml\1.23\snakeyaml-1.23-android.jar;C:\Users\sesko\.m2\repository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;C:\Users\sesko\.m2\repository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar;C:\Users\sesko\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.2\jackson-databind-2.15.2.jar;C:\Users\sesko\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.2\jackson-annotations-2.15.2.jar;C:\Users\sesko\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.2\jackson-core-2.15.2.jar;C:\Users\sesko\.m2\repository\io\qameta\allure\allure-testng\2.24.0\allure-testng-2.24.0.jar;C:\Users\sesko\.m2\repository\io\qameta\allure\allure-java-commons\2.24.0\allure-java-commons-2.24.0.jar;C:\Users\sesko\.m2\repository\io\qameta\allure\allure-model\2.24.0\allure-model-2.24.0.jar;C:\Users\sesko\.m2\repository\io\qameta\allure\allure-test-filter\2.24.0\allure-test-filter-2.24.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://openjdk.java.net/"/>
+    <property name="user.timezone" value="Europe/Helsinki"/>
+    <property name="user.country.format" value="BG"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11\bin"/>
+    <property name="sun.java.command" value="C:\Users\sesko\AppData\Local\Temp\surefire16293227768174834013\surefirebooter-20231018235324000_3.jar C:\Users\sesko\AppData\Local\Temp\surefire16293227768174834013 2023-10-18T23-53-23_660-jvmRun1 surefire-20231018235324000_1tmp surefire_0-20231018235324000_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\sesko\OneDrive\Desktop\final-pro\Rest Assured Testing - WeAre Project\target\test-classes;C:\Users\sesko\OneDrive\Desktop\final-pro\Rest Assured Testing - WeAre Project\target\classes;C:\Users\sesko\.m2\repository\io\rest-assured\rest-assured\5.3.1\rest-assured-5.3.1.jar;C:\Users\sesko\.m2\repository\org\apache\groovy\groovy\4.0.11\groovy-4.0.11.jar;C:\Users\sesko\.m2\repository\org\apache\groovy\groovy-xml\4.0.11\groovy-xml-4.0.11.jar;C:\Users\sesko\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\sesko\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\sesko\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\sesko\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\sesko\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\sesko\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\sesko\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\sesko\.m2\repository\io\rest-assured\json-path\5.3.1\json-path-5.3.1.jar;C:\Users\sesko\.m2\repository\org\apache\groovy\groovy-json\4.0.11\groovy-json-4.0.11.jar;C:\Users\sesko\.m2\repository\io\rest-assured\rest-assured-common\5.3.1\rest-assured-common-5.3.1.jar;C:\Users\sesko\.m2\repository\io\rest-assured\xml-path\5.3.1\xml-path-5.3.1.jar;C:\Users\sesko\.m2\repository\org\testng\testng\7.8.0\testng-7.8.0.jar;C:\Users\sesko\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\sesko\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\sesko\.m2\repository\org\webjars\jquery\3.6.1\jquery-3.6.1.jar;C:\Users\sesko\.m2\repository\com\github\javafaker\javafaker\1.0.2\javafaker-1.0.2.jar;C:\Users\sesko\.m2\repository\org\apache\commons\commons-lang3\3.5\commons-lang3-3.5.jar;C:\Users\sesko\.m2\repository\org\yaml\snakeyaml\1.23\snakeyaml-1.23-android.jar;C:\Users\sesko\.m2\repository\com\github\mifmif\generex\1.0.2\generex-1.0.2.jar;C:\Users\sesko\.m2\repository\dk\brics\automaton\automaton\1.11-8\automaton-1.11-8.jar;C:\Users\sesko\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.2\jackson-databind-2.15.2.jar;C:\Users\sesko\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.2\jackson-annotations-2.15.2.jar;C:\Users\sesko\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.2\jackson-core-2.15.2.jar;C:\Users\sesko\.m2\repository\io\qameta\allure\allure-testng\2.24.0\allure-testng-2.24.0.jar;C:\Users\sesko\.m2\repository\io\qameta\allure\allure-java-commons\2.24.0\allure-java-commons-2.24.0.jar;C:\Users\sesko\.m2\repository\io\qameta\allure\allure-model\2.24.0\allure-model-2.24.0.jar;C:\Users\sesko\.m2\repository\io\qameta\allure\allure-test-filter\2.24.0\allure-test-filter-2.24.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\sesko"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-04-18"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-11"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\sesko\OneDrive\Desktop\final-pro\Rest Assured Testing - WeAre Project"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\sesko\AppData\Local\Temp\surefire16293227768174834013\surefirebooter-20231018235324000_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.19+9-LTS-224"/>
+    <property name="user.name" value="sesko"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1251"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="C:\Users\sesko\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\sesko\AppData\Local\Temp\"/>
+    <property name="java.version" value="11.0.19"/>
+    <property name="user.dir" value="C:\Users\sesko\OneDrive\Desktop\final-pro\Rest Assured Testing - WeAre Project"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="user.language.format" value="bg"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-11\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;%MAVEN%\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Docker\Docker\resources\bin;C:\Users\sesko\OneDrive\Desktop\apache-maven-3.9.5-bin\apache-maven-3.9.5\bin;C:\Users\sesko\OneDrive\Desktop\allure-2.24.1\allure-2.24.1\bin;C:\Users\sesko\AppData\Local\Microsoft\WindowsApps;C:\Users\sesko\AppData\Roaming\npm;C:\Users\sesko\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\IntelliJ IDEA 2023.1.3\bin;;."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11.0.19+9-LTS-224"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="createComment_Successful" classname="weare.api.testing.comment.CreateCommentTest" time="0.2">
+    <system-out><![CDATA[User with name bPjNFG and id 39 was created
+The response is 200
+Registered successfully!
+Username: bPjNFG
+ID: 39
+Successfully created a new user with Id 39
+Successfully created a new post with Id 64
+The response is 200
+Successfully created a new comment with Id 100. All properties are not null.
+]]></system-out>
+    <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+  </testcase>
+  <testcase name="deleteComment_Successful" classname="weare.api.testing.comment.DeleteCommentTest" time="1.054">
+    <system-out><![CDATA[Successfully delete a post with Id 64
+Successfully created a new post with Id  65
+The response is 200
+Successfully created a new post with Id  101
+The response is 200
+Successfully deleted comment with Id 100 successfully.
+]]></system-out>
+  </testcase>
+  <testcase name="editComment_Successful" classname="weare.api.testing.comment.EditCommentTest" time="0.065">
+    <system-out><![CDATA[io.restassured.internal.RestAssuredResponseImpl@4792f119
+The response is 200
+Successfully created a new comment with Id  102
+The response is 200
+Successfully edited comment with Id 100 successfully.
+{"commentId":102,"content":"2cgqi2qck6x9bj95jq9l5de7n1ysn","likes":[],"date":"18/10/2023 23:53:30","liked":false,"hibernateLazyInitializer":{}}
+]]></system-out>
+  </testcase>
+  <testcase name="findAllComments_Successful" classname="weare.api.testing.comment.FindAllCommentsTest" time="0.04">
+    <failure message="The array size is more than or equal to 1 expected [true] but found [false]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: The array size is more than or equal to 1 expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at weare.api.testing.comment.FindAllCommentsTest.findAllComments_Successful(FindAllCommentsTest.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+    <system-out><![CDATA[Successfully delete a post with Id 65
+Successfully delete a comment with Id 65
+The response is 200
+]]></system-out>
+  </testcase>
+  <testcase name="likeDislikeComment_Successful" classname="weare.api.testing.comment.LikeDislikeCommentTest" time="0.064">
+    <system-out><![CDATA[Successfully created a new post with Id  66
+The response is 200
+Successfully created a new comment with Id 103
+The response is 200
+Comment with Id 103 Liked successfully.
+Comment with Id 103 Disliked successfully.
+]]></system-out>
+  </testcase>
+  <testcase name="approveRequest_successful" classname="weare.api.testing.connection.ApproveRequestTest" time="0.14">
+    <system-out><![CDATA[Successfully delete a post with Id 66
+Successfully delete a comment with Id 66
+User with name beAqAQh and id 40 was created
+The response is 200
+Registered successfully!
+Username: beAqAQh
+ID: 40
+Successfully created a new user with Id 40
+User with name LTPggZ and id 41 was created
+The response is 200
+Registered successfully!
+Username: LTPggZ
+ID: 41
+Successfully created a new user with Id 41
+The response is 200
+The status code is: 405
+]]></system-out>
+  </testcase>
+  <testcase name="getUserRequestTest" classname="weare.api.testing.connection.GetUserRequestsTests" time="0.131">
+    <system-out><![CDATA[User with name xDHtrAJl and id 42 was created
+The response is 200
+Registered successfully!
+Username: xDHtrAJl
+ID: 42
+Successfully created a new user with Id 42
+User with name MHqmmyT and id 43 was created
+The response is 200
+Registered successfully!
+Username: MHqmmyT
+ID: 43
+Successfully created a new user with Id 43
+xDHtrAJl send friend request to MHqmmyT
+The response is 200
+]]></system-out>
+  </testcase>
+  <testcase name="sendRequest_successful" classname="weare.api.testing.connection.SendRequestTest" time="0.145">
+    <system-out><![CDATA[User with name klKoBY and id 44 was created
+The response is 200
+Registered successfully!
+Username: klKoBY
+ID: 44
+Successfully created a new user with Id 44
+User with name yNMmok and id 45 was created
+The response is 200
+Registered successfully!
+Username: yNMmok
+ID: 45
+Successfully created a new user with Id 45
+The response is 200
+klKoBY send friend request to yNMmok
+]]></system-out>
+  </testcase>
+  <testcase name="createPost_Successful" classname="weare.api.testing.post.CreatePostTest" time="0.159">
+    <system-out><![CDATA[The response is 200
+Successfully created a new post with Id 67. All properties are not null.
+]]></system-out>
+  </testcase>
+  <testcase name="deletePost_Successful" classname="weare.api.testing.post.DeleteAPostTest" time="0.031">
+    <system-out><![CDATA[The response is 200
+
+Post with Id 67 Deleted successfully.
+]]></system-out>
+  </testcase>
+  <testcase name="editPost_Successful" classname="weare.api.testing.post.EditPostTest" time="0.031">
+    <system-out><![CDATA[The response is 200
+Successfully created a new post with Id 69
+The response is 200
+Post with Id 69 edited successfully.
+]]></system-out>
+  </testcase>
+  <testcase name="likeAndDislikePost_Successful" classname="weare.api.testing.post.LikeDislikeAPostTest" time="0.062">
+    <system-out><![CDATA[The response is 200
+Post with Id 69 Liked successfully.
+The response is 200
+Post with Id 69 Disliked successfully.
+]]></system-out>
+  </testcase>
+  <testcase name="createSkill_Successful" classname="weare.api.testing.skill.CreateSkillTests" time="0.056">
+    <system-out><![CDATA[{
+    "skillId": 68,
+    "skill": "Test Skill1697662413854",
+    "category": {
+        "id": 155,
+        "name": "Window cleaner"
+    }
+}
+The response is 200
+]]></system-out>
+  </testcase>
+  <testcase name="deleteSkill_Successful" classname="weare.api.testing.skill.DeleteSkillTests" time="0.02">
+    <system-out><![CDATA[
+{
+    "skillId": 69,
+    "skill": "Test Skill1697662413937",
+    "category": {
+        "id": 155,
+        "name": "Window cleaner"
+    }
+}
+
+The response is 200
+]]></system-out>
+  </testcase>
+  <testcase name="newlyCreatedSkill_returned_whenGetAllSkills" classname="weare.api.testing.skill.GetAllSkillsTests" time="0.023">
+    <system-out><![CDATA[{
+    "skillId": 70,
+    "skill": "Test Skill1697662413980",
+    "category": {
+        "id": 155,
+        "name": "Window cleaner"
+    }
+}
+The response is 200
+]]></system-out>
+  </testcase>
+  <testcase name="getOneSkillById_Successful" classname="weare.api.testing.skill.GetOneSkillTests" time="0.019">
+    <system-out><![CDATA[
+The response is 200
+{
+    "skillId": 71,
+    "skill": "Test Skill1697662414044",
+    "category": {
+        "id": 155,
+        "name": "Window cleaner"
+    }
+}
+The response is 200
+]]></system-out>
+  </testcase>
+  <testcase name="updateSkill_Successful" classname="weare.api.testing.skill.UpdateSkillTests" time="0.023">
+    <system-out><![CDATA[
+The response is 200
+{
+    "skillId": 72,
+    "skill": "Test Skill1697662414096",
+    "category": {
+        "id": 155,
+        "name": "Window cleaner"
+    }
+}
+
+The response is 200
+]]></system-out>
+  </testcase>
+  <testcase name="getUserPosts_Successful" classname="weare.api.testing.users.GetProfilePostsTests" time="0.042">
+    <system-out><![CDATA[
+The response is 200
+The response is 200
+Post created with Id: 70
+The response is 200
+]]></system-out>
+  </testcase>
+  <testcase name="getUserById_Successful" classname="weare.api.testing.users.GetUserByIdTests" time="0.017">
+    <failure message="Incorrect status code. expected [200] but found [404]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Incorrect status code. expected [200] but found [404]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at base.BaseTestSetup.isResponse200(BaseTestSetup.java:52)
+	at weare.api.testing.users.GetUserByIdTests.getUserById_Successful(GetUserByIdTests.java:25)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+  </testcase>
+  <testcase name="getUsers_Successful" classname="weare.api.testing.users.GetUsersTests" time="0.046">
+    <system-out><![CDATA[The response is 200
+]]></system-out>
+  </testcase>
+  <testcase name="registerUserSuccessfully" classname="weare.api.testing.users.RegisterUserTests" time="0.143">
+    <system-out><![CDATA[User with name jsrRXrG and id 46 was created
+The response is 200
+Registered successfully!
+]]></system-out>
+  </testcase>
+  <testcase name="updateUserExpertise_Successful" classname="weare.api.testing.users.UpdateUserExpertiseTests" time="0.169">
+    <failure message="Incorrect status code. expected [200] but found [500]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Incorrect status code. expected [200] but found [500]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at base.BaseTestSetup.isResponse200(BaseTestSetup.java:52)
+	at weare.api.testing.users.UpdateUserExpertiseTests.updateUserExpertise_Successful(UpdateUserExpertiseTests.java:31)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1541)
+	at org.testng.TestRunner.privateRun(TestRunner.java:848)
+	at org.testng.TestRunner.run(TestRunner.java:621)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+	at org.testng.TestNG.runSuites(TestNG.java:1114)
+	at org.testng.TestNG.run(TestNG.java:1082)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]></failure>
+    <system-out><![CDATA[{"timestamp":"2023-10-18T20:53:34.622+0000","status":500,"error":"Internal Server Error","message":"No message available","path":"/api/users/auth/46/expertise"}
+]]></system-out>
+  </testcase>
+</testsuite>
