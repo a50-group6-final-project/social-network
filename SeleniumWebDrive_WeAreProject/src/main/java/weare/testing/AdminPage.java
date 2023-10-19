@@ -51,19 +51,6 @@ public class AdminPage extends BaseWeArePage {
 
     }
 
-    public void adminEditUserPost() {
-
-        actions.waitForElementClickable("weAre.adminPage.gotoAdminZone");
-        actions.clickElement("weAre.adminPage.gotoAdminZone");
-
-        actions.waitForElementClickable("//a[@href='/posts' and @class='nav-link']");
-        actions.clickElement("//a[@href='/posts' and @class='nav-link']");
-
-
-
-
-
-    }
 
     public void adminEditPersonalProfile() {
         actions.waitForElementClickable("weAre.adminPage.gotoAdminZone");
@@ -75,17 +62,19 @@ public class AdminPage extends BaseWeArePage {
         actions.waitForElementClickable("weAre.userPage.seeProfileButton");
         actions.clickElement("weAre.userPage.seeProfileButton");
 
-
-    }
-
-    public void adminDeleteUserPost() {
-        actions.waitForElementClickable("weAre.adminPage.gotoAdminZone");
-        actions.clickElement("weAre.adminPage.gotoAdminZone");
-
-        actions.waitForElementClickable("//a[@href='/posts' and @class='nav-link']");
-        actions.clickElement("//a[@href='/posts' and @class='nav-link']");
-
-
+        actions.waitForElementVisible("weAre.privatePage.editButton");
+        actions.clickElement("weAre.privatePage.editButton");
+        actions.waitForElementVisible("weAre.privatePage.firstname");
+        actions.typeValueInField("Ana", "weAre.privatePage.firstname");
+        actions.waitForElementVisible("weAre.privatePage.lastname");
+        actions.typeValueInField("Stoyanova", "weAre.privatePage.lastname");
+        actions.waitForElementVisible("weAre.privatePage.calendar");
+        actions.typeValueInField("11/12/2023", "weAre.privatePage.calendar");
+        actions.waitForElementVisible("weAre.privatePage.gender");
+        actions.clickElement("weAre.privatePage.gender");
+        actions.waitForElementVisible("weAre.privatePage.city");
+        actions.clickElement("weAre.privatePage.city");
+        actions.clickElement("weAre.privatePage.updateButtonOne");
 
 
     }
