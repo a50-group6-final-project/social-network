@@ -8,6 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.*;
+
 public class GetUserByIdTests extends BaseUserSetup {
 
     @BeforeClass
@@ -25,8 +27,9 @@ public class GetUserByIdTests extends BaseUserSetup {
         isResponse200(response);
 
         userPersonal = response.as(UserPersonal.class);
-        Assert.assertEquals(userPersonal.username, currentUsername, "Usernames don't match!");
-        Assert.assertEquals(userPersonal.email, currentEmail, "Emails don't match!");
-        Assert.assertEquals(userPersonal.id, currentUserId, "IDs don't match!");
+        Assert.assertEquals(userPersonal.username, currentUsername, USERNAME_MISMATCH_MESSAGE);
+        Assert.assertEquals(userPersonal.email, currentEmail, EMAIL_MISMATCH_MESSAGE);
+        Assert.assertEquals(userPersonal.id, currentUserId, ID_MISMATCH_MESSAGE);
+
     }
 }

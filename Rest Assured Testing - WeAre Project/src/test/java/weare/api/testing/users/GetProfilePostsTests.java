@@ -9,6 +9,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.*;
+
 public class GetProfilePostsTests extends BaseUserSetup {
     PostModel postToCreate;
     PostModel post;
@@ -25,7 +27,8 @@ public class GetProfilePostsTests extends BaseUserSetup {
         Response postResponse = PostController.createPost(cookies, postToCreate);
         isResponse200(postResponse);
         post = postResponse.as(PostModel.class);
-        System.out.println("Post created with Id: " + post.postId);
+        System.out.println(String.format(POST_CREATED_MESSAGE_FORMAT, post.postId));
+
     }
 
     @Test
@@ -35,8 +38,9 @@ public class GetProfilePostsTests extends BaseUserSetup {
         isResponse200(response);
 
         PostModel[] getPostList = response.as(PostModel[].class);
-        Assert.assertEquals(getPostList[0].postId, post.postId, "PostId does not match.");
-        Assert.assertEquals(getPostList[0].content, post.content, "Content does not match.");
-        Assert.assertEquals(getPostList[0].picture, post.picture, "Picture does not match.");
+        Assert.assertEquals(getPostList[0].postId, post.postId, POST_ID_MISMATCH_MESSAGE);
+        Assert.assertEquals(getPostList[0].content, post.content, CONTENT_MISMATCH_MESSAGE);
+        Assert.assertEquals(getPostList[0].picture, post.picture, PICTURE_MISMATCH_MESSAGE);
+
     }
 }

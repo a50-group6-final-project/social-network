@@ -10,7 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.USER_SUCCESS_MESSAGE;
+import static Utils.Constants.*;
 
 public class FindAllCommentsTest extends BaseTestSetup {
     @BeforeClass
@@ -30,8 +30,9 @@ public class FindAllCommentsTest extends BaseTestSetup {
 
         CommentModel[] commentList = response.as(CommentModel[].class);
 
-        Assert.assertTrue(commentList.length >= 1, "The array size is more than or equal to 1");
-        Assert.assertNotNull(commentList[0].content, "Content is null");
-        System.out.println("Successfully fetched all comments.");
+        Assert.assertTrue(commentList.length >= 1, ARRAY_SIZE_MESSAGE);
+        Assert.assertNotNull(commentList[0].content, CONTENT_NULL_MESSAGE);
+        System.out.println(FETCH_COMMENTS_SUCCESS_MESSAGE);
+
     }
 }

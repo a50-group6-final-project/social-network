@@ -6,6 +6,8 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.REGISTER_SUCCESS_MESSAGE;
+
 public class RegisterUserTests extends BaseUserSetup {
     @Test
     public void registerUserSuccessfully () {
@@ -17,6 +19,6 @@ public class RegisterUserTests extends BaseUserSetup {
         Assert.assertEquals(responseString[3], userToRegister.username);
         currentUsername = userToRegister.username;
         currentUserId = Integer.parseInt(responseString[6]);
-        System.out.println("Registered successfully!");
+        System.out.println(REGISTER_SUCCESS_MESSAGE);
     }
 }

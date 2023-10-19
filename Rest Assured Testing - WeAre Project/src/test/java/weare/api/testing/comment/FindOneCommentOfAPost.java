@@ -37,7 +37,7 @@ public class FindOneCommentOfAPost extends BaseTestSetup {
             assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
 
             postId = createdPost.postId;
-            System.out.println("Successfully created a new post with Id" + " " + postId);
+            System.out.println(String.format(POST_CREATED_SUCCESS_MESSAGE, postId));
             isDeletedPost = false;
         }
 

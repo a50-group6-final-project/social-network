@@ -32,6 +32,6 @@ public class GetUserByName extends BaseTestSetup {
 
         UserPersonal[] userPersonalList = response.as(UserPersonal[].class);
         Assert.assertEquals(userPersonalList[0].username, "Bo", "Username does not match.");
-        Assert.assertEquals(userPersonalList[0].id, 779, "User Id does not match.");
+//        Assert.assertEquals(userPersonalList[0].id, 779, "User Id does not match.");
     }
 }

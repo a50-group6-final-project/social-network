@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.STATUS_CODE_MESSAGE_FORMAT;
 import static Utils.Endpoints.AUTHENTICATE_ENDPOINT;
 import static Utils.Endpoints.BASE_URL;
 
@@ -35,7 +36,7 @@ public class AuthenticateUserFetchCookie extends BaseUserSetup {
         cookies = response.detailedCookies();
         int statusCodeAuthentication = response.getStatusCode();
         Assert.assertEquals(statusCodeAuthentication, 302);
-        System.out.println("The status code is:" + statusCodeAuthentication);
+        System.out.println(String.format(STATUS_CODE_MESSAGE_FORMAT, statusCodeAuthentication));
     }
 }
 

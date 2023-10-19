@@ -11,6 +11,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.SKILL_NOT_FOUND_MESSAGE_FORMAT;
+
 public class GetAllSkillsTests extends BaseTestSetup {
 
     @BeforeClass
@@ -46,7 +48,7 @@ public class GetAllSkillsTests extends BaseTestSetup {
                 return true;
             }
         }
-        Assert.fail("Skill with id " + id + " was not found");
+        Assert.fail(String.format(SKILL_NOT_FOUND_MESSAGE_FORMAT, id));
         return false;
     }
 }

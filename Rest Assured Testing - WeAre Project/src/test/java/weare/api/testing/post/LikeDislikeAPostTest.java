@@ -13,6 +13,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.POST_LIKED_MESSAGE_FORMAT;
+
 public class LikeDislikeAPostTest extends BaseTestSetup {
     PostModelLikeDislike editPost;
 
@@ -43,7 +45,7 @@ public class LikeDislikeAPostTest extends BaseTestSetup {
 
         PostModelLikeDislike editPostLikeDislike = response.as(PostModelLikeDislike.class);
         Assert.assertEquals(editPostLikeDislike.liked, true, "The post is not liked.");
-        System.out.println("Post with Id" + " " + postId + " " + "Liked successfully.");
+        System.out.println(String.format(POST_LIKED_MESSAGE_FORMAT, postId));
 
         Response dislikeResponse = PostController.likeAndDislikePost(cookies, postId);
         isResponse200(dislikeResponse);

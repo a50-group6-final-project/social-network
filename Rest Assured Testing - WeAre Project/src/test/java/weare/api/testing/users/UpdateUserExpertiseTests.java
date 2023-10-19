@@ -8,6 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.*;
+
 public class UpdateUserExpertiseTests extends BaseUserSetup {
 
     @BeforeClass
@@ -30,9 +32,9 @@ public class UpdateUserExpertiseTests extends BaseUserSetup {
         ExpertiseProfile updatedProfile = response.as(ExpertiseProfile.class);
         isResponse200(response);
 
-        Assert.assertEquals(expertiseProfile.category.id, updatedProfile.category.id, "Category ID does not match.");
-        Assert.assertEquals(expertiseProfile.category.name, updatedProfile.category.name, "Category name does not match.");
-        Assert.assertEquals(expertiseProfile.availability, updatedProfile.availability, "Availability does not match.");
-        System.out.println("The profile is successfully updated.");
+        Assert.assertEquals(expertiseProfile.category.id, updatedProfile.category.id, CATEGORY_ID_MISMATCH_MESSAGE);
+        Assert.assertEquals(expertiseProfile.category.name, updatedProfile.category.name, CATEGORY_NAME_MISMATCH_MESSAGE);
+        Assert.assertEquals(expertiseProfile.availability, updatedProfile.availability, AVAILABILITY_MISMATCH_MESSAGE);
+        System.out.println(PROFILE_UPDATED_SUCCESS_MESSAGE);
     }
 }

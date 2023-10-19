@@ -8,6 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.*;
+
 public class UpdateUserPersonalProfile extends BaseUserSetup {
     @BeforeClass
     public void setup() {
@@ -23,13 +25,14 @@ public class UpdateUserPersonalProfile extends BaseUserSetup {
     }
 
     @Test
-    public void updateUserPersonalProfile_Successful() {
+    public void PersonalProfileUpdated_When_UpdateUserPersonalProfile() {
         Response response = UserController.updatePersonalProfile(cookies, currentUserPersonalProfile, currentUserId);
         isResponse200(response);
 
         UserPersonal returnedUserPersonalProfile = response.as(UserPersonal.class);
-        Assert.assertEquals(returnedUserPersonalProfile.firstName, currentUserPersonalProfile.firstName, "First name does not match.");
-        Assert.assertEquals(returnedUserPersonalProfile.lastName, currentUserPersonalProfile.lastName, "Last name does not match.");
-        System.out.println("The profile is successfully updated.");
+        Assert.assertEquals(returnedUserPersonalProfile.firstName, currentUserPersonalProfile.firstName, FIRST_NAME_MISMATCH_MESSAGE);
+        Assert.assertEquals(returnedUserPersonalProfile.lastName, currentUserPersonalProfile.lastName, LAST_NAME_MISMATCH_MESSAGE);
+        System.out.println(PROFILE_UPDATED_SUCCESS_MESSAGE);
+
     }
 }
