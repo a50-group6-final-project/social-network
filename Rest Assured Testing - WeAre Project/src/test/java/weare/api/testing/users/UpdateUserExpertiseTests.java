@@ -23,7 +23,7 @@ public class UpdateUserExpertiseTests extends BaseUserSetup {
     }
 
     @Test
-    public void updateUserExpertise_Successful() {
+    public void UserSuccessfullyUpdatesExpertise_When_ExpertiseChanged() {
         ExpertiseProfile expertiseProfile = ModelGenerator.generateUserExpertiseProfile(158, "Market", 33.66);
         authenticateAndFetchCookies();
         Response response = UserController.updateExpertiseProfile(cookies, expertiseProfile, currentUserId);

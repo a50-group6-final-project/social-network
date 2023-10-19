@@ -33,7 +33,7 @@ public class AccessToPrivatePageTests extends BaseTestSetup{
     }
 
     @Test
-    public void UpdatePersonalInformation() {
+    public void UserProfileUpdatedWithNewData_When_UserInitiatesUpdate() {
         UserPersonal userPersonal = ModelGenerator.generateUserPersonalModel();
         privatePage.updatePersonalInformation(userPersonal);
         privatePage.navigateToPage();
@@ -41,14 +41,14 @@ public class AccessToPrivatePageTests extends BaseTestSetup{
     }
 
     @Test
-    public void UpdateWorkspaceBusiness(){
+    public void WorkspaceBusinessUpdated_When_UserEditsBusinessInformation(){
         privatePage.updateWorkspaceBusiness();
         privatePage.navigateToPage();
         privatePage.assertProfessionPresent();
     }
 
     @Test
-    public void UpdateServiceAndWeeklyAvailability(){
+    public void ServiceAndWeeklyAvailabilityUpdated_When_UserEditsBusinessInformation(){
         String skill = "Quality Assurance";
         privatePage.updateServiceAndWeeklyAvailability(skill);
         privatePage.navigateToPage();
@@ -56,7 +56,7 @@ public class AccessToPrivatePageTests extends BaseTestSetup{
     }
 
     @Test
-    public void UpdatePersonalInfoAndSafety() {
+    public void PersonalInfoAndSafetyUpdated_When_UserEditsInformation() {
         privatePage.updatePersonalInfoAndSafety();
         privatePage.navigateToPage();
     }
