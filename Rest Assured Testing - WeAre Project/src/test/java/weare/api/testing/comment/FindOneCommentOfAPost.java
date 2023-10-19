@@ -25,7 +25,7 @@ public class FindOneCommentOfAPost extends BaseTestSetup {
         if (!isRegistered) {
             UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
             register(userRegister);
-            System.out.println("Successfully created a new user with Id" + " " + currentUserId);
+            System.out.println(USER_SUCCESS_MESSAGE + " " + currentUserId);
         }
         if (isDeletedPost) {
             uniqueContent = DataGenerator.generateUniqueContentPost();

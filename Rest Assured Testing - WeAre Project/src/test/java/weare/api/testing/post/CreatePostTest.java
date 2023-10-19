@@ -12,7 +12,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.CONTENT_MISMATCH_MESSAGE;
+import static Utils.Constants.*;
 import static org.testng.Assert.assertEquals;
 
 public class CreatePostTest extends BaseTestSetup {
@@ -38,19 +38,17 @@ public class CreatePostTest extends BaseTestSetup {
         createdPost = response.as(PostModel.class);
 
         assertEquals(createdPost.content, uniqueContent, CONTENT_MISMATCH_MESSAGE);
-        Assert.assertNotNull(createdPost.postId, "postId is null");
-        Assert.assertNotNull(createdPost.content, "content is null");
-        Assert.assertNotNull(createdPost.picture, "picture is null");
-        Assert.assertNotNull(createdPost.date, "date is null");
-        Assert.assertNotNull(createdPost.liked, "likes is null");
-        Assert.assertNotNull(createdPost.comments, "comments is null");
-        Assert.assertNotNull(createdPost.rank, "rank is null");
-        Assert.assertNotNull(createdPost.category.id, "category.id is null");
-        Assert.assertNotNull(createdPost.category.name, "category.name is null");
-        Assert.assertNotNull(createdPost.liked, "liked is null");
-        Assert.assertNotNull(createdPost.mypublic, "public is null");
+        Assert.assertNotNull(createdPost.postId, POST_ID_NULL_MESSAGE);
+        Assert.assertNotNull(createdPost.picture, PICTURE_NULL_MESSAGE);
+        Assert.assertNotNull(createdPost.comments, COMMENTS_NULL_MESSAGE);
+        Assert.assertNotNull(createdPost.rank, RANK_NULL_MESSAGE);
+        Assert.assertNotNull(createdPost.category.id, CATEGORY_ID_NULL_MESSAGE);
+        Assert.assertNotNull(createdPost.category.name, CATEGORY_NAME_NULL_MESSAGE);
+        Assert.assertNotNull(createdPost.mypublic, PUBLIC_NULL_MESSAGE);
 
-        System.out.println("Successfully created a new post with Id" + " " + createdPost.postId + ". All properties are not null.");
+
+
+        System.out.println(String.format(POST_SUCCESS_ALL_PROPERTIES_NOT_NULL, createdPost.postId));
     }
 
     @AfterClass

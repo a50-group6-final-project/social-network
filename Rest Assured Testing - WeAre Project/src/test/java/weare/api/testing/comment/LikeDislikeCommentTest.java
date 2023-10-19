@@ -24,7 +24,7 @@ public class LikeDislikeCommentTest extends BaseTestSetup {
         if (!isRegistered) {
             UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
             register(userRegister);
-            System.out.println("Successfully created a new user with Id" + " " + currentUserId);
+            System.out.println(USER_SUCCESS_MESSAGE + " " + currentUserId);
         }
         if (isDeletedPost) {
             uniqueContent = DataGenerator.generateUniqueContentPost();
@@ -47,7 +47,7 @@ public class LikeDislikeCommentTest extends BaseTestSetup {
             isResponse200(response);
 
             createdComment = response.as(CommentModel.class);
-            System.out.println("Successfully created a new comment with Id" + " " + createdComment.commentId);
+            System.out.println(String.format(CREATE_COMMENT_SUCCESS_MESSAGE, createdComment.commentId));
             isCommentDeleted = false;
         }
     }
@@ -61,12 +61,12 @@ public class LikeDislikeCommentTest extends BaseTestSetup {
 
         CommentModel likedComment = response.as(CommentModel.class);
         Assert.assertEquals(likedComment.liked, true, "The post is not liked.");
-        System.out.println("Comment with Id" + " " + createdComment.commentId + " " + "Liked successfully.");
+        System.out.println(String.format(LIKE_COMMENT_SUCCESS_MESSAGE, createdComment.commentId));
 
         response = CommentController.LikeDislikeComment(cookies, createdComment.commentId);
         CommentModel dislikedComment = response.as(CommentModel.class);
         Assert.assertEquals(dislikedComment.liked, false, "The post is disliked.");
-        System.out.println("Comment with Id" + " " + createdComment.commentId + " " + "Disliked successfully.");
+        System.out.println(String.format(DISLIKE_COMMENT_SUCCESS_MESSAGE, createdComment.commentId));
 
     }
 

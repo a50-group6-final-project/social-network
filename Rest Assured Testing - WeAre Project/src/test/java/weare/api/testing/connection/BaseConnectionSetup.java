@@ -7,6 +7,8 @@ import models.SendRequest;
 import models.UserRegister;
 import org.testng.annotations.BeforeClass;
 
+import static Utils.Constants.USER_SUCCESS_MESSAGE;
+
 public class BaseConnectionSetup extends BaseTestSetup {
     public Cookies senderCookies;
     public String senderPassword;
@@ -24,7 +26,7 @@ public class BaseConnectionSetup extends BaseTestSetup {
         register(userRegisterOne);
         senderCookies = cookies;
         senderUserId = currentUserId;
-        System.out.println("Successfully created a new user with Id" + " " + senderUserId);
+        System.out.println(USER_SUCCESS_MESSAGE + " " + senderUserId);
 
         UserRegister userRegisterTwo = ModelGenerator.generateUserRegisterModel();
 
@@ -34,7 +36,7 @@ public class BaseConnectionSetup extends BaseTestSetup {
         register(userRegisterTwo);
         receiverCookies = cookies;
         receiverUserId = currentUserId;
-        System.out.println("Successfully created a new user with Id" + " " + receiverUserId);
+        System.out.println(USER_SUCCESS_MESSAGE + " " + receiverUserId);
 
         isRegisteredTwoUsers = true;
     }

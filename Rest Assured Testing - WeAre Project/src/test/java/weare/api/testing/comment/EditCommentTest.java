@@ -60,7 +60,7 @@ public class EditCommentTest extends BaseTestSetup {
         String updatedUniqueContent = DataGenerator.generateUniqueContentPost();
         Response response = CommentController.editComment(cookies, createdComment.commentId, updatedUniqueContent);
         isResponse200(response);
-        System.out.println("Successfully edited comment with Id" + " " + commentId + " " + "successfully.");
+        System.out.println(String.format(EDIT_COMMENT_SUCCESS_MESSAGE, commentId));
         //TODO get comment by id and assert that the content is updated
 
         Response comment = CommentController.findOneCommentOfAPost(cookies, createdComment.commentId);

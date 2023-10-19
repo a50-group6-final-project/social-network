@@ -47,7 +47,7 @@ public class FindAllCommentsOfAPost extends BaseTestSetup {
             isResponse200(response);
 
             createdComment = response.as(CommentModel.class);
-            System.out.println("Successfully created a new comment with Id" + " " + createdComment.commentId);
+            System.out.println(String.format(CREATE_COMMENT_SUCCESS_MESSAGE, createdComment.commentId));
             isCommentDeleted = false;
         }
     }

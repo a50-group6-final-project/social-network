@@ -28,7 +28,7 @@ public class CreateCommentTest extends BaseTestSetup {
             UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
             register(userRegister);
             userId = currentUserId;
-            System.out.println(SUCCESS_MESSAGE + userId);
+            System.out.println(USER_SUCCESS_MESSAGE + userId);
 
         }
         cookies = authenticateAndFetchCookies();

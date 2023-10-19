@@ -10,13 +10,15 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static Utils.Constants.USER_SUCCESS_MESSAGE;
+
 public class FindAllCommentsTest extends BaseTestSetup {
     @BeforeClass
     public void setup() {
         if (!isRegistered) {
             UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
             register(userRegister);
-            System.out.println("Successfully created a new user with Id" + " " + currentUserId);
+            System.out.println(USER_SUCCESS_MESSAGE + " " + currentUserId);
         }
     }
 
