@@ -74,12 +74,12 @@ public class EditCommentTest extends BaseTestSetup {
     public void tearDown() {
         if (!isDeletedPost) {
             PostController.deletePost(cookies, createdPost.postId);
-            System.out.println("Successfully delete a post with Id" + " " + createdPost.postId);
+            System.out.println(DELETE_POST_SUCCESS_MESSAGE + " " + createdPost.postId);
             isDeletedPost = true;
         }
         if (!isCommentDeleted) {
             CommentController.deleteComment(cookies, createdComment.commentId);
-            System.out.println("Successfully delete a comment with Id" + " " + createdPost.postId);
+            System.out.println(DELETE_COMMENT_ID_SUCCESS_MESSAGE + " " + createdPost.postId);
             isCommentDeleted = true;
         }
     }

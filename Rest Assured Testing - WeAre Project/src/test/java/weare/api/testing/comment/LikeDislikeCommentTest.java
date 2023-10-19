@@ -14,8 +14,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.CONTENT_MISMATCH_MESSAGE;
-import static Utils.Constants.POST_SUCCESS_MESSAGE;
+import static Utils.Constants.*;
 import static org.testng.Assert.assertEquals;
 
 public class LikeDislikeCommentTest extends BaseTestSetup {
@@ -75,12 +74,12 @@ public class LikeDislikeCommentTest extends BaseTestSetup {
     public void tearDown() {
         if (!isDeletedPost) {
             PostController.deletePost(cookies, createdPost.postId);
-            System.out.println("Successfully delete a post with Id" + " " + createdPost.postId);
+            System.out.println(DELETE_POST_SUCCESS_MESSAGE + " " + createdPost.postId);
             isDeletedPost = true;
         }
         if (!isCommentDeleted) {
             CommentController.deleteComment(cookies, createdComment.commentId);
-            System.out.println("Successfully delete a comment with Id" + " " + createdPost.postId);
+            System.out.println(DELETE_COMMENT_ID_SUCCESS_MESSAGE + " " + createdPost.postId);
             isCommentDeleted = true;
         }
     }

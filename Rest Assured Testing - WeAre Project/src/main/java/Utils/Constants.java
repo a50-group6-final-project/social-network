@@ -16,5 +16,9 @@ public class Constants {
     public static final String COMMENT_SUCCESS_MESSAGE = "Successfully created a new comment with Id ";
     public static final String ALL_PROPERTIES_NOT_NULL = ". All properties are not null.";
     public static final String DELETE_POST_SUCCESS_MESSAGE = "Successfully delete a post with Id ";
+    public static final String DELETE_COMMENT_SUCCESS_MESSAGE = "Successfully deleted comment with Id %s successfully.";
+
+    public static final String DELETE_COMMENT_ID_SUCCESS_MESSAGE = "Successfully deleted comment with Id.";
+
 
 }

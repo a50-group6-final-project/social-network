@@ -13,8 +13,7 @@ import models.UserRegister;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Utils.Constants.CONTENT_MISMATCH_MESSAGE;
-import static Utils.Constants.POST_SUCCESS_MESSAGE;
+import static Utils.Constants.*;
 import static org.testng.Assert.assertEquals;
 
 public class DeleteCommentTest extends BaseTestSetup {
@@ -56,7 +55,7 @@ public class DeleteCommentTest extends BaseTestSetup {
     public void deleteComment_Successful() throws InterruptedException {
         Response response = CommentController.deleteComment(cookies, createdComment.commentId);
         isResponse200(response);
-        System.out.println("Successfully deleted comment with Id" + " " + commentId + " " + "successfully.");
+        System.out.println(String.format(DELETE_COMMENT_SUCCESS_MESSAGE, commentId));
         isCommentDeleted = true;
         Thread.sleep(1000);
     }
