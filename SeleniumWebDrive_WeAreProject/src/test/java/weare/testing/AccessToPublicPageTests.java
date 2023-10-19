@@ -9,6 +9,9 @@ import weare.api.UserController;
 import weare.models.UserPersonal;
 import weare.models.UserRegister;
 
+import static utils.Endpoints.UPDATE_PERSONAL_ENDPOINT;
+
+
 public class AccessToPublicPageTests extends BaseTestSetup {
     static UserRegister userToRegister;
     static int registeredUserId;
@@ -25,7 +28,7 @@ public class AccessToPublicPageTests extends BaseTestSetup {
         LoginPage.loginUser(userToRegister.username, userToRegister.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
 
-        privatePage = new PrivatePage(driver, String.format("http://localhost:8081/auth/users/%d/profile", registeredUserId));
+        privatePage = new PrivatePage(driver, String.format(UPDATE_PERSONAL_ENDPOINT, registeredUserId));
         privatePage.navigateToPage();
     }
 

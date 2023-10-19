@@ -26,8 +26,14 @@ public class Endpoints {
 
 
     public static final String UPDATE_ENDPOINT = "/api/users/auth/";
+    public static final String UPDATE_PERSONAL_ENDPOINT = "http://localhost:8081/auth/users/%d/profile";
     public static final String PERSONAL_ENDPOINT = "/api/users/auth/{{userIdSender}}/personal";
+    public static final String UPDATE_PERSON_ENDPOINT = "/api/users/auth/{currentUserId}/personal";
+    public static final String SEND_REQUEST_ENDPOINT = "/api/auth/request";
     public static final String REQUEST_ENDPOINT = "/api/auth/request?principal={{firstNameSender}}";
+    public static final String GET_USER_REQUESTS_ENDPOINT = "/api/auth/users/{receiverUserId}/request/";
+    public static final String APPROVE_CONNECTION_REQUEST_ENDPOINT = "/api/auth/users/{receiverUserId}/request/approve";
+    public static final String GET_PROFILE_POSTS_ENDPOINT = "http://localhost:8081/api/users/{currentUserId}/posts";
     public static final String USER_REQUESTS_ENDPOINT = "/api/auth/users/{{userIdReceiver}}/request/";
     public static final String APPROVE_REQUEST_ENDPOINT = "/api/auth/users/{{userIdReceiver}}/request/approve?requestId={{requestId}}";
     public static final String SKILL_ENDPOINT = "/api/skill";

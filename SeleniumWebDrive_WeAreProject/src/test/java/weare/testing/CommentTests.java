@@ -20,7 +20,6 @@ public class CommentTests extends BaseTestSetup {
     static CommentModel createCommentModel;
     static CommentModel comment;
 
-
     @BeforeAll
     public static void setup() {
         userToRegister = ModelGenerator.generateUserRegisterModel();
@@ -34,7 +33,6 @@ public class CommentTests extends BaseTestSetup {
         LoginPage.loginUser(userToRegister.username, userToRegister.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
         postPage = new PostPage(driver, "http://localhost:8081/posts/" + createdPost.postId);
-
     }
 
     @BeforeEach

@@ -42,9 +42,4 @@ public class ProfileTests extends BaseTestSetup {
         userPage.assertEmailIsPresent(userPersonal.email);
         userPage.assertBirthDateIsPresent(userPersonal.birthYear);
     }
-
-    public void ExpertiseProfileUpdated_When_UserUpdatesExpertiseProfileWithValidInput() {
-    }
-
-    ;
 }

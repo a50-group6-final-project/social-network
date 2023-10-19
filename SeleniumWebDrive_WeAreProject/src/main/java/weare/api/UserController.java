@@ -51,7 +51,7 @@ public class UserController {
                 .pathParam("currentUserId", currentUserId)
                 .body(bodyUpdatedPersonalProfileString)
                 .when()
-                .post("/api/users/auth/{currentUserId}/personal");
+                .post(UPDATE_PERSON_ENDPOINT);
     }
 
     public static Response updateExpertiseProfile(Cookies cookies, ExpertiseProfile expertiseProfile, int currentUserId) {
@@ -72,7 +72,7 @@ public class UserController {
                 .contentType("application/json")
                 .queryParam("principal", currentUsername)
                 .when()
-                .get("/api/users/auth/" + currentUserId);
+                .get(UPDATE_ENDPOINT + currentUserId);
     }
 
     public static Response getProfilePosts(Cookies cookies, int currentUserId) {
@@ -86,7 +86,7 @@ public class UserController {
                 .pathParam("currentUserId", currentUserId)
                 .body(bodyPageString)
                 .when()
-                .get("http://localhost:8081/api/users/{currentUserId}/posts");
+                .get(GET_PROFILE_POSTS_ENDPOINT);
     }
 
     public static Cookies authenticatedAndFetchCookies(String username, String password) {

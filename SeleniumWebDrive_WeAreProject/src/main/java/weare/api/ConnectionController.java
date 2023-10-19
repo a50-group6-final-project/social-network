@@ -6,6 +6,8 @@ import io.restassured.response.Response;
 import utils.Serializer;
 import weare.models.SendRequest;
 
+import static utils.Endpoints.*;
+
 public class ConnectionController {
 
     public static Response sendRequest(SendRequest sendRequestToUser, Cookies cookies, String senderUsername) {
@@ -17,23 +19,23 @@ public class ConnectionController {
                 .contentType("application/json")
                 .body(bodySendRequest)
                 .when()
-                .post("/api/auth/request");
+                .post(SEND_REQUEST_ENDPOINT);
     }
 
-    public static Response getUserRequests(Cookies cookies, int receiverUserId){
+    public static Response getUserRequests(Cookies cookies, int receiverUserId) {
         return RestAssured.given()
                 .cookies(cookies)
                 .pathParam("receiverUserId", receiverUserId)
                 .when()
-                .get("/api/auth/users/{receiverUserId}/request/");
+                .get(GET_USER_REQUESTS_ENDPOINT);
     }
 
-    public static Response approveRequest(Cookies cookies, int receiverUserId, int requestId){
-        return  RestAssured.given()
+    public static Response approveRequest(Cookies cookies, int receiverUserId, int requestId) {
+        return RestAssured.given()
                 .cookies(cookies)
                 .pathParam("receiverUserId", receiverUserId)
                 .queryParam("requestId", requestId)
                 .when()
-                .post("/api/auth/users/{receiverUserId}/request/approve");
+                .post(APPROVE_CONNECTION_REQUEST_ENDPOINT);
     }
 }
