@@ -26,7 +26,7 @@ public class GetUserByName extends BaseTestSetup {
         }
     }
     @Test
-    public void getUserByName_Successful() {
+    public void UserFound_When_GetUserByName (){
         SearchUser searchUser = ModelGenerator.generateSearchUserModel(SEARCH_USER_NAME);
         Response response = UserController.getUserByName(cookies, searchUser);
 
@@ -34,6 +34,5 @@ public class GetUserByName extends BaseTestSetup {
 
         UserPersonal[] userPersonalList = response.as(UserPersonal[].class);
         Assert.assertEquals(userPersonalList[0].username, EXPECTED_USERNAME, USERNAME_DOES_NOT_MATCH_MESSAGE);
-//        Assert.assertEquals(userPersonalList[0].id, 779, "User Id does not match.");
     }
 }
