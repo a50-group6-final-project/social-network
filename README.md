@@ -102,6 +102,32 @@ newman run "WeAre_Social Network Project.postman_collection.json" -e "Rest-contr
 ## 3. Selenium WebDriver for Frontend Testing
 We employ Selenium WebDriver as our primary tool for executing end-to-end frontend tests, validating the functionality and responsiveness of our web applications.
 
+#### How to Clone Repository and Run Tests in IntelliJ IDEA
+
+---
+
+##### Cloning the Repository
+
+1. **Open IntelliJ IDEA.**
+2. **Select "Get from Version Control" on the welcome screen or navigate to `File > New > Project from Version Control...` if you're in an open project.**
+3. **In the dialog box:**
+    - Choose  GitHub version control system from the menu.
+    - Enter the URL of the repository in the "URL" field.
+    - Choose or specify the directory where you want the repository to be cloned in the "Directory" field.
+4. **Click "Clone"** to start the cloning process.
+
+---
+
+##### Running Tests
+
+1. **Navigate to the `weare.testing` folder in the Project Explorer.**
+2. **To run individual test cases:**
+    - Right-click on a test file or method and select `Run`.
+3. **To run tests by folder:**
+    - Right-click on the folder (AdministrativePartTests, CommentsTests, ConnectionTests, LoginTests, PostTests, RegisterTests,Profile) and select `Run`.
+
+---
+
 <a id="performance-testing"></a>
 
 ## 4. Performance Testing
