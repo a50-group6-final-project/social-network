@@ -26,12 +26,12 @@ public class ProfileTests extends BaseTestSetup {
         loginPage.navigateToPage();
         LoginPage.loginUser(userToRegister.username, userToRegister.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
-        userPage = new UserPage(driver,String.format("http://localhost:8081/auth/users/%d/profile", registeredUserId));
+        userPage = new UserPage(driver, String.format("http://localhost:8081/auth/users/%d/profile", registeredUserId));
         userPage.navigateToPage();
     }
 
     @Test
-    public void PersonalProfileUpdated_When_UserUpdatesPersonalProfileWithValidInput(){
+    public void PersonalProfileUpdated_When_UserUpdatesPersonalProfileWithValidInput() {
         System.out.println("Test");
 
         UserPersonal userPersonal = ModelGenerator.generateUserPersonalModel();
@@ -43,5 +43,8 @@ public class ProfileTests extends BaseTestSetup {
         userPage.assertBirthDateIsPresent(userPersonal.birthYear);
     }
 
-    public void ExpertiseProfileUpdated_When_UserUpdatesExpertiseProfileWithValidInput(){};
+    public void ExpertiseProfileUpdated_When_UserUpdatesExpertiseProfileWithValidInput() {
+    }
+
+    ;
 }

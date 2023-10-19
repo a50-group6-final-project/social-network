@@ -43,7 +43,8 @@ public class UserActions {
         WebElement element = driver.findElement(By.xpath(locator));
         element.click();
     }
-    public WebElement getElement(String key, Object... arguments){
+
+    public WebElement getElement(String key, Object... arguments) {
         String locator = getLocatorValueByKey(key, arguments);
         LOGGER.info("Getting element " + key);
         return driver.findElement(By.xpath(locator));
@@ -54,6 +55,7 @@ public class UserActions {
         WebElement element = driver.findElement(By.xpath(locator));
         element.sendKeys(value);
     }
+
     public void clearField(String field) {
         String locator = getLocatorValueByKey(field);
         WebElement element = driver.findElement(By.xpath(locator));
@@ -79,16 +81,12 @@ public class UserActions {
 
 
     public void pressKey(Keys key) {
-        // 1. Initialize Actions
         Actions action = new Actions(driver);
-        // 2. Perform key press
         action.sendKeys(key).perform();
     }
 
     public void pressKeyCopyAll() {
-        // 1. Initialize Actions
         Actions actions = new Actions(driver);
-        // 2. Perform key press
         actions.keyDown(Keys.CONTROL);
         actions.sendKeys("a");
         actions.keyUp(Keys.CONTROL);
@@ -107,10 +105,6 @@ public class UserActions {
 
     //############# WAITS #########
     public void waitForElementPresent(String locator, Object... arguments) {
-        // TODO: Implement the method
-        // 1. Initialize Wait utility with default timeout from properties
-        // 2. Use the method that checks for Element present
-        // 3. Fail the test with meaningful error message in case the element is not present
         waitForElementPresenceUntilTimeout(locator, defaultTimeout, arguments);
     }
 
@@ -118,16 +112,11 @@ public class UserActions {
         Assertions.assertNotNull(driver.findElement(By.xpath(getUIMappingByKey(locator))),
                 format("Element with %s doesn't present.", locator));
     }
+
     public boolean isElementVisible(String locator, Object... arguments) {
-        // TODO: Implement the method
-        // 1. Get default timeout from properties
-        // 2. Initialize Wait utility
         Duration timeout = Duration.ofSeconds(defaultTimeout);
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         String xpath = getLocatorValueByKey(locator, arguments);
-
-        // 3. Try to wait for element visible
-        // 4. return true/false if the element is/not visible
         try {
             wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(xpath)));
             return true;
@@ -138,13 +127,9 @@ public class UserActions {
 
 
     public void assertElementAttribute(String locator, String attributeName, String attributeValue) {
-        // TODO: Implement the method
-        // 1. Find Element using the locator value from Properties
         String xpath = getLocatorValueByKey(locator);
         WebElement element = driver.findElement(By.xpath(xpath));
-        // 2. Get the element attribute
         String value = element.getAttribute(attributeName).trim();
-        // 3. Assert equality with expected value
         Assertions.assertEquals(getLocatorValueByKey(attributeValue).trim(), value, format("Element with locator %s doesn't match", attributeName));
     }
 

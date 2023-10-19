@@ -25,9 +25,10 @@ public class AccessToPublicPageTests extends BaseTestSetup {
         LoginPage.loginUser(userToRegister.username, userToRegister.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
 
-        privatePage = new PrivatePage(driver,String.format("http://localhost:8081/auth/users/%d/profile", registeredUserId));
+        privatePage = new PrivatePage(driver, String.format("http://localhost:8081/auth/users/%d/profile", registeredUserId));
         privatePage.navigateToPage();
     }
+
     @Test
     public void PersonalInformationUpdated_When_ClickEditProfile() {
 
@@ -40,25 +41,26 @@ public class AccessToPublicPageTests extends BaseTestSetup {
     @Test
     public void AccessToPublicPage_When_UserClicksHomeButton() {
 
-        publicPage = new PublicPage(driver,String.format("home.page"));
+        publicPage = new PublicPage(driver, String.format("home.page"));
         publicPage.navigateToPage();
         publicPage.assertRegisterButton();
         publicPage.assertHomeButton();
 
     }
+
     @Test
     public void ProfileFoundByUsername_When_UserEntersNameInSearch() {
         UserPersonal userPersonal = ModelGenerator.generateUserPersonalModel();
 
-        publicPage = new PublicPage(driver,String.format("home.page"));
+        publicPage = new PublicPage(driver, String.format("home.page"));
         publicPage.navigateToPage();
         publicPage.accessToPublicSection_ValidUser(userPersonal);
         publicPage.assertValidProfilePresent();
     }
 
     @Test
-    public void ProfileNotDisplayed_When_TrySearchingWithInvalidUsername () {
-        publicPage = new PublicPage(driver,String.format("home.page"));
+    public void ProfileNotDisplayed_When_TrySearchingWithInvalidUsername() {
+        publicPage = new PublicPage(driver, String.format("home.page"));
         publicPage.navigateToPage();
 
         String username = "Petar";

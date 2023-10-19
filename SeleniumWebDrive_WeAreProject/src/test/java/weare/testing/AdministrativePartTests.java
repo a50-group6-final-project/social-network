@@ -67,8 +67,7 @@ public class AdministrativePartTests extends BaseTestSetup {
 
         BasePage.assertElementPresent("weAre.basePage.enableInput");
         homePage.logoutUser();
-
-}
+    }
 
 
     @Test

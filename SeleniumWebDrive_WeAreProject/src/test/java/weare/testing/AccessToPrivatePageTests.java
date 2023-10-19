@@ -11,8 +11,7 @@ import weare.models.UserPersonal;
 import weare.models.UserRegister;
 
 
-
-public class AccessToPrivatePageTests extends BaseTestSetup{
+public class AccessToPrivatePageTests extends BaseTestSetup {
     static UserRegister userToRegister;
     static int registeredUserId;
     static Cookies cookies;
@@ -28,7 +27,7 @@ public class AccessToPrivatePageTests extends BaseTestSetup{
         LoginPage.loginUser(userToRegister.username, userToRegister.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
 
-        privatePage = new PrivatePage(driver,String.format("http://localhost:8081/auth/users/%d/profile", registeredUserId));
+        privatePage = new PrivatePage(driver, String.format("http://localhost:8081/auth/users/%d/profile", registeredUserId));
         privatePage.navigateToPage();
     }
 
@@ -41,14 +40,14 @@ public class AccessToPrivatePageTests extends BaseTestSetup{
     }
 
     @Test
-    public void WorkspaceBusinessUpdated_When_UserEditsBusinessInformation(){
+    public void WorkspaceBusinessUpdated_When_UserEditsBusinessInformation() {
         privatePage.updateWorkspaceBusiness();
         privatePage.navigateToPage();
         privatePage.assertProfessionPresent();
     }
 
     @Test
-    public void ServiceAndWeeklyAvailabilityUpdated_When_UserEditsBusinessInformation(){
+    public void ServiceAndWeeklyAvailabilityUpdated_When_UserEditsBusinessInformation() {
         String skill = "Quality Assurance";
         privatePage.updateServiceAndWeeklyAvailability(skill);
         privatePage.navigateToPage();

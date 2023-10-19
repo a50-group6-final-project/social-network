@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 public class RegisterTest extends BaseTestSetup {
 
 
-
     @Test
     public void UserRegistered_When_InputValidData() {
         String username = BaseTestSetup.generateRandomUsername(6);

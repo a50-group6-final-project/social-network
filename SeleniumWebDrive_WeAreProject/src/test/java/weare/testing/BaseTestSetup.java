@@ -24,7 +24,6 @@ public class BaseTestSetup {
     protected static String generatedEmail;
     protected static String generatedAdminUsername;
     protected static String generatedLetterPassword;
-
     private static Faker faker = new Faker();
 
     @BeforeAll
