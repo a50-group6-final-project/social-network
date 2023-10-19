@@ -26,7 +26,7 @@ public class CreatePostTest extends BaseTestSetup {
     }
 
     @Test
-    public void createPost_Successful() {
+    public void PostCreated_WhenInputValidSymbolsAndClickCreatePostButton() {
         authenticateAndFetchCookies();
         String uniqueContent = DataGenerator.generateUniqueContentPost();
         createPost = ModelGenerator.generatePostModel(uniqueContent);

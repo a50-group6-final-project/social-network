@@ -55,17 +55,15 @@ public class EditCommentTest extends BaseTestSetup {
     }
 
     @Test
-    public void editComment_Successful() {
+    public void CommentEdited_When_ClickOnEditButton() {
         String updatedUniqueContent = DataGenerator.generateUniqueContentPost();
         Response response = CommentController.editComment(cookies, createdComment.commentId, updatedUniqueContent);
         isResponse200(response);
         System.out.println(String.format(EDIT_COMMENT_SUCCESS_MESSAGE, commentId));
-        //TODO get comment by id and assert that the content is updated
 
         Response comment = CommentController.findOneCommentOfAPost(cookies, createdComment.commentId);
         System.out.println(comment.asString());
-//        CommentModel updatedComment = response.as(CommentModel.class);
-//        assertEquals(updatedComment.content, updatedUniqueContent, "Content does not match.");
+
 
     }
 

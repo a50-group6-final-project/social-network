@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="refactoring">
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/CreateCommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/CreateCommentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/DeleteCommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/DeleteCommentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/EditCommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/EditCommentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllCommentsOfAPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllCommentsOfAPost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllCommentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindAllCommentsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindOneCommentOfAPost.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/FindOneCommentOfAPost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/LikeDislikeCommentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/comment/LikeDislikeCommentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/ApproveRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/ApproveRequestTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/GetUserRequestsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/GetUserRequestsTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/SendRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/connection/SendRequestTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/CreatePostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/CreatePostTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/DeleteAPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/DeleteAPostTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/EditPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/EditPostTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/GetNewsFeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/GetNewsFeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/LikeDislikeAPostTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Rest Assured Testing - WeAre Project/src/test/java/weare/api/testing/post/LikeDislikeAPostTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/AdminPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/AccessToPublicPageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/AccessToPublicPageTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/LoginTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/mappings/ui_map.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/mappings/ui_map.properties" afterDir="false" />
     </list>
@@ -57,7 +72,23 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.AdministrativePartTests">
+  <component name="RunManager" selected="JUnit.LoginTests.LoginFailed_When_TryToLoginWithWrongPassword">
+    <configuration name="AccessToPublicPageTests.AccessToPublicPage_When_UserClicksHomeButton" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="WeAre_Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="weare.testing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="weare.testing" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.AccessToPublicPageTests" />
+      <option name="METHOD_NAME" value="AccessToPublicPage_When_UserClicksHomeButton" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AdministrativePartTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
@@ -89,7 +120,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdministrativePartTests.PersonalProfileEdited_When_AdminTriesToEditProfile_AndConfirmChanges" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -98,14 +129,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
-      <option name="METHOD_NAME" value="PersonalProfileEdited_When_AdminTriesToEditProfile_AndConfirmChanges" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.LoginTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AdministrativePartTests.PostEdited_When_AdminTriesToEditPostAndConfirmEdit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTests.LoginFailed_When_TryToLoginWithWrongPassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="WeAre_Project" />
       <extension name="coverage">
         <pattern>
@@ -114,24 +144,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
-      <option name="METHOD_NAME" value="PostEdited_When_AdminTriesToEditPostAndConfirmEdit" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AdministrativePartTests.UserDisabled_When_ClickDisableButton" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="WeAre_Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="weare.testing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="weare.testing" />
-      <option name="MAIN_CLASS_NAME" value="weare.testing.AdministrativePartTests" />
-      <option name="METHOD_NAME" value="UserDisabled_When_ClickDisableButton" />
+      <option name="MAIN_CLASS_NAME" value="weare.testing.LoginTests" />
+      <option name="METHOD_NAME" value="LoginFailed_When_TryToLoginWithWrongPassword" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,11 +153,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoginTests.LoginFailed_When_TryToLoginWithWrongPassword" />
+        <item itemvalue="JUnit.LoginTests" />
+        <item itemvalue="JUnit.AccessToPublicPageTests.AccessToPublicPage_When_UserClicksHomeButton" />
         <item itemvalue="JUnit.AdministrativePartTests" />
         <item itemvalue="JUnit.AdministrativePartTests.IndustrySelected_When_ClickDropdownAndChooseOption" />
-        <item itemvalue="JUnit.AdministrativePartTests.UserDisabled_When_ClickDisableButton" />
-        <item itemvalue="JUnit.AdministrativePartTests.PersonalProfileEdited_When_AdminTriesToEditProfile_AndConfirmChanges" />
-        <item itemvalue="JUnit.AdministrativePartTests.PostEdited_When_AdminTriesToEditPostAndConfirmEdit" />
       </list>
     </recent_temporary>
   </component>
@@ -337,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697720824138</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="refactoring">
+      <created>1697732115840</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1697732115840</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +398,8 @@
     <MESSAGE value="finish ConnectionTests" />
     <MESSAGE value="refactor and clean code" />
     <MESSAGE value="Refactoring code according to test naming convention" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring code according to test naming convention" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
