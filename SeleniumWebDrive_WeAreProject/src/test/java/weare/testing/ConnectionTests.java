@@ -7,8 +7,9 @@ import utils.ModelGenerator;
 import weare.api.ConnectionController;
 import weare.api.UserController;
 import weare.models.ConnectionModel;
+import weare.models.SendRequest;
 import weare.models.UserRegister;
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+
 public class ConnectionTests extends BaseTestSetup {
 
     protected static UserRegister firstUser;
@@ -21,6 +22,11 @@ public class ConnectionTests extends BaseTestSetup {
 
     @BeforeAll
     public static void setup() {
+
+    }
+
+    @BeforeEach
+    public void beforeEach() {
         firstUser = ModelGenerator.generateUserRegisterModel();
         secondUser = ModelGenerator.generateUserRegisterModel();
 
@@ -31,11 +37,9 @@ public class ConnectionTests extends BaseTestSetup {
         Response responseSecondUser = UserController.registerUser(secondUser);
         secondUserCookies = UserController.authenticatedAndFetchCookies(secondUser.username, secondUser.password);
         secondUserId = Integer.parseInt(responseSecondUser.asString().split(" ")[6]);
-    }
-    @BeforeEach
-    public void beforeEach() {
         loginPage.navigateToPage();
     }
+
     @AfterEach
     public void afterEach() {
         homePage.navigateToPage();
@@ -43,7 +47,6 @@ public class ConnectionTests extends BaseTestSetup {
     }
 
     @Test
-    @Order(1)
     public void ConnectionRequestSent_When_UserClicksOnSendRequestButton() {
         LoginPage.loginUser(firstUser.username, firstUser.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
@@ -62,17 +65,18 @@ public class ConnectionTests extends BaseTestSetup {
     }
 
     @Test
-    @Order(2)
     public void ConnectionRequestApproved_When_UserClicksOnApproveButton() {
-        LoginPage.loginUser(secondUser.username, secondUser.password);
-        LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
-
-        userPage = new UserPage(driver, String.format("http://localhost:8081/auth/users/%d/profile", secondUserId));
-
+        SendRequest sendRequestToUser = ModelGenerator.generateSendRequestModel(secondUserId, secondUser.username);
+        ConnectionController.sendRequest(sendRequestToUser, firstUserCookies, firstUser.username);
         connectionsList = ConnectionController.getUserRequests(secondUserCookies, secondUserId).as(ConnectionModel[].class);
         Assertions.assertEquals(1, connectionsList.length, "Connection list is empty");
         Assertions.assertEquals(connectionsList[0].approved, false, "Connection is already approved");
 
+
+        LoginPage.loginUser(secondUser.username, secondUser.password);
+        LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
+
+        userPage = new UserPage(driver, String.format("http://localhost:8081/auth/users/%d/profile", secondUserId));
         userPage.navigateToPage();
         userPage.approveConnectionRequest();
 
@@ -86,8 +90,15 @@ public class ConnectionTests extends BaseTestSetup {
     ;
 
     @Test
-    @Order(3)
     public void ConnectionRemoved_When_UserRemovesConnection() {
+        SendRequest sendRequestToUser = ModelGenerator.generateSendRequestModel(secondUserId, secondUser.username);
+        ConnectionController.sendRequest(sendRequestToUser, firstUserCookies, firstUser.username);
+        connectionsList = ConnectionController.getUserRequests(secondUserCookies, secondUserId).as(ConnectionModel[].class);
+        Assertions.assertEquals(1, connectionsList.length, "Connection list is empty");
+        Assertions.assertEquals(connectionsList[0].approved, false, "Connection is already approved");
+
+        ConnectionController.approveRequest(secondUserCookies, secondUserId, connectionsList[0].id);
+
         LoginPage.loginUser(firstUser.username, firstUser.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
 
@@ -98,5 +109,4 @@ public class ConnectionTests extends BaseTestSetup {
         userPage.assertHasNoFriends();
     }
 
-    ;
 }

@@ -34,6 +34,6 @@ public class ConnectionController {
                 .pathParam("receiverUserId", receiverUserId)
                 .queryParam("requestId", requestId)
                 .when()
-                .post("/api/auth/users/{receiverUserId}/request/");
+                .post("/api/auth/users/{receiverUserId}/request/approve");
     }
 }
