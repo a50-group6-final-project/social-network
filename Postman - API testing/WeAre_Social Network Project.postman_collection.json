@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "be334011-caca-4a26-b0ca-1ca9e0beae1e",
+		"_postman_id": "88457ba4-7a52-4116-b222-0d15485cb139",
 		"name": "WeAre_Social Network Project",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "30132667",
-		"_collection_link": "https://dark-astronaut-260412.postman.co/workspace/Telerik---Final-Project-~17b108a4-3f4a-4892-826d-8bb170257f82/collection/30132667-be334011-caca-4a26-b0ca-1ca9e0beae1e?action=share&source=collection_link&creator=30132667"
+		"_collection_link": "https://dark-astronaut-260412.postman.co/workspace/Telerik---Final-Project-~17b108a4-3f4a-4892-826d-8bb170257f82/collection/24294340-88457ba4-7a52-4116-b222-0d15485cb139?action=share&source=collection_link&creator=30132667"
 	},
 	"item": [
 		{
@@ -615,6 +615,183 @@
 			"name": "rest-skill-controller",
 			"item": [
 				{
+					"name": "Registration",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseBody = pm.response.text(); // Get the response body as text\r",
+									"\r",
+									"// Extracting ID\r",
+									"var matchId = responseBody.match(/id (\\d+)/); \r",
+									"\r",
+									"if (matchId && matchId[1]) {\r",
+									"    var userId = matchId[1];\r",
+									"    console.log(\"User ID:\", userId);\r",
+									"    pm.environment.set(\"userIdController\", userId);\r",
+									"} else {\r",
+									"    console.error(\"User ID not found in the response.\");\r",
+									"}\r",
+									"\r",
+									"// Extracting Name\r",
+									"var matchName = responseBody.match(/name (\\w+)/);\r",
+									"\r",
+									"if (matchName && matchName[1]) {\r",
+									"    var userName = matchName[1];\r",
+									"    console.log(\"User Name:\", userName);\r",
+									"    pm.environment.set(\"usernameController\", userName);\r",
+									"} else {\r",
+									"    console.error(\"User Name not found in the response.\");\r",
+									"}\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//array for used names\r",
+									"let usedUsernames = pm.environment.get(\"usedUsernames\");\r",
+									"if (usedUsernames) {\r",
+									"    usedUsernames = JSON.parse(usedUsernames);\r",
+									"} else {\r",
+									"    usedUsernames = [];\r",
+									"}\r",
+									"\r",
+									"function makeid(l) {\r",
+									"    var text;\r",
+									"    var char_list = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    \r",
+									"    do {\r",
+									"        text = \"\";\r",
+									"        for(var i = 0; i < l; i++) {\r",
+									"            text += char_list.charAt(Math.floor(Math.random() * char_list.length));\r",
+									"        }\r",
+									"    } while (usedUsernames.includes(text)); // check if the username is unique \r",
+									"\r",
+									"//\r",
+									"    usedUsernames.push(text);\r",
+									"    pm.environment.set(\"usedUsernames\", JSON.stringify(usedUsernames));\r",
+									"\r",
+									"    pm.environment.set(\"usernameController\", text);\r",
+									"\r",
+									"    return text;\r",
+									"}\r",
+									"// generate between 2 and 20 \r",
+									"const length = Math.floor(Math.random() * 19) + 2;\r",
+									"console.log(makeid(length));\r",
+									"\r",
+									"\r",
+									"// generate email\r",
+									"\r",
+									"const uuid = Math.random().toString(36).substring(2, 15) +\r",
+									"            Math.random().toString(36).substring(2, 15);\r",
+									"const email = \"testaccount.\" + uuid + \"@abv.bg\";\r",
+									"pm.environment.set(\"email\", email);\r",
+									"\r",
+									"\r",
+									"function generatePassword() {\r",
+									"  const length = Math.floor(Math.random() * 9) + 8; \r",
+									"  const specialChars = \"+-*&^\";\r",
+									"  const numbers = \"0123456789\";\r",
+									"  const upperCaseLetters = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\r",
+									"  const lowerCaseLetters = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"  let password = \"\";\r",
+									"  password += specialChars[Math.floor(Math.random() * specialChars.length)];\r",
+									"  password += numbers[Math.floor(Math.random() * numbers.length)];\r",
+									"  password += upperCaseLetters[Math.floor(Math.random() * upperCaseLetters.length)];\r",
+									"  password += lowerCaseLetters[Math.floor(Math.random() * lowerCaseLetters.length)];\r",
+									"  \r",
+									"  const allChars = specialChars + numbers + upperCaseLetters + lowerCaseLetters;\r",
+									"  \r",
+									"  for (let i = 4; i < length; i++) {\r",
+									"    password += allChars[Math.floor(Math.random() * allChars.length)];\r",
+									"  }\r",
+									"  \r",
+									"  return password;\r",
+									"}\r",
+									"const password = generatePassword();\r",
+									"pm.environment.set(\"passwordRandom\", password);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID={{sessionID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{passwordRandom}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{passwordRandom}}\",\r\n  \"username\": \"{{usernameController}}\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointUsers}}",
+							"host": [
+								"{{baseUrl}}{{endpointUsers}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"sessionID\", pm.cookies.get(\"JSESSIONID\"));\r",
+									"console.log(pm.cookies.get(\"JSESSIONID\"))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{usernameController}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{passwordRandom}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
+							"host": [
+								"{{baseUrl}}{{endpointAuthenticate}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Create a skill",
 					"event": [
 						{
@@ -762,11 +939,6 @@
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Check if the objects are more than one\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    \r",
-									"    pm.expect(jsonData.length).to.be.above(1);\r",
-									"});\r",
 									"\r",
 									"pm.test(\"Check if storedSkillId exists in the response\", function () {\r",
 									"    var jsonData = pm.response.json();\r",
@@ -967,9 +1139,7 @@
 									"        console.error(\"User ID not found in the response.\");\r",
 									"        }\r",
 									"\r",
-									"        pm.test(\"Status code is 200\", function () {\r",
-									"        pm.response.to.have.status(200);\r",
-									"        });\r",
+									"     \r",
 									"\r",
 									"\r",
 									"        var responseText = pm.response.text();\r",
@@ -977,17 +1147,6 @@
 									"\r",
 									"        var name = parts[3];\r",
 									"        var id = parts[7];\r",
-									"\r",
-									"        // check name   length \r",
-									"        pm.test(\"Name length is between 2 and 20\", function () {\r",
-									"        pm.expect(name.length).to.be.at.least(2);\r",
-									"        pm.expect(name.length).to.be.at.most(20);\r",
-									"        });\r",
-									"\r",
-									"        // check id exists\r",
-									"        pm.test(\"ID exists\", function () {\r",
-									"        pm.expect(id).to.exist;\r",
-									"        });\r",
 									"\r",
 									""
 								],
@@ -1462,20 +1621,7 @@
 									"console.log(JSONData[\"commentId\"])\r",
 									"pm.environment.set(\"commentId\",JSONData[\"commentId\"])\r",
 									"\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Check if a comment is created with expected properties\", function () {\r",
-									"    // Extract the JSON response data\r",
-									"    const responseData = pm.response.json();\r",
-									"    // Check if the response data contains the expected properties\r",
-									"    pm.expect(responseData).to.have.property(\"commentId\");\r",
-									"    pm.expect(responseData).to.have.property(\"content\");\r",
-									"    pm.expect(responseData).to.have.property(\"date\");\r",
-									"    pm.expect(responseData).to.have.property(\"likes\");\r",
-									"    pm.expect(responseData).to.have.property(\"liked\");\r",
-									"});"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -1631,6 +1777,194 @@
 		{
 			"name": "rest-comment-controller",
 			"item": [
+				{
+					"name": "Registration post Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"        /*\r",
+									"        we are retrieving user ID for use further request\r",
+									"        for example edit user info, etc.\r",
+									"        */\r",
+									"        var responseBody = pm.response.text(); // Get the response body as text\r",
+									"        var match = responseBody.match(/id (\\d+)/); // Use a regular expression to extract the userId\r",
+									"\r",
+									"        if (match && match[1]) {\r",
+									"        var userId = match[1];\r",
+									"        console.log(\"User ID:\", userId);\r",
+									"        pm.environment.set(\"userIdPost\", userId);\r",
+									"        } else {\r",
+									"        console.error(\"User ID not found in the response.\");\r",
+									"        }\r",
+									"\r",
+									"        var responseText = pm.response.text();\r",
+									"        var parts = responseText.split(\" \");\r",
+									"\r",
+									"        var name = parts[3];\r",
+									"        var id = parts[7];\r",
+									"\r",
+									"       \r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"//array for used names\r",
+									"let usedUsernames = pm.environment.get(\"usedUsernames\");\r",
+									"if (usedUsernames) {\r",
+									"    usedUsernames = JSON.parse(usedUsernames);\r",
+									"} else {\r",
+									"    usedUsernames = [];\r",
+									"}\r",
+									"\r",
+									"function makeid(l) {\r",
+									"    var text;\r",
+									"    var char_list = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"    \r",
+									"    do {\r",
+									"        text = \"\";\r",
+									"        for(var i = 0; i < l; i++) {\r",
+									"            text += char_list.charAt(Math.floor(Math.random() * char_list.length));\r",
+									"        }\r",
+									"    } while (usedUsernames.includes(text)); // check if the username is unique \r",
+									"\r",
+									"//\r",
+									"    usedUsernames.push(text);\r",
+									"    pm.environment.set(\"usedUsernames\", JSON.stringify(usedUsernames));\r",
+									"\r",
+									"    pm.environment.set(\"usernamePost\", text);\r",
+									"\r",
+									"    return text;\r",
+									"}\r",
+									"// generate between 2 and 20 \r",
+									"const length = Math.floor(Math.random() * 19) + 2;\r",
+									"console.log(makeid(length));\r",
+									"\r",
+									"\r",
+									"// generate email\r",
+									"\r",
+									"const uuid = Math.random().toString(36).substring(2, 15) +\r",
+									"            Math.random().toString(36).substring(2, 15);\r",
+									"const email = \"testaccount.\" + uuid + \"@abv.bg\";\r",
+									"pm.environment.set(\"emailPost\", email);\r",
+									"\r",
+									"\r",
+									"\r",
+									"function generatePassword() {\r",
+									"  const length = Math.floor(Math.random() * 9) + 8; \r",
+									"  const specialChars = \"+-*&^\";\r",
+									"  const numbers = \"0123456789\";\r",
+									"  const upperCaseLetters = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\";\r",
+									"  const lowerCaseLetters = \"abcdefghijklmnopqrstuvwxyz\";\r",
+									"  let password = \"\";\r",
+									"  password += specialChars[Math.floor(Math.random() * specialChars.length)];\r",
+									"  password += numbers[Math.floor(Math.random() * numbers.length)];\r",
+									"  password += upperCaseLetters[Math.floor(Math.random() * upperCaseLetters.length)];\r",
+									"  password += lowerCaseLetters[Math.floor(Math.random() * lowerCaseLetters.length)];\r",
+									"  \r",
+									"  const allChars = specialChars + numbers + upperCaseLetters + lowerCaseLetters;\r",
+									"  \r",
+									"  for (let i = 4; i < length; i++) {\r",
+									"    password += allChars[Math.floor(Math.random() * allChars.length)];\r",
+									"  }\r",
+									"  \r",
+									"  return password;\r",
+									"}\r",
+									"const password = generatePassword();\r",
+									"pm.environment.set(\"passwordRandom\", password);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "JSESSIONID={{sessionID}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": {\r\n    \"id\": 100,\r\n    \"name\": \"All\"\r\n  },\r\n  \"confirmPassword\": \"{{passwordRandom}}\",\r\n  \"email\": \"{{emailPost}}\",\r\n  \"password\": \"{{passwordRandom}}\",\r\n  \"username\": \"{{usernamePost}}\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointUsers}}",
+							"host": [
+								"{{baseUrl}}{{endpointUsers}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(pm.cookies.get('JSESSIONID'))\r",
+									"const sessionId = pm.cookies.get('JSESSIONID')\r",
+									"pm.environment.set(\"sessionID\", sessionId);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{usernamePost}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{passwordRandom}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}{{endpointAuthenticate}}",
+							"host": [
+								"{{baseUrl}}{{endpointAuthenticate}}"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Create post",
 					"event": [
@@ -2104,23 +2438,7 @@
 									"    console.error(\"User Name not found in the response.\");\r",
 									"}\r",
 									"\r",
-									"// Tests\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
 									"\r",
-									"pm.test(\"ID exists\", function () {\r",
-									"    pm.expect(userId).to.exist;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Name exists\", function () {\r",
-									"    pm.expect(userName).to.exist;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Username length is between 2 and 20\", function () {\r",
-									"    pm.expect(userName.length).to.be.at.least(2);\r",
-									"    pm.expect(userName.length).to.be.at.most(20);\r",
-									"});\r",
 									""
 								],
 								"type": "text/javascript"
@@ -2268,20 +2586,7 @@
 									"    pm.environment.set(\"firstNameSender\", firstName);\r",
 									"\r",
 									"\r",
-									"    pm.test(\"Status code is 200\", function () {\r",
-									"        pm.response.to.have.status(200);\r",
-									"    });\r",
-									"\r",
-									"\r",
-									"    var jsonData = pm.response.json();\r",
-									"\r",
-									"    pm.test(\"First name length is at least 2\", function () {\r",
-									"        pm.expect(jsonData.firstName.length).to.be.at.least(2);\r",
-									"    });\r",
-									"\r",
-									"\r",
-									"\r",
-									""
+									"   "
 								],
 								"type": "text/javascript"
 							}
@@ -2366,24 +2671,6 @@
 									"} else {\r",
 									"    console.error(\"User Name not found in the response.\");\r",
 									"}\r",
-									"\r",
-									"// Tests\r",
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"ID exists\", function () {\r",
-									"    pm.expect(userId).to.exist;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Name exists\", function () {\r",
-									"    pm.expect(userName).to.exist;\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Username length is between 2 and 20\", function () {\r",
-									"    pm.expect(userName.length).to.be.at.least(2);\r",
-									"    pm.expect(userName.length).to.be.at.most(20);\r",
-									"});\r",
 									"\r",
 									""
 								],

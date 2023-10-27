@@ -100,7 +100,7 @@ newman run "WeAre_Social Network Project.postman_collection.json" -e "Rest-contr
 <a id="selenium-webdriver-for-frontend-testing"></a>
 
 ## 3. Selenium WebDriver for Frontend Testing
-We employ Selenium WebDriver as our primary tool for executing end-to-end frontend tests, validating the functionality and responsiveness of our web applications.
+We employ Selenium WebDriver as our primary tool for executing end-to-end frontend tests, validating the functionality our web application.
 
 #### How to Clone Repository and Run Tests in IntelliJ IDEA
 
@@ -121,10 +121,7 @@ We employ Selenium WebDriver as our primary tool for executing end-to-end fronte
 ##### Running Tests
 
 1. **Navigate to the `weare.testing` folder in the Project Explorer.**
-2. **To run individual test cases:**
-    - Right-click on a test file or method and select `Run`.
-3. **To run tests by folder:**
-    - Right-click on the folder (AdministrativePartTests, CommentsTests, ConnectionTests, LoginTests, PostTests, RegisterTests,Profile) and select `Run`.
+    - run each test class individually ( 'AdministrativePartTests,' 'CommentsTests,' 'ConnectionTests,' etc.).
 
 ---
 
