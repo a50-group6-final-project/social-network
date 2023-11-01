@@ -47,7 +47,7 @@ public class CreateCommentTest extends BaseTestSetup {
     }
 
     @Test
-    public void CommentCreated_When_InputValidCharacters() {
+    public void CreateComment() {
         String uniqueContent = DataGenerator.generateUniqueContentPost();
         createComment = ModelGenerator.generateCommentModel(uniqueContent, postId, currentUserId);
         Response response = CommentController.createComment(cookies, createComment);

@@ -54,7 +54,7 @@ public class LikeDislikeCommentTest extends BaseTestSetup {
     }
 
     @Test
-    public void CommentLikedOrDisliked_When_ClickOnLikeDislikeComment() {
+    public void LikeDislikeComment() {
 
         Response response = CommentController.LikeDislikeComment(cookies, createdComment.commentId);
 

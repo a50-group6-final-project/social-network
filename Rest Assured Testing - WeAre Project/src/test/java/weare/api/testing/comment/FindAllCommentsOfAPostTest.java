@@ -54,7 +54,7 @@ public class FindAllCommentsOfAPostTest extends BaseTestSetup {
 
 
     @Test
-    public void CommentsFound_When_ClickViewAllComments() {
+    public void FindAllCommentsOfAPost() {
         Response response = CommentController.findAllCommentsOfAPost(cookies, postId);
 
         System.out.println(response.asString());

@@ -52,7 +52,7 @@ public class DeleteCommentTest extends BaseTestSetup {
     }
 
     @Test
-    public void CommentDeleted_When_ClickDeleteButton() throws InterruptedException {
+    public void DeleteComment() throws InterruptedException {
         Response response = CommentController.deleteComment(cookies, createdComment.commentId);
         isResponse200(response);
         System.out.println(String.format(DELETE_COMMENT_SUCCESS_MESSAGE, commentId));
