@@ -15,7 +15,7 @@ public class GetUsersTest extends BaseUserSetup {
 
 
     @Test()
-    public void UsersRetrievedSuccessfully() {
+    public void GetUsersTest() {
         Page page = ModelGenerator.generatePageModel(1500);
         Response response = UserController.getUsers(page);
 

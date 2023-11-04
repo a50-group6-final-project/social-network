@@ -25,7 +25,7 @@ public class UpdateUserPersonalProfileTest extends BaseUserSetup {
     }
 
     @Test
-    public void SelfProfileUpdate_When_UserUpdatesPersonalProfile() {
+    public void UpdateUserPersonalProfile() {
         Response response = UserController.updatePersonalProfile(cookies, currentUserPersonalProfile, currentUserId);
         isResponse200(response);
 

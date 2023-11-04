@@ -22,7 +22,7 @@ public class GetUserByIdTest extends BaseUserSetup {
     }
 
     @Test
-    public void UserFound_When_GetUserById() {
+    public void GetUserById() {
         Response response = UserController.getUserById(userToRegister.username, currentUserId);
         isResponse200(response);
 

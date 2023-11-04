@@ -33,7 +33,7 @@ public class GetProfilePostsTest extends BaseUserSetup {
     }
 
     @Test
-    public void UserPostsRetrieved_When_ClickGetUserPosts() {
+    public void GetProfilePosts() {
 
         Response response = UserController.getProfilePosts(cookies, currentUserId);
         isResponse200(response);

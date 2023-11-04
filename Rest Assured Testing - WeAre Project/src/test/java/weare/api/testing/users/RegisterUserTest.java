@@ -10,7 +10,7 @@ import static utils.Constants.REGISTER_SUCCESS_MESSAGE;
 
 public class RegisterUserTest extends BaseUserSetup {
     @Test
-    public void UserRegistration_When_InputValidData() {
+    public void RegisterUser() {
         userToRegister = ModelGenerator.generateUserRegisterModel();
         Response response = UserController.registerUser(userToRegister);
         isResponse200(response);

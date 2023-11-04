@@ -26,7 +26,7 @@ public class GetUserByNameTest extends BaseTestSetup {
         }
     }
     @Test
-    public void UserFound_When_GetUserByName (){
+    public void GetUserByName (){
         SearchUser searchUser = ModelGenerator.generateSearchUserModel(SEARCH_USER_NAME);
         Response response = UserController.getUserByName(cookies, searchUser);
 
