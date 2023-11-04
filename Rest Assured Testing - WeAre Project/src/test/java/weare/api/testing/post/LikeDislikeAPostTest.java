@@ -18,7 +18,7 @@ import static utils.Constants.*;
 public class LikeDislikeAPostTest extends BaseTestSetup {
 
     @BeforeClass
-    public void PostCreated_When_InputValidNumberOfCharactersAndClickCreatePostButton() {
+    public void PostCreated() {
         if (!isRegistered) {
             UserRegister userRegister = ModelGenerator.generateUserRegisterModel();
             register(userRegister);
@@ -37,7 +37,7 @@ public class LikeDislikeAPostTest extends BaseTestSetup {
     }
 
     @Test
-    public void PostLikedAndDisliked_When_ClickLikeAndDislikeButtons() {
+    public void LikeDislikeAPost() {
 
         Response response = PostController.likeAndDislikePost(cookies, postId);
         isResponse200(response);

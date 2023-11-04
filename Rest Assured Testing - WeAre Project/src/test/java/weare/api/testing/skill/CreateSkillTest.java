@@ -21,7 +21,7 @@ public class CreateSkillTest extends BaseTestSetup {
     }
 
     @Test
-    public void SkillCreatedSuccessfully() {
+    public void CreateSkill() {
         skillToCreated = ModelGenerator.generateSkillModel(155);
 
         Response response = SkillController.createSkill(cookies, skillToCreated);

@@ -28,7 +28,7 @@ public class ApproveRequestTest extends BaseConnectionSetup {
     }
 
     @Test
-    public void RequestApproved_When_RequestSend() {
+    public void ApproveRequest() {
 
         authenticateAndFetchCookies(receiverUsername, receiverPassword);
         ConnectionController.approveRequest(cookies, receiverUserId, requestId);

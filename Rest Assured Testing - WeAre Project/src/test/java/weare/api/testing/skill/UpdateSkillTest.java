@@ -23,7 +23,7 @@ public class UpdateSkillTest extends BaseTestSetup {
     }
 
     @Test
-    public void SkillUpdated_When_ClickUpdateSkill() {
+    public void UpdateSkill() {
         Response response = SkillController.updateOneSkill(cookies, createdSkill);
         isResponse200(response);
     }

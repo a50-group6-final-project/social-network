@@ -18,7 +18,7 @@ public class SendRequestTest extends BaseConnectionSetup {
     }
 
     @Test
-    public void RequestSent_When_ClickSendButton() {
+    public void SendRequest() {
         authenticateAndFetchCookies(senderUsername, senderPassword);
         Response response = ConnectionController.sendRequest(sendRequestToUser, cookies, senderUsername);
         isResponse200(response);
@@ -28,7 +28,6 @@ public class SendRequestTest extends BaseConnectionSetup {
         String[] parts = responseBody.split(" ");
         String senderNameInResponse = parts[0];
         String receiverNameInResponse = parts[parts.length - 1];
-
 
         Assert.assertEquals(senderUsername, senderNameInResponse, SENDER_NAME_MISMATCH_MESSAGE);
         Assert.assertEquals(receiverUsername, receiverNameInResponse, RECEIVER_NAME_MISMATCH_MESSAGE);

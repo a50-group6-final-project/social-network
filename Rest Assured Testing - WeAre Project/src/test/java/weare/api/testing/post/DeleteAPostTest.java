@@ -26,7 +26,7 @@ public class DeleteAPostTest extends BaseTestSetup {
     }
 
     @Test
-    public void PostDeleted_When_ClickDeletePost() {
+    public void DeleteAPost() {
         authenticateAndFetchCookies();
         Response response = PostController.deletePost(cookies, createdPost.postId);
         isResponse200(response);

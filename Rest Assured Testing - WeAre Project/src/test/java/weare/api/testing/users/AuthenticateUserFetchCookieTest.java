@@ -24,7 +24,7 @@ public class AuthenticateUserFetchCookieTest extends BaseUserSetup {
     }
 
     @Test
-    public void CookiesFetched_When_AuthenticateAndFetchCookies() {
+    public void AuthenticateAndFetchCookies() {
         RestAssured.baseURI = BASE_URL;
         Response response = RestAssured.given()
                 .contentType(CONTENT_TYPE_MULTIPART_FORM_DATA)
