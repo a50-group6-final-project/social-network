@@ -23,7 +23,7 @@ public class GetUserRequestsTest extends BaseConnectionSetup {
     }
 
     @Test
-    public void GetUserRequests() {
+    public void getUserRequests() {
         authenticateAndFetchCookies(receiverUsername, receiverPassword);
         Response response = ConnectionController.getUserRequests(cookies, receiverUserId);
 

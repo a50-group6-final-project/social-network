@@ -55,7 +55,7 @@ public class EditCommentTest extends BaseTestSetup {
     }
 
     @Test
-    public void EditComment() {
+    public void editComment() {
         String updatedUniqueContent = DataGenerator.generateUniqueContentPost();
         Response response = CommentController.editComment(cookies, createdComment.commentId, updatedUniqueContent);
         isResponse200(response);

@@ -54,7 +54,7 @@ public class FindOneCommentOfAPostTest extends BaseTestSetup {
     }
 
     @Test
-    public void FindOneCommentOfAPost() {
+    public void findOneCommentOfAPost() {
         Response response = CommentController.findOneCommentOfAPost(cookies, createdComment.commentId);
 
         System.out.println(response.asString());

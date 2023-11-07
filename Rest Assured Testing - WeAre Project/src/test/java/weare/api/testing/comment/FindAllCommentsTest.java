@@ -23,7 +23,7 @@ public class FindAllCommentsTest extends BaseTestSetup {
     }
 
     @Test
-    public void FindAllCommentsSuccessful() {
+    public void findAllCommentsSuccessful() {
 
         Response response = CommentController.findAllComments(cookies);
         isResponse200(response);

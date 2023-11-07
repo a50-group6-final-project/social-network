@@ -18,7 +18,7 @@ public class SendRequestTest extends BaseConnectionSetup {
     }
 
     @Test
-    public void SendRequest() {
+    public void sendRequest() {
         authenticateAndFetchCookies(senderUsername, senderPassword);
         Response response = ConnectionController.sendRequest(sendRequestToUser, cookies, senderUsername);
         isResponse200(response);
