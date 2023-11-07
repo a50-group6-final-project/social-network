@@ -27,7 +27,7 @@ public class GetAllSkillsTest extends BaseTestSetup {
     }
 
     @Test
-    public void GetAllSkills() {
+    public void getAllSkills() {
 
         Response response = SkillController.getAllSkills(cookies);
         isResponse200(response);

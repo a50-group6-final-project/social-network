@@ -26,7 +26,7 @@ public class CreatePostTest extends BaseTestSetup {
     }
 
     @Test
-    public void CreatePost() {
+    public void createPost() {
         authenticateAndFetchCookies();
         String uniqueContent = DataGenerator.generateUniqueContentPost();
         createPost = ModelGenerator.generatePostModel(uniqueContent);
@@ -51,7 +51,7 @@ public class CreatePostTest extends BaseTestSetup {
     }
 
     @Test
-    public void CreatePostWith220CharactersLongMessage() {
+    public void createPostWith220CharactersLongMessage() {
         authenticateAndFetchCookies();
         String uniqueContent = DataGenerator.generateUniqueContentPost(220);
         createPost = ModelGenerator.generatePostModel(uniqueContent);
@@ -76,7 +76,7 @@ public class CreatePostTest extends BaseTestSetup {
     }
 
     @Test
-    public void CreatePostWith1CharacterLongMessage() {
+    public void createPostWith1CharacterLongMessage() {
         authenticateAndFetchCookies();
         String uniqueContent = DataGenerator.generateUniqueContentPost(1);
         createPost = ModelGenerator.generatePostModel(uniqueContent);

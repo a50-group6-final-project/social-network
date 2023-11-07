@@ -21,7 +21,7 @@ public class DeleteSkillTest extends BaseTestSetup {
     }
 
     @Test
-    public void DeleteSkill() {
+    public void deleteSkill() {
         Response response = SkillController.deleteSkill(createdSkill.skillId);
         isResponse200(response);
     }

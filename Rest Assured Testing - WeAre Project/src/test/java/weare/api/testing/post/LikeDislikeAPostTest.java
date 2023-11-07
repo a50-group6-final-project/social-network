@@ -37,7 +37,7 @@ public class LikeDislikeAPostTest extends BaseTestSetup {
     }
 
     @Test
-    public void LikeDislikeAPost() {
+    public void likeDislikeAPost() {
 
         Response response = PostController.likeAndDislikePost(cookies, postId);
         isResponse200(response);

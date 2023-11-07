@@ -35,7 +35,7 @@ public class EditPostTest extends BaseTestSetup {
     }
 
     @Test
-    public void EditPost() {
+    public void editPost() {
         createdPost.content = "I am looking for a painter";
         Response response = PostController.editPost(cookies, createdPost);
         isResponse200(response);

@@ -31,7 +31,7 @@ public class GetNewsFeedTest extends BaseTestSetup {
     }
 
     @Test
-    public void GetNewsFeed() {
+    public void getNewsFeed() {
         Response response = PostController.getNewsFeed(cookies);
         isResponse200(response);
 

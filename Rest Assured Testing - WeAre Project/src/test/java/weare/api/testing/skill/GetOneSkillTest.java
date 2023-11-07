@@ -25,7 +25,7 @@ public class GetOneSkillTest extends BaseTestSetup {
     }
 
     @Test
-    public void GetOneSkill() {
+    public void getOneSkill() {
         Response response = SkillController.getOneSkillById(cookies, createdSkill.skillId);
 
         isResponse200(response);
