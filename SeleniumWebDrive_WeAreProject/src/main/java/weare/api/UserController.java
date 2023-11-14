@@ -4,7 +4,8 @@ import io.restassured.RestAssured;
 import io.restassured.http.Cookies;
 import io.restassured.response.Response;
 import utils.Serializer;
-import weare.models.*;
+import weare.models.Page;
+import weare.models.UserRegister;
 
 import static utils.Endpoints.*;
 
@@ -21,59 +22,6 @@ public class UserController {
                 .then().log().body().extract().response();
     }
 
-    public static Response getUsers(Page page) {
-        String bodyPageString = Serializer.convertObjectToJsonString(page);
-
-        return RestAssured
-                .given()
-                .baseUri(BASE_URL)
-                .contentType("application/json")
-                .body(bodyPageString)
-                .when()
-                .post(GET_USERS_BY_NAME_ENDPOINT);
-    }
-
-    public static Response getUserByName(Cookies cookies, SearchUser user) {
-        String bodyGetUserByName = Serializer.convertObjectToJsonString(user);
-        return RestAssured.given()
-                .cookies(cookies)
-                .contentType("application/json")
-                .body(bodyGetUserByName)
-                .when()
-                .post(GET_USERS_BY_NAME_ENDPOINT);
-    }
-
-    public static Response updatePersonalProfile(Cookies cookies, UserPersonal userPersonal, int currentUserId) {
-        String bodyUpdatedPersonalProfileString = Serializer.convertObjectToJsonString(userPersonal);
-        return RestAssured.given()
-                .cookies(cookies)
-                .contentType("application/json")
-                .pathParam("currentUserId", currentUserId)
-                .body(bodyUpdatedPersonalProfileString)
-                .when()
-                .post(UPDATE_PERSON_ENDPOINT);
-    }
-
-    public static Response updateExpertiseProfile(Cookies cookies, ExpertiseProfile expertiseProfile, int currentUserId) {
-        String bodyExpertiseProfileString = Serializer.convertObjectToJsonString(expertiseProfile);
-        return RestAssured.given()
-                .baseUri(BASE_URL)
-                .contentType("application/json")
-                .cookies(cookies)
-                .body(bodyExpertiseProfileString)
-                .when()
-//                .put("/api/users/expertise/" + currentUserId);
-                .post(UPDATE_ENDPOINT + currentUserId + "/expertise");
-    }
-
-    public static Response getUserById(String currentUsername, int currentUserId) {
-        return RestAssured.given()
-                .baseUri(BASE_URL)
-                .contentType("application/json")
-                .queryParam("principal", currentUsername)
-                .when()
-                .get(UPDATE_ENDPOINT + currentUserId);
-    }
 
     public static Response getProfilePosts(Cookies cookies, int currentUserId) {
         Page page = new Page();

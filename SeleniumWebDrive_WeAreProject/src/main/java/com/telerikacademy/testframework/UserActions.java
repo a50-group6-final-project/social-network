@@ -2,11 +2,8 @@ package com.telerikacademy.testframework;
 
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -20,10 +17,6 @@ public class UserActions {
     final WebDriver driver;
     int defaultTimeout = Integer.parseInt(getConfigPropertyByKey("config.default.timeout.seconds"));
 
-    public WebDriver getDriver() {
-        return driver;
-    }
-
     public UserActions() {
         this.driver = getWebDriver();
     }
@@ -34,6 +27,10 @@ public class UserActions {
 
     public static void quitDriver() {
         tearDownWebDriver();
+    }
+
+    public WebDriver getDriver() {
+        return driver;
     }
 
     public void clickElement(String key, Object... arguments) {
@@ -62,38 +59,6 @@ public class UserActions {
         element.clear();
     }
 
-    public void dragAndDropElement(String fromElementLocator, String toElementLocator) {
-
-        String fromLocator = getLocatorValueByKey(fromElementLocator);
-        WebElement fromElement = driver.findElement(By.xpath(fromLocator));
-
-        String toLocator = getLocatorValueByKey(toElementLocator);
-        WebElement toElement = driver.findElement(By.xpath(toLocator));
-
-        Actions actions = new Actions(driver);
-
-        Action dragAndDrop = actions.clickAndHold(fromElement)
-                .moveToElement(toElement)
-                .release(toElement)
-                .build();
-        dragAndDrop.perform();
-    }
-
-
-    public void pressKey(Keys key) {
-        Actions action = new Actions(driver);
-        action.sendKeys(key).perform();
-    }
-
-    public void pressKeyCopyAll() {
-        Actions actions = new Actions(driver);
-        actions.keyDown(Keys.CONTROL);
-        actions.sendKeys("a");
-        actions.keyUp(Keys.CONTROL);
-        actions.build().perform();
-    }
-
-    //############# WAITS #########
     public void waitForElementVisible(String locatorKey, Object... arguments) {
         waitForElementVisibleUntilTimeout(locatorKey, defaultTimeout, arguments);
     }
@@ -113,25 +78,6 @@ public class UserActions {
                 format("Element with %s doesn't present.", locator));
     }
 
-    public boolean isElementVisible(String locator, Object... arguments) {
-        Duration timeout = Duration.ofSeconds(defaultTimeout);
-        WebDriverWait wait = new WebDriverWait(driver, timeout);
-        String xpath = getLocatorValueByKey(locator, arguments);
-        try {
-            wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath(xpath)));
-            return true;
-        } catch (Exception exception) {
-            return false;
-        }
-    }
-
-
-    public void assertElementAttribute(String locator, String attributeName, String attributeValue) {
-        String xpath = getLocatorValueByKey(locator);
-        WebElement element = driver.findElement(By.xpath(xpath));
-        String value = element.getAttribute(attributeName).trim();
-        Assertions.assertEquals(getLocatorValueByKey(attributeValue).trim(), value, format("Element with locator %s doesn't match", attributeName));
-    }
 
     private String getLocatorValueByKey(String locator) {
         return format(getUIMappingByKey(locator));

@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="add Allure Report" />
+    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="add Allure Report">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/telerikacademy/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/telerikacademy/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/telerikacademy/testframework/UserActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/telerikacademy/testframework/UserActions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/DataGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Endpoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Endpoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ModelGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ModelGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/CommentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/PostController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/SkillController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/AccessToPrivatePageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/AccessToPrivatePageTests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

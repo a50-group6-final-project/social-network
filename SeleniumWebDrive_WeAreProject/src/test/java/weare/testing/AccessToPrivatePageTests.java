@@ -34,7 +34,7 @@ public class AccessToPrivatePageTests extends BaseTestSetup {
     }
 
     @Test
-    public void UserProfileUpdatedWithNewData_When_UserInitiatesUpdate() {
+    public void userProfileUpdatedWithNewData_When_UserInitiatesUpdate() {
         UserPersonal userPersonal = ModelGenerator.generateUserPersonalModel();
         privatePage.updatePersonalInformation(userPersonal);
         privatePage.navigateToPage();
