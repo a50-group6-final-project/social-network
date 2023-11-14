@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 public class LoginTests extends BaseTestSetup {
 
     @Test
-    public void UserLoggedIn_When_EnterValidCredentials() {
+    public void userLoggedIn_When_EnterValidCredentials() {
         String username = BaseTestSetup.generateRandomUsername(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -19,7 +19,7 @@ public class LoginTests extends BaseTestSetup {
     }
 
     @Test
-    public void LoginFailed_When_TryToLoginWithWrongPassword() {
+    public void loginFailed_When_TryToLoginWithWrongPassword() {
         String username = BaseTestSetup.generateRandomUsername(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();

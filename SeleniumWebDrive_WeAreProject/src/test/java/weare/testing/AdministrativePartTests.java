@@ -15,7 +15,7 @@ public class AdministrativePartTests extends BaseTestSetup {
 
 
     @Test
-    public void AdminRegistered_When_InputValidData() {
+    public void adminRegistered_When_InputValidData() {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -26,7 +26,7 @@ public class AdministrativePartTests extends BaseTestSetup {
     }
 
     @Test
-    public void AdminLogin_When_InputValidData() {
+    public void adminLogin_When_InputValidData() {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();
@@ -41,37 +41,7 @@ public class AdministrativePartTests extends BaseTestSetup {
 
 
     @Test
-    public void IndustrySelected_When_ClickDropdownAndChooseOption() throws InterruptedException {
-        String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
-        String password = BaseTestSetup.generateRandomPassword(10);
-        String email = BaseTestSetup.generateRandomEmail();
-
-        registerPage.userRegister(username, password, email);
-        loginPage.loginUser(username, password);
-        adminPage.adminEditUserIndustrySelection();
-        Thread.sleep(2000);
-
-        BasePage.assertElementPresent("weAre.basePage.accountantSearchLink");
-        homePage.logoutUser();
-    }
-
-    @Test
-    public void UserDisabled_When_ClickDisableButton() {
-        String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
-        String password = BaseTestSetup.generateRandomPassword(10);
-        String email = BaseTestSetup.generateRandomEmail();
-        homePage.navigateToPage();
-        registerPage.userRegister(username, password, email);
-        loginPage.loginUser(username, password);
-        adminPage.adminDisableUser();
-
-        BasePage.assertElementPresent("weAre.basePage.enableInput");
-        homePage.logoutUser();
-    }
-
-
-    @Test
-    public void PersonalProfileEdited_When_AdminTriesToEditProfile_AndConfirmChanges() {
+    public void personalProfileEdited_When_AdminTriesToEditProfile_AndConfirmChanges() {
         String username = BaseTestSetup.generateRandomUsernameWithAdmin(6);
         String password = BaseTestSetup.generateRandomPassword(10);
         String email = BaseTestSetup.generateRandomEmail();

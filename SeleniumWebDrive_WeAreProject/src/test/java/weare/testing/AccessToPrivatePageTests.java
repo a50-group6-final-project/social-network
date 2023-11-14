@@ -19,7 +19,7 @@ public class AccessToPrivatePageTests extends BaseTestSetup {
     static Cookies cookies;
 
     @BeforeAll
-    public static void Setup() {
+    public static void setup() {
         userToRegister = ModelGenerator.generateUserRegisterModel();
         Response response = UserController.registerUser(userToRegister);
         cookies = UserController.authenticatedAndFetchCookies(userToRegister.username, userToRegister.password);
@@ -42,14 +42,14 @@ public class AccessToPrivatePageTests extends BaseTestSetup {
     }
 
     @Test
-    public void WorkspaceBusinessUpdated_When_UserEditsBusinessInformation() {
+    public void workspaceBusinessUpdated_When_UserEditsBusinessInformation() {
         privatePage.updateWorkspaceBusiness();
         privatePage.navigateToPage();
         privatePage.assertProfessionPresent();
     }
 
     @Test
-    public void ServiceAndWeeklyAvailabilityUpdated_When_UserEditsBusinessInformation() {
+    public void serviceAndWeeklyAvailabilityUpdated_When_UserEditsBusinessInformation() {
         String skill = "Quality Assurance";
         privatePage.updateServiceAndWeeklyAvailability(skill);
         privatePage.navigateToPage();
@@ -57,7 +57,7 @@ public class AccessToPrivatePageTests extends BaseTestSetup {
     }
 
     @Test
-    public void PersonalInfoAndSafetyUpdated_When_UserEditsInformation() {
+    public void personalInfoAndSafetyUpdated_When_UserEditsInformation() {
         privatePage.updatePersonalInfoAndSafety();
         privatePage.navigateToPage();
     }

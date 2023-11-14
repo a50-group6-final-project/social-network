@@ -51,7 +51,6 @@ public class AdminPage extends BaseWeArePage {
 
     }
 
-
     public void adminEditPersonalProfile() {
         actions.waitForElementClickable("weAre.adminPage.gotoAdminZone");
         actions.clickElement("weAre.adminPage.gotoAdminZone");

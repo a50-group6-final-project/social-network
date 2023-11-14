@@ -85,7 +85,6 @@ public class PostPage extends BaseWeArePage {
     public void assertCommentPresent(CommentModel commentModel) {
         actions.waitForElementClickable("weAre.postPage.showCommentsButton");
         actions.clickElement("weAre.postPage.showCommentsButton");
-//        actions.clickElement("weAre.postPage.showCommentsButton");
         actions.waitForElementVisible(String.format(getUIMappingByKey("weAre.postPage.commentContent"), commentModel.content));
         actions.assertElementPresent(String.format(getUIMappingByKey("weAre.postPage.commentContent"), commentModel.content));
     }

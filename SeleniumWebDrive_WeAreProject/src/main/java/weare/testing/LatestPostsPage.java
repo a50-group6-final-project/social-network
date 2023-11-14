@@ -28,12 +28,6 @@ public class LatestPostsPage extends BaseWeArePage{
         WebElement spanLikes = actions.getElement(String.format(getUIMappingByKey("weAre.latestPostsPage.spanLikeCount"), id));
         Assertions.assertEquals("Likes: 0", spanLikes.getText(), "Post is liked");
     };
-    public void assertPostsCount(int count) {
-        int listSize = driver.findElements(By.xpath("//div[@class='col-md-12']//child::a[contains(@href, '/posts/')]")).size();
-        if(listSize != count) {
-            Assertions.fail("Posts count is not as expected. Actual count: " + listSize + ". Expected count: " + count);
-        }
-    };
 
     public void assertPostIsPresent(String postContent) {
         actions.waitForElementVisible(String.format(getUIMappingByKey("weAre.latestPostsPage.postContent"), postContent));

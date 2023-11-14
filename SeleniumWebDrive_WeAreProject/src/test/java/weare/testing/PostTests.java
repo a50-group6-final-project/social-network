@@ -117,7 +117,7 @@ public class PostTests extends BaseTestSetup {
     }
 
     @Test
-    public void PrivatePostCreated_When_UserCreatesPrivatePostWithValidInput() {
+    public void privatePostCreated_When_UserCreatesPrivatePostWithValidInput() {
         newPostPage.navigateToPage();
         newPostPage.createPost(postContent, "Private");
 
@@ -134,7 +134,7 @@ public class PostTests extends BaseTestSetup {
     }
 
     @Test
-    public void PrivatePostUpdated_When_UserUpdatesPrivatePostWithValidInput() {
+    public void privatePostUpdated_When_UserUpdatesPrivatePostWithValidInput() {
         post = PostController.createPost(cookies, ModelGenerator.generatePostModel(postContent, false)).as(PostModel.class);
         Assertions.assertEquals(false, post.mypublic, "Post is not private");
 
@@ -154,7 +154,7 @@ public class PostTests extends BaseTestSetup {
     }
 
     @Test
-    public void PrivatePostDisliked_When_UserDislikesPrivatePost() {
+    public void privatePostDisliked_When_UserDislikesPrivatePost() {
         post = PostController.createPost(cookies, ModelGenerator.generatePostModel(postContent, false)).as(PostModel.class);
         Assertions.assertEquals(false, post.mypublic, "Post is not private");
 
@@ -181,7 +181,7 @@ public class PostTests extends BaseTestSetup {
     }
 
     @Test
-    public void PrivatePostDeleted_When_UserDeletesPrivatePost() {
+    public void privatePostDeleted_When_UserDeletesPrivatePost() {
         post = PostController.createPost(cookies, ModelGenerator.generatePostModel(postContent, false)).as(PostModel.class);
         Assertions.assertEquals(false, post.mypublic, "Post is not private");
 

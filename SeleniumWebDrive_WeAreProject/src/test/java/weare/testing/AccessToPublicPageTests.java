@@ -18,7 +18,7 @@ public class AccessToPublicPageTests extends BaseTestSetup {
     static Cookies cookies;
 
     @BeforeAll
-    public static void Setup() {
+    public static void setup() {
         userToRegister = ModelGenerator.generateUserRegisterModel();
         Response response = UserController.registerUser(userToRegister);
         cookies = UserController.authenticatedAndFetchCookies(userToRegister.username, userToRegister.password);
@@ -33,7 +33,7 @@ public class AccessToPublicPageTests extends BaseTestSetup {
     }
 
     @Test
-    public void PersonalInformationUpdated_When_ClickEditProfile() {
+    public void personalInformationUpdated_When_ClickEditProfile() {
 
         UserPersonal userPersonal = ModelGenerator.generateUserPersonalModel();
         privatePage.updatePersonalInformation(userPersonal);
@@ -42,7 +42,7 @@ public class AccessToPublicPageTests extends BaseTestSetup {
     }
 
     @Test
-    public void AccessToPublicPage_When_UserClicksHomeButton() {
+    public void accessToPublicPage_When_UserClicksHomeButton() {
 
         publicPage = new PublicPage(driver, String.format("home.page"));
         publicPage.navigateToPage();
@@ -52,7 +52,7 @@ public class AccessToPublicPageTests extends BaseTestSetup {
     }
 
     @Test
-    public void ProfileFoundByUsername_When_UserEntersNameInSearch() {
+    public void profileFoundByUsername_When_UserEntersNameInSearch() {
         UserPersonal userPersonal = ModelGenerator.generateUserPersonalModel();
 
         publicPage = new PublicPage(driver, String.format("home.page"));
@@ -62,7 +62,7 @@ public class AccessToPublicPageTests extends BaseTestSetup {
     }
 
     @Test
-    public void ProfileNotDisplayed_When_TrySearchingWithInvalidUsername() {
+    public void profileNotDisplayed_When_TrySearchingWithInvalidUsername() {
         publicPage = new PublicPage(driver, String.format("home.page"));
         publicPage.navigateToPage();
 

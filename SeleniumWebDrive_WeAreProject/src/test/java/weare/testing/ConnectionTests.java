@@ -47,7 +47,7 @@ public class ConnectionTests extends BaseTestSetup {
     }
 
     @Test
-    public void ConnectionRequestSent_When_UserClicksOnSendRequestButton() {
+    public void connectionRequestSent_When_UserClicksOnSendRequestButton() {
         LoginPage.loginUser(firstUser.username, firstUser.password);
         LoginPage.assertElementPresent("weAre.loginPage.logoutLink");
 
@@ -65,7 +65,7 @@ public class ConnectionTests extends BaseTestSetup {
     }
 
     @Test
-    public void ConnectionRequestApproved_When_UserClicksOnApproveButton() {
+    public void connectionRequestApproved_When_UserClicksOnApproveButton() {
         SendRequest sendRequestToUser = ModelGenerator.generateSendRequestModel(secondUserId, secondUser.username);
         ConnectionController.sendRequest(sendRequestToUser, firstUserCookies, firstUser.username);
         connectionsList = ConnectionController.getUserRequests(secondUserCookies, secondUserId).as(ConnectionModel[].class);
@@ -90,7 +90,7 @@ public class ConnectionTests extends BaseTestSetup {
     ;
 
     @Test
-    public void ConnectionRemoved_When_UserRemovesConnection() {
+    public void connectionRemoved_When_UserRemovesConnection() {
         SendRequest sendRequestToUser = ModelGenerator.generateSendRequestModel(secondUserId, secondUser.username);
         ConnectionController.sendRequest(sendRequestToUser, firstUserCookies, firstUser.username);
         connectionsList = ConnectionController.getUserRequests(secondUserCookies, secondUserId).as(ConnectionModel[].class);

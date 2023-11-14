@@ -38,14 +38,6 @@ public class UserPage extends BaseWeArePage {
         actions.clickElement("weAre.userPage.disconnectButton");
     }
 
-    public void assertNamesArePresent(String firstName, String lastName) {
-        try {
-            actions.assertElementPresent(String.format("//p[text()='%s %s']", firstName, lastName));
-        } catch (Exception e) {
-            Assertions.fail("Names are not present.");
-        }
-    }
-
     public void assertBirthDateIsPresent(String birthDate) {
         try {
             actions.assertElementPresent(String.format("//p[text()='%s']", birthDate));
