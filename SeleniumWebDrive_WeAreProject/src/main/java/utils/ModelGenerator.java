@@ -44,7 +44,6 @@ public class ModelGenerator {
         sendRequestToUser.username = receiverUsername;
         return sendRequestToUser;
     }
-
     public static UserRegister generateUserRegisterModel() {
         String password = DataGenerator.generateUniquePassword();
         UserRegister userRegister = new UserRegister();
@@ -60,7 +59,6 @@ public class ModelGenerator {
         return userRegister;
     }
 
-
     public static UserPersonal generateUserPersonalModel() {
         UserPersonal profile = new UserPersonal();
         profile.firstName = "firstTestUpdated";
@@ -72,5 +70,4 @@ public class ModelGenerator {
         return profile;
 
     }
-
 }

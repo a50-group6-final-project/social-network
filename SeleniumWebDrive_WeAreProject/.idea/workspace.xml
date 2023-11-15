@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="add Allure Report">
+    <list default="true" id="478a406c-820e-4ca5-afa1-89ca12cb2129" name="Changes" comment="Refactoring code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/telerikacademy/pages/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/telerikacademy/pages/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/telerikacademy/testframework/PropertiesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/telerikacademy/testframework/PropertiesManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/telerikacademy/testframework/UserActions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/telerikacademy/testframework/UserActions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/DataGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/DataGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/Endpoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Endpoints.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/ModelGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ModelGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/SkillController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/weare/api/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/api/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/weare/testing/AccessToPrivatePageTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/weare/testing/AccessToPrivatePageTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/AdminPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/AdminPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/weare/testing/UserPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/weare/testing/UserPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -373,7 +370,21 @@
       <option name="project" value="LOCAL" />
       <updated>1698409363529</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Refactoring code">
+      <created>1699982000355</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1699982000355</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Refactoring code">
+      <created>1699982343833</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1699982343833</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,7 +428,8 @@
     <MESSAGE value="Optimise imports" />
     <MESSAGE value="Optimise imports and refactor" />
     <MESSAGE value="add Allure Report" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Allure Report" />
+    <MESSAGE value="Refactoring code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -439,11 +451,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="117" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/weare/testing/AdministrativePartTests.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/weare/testing/LatestPostsPage.java</url>

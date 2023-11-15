@@ -10,7 +10,6 @@ public class LoginPage extends BaseWeArePage {
 
     public static void loginUser(String username, String password) {
 
-
         actions.waitForElementVisible("weAre.loginPage.loginNavLink");
         actions.clickElement("weAre.loginPage.loginNavLink");
 

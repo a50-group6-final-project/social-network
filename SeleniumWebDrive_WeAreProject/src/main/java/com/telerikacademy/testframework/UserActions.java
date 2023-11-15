@@ -78,7 +78,6 @@ public class UserActions {
                 format("Element with %s doesn't present.", locator));
     }
 
-
     private String getLocatorValueByKey(String locator) {
         return format(getUIMappingByKey(locator));
     }
@@ -119,6 +118,5 @@ public class UserActions {
             Assertions.fail("Element with locator: '" + xpath + "' was not found.");
         }
     }
-
 
 }

@@ -14,11 +14,9 @@ public class PropertiesManager {
         INSTANCE;
         private static final String UI_MAP = "src/test/resources/mappings/ui_map.properties";
         private static final String CONFIG_PROPERTIES = "src/test/resources/config.properties";
-
         public Properties getConfigProperties() {
             return loadProperties(CONFIG_PROPERTIES);
         }
-
         public Properties getUiMappings() {
             return loadProperties(UI_MAP);
         }
