@@ -22,7 +22,7 @@ Welcome to our QA project focused on testing the social network "WeAre." We've s
 ## 1. Testing Methods and Tools for the 'Weare' Social Network
 <a id="test-plan"></a>
 ### 1.1. Test Plan
-   A comprehensive document detailing our entire testing strategy. Learn more [here](https://drive.google.com/file/d/1NBOCDwQXi_stRHGXQcu-vSNffDpRXHfa/view?usp=sharing)
+   A comprehensive document detailing our entire testing strategy. Learn more [here](https://drive.google.com/file/d/19lA57lkDPynlj83uIGDGNG71w2BR16cB/view?usp=drive_link)
 
 <a id="test-cases"></a>
 ### 1.2. Test Cases
